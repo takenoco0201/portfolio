@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOGI BASE | 完全個室・少人数制ヨガスタジオ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark:    #0C1A0E;
+      --dark2:   #162118;
+      --dark3:   #1E2B20;
+      --gold:    #C8A45A;
+      --gold-lg: #DFC07A;
+      --gold-pl: #EEE0C0;
+      --ivory:   #FAF8F2;
+      --cream:   #F3EBD8;
+      --charcoal:#1C1C1C;
+      --gray:    #888888;
+      --en: 'Cormorant Garamond', Georgia, serif;
+      --jp: 'Noto Sans JP', sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--jp);color:var(--charcoal);background:var(--ivory);line-height:1.8;}
+
+    /* ─── NAV ─── */
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      padding:20px 56px;display:flex;align-items:center;justify-content:space-between;
+      transition:background .5s,border-color .5s;
+      background:transparent;border-bottom:1px solid rgba(200,164,90,.2);
+    }
+    .nav.scrolled{
+      background:rgba(12,26,14,.92);backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(200,164,90,.3);
+    }
+    .nav-logo{font-family:var(--en);font-size:18px;font-weight:300;letter-spacing:7px;color:#fff;text-decoration:none;}
+    .nav-logo em{color:var(--gold);font-style:normal;}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{font-size:11px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,.75);text-decoration:none;transition:color .3s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-cta{
+      font-size:11px;font-weight:300;letter-spacing:2px;color:var(--gold);
+      border:1px solid var(--gold);padding:11px 26px;text-decoration:none;
+      transition:all .3s;white-space:nowrap;
+    }
+    .nav-cta:hover{background:var(--gold);color:var(--dark);}
+
+    /* ─── HERO ─── */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;
+      background:radial-gradient(ellipse at 25% 60%, #1A3020 0%, var(--dark) 65%);
+      position:relative;overflow:hidden;
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse at 75% 40%, rgba(200,164,90,.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 90%, rgba(200,164,90,.05) 0%, transparent 40%);
+    }
+    /* 背景装飾テキスト */
+    .hero::after{
+      content:'YOGI BASE';position:absolute;
+      bottom:-40px;right:-20px;
+      font-family:var(--en);font-size:200px;font-weight:300;font-style:italic;
+      color:rgba(255,255,255,.025);letter-spacing:8px;white-space:nowrap;pointer-events:none;
+    }
+    .hero-inner{
+      max-width:1200px;margin:0 auto;padding:140px 56px 100px;
+      display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;
+      position:relative;z-index:1;
+    }
+    .hero-deco{width:52px;height:1px;background:var(--gold);margin-bottom:28px;}
+    .hero-label{font-size:10px;letter-spacing:6px;color:var(--gold);display:block;margin-bottom:22px;}
+    .hero-title{font-family:var(--en);font-size:82px;font-weight:300;font-style:italic;line-height:1.1;color:#fff;margin-bottom:18px;}
+    .hero-title-jp{font-size:16px;font-weight:300;letter-spacing:5px;color:rgba(255,255,255,.85);margin-bottom:32px;line-height:2;}
+    .hero-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:2.4;margin-bottom:52px;font-weight:300;}
+    .hero-btns{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+    .btn-gold-outline{
+      border:1px solid var(--gold);color:var(--gold);padding:17px 52px;
+      font-size:13px;letter-spacing:3px;text-decoration:none;display:inline-block;
+      transition:all .35s;position:relative;overflow:hidden;font-family:var(--jp);
+    }
+    .btn-gold-outline::before{
+      content:'';position:absolute;inset:0;background:var(--gold);
+      transform:scaleX(0);transform-origin:left;transition:transform .35s;z-index:-1;
+    }
+    .btn-gold-outline:hover{color:var(--dark);}
+    .btn-gold-outline:hover::before{transform:scaleX(1);}
+    .hero-note{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:2px;}
+    /* ヒーロービジュアル */
+    .hero-visual{position:relative;padding:20px 20px 50px 0;}
+    .hero-photo{
+      width:100%;aspect-ratio:4/5;
+      background:#162018;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;
+    }
+    .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+    /* ゴールドコーナーフレーム */
+    .hero-photo::before{
+      content:'';position:absolute;top:-10px;left:-10px;
+      width:50px;height:50px;
+      border-top:1px solid var(--gold);border-left:1px solid var(--gold);
+    }
+    .hero-photo::after{
+      content:'';position:absolute;bottom:-10px;right:-10px;
+      width:50px;height:50px;
+      border-bottom:1px solid var(--gold);border-right:1px solid var(--gold);
+    }
+    .hero-photo-sub{
+      position:absolute;bottom:10px;left:-40px;width:46%;aspect-ratio:1;
+      background:#0E1810;
+      border:2px solid var(--dark2);
+      overflow:hidden;
+    }
+    .hero-photo-sub img{width:100%;height:100%;object-fit:cover;display:block;}
+    .hero-badge{
+      position:absolute;top:10px;right:-10px;
+      width:90px;height:90px;border-radius:50%;
+      background:var(--gold);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      color:var(--dark);z-index:2;
+      box-shadow:0 0 0 8px rgba(200,164,90,.15);
+    }
+    .hero-badge .price{font-family:var(--en);font-size:19px;font-weight:400;line-height:1;}
+    .hero-badge .lbl{font-size:9px;letter-spacing:1px;margin-top:3px;}
+
+    /* ─── SECTION COMMON ─── */
+    section{padding:120px 56px;}
+    .container{max-width:1080px;margin:0 auto;}
+    .sec-label{
+      display:flex;align-items:center;justify-content:center;gap:16px;
+      font-family:var(--en);font-size:10px;letter-spacing:6px;color:var(--gold);
+      margin-bottom:18px;
+    }
+    .sec-label::before,.sec-label::after{content:'';display:block;width:36px;height:1px;background:var(--gold);opacity:.6;}
+    .sec-title{text-align:center;margin-bottom:72px;}
+    .sec-title .en{display:block;font-family:var(--en);font-size:52px;font-weight:300;font-style:italic;color:var(--gold-pl);letter-spacing:2px;margin-bottom:4px;line-height:1.1;}
+    .sec-title .jp{font-size:22px;font-weight:300;letter-spacing:4px;}
+
+    /* ─── PAIN ─── */
+    .pain{background:var(--cream);}
+    .pain .sec-title .en{color:rgba(200,164,90,.25);}
+    .pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+    .pain-card{
+      background:var(--ivory);padding:48px 28px;text-align:center;
+      position:relative;transition:transform .3s;
+    }
+    .pain-card::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+      background:var(--gold);transform:scaleX(0);transition:transform .4s;
+    }
+    .pain-card:hover{transform:translateY(-4px);}
+    .pain-card:hover::after{transform:scaleX(1);}
+    .pain-num{
+      font-family:var(--en);font-size:42px;font-weight:300;font-style:italic;
+      color:var(--gold-pl);line-height:1;margin-bottom:20px;
+    }
+    .pain-card strong{display:block;font-size:15px;font-weight:500;letter-spacing:1px;margin-bottom:12px;}
+    .pain-card p{font-size:13px;color:var(--gray);line-height:2;}
+
+    /* ─── CONCEPT ─── */
+    .concept{background:var(--dark);color:#fff;text-align:center;}
+    .concept .sec-label{color:var(--gold);}
+    .concept .sec-label::before,.concept .sec-label::after{background:var(--gold);}
+    .concept-deco{
+      font-family:var(--en);font-size:11px;letter-spacing:8px;color:rgba(200,164,90,.5);
+      margin:0 auto 48px;display:flex;align-items:center;justify-content:center;gap:20px;
+    }
+    .concept-deco::before,.concept-deco::after{content:'';display:block;width:80px;height:1px;background:var(--gold);opacity:.4;}
+    .concept-quote{
+      font-family:var(--en);font-size:40px;font-weight:300;font-style:italic;
+      color:var(--gold-pl);line-height:1.5;margin-bottom:52px;letter-spacing:1px;
+    }
+    .concept-body{max-width:620px;margin:0 auto;font-size:15px;font-weight:300;line-height:2.8;color:rgba(255,255,255,.7);letter-spacing:.5px;}
+
+    /* ─── STRENGTHS ─── */
+    .strengths{background:var(--ivory);}
+    .str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .str-item{
+      padding:56px 40px;border:1px solid var(--gold-pl);
+      position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;
+    }
+    .str-item:hover{border-color:var(--gold);box-shadow:0 20px 60px rgba(200,164,90,.1);}
+    .str-num{
+      font-family:var(--en);font-size:80px;font-weight:300;font-style:italic;
+      color:rgba(200,164,90,.1);position:absolute;top:10px;right:18px;line-height:1;
+    }
+    .str-deco{width:28px;height:1px;background:var(--gold);margin-bottom:28px;}
+    .str-title{font-size:20px;font-weight:400;letter-spacing:2px;margin-bottom:16px;}
+    .str-title span{display:block;font-family:var(--en);font-size:11px;font-weight:300;letter-spacing:4px;color:var(--gold);margin-bottom:6px;}
+    .str-desc{font-size:13px;line-height:2.2;color:var(--gray);}
+
+    /* ─── GALLERY ─── */
+    .gallery{background:var(--dark2);padding:80px 56px;}
+    .gallery .sec-label{color:var(--gold);}
+    .gallery .sec-label::before,.gallery .sec-label::after{background:var(--gold);}
+    .gallery .sec-title .en{color:rgba(200,164,90,.15);}
+    .gallery .sec-title .jp{color:#fff;}
+    .gal-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:270px 270px;gap:8px;}
+    .gal-item{overflow:hidden;position:relative;}
+    .gal-item:first-child{grid-row:span 2;}
+    .gal-img{
+      width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+      font-family:var(--en);font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.3);
+      transition:transform .6s;
+    }
+    .gal-item::after{
+      content:'';position:absolute;inset:0;border:0px solid var(--gold);
+      transition:border-width .3s;
+    }
+    .gal-item:hover .gal-img{transform:scale(1.05);}
+    .gal-item:hover .gal-img img{transform:scale(1.05);}
+    .gal-item:hover::after{border-width:1px;}
+    .gi-1,.gi-2,.gi-3,.gi-4,.gi-5{background:#162018;}
+    .gal-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+
+    /* ─── PROGRAMS ─── */
+    .programs{background:var(--cream);}
+    .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .prog-card{background:var(--ivory);overflow:hidden;transition:box-shadow .3s;}
+    .prog-card:hover{box-shadow:0 24px 64px rgba(200,164,90,.15);}
+    .prog-thumb{
+      height:190px;display:flex;align-items:center;justify-content:center;
+      font-family:var(--en);font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.3);
+      position:relative;overflow:hidden;
+    }
+    .prog-thumb::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);opacity:.4;}
+    .pt-1,.pt-2,.pt-3{background:#0E1810;}
+    .prog-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .prog-body{padding:32px;}
+    .prog-tag{font-family:var(--en);font-size:9px;letter-spacing:4px;color:var(--gold);display:block;margin-bottom:8px;}
+    .prog-name{font-size:19px;font-weight:400;letter-spacing:2px;margin-bottom:12px;}
+    .prog-desc{font-size:13px;color:var(--gray);line-height:2.1;}
+    .level-dots{display:flex;gap:5px;margin-top:20px;}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-pl);}
+    .dot.on{background:var(--gold);}
+
+    /* ─── INSTRUCTOR ─── */
+    .instructor{background:var(--dark);}
+    .instructor .sec-label{color:var(--gold);}
+    .instructor .sec-label::before,.instructor .sec-label::after{background:var(--gold);}
+    .instructor .sec-title .en{color:rgba(200,164,90,.15);}
+    .instructor .sec-title .jp{color:#fff;}
+    .instr-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;}
+    .instr-photo{
+      aspect-ratio:3/4;background:#162018;
+      position:relative;overflow:hidden;
+    }
+    .instr-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+    .instr-photo::before{content:'';position:absolute;top:-12px;left:-12px;width:56px;height:56px;border-top:1px solid var(--gold);border-left:1px solid var(--gold);}
+    .instr-photo::after{content:'';position:absolute;bottom:-12px;right:-12px;width:56px;height:56px;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold);}
+    .instr-label{font-family:var(--en);font-size:10px;letter-spacing:5px;color:var(--gold);margin-bottom:16px;}
+    .instr-name{font-size:28px;font-weight:300;letter-spacing:5px;color:#fff;margin-bottom:4px;}
+    .instr-name-en{font-family:var(--en);font-size:15px;font-weight:300;letter-spacing:4px;color:rgba(255,255,255,.45);margin-bottom:32px;}
+    .instr-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+    .itag{font-size:10px;padding:5px 14px;border:1px solid rgba(200,164,90,.35);color:rgba(255,255,255,.55);letter-spacing:1px;}
+    .instr-bio{font-size:14px;line-height:2.4;color:rgba(255,255,255,.6);font-weight:300;}
+    .instr-hr{width:40px;height:1px;background:var(--gold);margin:28px 0;}
+    .instr-quote{font-family:var(--en);font-size:16px;font-style:italic;line-height:1.9;color:var(--gold-pl);border-left:1px solid var(--gold);padding-left:20px;}
+    .instr-quote small{display:block;font-family:var(--jp);font-style:normal;font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;letter-spacing:.5px;}
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials{background:var(--cream);}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .testi-card{background:var(--ivory);padding:44px 32px;position:relative;border-top:1px solid var(--gold-pl);transition:border-color .3s;}
+    .testi-card:hover{border-color:var(--gold);}
+    .testi-q{font-family:var(--en);font-size:72px;line-height:1;color:var(--gold-pl);position:absolute;top:14px;left:26px;}
+    .testi-stars{color:var(--gold);font-size:12px;letter-spacing:3px;margin-bottom:20px;}
+    .testi-text{font-size:14px;line-height:2.2;color:var(--charcoal);margin-bottom:22px;font-weight:300;}
+    .testi-ba{background:var(--cream);padding:14px 16px;font-size:12px;color:var(--gray);line-height:2;margin-bottom:24px;}
+    .testi-ba strong{color:#4A6E4E;}
+    .testi-author{display:flex;align-items:center;gap:12px;}
+    .testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-pl);border:1px solid var(--gold-pl);}
+    .testi-author .name{font-size:13px;font-weight:500;}
+    .testi-author .meta{font-size:11px;color:var(--gray);}
+
+    /* ─── TRIAL ─── */
+    .trial{background:var(--dark);color:#fff;text-align:center;}
+    .trial .sec-label{color:var(--gold);}
+    .trial .sec-label::before,.trial .sec-label::after{background:var(--gold);}
+    .trial .sec-title .en{color:rgba(200,164,90,.15);}
+    .trial .sec-title .jp{color:#fff;}
+    .trial-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-bottom:72px;position:relative;}
+    .trial-steps::before{
+      content:'';position:absolute;top:32px;left:20%;right:20%;height:1px;
+      background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:.3;
+    }
+    .step-num{font-family:var(--en);font-size:52px;font-weight:300;font-style:italic;color:rgba(200,164,90,.3);line-height:1;margin-bottom:16px;}
+    .step-deco{width:24px;height:1px;background:var(--gold);margin:0 auto 16px;}
+    .step-title{font-size:16px;font-weight:400;letter-spacing:2px;margin-bottom:10px;}
+    .step-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:2.1;}
+    .trial-price-box{
+      display:inline-block;padding:44px 88px;margin-bottom:44px;
+      border:1px solid rgba(200,164,90,.4);position:relative;
+    }
+    .trial-price-box::before,.trial-price-box::after{
+      content:'';position:absolute;width:16px;height:16px;border-color:var(--gold);border-style:solid;
+    }
+    .trial-price-box::before{top:-1px;left:-1px;border-width:1px 0 0 1px;}
+    .trial-price-box::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0;}
+    .trial-price-box .label{font-family:var(--en);font-size:10px;letter-spacing:6px;color:var(--gold);opacity:.8;margin-bottom:8px;}
+    .trial-price-box .price{font-family:var(--en);font-size:58px;font-weight:300;color:#fff;line-height:1;}
+    .trial-price-box .unit{font-size:14px;color:rgba(255,255,255,.55);}
+    .btn-gold{
+      background:var(--gold);color:var(--dark);padding:18px 60px;
+      font-size:14px;font-weight:500;letter-spacing:3px;text-decoration:none;display:inline-block;
+      transition:all .3s;font-family:var(--jp);
+    }
+    .btn-gold:hover{background:var(--gold-lg);transform:translateY(-2px);box-shadow:0 10px 32px rgba(200,164,90,.35);}
+    .trial-note{font-size:11px;color:rgba(255,255,255,.4);margin-top:20px;letter-spacing:2px;}
+
+    /* ─── FAQ ─── */
+    .faq{background:var(--ivory);}
+    .faq-list{max-width:760px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--gold-pl);}
+    .faq-q{
+      width:100%;background:none;border:none;padding:28px 0;
+      text-align:left;cursor:pointer;display:flex;align-items:center;gap:18px;
+      font-family:var(--jp);font-size:14px;font-weight:400;color:var(--charcoal);letter-spacing:1px;
+    }
+    .faq-q .q{font-family:var(--en);font-size:20px;font-style:italic;color:var(--gold);flex-shrink:0;line-height:1;}
+    .faq-q .text{flex:1;text-align:left;}
+    .faq-q .icon{
+      width:24px;height:24px;border:1px solid var(--gold-pl);
+      display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gold);
+      flex-shrink:0;transition:all .3s;
+    }
+    .faq-q:hover .icon{border-color:var(--gold);background:var(--gold);color:var(--dark);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+    .faq-a.open{max-height:300px;padding-bottom:24px;}
+    .faq-a p{font-size:14px;line-height:2.2;color:var(--gray);padding-left:40px;font-weight:300;}
+
+    /* ─── ACCESS ─── */
+    .access{background:var(--dark2);}
+    .access .sec-label{color:var(--gold);}
+    .access .sec-label::before,.access .sec-label::after{background:var(--gold);}
+    .access .sec-title .en{color:rgba(200,164,90,.15);}
+    .access .sec-title .jp{color:#fff;}
+    .access-inner{display:grid;grid-template-columns:1.5fr 1fr;gap:72px;align-items:start;}
+    .access-map{
+      height:360px;background:linear-gradient(145deg,#1E2E24,#162218);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--en);font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.25);
+      border:1px solid rgba(200,164,90,.2);
+    }
+    .access-info h3{font-family:var(--en);font-size:18px;font-weight:300;letter-spacing:6px;color:var(--gold);margin-bottom:28px;}
+    .access-table{width:100%;border-collapse:collapse;}
+    .access-table tr{border-bottom:1px solid rgba(200,164,90,.15);}
+    .access-table td{padding:14px 0;font-size:13px;font-weight:300;color:rgba(255,255,255,.7);vertical-align:top;}
+    .access-table td:first-child{font-size:10px;letter-spacing:3px;color:var(--gold);width:80px;padding-top:17px;}
+
+    /* ─── FINAL CTA ─── */
+    .final-cta{
+      background:var(--dark);color:#fff;text-align:center;padding:140px 56px;
+      position:relative;overflow:hidden;
+    }
+    .final-cta::before{
+      content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:700px;height:700px;border-radius:50%;
+      border:1px solid rgba(200,164,90,.08);
+    }
+    .final-cta::after{
+      content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:500px;height:500px;border-radius:50%;
+      border:1px solid rgba(200,164,90,.06);
+    }
+    .final-ornament{font-family:var(--en);font-size:11px;letter-spacing:8px;color:rgba(200,164,90,.5);margin-bottom:32px;display:flex;align-items:center;justify-content:center;gap:20px;}
+    .final-ornament::before,.final-ornament::after{content:'';display:block;width:60px;height:1px;background:var(--gold);opacity:.4;}
+    .final-title{font-family:var(--en);font-size:52px;font-weight:300;font-style:italic;color:var(--gold-pl);line-height:1.4;margin-bottom:20px;}
+    .final-title-jp{font-size:16px;font-weight:300;letter-spacing:4px;color:rgba(255,255,255,.55);margin-bottom:52px;line-height:2;}
+    .final-sub{font-size:12px;color:rgba(255,255,255,.35);margin-top:20px;letter-spacing:2px;}
+
+    /* ─── FOOTER ─── */
+    footer{background:#080E09;color:rgba(255,255,255,.35);text-align:center;padding:40px;font-size:11px;letter-spacing:3px;}
+    footer .f-logo{font-family:var(--en);font-size:16px;font-weight:300;letter-spacing:9px;color:var(--gold);margin-bottom:12px;opacity:.8;}
+
+    /* ─── ANIMATIONS ─── */
+    .fi{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease;}
+    .fi.vis{opacity:1;transform:translateY(0);}
+    .fi-d1{transition-delay:.1s;}
+    .fi-d2{transition-delay:.2s;}
+    .fi-d3{transition-delay:.3s;}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">YOGI <em>BASE</em></a>
+  <ul class="nav-links">
+    <li><a href="#concept">コンセプト</a></li>
+    <li><a href="#programs">プログラム</a></li>
+    <li><a href="#instructor">インストラクター</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+    <li><a href="#access">アクセス</a></li>
+  </ul>
+  <a href="#trial" class="nav-cta">体験レッスン ¥3,200</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fi">
+      <div class="hero-deco"></div>
+      <span class="hero-label">PRIVATE YOGA STUDIO</span>
+      <h1 class="hero-title">A space<br>just for you.</h1>
+      <p class="hero-title-jp">今日だけ、自分のための時間を。</p>
+      <p class="hero-desc">
+        完全個室・少人数制だから、<br>
+        人目を気にせず、自分のペースで始められる。<br>
+        体の硬さも、運動経験も、関係ありません。
+      </p>
+      <div class="hero-btns">
+        <a href="#trial" class="btn-gold-outline">体験レッスンを予約する</a>
+        <span class="hero-note">初回体験レッスン ¥3,200（税込）</span>
+      </div>
+    </div>
+    <div class="hero-visual fi fi-d2">
+      <div class="hero-photo"><img src="img/hero.png" alt="ヨガポーズ Warrior II"></div>
+      <div class="hero-photo-sub"><img src="img/hero-sub.png" alt="合掌 Anjali Mudra"></div>
+      <div class="hero-badge">
+        <span class="price">¥3,200</span>
+        <span class="lbl">体験</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="container">
+    <span class="sec-label">PAIN POINTS</span>
+    <div class="sec-title"><span class="en">Concerns</span><span class="jp">こんなお悩み、ありませんか？</span></div>
+    <div class="pain-grid">
+      <div class="pain-card fi">
+        <p class="pain-num">01</p>
+        <strong>人目が気になる</strong>
+        <p>スポーツジムは周りのレベルが高くて恥ずかしい。上手くできなかったらどうしよう…</p>
+      </div>
+      <div class="pain-card fi fi-d1">
+        <p class="pain-num">02</p>
+        <strong>いつも続かない</strong>
+        <p>何度か試したけど三日坊主に。自分には向いていないのかも、と諦めていた。</p>
+      </div>
+      <div class="pain-card fi fi-d2">
+        <p class="pain-num">03</p>
+        <strong>体が硬くて不安</strong>
+        <p>前屈しても手が床に届かない。こんな体でヨガなんてできるの？と思っている。</p>
+      </div>
+      <div class="pain-card fi fi-d3">
+        <p class="pain-num">04</p>
+        <strong>時間がとれない</strong>
+        <p>仕事や家事でバタバタ。自分のためだけの時間なんて、ついつい後回しになりがち。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="container fi">
+    <span class="sec-label">OUR CONCEPT</span>
+    <div class="concept-deco">YOGI BASE</div>
+    <p class="concept-quote">
+      "A place you can always<br>come back to."
+    </p>
+    <p class="concept-body">
+      完全個室だから、誰にも見られない。<br>
+      少人数制だから、あなたのペースに合わせられる。<br>
+      インストラクターが丁寧に寄り添うから、<br>
+      はじめての方も安心して一歩を踏み出せます。<br><br>
+      忙しい毎日の中で、<br>
+      ここだけは、あなただけの静かな時間を。
+    </p>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="strengths">
+  <div class="container">
+    <span class="sec-label">WHY YOGI BASE</span>
+    <div class="sec-title"><span class="en">Features</span><span class="jp">3つの安心ポイント</span></div>
+    <div class="str-grid">
+      <div class="str-item fi">
+        <span class="str-num">01</span>
+        <div class="str-deco"></div>
+        <h3 class="str-title"><span>PRIVATE ROOM</span>完全個室</h3>
+        <p class="str-desc">スタジオは完全個室制。他のお客様と顔を合わせることなく、レッスンに集中できます。初めての方でも、周りの目を気にせずのびのびと動けます。</p>
+      </div>
+      <div class="str-item fi fi-d1">
+        <span class="str-num">02</span>
+        <div class="str-deco"></div>
+        <h3 class="str-title"><span>SMALL GROUP</span>少人数制</h3>
+        <p class="str-desc">1レッスン最大4名まで。インストラクターが一人ひとりの体の状態や動きを見ながら、丁寧に指導します。あなたに合った動きをその場で提案します。</p>
+      </div>
+      <div class="str-item fi fi-d2">
+        <span class="str-num">03</span>
+        <div class="str-deco"></div>
+        <h3 class="str-title"><span>FOR BEGINNERS</span>初心者歓迎</h3>
+        <p class="str-desc">ヨガが初めての方、体が硬い方、運動が苦手な方こそ大歓迎。できないポーズがあっても大丈夫。今日のあなたの体に合わせたレッスンをします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <span class="sec-label">STUDIO</span>
+    <div class="sec-title" style="margin-bottom:40px;"><span class="en">Gallery</span><span class="jp">スタジオの雰囲気</span></div>
+    <div class="gal-grid">
+      <div class="gal-item"><div class="gal-img gi-1"><img src="img/gal1.png" alt="メインスタジオ"></div></div>
+      <div class="gal-item"><div class="gal-img gi-2"><img src="img/gal2.png" alt="完全個室"></div></div>
+      <div class="gal-item"><div class="gal-img gi-3"><img src="img/gal3.png" alt="受付"></div></div>
+      <div class="gal-item"><div class="gal-img gi-4"><img src="img/gal4.png" alt="ラウンジ"></div></div>
+      <div class="gal-item"><div class="gal-img gi-5"><img src="img/gal5.png" alt="ヨガ用品"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="container">
+    <span class="sec-label">PROGRAMS</span>
+    <div class="sec-title"><span class="en">Class</span><span class="jp">プログラム一覧</span></div>
+    <div class="prog-grid">
+      <div class="prog-card fi">
+        <div class="prog-thumb pt-1"><img src="img/prog1.png" alt="リラックスヨガ バラアーサナ"></div>
+        <div class="prog-body">
+          <span class="prog-tag">BEGINNER</span>
+          <h3 class="prog-name">リラックスヨガ</h3>
+          <p class="prog-desc">呼吸を整えながらゆっくりと体をほぐします。ヨガが初めての方、体が硬い方におすすめ。1日の疲れをリセットできます。</p>
+          <div class="level-dots"><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+      </div>
+      <div class="prog-card fi fi-d1">
+        <div class="prog-thumb pt-2"><img src="img/prog2.png" alt="朝活ヨガ 上向き両手上げ"></div>
+        <div class="prog-body">
+          <span class="prog-tag">ALL LEVEL</span>
+          <h3 class="prog-name">朝活ヨガ</h3>
+          <p class="prog-desc">太陽礼拝をベースに全身を動かす45分クラス。朝のすっきりした体をつくり、1日を気持ちよくスタートできます。早朝7時〜開講。</p>
+          <div class="level-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+        </div>
+      </div>
+      <div class="prog-card fi fi-d2">
+        <div class="prog-thumb pt-3"><img src="img/prog3.png" alt="体幹ヨガ ナヴァーサナ"></div>
+        <div class="prog-body">
+          <span class="prog-tag">INTERMEDIATE</span>
+          <h3 class="prog-name">体幹ヨガ</h3>
+          <p class="prog-desc">深層筋を意識した動きで姿勢改善・体幹強化を目指します。産後ケアにも対応。ヨガ経験者向けのクラスです。</p>
+          <div class="level-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor" id="instructor">
+  <div class="container">
+    <span class="sec-label">INSTRUCTOR</span>
+    <div class="sec-title"><span class="en">Meet</span><span class="jp">インストラクター紹介</span></div>
+    <div class="instr-inner">
+      <div class="instr-photo fi"><img src="img/instructor.png" alt="インストラクター 森川さやか"></div>
+      <div class="fi fi-d1">
+        <p class="instr-label">HEAD INSTRUCTOR</p>
+        <h3 class="instr-name">森川 さやか</h3>
+        <p class="instr-name-en">Sayaka Morikawa</p>
+        <div class="instr-tags">
+          <span class="itag">全米ヨガアライアンス RYT500</span>
+          <span class="itag">マタニティヨガ指導士</span>
+          <span class="itag">アロマテラピー検定1級</span>
+        </div>
+        <p class="instr-bio">20代で体調を崩したことをきっかけにヨガと出会い、その変化に感動してインストラクターの道へ。インド・バリ島でのトレーニングを経て、指導歴10年以上。「体が硬い人こそ、ヨガで変われる」を信念に、初心者や運動が苦手な方への指導に定評がある。</p>
+        <div class="instr-hr"></div>
+        <p class="instr-quote">
+          "Yoga is not about touching your toes,<br>it's about what you learn on the way down."
+          <small>ヨガとは、つま先に触れることではなく、その途中で学ぶことです。</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <span class="sec-label">VOICE</span>
+    <div class="sec-title"><span class="en">Reviews</span><span class="jp">お客様の声</span></div>
+    <div class="testi-grid">
+      <div class="testi-card fi">
+        <span class="testi-q">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">個室なので誰かに見られる心配がなく安心できました。先生が私のペースに合わせてくれるので、毎回楽しめています。</p>
+        <div class="testi-ba"><strong>Before：</strong>ジムに行くたびに周りと比べて落ち込んでいた<br><strong>After：</strong>3ヶ月で肩こりと腰痛が改善。今は週2で通っています</div>
+        <div class="testi-author">
+          <div class="testi-avatar"></div>
+          <div><p class="name">M.K さん</p><p class="meta">38歳・会社員・通い始めて4ヶ月</p></div>
+        </div>
+      </div>
+      <div class="testi-card fi fi-d1">
+        <span class="testi-q">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">ヨガ未経験で体も硬く不安でしたが「今の体のままで大丈夫」と言ってもらえて楽になりました。自分だけの時間が持てるようになりました。</p>
+        <div class="testi-ba"><strong>Before：</strong>体が硬くてヨガは無理だと思っていた<br><strong>After：</strong>前屈で手が床についた！体が変わる実感があります</div>
+        <div class="testi-author">
+          <div class="testi-avatar"></div>
+          <div><p class="name">A.S さん</p><p class="meta">34歳・主婦・通い始めて2ヶ月</p></div>
+        </div>
+      </div>
+      <div class="testi-card fi fi-d2">
+        <span class="testi-q">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">産後から体型が戻らず悩んでいたところを友人に勧めてもらいました。産後ケアにも詳しく、安心して続けられています。</p>
+        <div class="testi-ba"><strong>Before：</strong>産後2年、ウエスト＋8cm が戻らなかった<br><strong>After：</strong>6ヶ月で体重−4kg。姿勢も良くなったと言われる</div>
+        <div class="testi-author">
+          <div class="testi-avatar"></div>
+          <div><p class="name">Y.T さん</p><p class="meta">41歳・2児の母・通い始めて6ヶ月</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL LESSON -->
+<section class="trial" id="trial">
+  <div class="container">
+    <span class="sec-label">FIRST STEP</span>
+    <div class="sec-title"><span class="en">Trial Lesson</span><span class="jp">体験レッスンの流れ</span></div>
+    <div class="trial-steps">
+      <div class="trial-step fi">
+        <p class="step-num">01</p>
+        <div class="step-deco"></div>
+        <h3 class="step-title">ご予約</h3>
+        <p class="step-desc">フォームまたはお電話にてご予約ください。希望日時・お名前・ご連絡先をお伝えいただくだけでOKです。</p>
+      </div>
+      <div class="trial-step fi fi-d1">
+        <p class="step-num">02</p>
+        <div class="step-deco"></div>
+        <h3 class="step-title">体験レッスン（60分）</h3>
+        <p class="step-desc">体の状態や目標をヒアリングしてからスタート。動きやすい服装でお越しください。ヨガマットは無料貸出します。</p>
+      </div>
+      <div class="trial-step fi fi-d2">
+        <p class="step-num">03</p>
+        <div class="step-deco"></div>
+        <h3 class="step-title">カウンセリング</h3>
+        <p class="step-desc">レッスン後、今後の目標や通い方についてゆっくりお話しします。その場で入会を迫ることは一切ありません。</p>
+      </div>
+    </div>
+    <div class="trial-price-box fi">
+      <p class="label">TRIAL LESSON</p>
+      <p class="price">¥3,200 <span class="unit">（税込）</span></p>
+    </div>
+    <br><br>
+    <a href="#" class="btn-gold">体験レッスンを予約する</a>
+    <p class="trial-note">持ち物：動きやすい服装のみ　／　ヨガマット・タオル・お水は無料貸出</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <span class="sec-label">FAQ</span>
+    <div class="sec-title"><span class="en">Questions</span><span class="jp">よくある質問</span></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q">Q.</span><span class="text">ヨガが初めてでも大丈夫ですか？</span><span class="icon">＋</span>
+        </button>
+        <div class="faq-a"><p>はい、もちろんです。YOGI BASEにお越しいただく方の約7割がヨガ初心者です。体験レッスンでは現在の体の状態を確認しながら、無理のない範囲で進めます。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q">Q.</span><span class="text">体が硬くても受けられますか？</span><span class="icon">＋</span>
+        </button>
+        <div class="faq-a"><p>大歓迎です！体が硬いことはヨガを始めるうえでまったく問題ありません。むしろ、硬い体がほぐれていく実感を感じやすいのは初心者ならではの特権です。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q">Q.</span><span class="text">持ち物は何が必要ですか？</span><span class="icon">＋</span>
+        </button>
+        <div class="faq-a"><p>動きやすい服装（ジャージ・レギンス等）でお越しいただければOKです。ヨガマット・タオル・お水は無料でご用意しています。着替えスペースもございます。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q">Q.</span><span class="text">一人で来ても大丈夫ですか？</span><span class="icon">＋</span>
+        </button>
+        <div class="faq-a"><p>もちろんです。お客様の多くがおひとりでご来店されています。完全個室制なので、他のお客様と顔を合わせる機会もほとんどありません。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q">Q.</span><span class="text">体験後に入会を迫られますか？</span><span class="icon">＋</span>
+        </button>
+        <div class="faq-a"><p>一切ありません。体験レッスン後にカウンセリングをご案内しますが、その場での入会決定を求めることはありません。ゆっくりご検討ください。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q">Q.</span><span class="text">産後・生理中でも受けられますか？</span><span class="icon">＋</span>
+        </button>
+        <div class="faq-a"><p>産後ケアに対応したプログラムもございます。生理中の方は無理のない動きに調整しますので、事前にインストラクターへお伝えください。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="container">
+    <span class="sec-label">ACCESS</span>
+    <div class="sec-title"><span class="en">Location</span><span class="jp">アクセス・営業時間</span></div>
+    <div class="access-inner">
+      <div class="access-map fi">MAP PLACEHOLDER</div>
+      <div class="fi fi-d1">
+        <h3 class="access-info">YOGI BASE</h3>
+        <table class="access-table">
+          <tr><td>住所</td><td>〒150-0000<br>東京都渋谷区〇〇町0-0-0<br>〇〇ビル 3F</td></tr>
+          <tr><td>最寄駅</td><td>〇〇線「〇〇駅」徒歩5分</td></tr>
+          <tr><td>営業時間</td><td>平日 7:00〜21:00<br>土日祝 8:00〜18:00</td></tr>
+          <tr><td>定休日</td><td>毎週月曜日・年末年始</td></tr>
+          <tr><td>TEL</td><td>03-0000-0000</td></tr>
+          <tr><td>メール</td><td>info@yogi-base.jp</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="final-ornament">TAKE THE FIRST STEP</p>
+  <h2 class="final-title fi">"Your journey<br>begins here."</h2>
+  <p class="final-title-jp fi">まず一歩、ここから始めましょう。<br>あなたのペースで、あなただけの時間を。</p>
+  <a href="#" class="btn-gold fi">体験レッスンを予約する　¥3,200</a>
+  <p class="final-sub">体験レッスンは、いつでもキャンセル無料。気軽にどうぞ。</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="f-logo">YOGI BASE</p>
+  <p>© 2024 YOGI BASE. All rights reserved.</p>
+</footer>
+
+<script>
+  // NAV scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // FAQ
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const icon = btn.querySelector('.icon');
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q .icon').forEach(i => i.textContent = '＋');
+    if (!isOpen) { ans.classList.add('open'); icon.textContent = '－'; }
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
