@@ -1,0 +1,303 @@
+/* ============================================================
+   footer.css — サイトフッター
+   3カラム: 店舗情報 / 営業時間 / 所在地
+   ============================================================ */
+
+
+/* --------------------------------------------------
+   フッター外枠
+   -------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-text);
+  color: var(--color-line);
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-8);
+}
+
+.site-footer__inner {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+
+/* --------------------------------------------------
+   上段グリッド: 3カラム
+   店舗情報 / 営業時間 / 所在地
+   -------------------------------------------------- */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.4fr;
+  gap: var(--space-16);
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid rgba(212, 201, 184, 0.15);
+}
+
+
+/* --------------------------------------------------
+   共通: フッターカラムラベル
+   -------------------------------------------------- */
+.footer-col__label {
+  display: block;
+  font-family: var(--font-roman);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-6);
+}
+
+/* ラベルの上の飾り線 */
+.footer-col__label::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background-color: var(--color-accent-light);
+  margin-bottom: var(--space-3);
+  opacity: 0.7;
+}
+
+
+/* --------------------------------------------------
+   カラム1: 店舗情報
+   ブランドロゴ・タグライン
+   -------------------------------------------------- */
+.footer-shop {}
+
+.footer-shop__logo-ja {
+  display: block;
+  font-family: var(--font-mincho);
+  font-size: 2.4rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.16em;
+  color: var(--color-white);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.footer-shop__logo-en {
+  display: block;
+  font-family: var(--font-roman);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-widest);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.footer-shop__tagline {
+  font-family: var(--font-mincho);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-loose);
+  color: rgba(212, 201, 184, 0.6);
+}
+
+
+/* --------------------------------------------------
+   カラム2: 営業時間
+   -------------------------------------------------- */
+.footer-hours {}
+
+.footer-hours__table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.footer-hours__row {
+  display: grid;
+  grid-template-columns: 6em 1fr;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid rgba(212, 201, 184, 0.08);
+}
+
+.footer-hours__row:last-child {
+  border-bottom: none;
+}
+
+.footer-hours__day {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: rgba(212, 201, 184, 0.6);
+  letter-spacing: 0.04em;
+}
+
+.footer-hours__time {
+  font-family: var(--font-roman);
+  font-size: var(--fs-base);
+  color: var(--color-line);
+  letter-spacing: 0.04em;
+}
+
+.footer-hours__closed {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--color-accent-light);
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(107, 68, 35, 0.4);
+  padding: 0.2rem 0.6rem;
+  display: inline-block;
+}
+
+.footer-hours__note {
+  margin-top: var(--space-4);
+  font-size: var(--fs-xs);
+  color: rgba(212, 201, 184, 0.4);
+  line-height: var(--lh-relaxed);
+}
+
+
+/* --------------------------------------------------
+   カラム3: 所在地
+   住所・最寄駅・電話番号
+   -------------------------------------------------- */
+.footer-location {}
+
+.footer-location__address {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--color-line);
+  margin-bottom: var(--space-5);
+}
+
+.footer-location__zip {
+  display: block;
+  font-size: var(--fs-xs);
+  color: rgba(212, 201, 184, 0.5);
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.04em;
+}
+
+.footer-location__access {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  color: rgba(212, 201, 184, 0.6);
+  margin-bottom: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid rgba(107, 68, 35, 0.5);
+}
+
+.footer-location__access-icon {
+  font-size: var(--fs-xs);
+  color: var(--color-accent-light);
+  font-family: var(--font-roman);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.footer-location__tel-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.footer-location__tel-label {
+  font-family: var(--font-roman);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: rgba(212, 201, 184, 0.5);
+}
+
+.footer-location__tel {
+  font-family: var(--font-roman);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.08em;
+  color: var(--color-white);
+  transition: color var(--duration-base) var(--ease-default);
+}
+
+.footer-location__tel:hover {
+  color: var(--color-line);
+}
+
+
+/* --------------------------------------------------
+   下段: コピーライト
+   -------------------------------------------------- */
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-8);
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.site-footer__copy {
+  font-family: var(--font-roman);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: rgba(212, 201, 184, 0.35);
+}
+
+.site-footer__policy-list {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.site-footer__policy-link {
+  font-size: var(--fs-xs);
+  color: rgba(212, 201, 184, 0.35);
+  transition: color var(--duration-base) var(--ease-default);
+}
+
+.site-footer__policy-link:hover {
+  color: rgba(212, 201, 184, 0.7);
+}
+
+
+/* --------------------------------------------------
+   レスポンシブ: タブレット (768px)
+   -------------------------------------------------- */
+@media (max-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  /* 店舗情報を全幅に */
+  .footer-shop {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* --------------------------------------------------
+   レスポンシブ: スマートフォン (480px)
+   -------------------------------------------------- */
+@media (max-width: 480px) {
+  .site-footer {
+    padding-top: var(--space-16);
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .footer-shop {
+    grid-column: auto;
+  }
+
+  .footer-shop__logo-ja {
+    font-size: 2.0rem;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .site-footer__policy-list {
+    gap: var(--space-4);
+  }
+}

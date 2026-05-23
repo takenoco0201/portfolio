@@ -1,0 +1,678 @@
+/* ============================================================
+   origin.css — 産地インフォグラフィックページ専用スタイル
+   ============================================================ */
+
+:root {
+  --color-latin:  #C97B4E;
+  --color-africa: #A85148;
+  --color-asia:   #5C7A5E;
+}
+
+
+/* ============================================================
+   Origin Hero
+   ============================================================ */
+
+.origin-hero {
+  background-color: var(--color-bg-dark);
+  padding: var(--space-32) var(--container-pad) var(--space-24);
+  text-align: center;
+  border-bottom: var(--border-thin);
+}
+
+.origin-hero__inner {
+  max-width: var(--container-md);
+  margin-inline: auto;
+}
+
+.origin-hero__label {
+  display: block;
+  font-family: var(--font-roman);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-6);
+}
+
+.origin-hero__title {
+  font-family: var(--font-mincho);
+  font-size: clamp(var(--fs-xl), 5vw, var(--fs-3xl));
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.12em;
+  line-height: var(--lh-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+}
+
+.origin-hero__sub {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+}
+
+
+/* ============================================================
+   Map Section
+   ============================================================ */
+
+.map-section {
+  padding: var(--space-24) var(--container-pad) var(--space-12);
+  background-color: var(--color-bg);
+}
+
+.map-section__inner {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+}
+
+.map-section__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.map-section__title {
+  font-family: var(--font-mincho);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+
+/* ============================================================
+   World Map Container & SVG
+   ============================================================ */
+
+.map-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  overflow: visible;
+}
+
+.world-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ============================================================
+   Map Pins (HTML overlay)
+   ============================================================ */
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out);
+  z-index: 2;
+}
+
+.map-pin:hover {
+  transform: translate(-50%, -100%) scale(1.45);
+  z-index: 10;
+}
+
+.map-pin__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 252, 247, 0.85);
+  flex-shrink: 0;
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.map-pin__stem {
+  width: 1.5px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Region colors */
+.map-pin--latin .map-pin__dot   { background-color: var(--color-latin); }
+.map-pin--latin .map-pin__stem  { background-color: var(--color-latin); }
+.map-pin--africa .map-pin__dot  { background-color: var(--color-africa); }
+.map-pin--africa .map-pin__stem { background-color: var(--color-africa); }
+.map-pin--asia .map-pin__dot    { background-color: var(--color-asia); }
+.map-pin--asia .map-pin__stem   { background-color: var(--color-asia); }
+
+/* Hover glow */
+.map-pin--latin:hover  .map-pin__dot { box-shadow: 0 0 0 4px rgba(201,123,78,0.3); }
+.map-pin--africa:hover .map-pin__dot { box-shadow: 0 0 0 4px rgba(168,81,72,0.3); }
+.map-pin--asia:hover   .map-pin__dot { box-shadow: 0 0 0 4px rgba(92,122,94,0.3); }
+
+/* CSS-only tooltip */
+.map-pin::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background-color: rgba(43, 31, 26, 0.93);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+  z-index: 20;
+}
+
+.map-pin:hover::after { opacity: 1; }
+
+
+/* ============================================================
+   Map Legend
+   ============================================================ */
+
+.map-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.map-legend__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.map-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.map-legend__dot--latin  { background-color: var(--color-latin); }
+.map-legend__dot--africa { background-color: var(--color-africa); }
+.map-legend__dot--asia   { background-color: var(--color-asia); }
+
+
+/* ============================================================
+   Origins Section
+   ============================================================ */
+
+.origins-section {
+  padding: var(--space-24) var(--container-pad);
+  background-color: var(--color-white);
+}
+
+.origins-section__inner {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+}
+
+/* Region Group */
+.region-group {
+  margin-bottom: var(--space-20);
+}
+
+.region-group + .region-group {
+  padding-top: var(--space-20);
+  border-top: var(--border-thin);
+}
+
+.region-group__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: 3px solid transparent;
+  margin-bottom: var(--space-10);
+}
+
+.region-group__header--latin  { border-color: var(--color-latin); }
+.region-group__header--africa { border-color: var(--color-africa); }
+.region-group__header--asia   { border-color: var(--color-asia); }
+
+.region-group__en {
+  font-family: var(--font-roman);
+  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-3xl));
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.region-group__ja {
+  font-family: var(--font-mincho);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+/* 2-column card grid */
+.origin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+
+/* ============================================================
+   Origin Card
+   ============================================================ */
+
+.origin-card {
+  background-color: var(--color-bg);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    box-shadow var(--duration-base) var(--ease-in-out),
+    transform  var(--duration-base) var(--ease-in-out);
+  scroll-margin-top: calc(var(--header-h-shrunk) + var(--space-6));
+}
+
+.origin-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+/* Top accent bar */
+.origin-card::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: var(--card-accent, var(--color-accent));
+  flex-shrink: 0;
+}
+
+.origin-card--latin  { --card-accent: var(--color-latin); }
+.origin-card--africa { --card-accent: var(--color-africa); }
+.origin-card--asia   { --card-accent: var(--color-asia); }
+
+/* Card body */
+.origin-card__body {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  flex: 1;
+}
+
+/* Name */
+.origin-card__name {
+  font-family: var(--font-mincho);
+  font-size: clamp(var(--fs-md), 2.2vw, var(--fs-lg));
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  line-height: var(--lh-tight);
+  color: var(--color-text);
+}
+
+.origin-card__country-en {
+  display: block;
+  font-family: var(--font-roman);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Divider */
+.origin-card__divider {
+  height: 1px;
+  background-color: var(--color-line);
+}
+
+/* Meta specs */
+.origin-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.origin-card__meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: var(--lh-base);
+}
+
+.origin-card__meta-icon {
+  font-size: 1.1em;
+  flex-shrink: 0;
+  width: 1.5em;
+  text-align: center;
+}
+
+/* Flavor description */
+.origin-card__desc {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text);
+  flex: 1;
+}
+
+/* Flavor profile */
+.origin-card__profile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--border-thin);
+}
+
+.profile-row {
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.profile-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── コーヒー豆アイコン 横棒グラフ ── */
+.bean-bar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.bean {
+  display: block;
+  width: 12px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+/* 空の豆（輪郭のみ）*/
+.bean--off {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Cellipse cx='8' cy='12' rx='6.5' ry='10.5' fill='none' stroke='%23D4C9B8' stroke-width='1.5'/%3E%3Cpath d='M8 2.5C5.5 7 5.5 17 8 21.5' stroke='%23D4C9B8' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* 塗り豆 — 地域別カラー（カードコンテキスト） */
+.origin-card--latin .bean--on,
+.bean-bar--latin .bean--on {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Cellipse cx='8' cy='12' rx='7' ry='11' fill='%23C97B4E'/%3E%3Cpath d='M8 2.5C5.5 7 5.5 17 8 21.5' stroke='white' stroke-opacity='0.4' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.origin-card--africa .bean--on,
+.bean-bar--africa .bean--on {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Cellipse cx='8' cy='12' rx='7' ry='11' fill='%23A85148'/%3E%3Cpath d='M8 2.5C5.5 7 5.5 17 8 21.5' stroke='white' stroke-opacity='0.4' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.origin-card--asia .bean--on,
+.bean-bar--asia .bean--on {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Cellipse cx='8' cy='12' rx='7' ry='11' fill='%235C7A5E'/%3E%3Cpath d='M8 2.5C5.5 7 5.5 17 8 21.5' stroke='white' stroke-opacity='0.4' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* 比較テーブル内の豆サイズ・センタリング調整 */
+.compare-table .bean-bar {
+  justify-content: center;
+  gap: 3px;
+}
+
+.compare-table .bean {
+  width: 10px;
+  height: 15px;
+}
+
+
+/* ============================================================
+   Compare Section
+   ============================================================ */
+
+.compare-section {
+  padding: var(--space-24) var(--container-pad);
+  background-color: var(--color-bg);
+}
+
+.compare-section__inner {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+}
+
+.compare-section__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.compare-section__title {
+  font-family: var(--font-mincho);
+  font-size: clamp(var(--fs-lg), 3vw, var(--fs-xl));
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.compare-section__sub {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Scroll wrapper */
+.compare-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+}
+
+.compare-wrap::-webkit-scrollbar { height: 6px; }
+.compare-wrap::-webkit-scrollbar-track { background: transparent; }
+.compare-wrap::-webkit-scrollbar-thumb {
+  background-color: var(--color-line);
+  border-radius: 3px;
+}
+
+/* Table */
+.compare-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 540px;
+}
+
+.compare-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--color-text);
+  color: var(--color-white);
+  font-family: var(--font-roman);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wide);
+  font-weight: var(--fw-regular);
+  padding: var(--space-4) var(--space-6);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.compare-table thead th:first-child {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  text-align: left;
+  min-width: 160px;
+}
+
+.compare-table tbody td {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--border-thin);
+  vertical-align: middle;
+}
+
+.compare-table tbody tr:last-child td { border-bottom: none; }
+
+.compare-table tbody tr:hover td { background-color: var(--color-bg-dark); }
+
+.compare-table tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: var(--color-white);
+  border-right: var(--border-thin);
+  white-space: nowrap;
+  font-family: var(--font-mincho);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+
+.compare-table tbody tr:hover td:first-child { background-color: var(--color-bg-dark); }
+
+.compare-table tbody td:first-child a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.compare-table tbody td:first-child a:hover { color: var(--color-accent); }
+
+.region-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.region-dot--latin  { background-color: var(--color-latin); }
+.region-dot--africa { background-color: var(--color-africa); }
+.region-dot--asia   { background-color: var(--color-asia); }
+
+/* Data cells */
+.compare-table tbody td:not(:first-child) {
+  text-align: center;
+  min-width: 90px;
+  padding-inline: var(--space-6);
+}
+
+
+/* ============================================================
+   CTA Banner
+   ============================================================ */
+
+.cta-banner {
+  background-color: var(--color-accent-dark);
+  padding-block: var(--space-20);
+}
+
+.cta-banner__inner {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-10);
+}
+
+.cta-banner__content { flex: 1; }
+
+.cta-banner__title {
+  font-family: var(--font-mincho);
+  font-size: clamp(var(--fs-lg), 3vw, var(--fs-xl));
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.12em;
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.cta-banner__text {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  color: rgba(255, 252, 247, 0.65);
+  line-height: var(--lh-relaxed);
+}
+
+.cta-banner__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   Responsive: タブレット (768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .origin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-banner__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .map-pin__dot  { width: 8px; height: 8px; }
+  .map-pin__stem { height: 10px; }
+}
+
+
+/* ============================================================
+   Responsive: スマートフォン (480px)
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .origin-hero__title {
+    font-size: var(--fs-xl);
+  }
+
+  .map-pin__dot  { width: 7px; height: 7px; }
+  .map-pin__stem { height: 8px; }
+
+  .map-legend { gap: var(--space-4); }
+
+  .origin-card__body { padding: var(--space-6); }
+
+  .cta-banner__actions { flex-direction: column; align-items: stretch; }
+}

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!-- 最終更新: 2026-05-19 -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="焙煎珈琲処 香舎のメニュー — シングルオリジン珈琲・スイーツ・フード一覧。">
+  <title>メニュー | 焙煎珈琲処 香舎</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+
+      <a href="index.html" class="site-logo" aria-label="焙煎珈琲処 香舎 トップページへ">
+        <span class="site-logo__ja">焙煎珈琲処 香舎</span>
+        <span class="site-logo__sub">Kōsha Coffee Roasters</span>
+      </a>
+
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html"  class="site-nav__link">HOME</a></li>
+          <li class="site-nav__item"><a href="about.html"  class="site-nav__link">こだわり</a></li>
+          <li class="site-nav__item"><a href="menu.html"   class="site-nav__link is-current">メニュー</a></li>
+          <li class="site-nav__item"><a href="origin.html" class="site-nav__link">産地</a></li>
+          <li class="site-nav__item"><a href="access.html" class="site-nav__link">店舗情報</a></li>
+        </ul>
+      </nav>
+
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="メニューを開閉する">
+        <span class="nav-toggle-label__bar"></span>
+        <span class="nav-toggle-label__bar"></span>
+        <span class="nav-toggle-label__bar"></span>
+      </label>
+
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="nav-drawer" role="dialog" aria-label="モバイルメニュー" aria-modal="true">
+    <nav>
+      <ul class="nav-drawer__list">
+        <li><a href="index.html"        class="nav-drawer__link">HOME</a></li>
+        <li><a href="about.html"        class="nav-drawer__link">こだわり</a></li>
+        <li><a href="menu.html"         class="nav-drawer__link is-current">メニュー</a></li>
+        <li><a href="origin.html"       class="nav-drawer__link">産地</a></li>
+        <li><a href="access.html" class="nav-drawer__link">店舗情報</a></li>
+      </ul>
+      <div class="nav-drawer__divider"></div>
+      <p class="nav-drawer__sub">Kōsha Coffee Roasters — Yokohama</p>
+    </nav>
+  </div>
+
+  <!-- ========== MAIN ========== -->
+  <main class="page-main" id="main-content">
+
+
+    <!-- ======================================================
+         Page Intro + アンカーナビゲーション
+         ====================================================== -->
+    <div class="menu-intro">
+      <div class="menu-intro__inner">
+        <span class="label">Menu</span>
+        <h1 class="menu-intro__title">メニュー</h1>
+        <p class="menu-intro__note">価格はすべて税込です。季節・仕入れ状況により変更となる場合がございます。</p>
+      </div>
+    </div>
+
+    <nav class="menu-nav" aria-label="メニューカテゴリ">
+      <div class="menu-nav__inner">
+        <a href="#drink"  class="menu-nav__link">Drink</a>
+        <span class="menu-nav__sep" aria-hidden="true"></span>
+        <a href="#sweets" class="menu-nav__link">Sweets</a>
+        <span class="menu-nav__sep" aria-hidden="true"></span>
+        <a href="#food"   class="menu-nav__link">Food</a>
+      </div>
+    </nav>
+
+
+    <!-- ======================================================
+         Section: DRINK
+         ====================================================== -->
+    <section class="menu-section menu-section--white" id="drink" aria-labelledby="drink-heading">
+      <div class="container">
+
+        <div class="menu-section__header">
+          <h2 class="menu-section__en" id="drink-heading">Drink</h2>
+          <span class="menu-section__ja">お飲み物</span>
+        </div>
+
+
+        <!-- ── サブセクション①: シングルオリジン ── -->
+        <div class="menu-subsection">
+          <h3 class="menu-subsection__title">シングルオリジン</h3>
+
+          <div class="items-grid" role="list">
+
+            <!-- パナマ ゲイシャ -->
+            <article class="item-card" role="listitem">
+              <img class="item-card__image item-card__image--16-9 item-card__image--coffee"
+                   src="images/menu_coffee_panama_geisha.png" alt="パナマ ゲイシャ">
+              <div class="item-card__body">
+                <div class="item-card__head">
+                  <h4 class="item-card__name">パナマ ゲイシャ</h4>
+                </div>
+                <p class="item-card__origin">Panama / Boquete</p>
+                <p class="item-card__desc">
+                  華やかなジャスミンとベルガモットの香り、マスカットを思わせる透明な甘み。スペシャルティコーヒーの頂点と称されるゲイシャ種。フルーティーで軽やかな一杯です。
+                </p>
+                <div class="item-card__foot">
+                  <span class="item-card__price">¥1,200</span>
+                  <span class="item-card__price-sub">ハンドドリップ</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ブルーマウンテン No.1 -->
+            <article class="item-card" role="listitem">
+              <img class="item-card__image item-card__image--16-9 item-card__image--coffee"
+                   src="images/menu_coffee_bluemountain.png" alt="ブルーマウンテン No.1">
+              <div class="item-card__body">
+                <div class="item-card__head">
+                  <h4 class="item-card__name">ブルーマウンテン No.1</h4>
+                </div>
+                <p class="item-card__origin">Jamaica / Blue Mountains</p>
+                <p class="item-card__desc">
+                  苦みと酸味のバランスが絶妙な、優雅で穏やかな風味。上品なコクとまろやかな甘みが長く続く余韻。珈琲の王様と称される、その真価をご堪能ください。
+                </p>
+                <div class="item-card__foot">
+                  <span class="item-card__price">¥980</span>
+                  <span class="item-card__price-sub">ハンドドリップ</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- モカマタリ -->
+            <article class="item-card" role="listitem">
+              <img class="item-card__image item-card__image--16-9 item-card__image--coffee"
+                   src="images/menu_coffee_mocha_matari.png" alt="モカマタリ">
+              <div class="item-card__body">
+                <div class="item-card__head">
+                  <h4 class="item-card__name">モカマタリ</h4>
+                </div>
+                <p class="item-card__origin">Yemen / Haraz</p>
+                <p class="item-card__desc">
+                  チョコレートとドライフルーツを思わせる独特の甘みと酸味。珈琲発祥の地イエメン産の古典的な風味。複雑で重厚な余韻が楽しめる、歴史ある一杯。
+                </p>
+                <div class="item-card__foot">
+                  <span class="item-card__price">¥850</span>
+                  <span class="item-card__price-sub">ハンドドリップ</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- エチオピア イルガチェフェ -->
+            <article class="item-card" role="listitem">
+              <img class="item-card__image item-card__image--16-9 item-card__image--coffee"
+                   src="images/menu_coffee_yirgacheffe.png" alt="エチオピア イルガチェフェ">
+              <div class="item-card__body">
+                <div class="item-card__head">
+                  <h4 class="item-card__name">エチオピア イルガチェフェ</h4>
+                </div>
+                <p class="item-card__origin">Ethiopia / Yirgacheffe</p>
+                <p class="item-card__desc">
+                  柑橘系の明るい酸味とベルガモットの香り。ウォッシュド精製によるクリーンで花のような風味。まるで紅茶を思わせる、軽やかで爽やかな一杯。
+                </p>
+                <div class="item-card__foot">
+                  <span class="item-card__price">¥850</span>
+                  <span class="item-card__price-sub">ハンドドリップ</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ケニア AA -->
+            <article class="item-card" role="listitem">
+              <img class="item-card__image item-card__image--16-9 item-card__image--coffee"
+                   src="images/menu_coffee_kenya_aa.png" alt="ケニア AA">
+              <div class="item-card__body">
+                <div class="item-card__head">
+                  <h4 class="item-card__name">ケニア AA</h4>
+                </div>
+                <p class="item-card__origin">Kenya / Kirinyaga</p>
+                <p class="item-card__desc">
+                  グレープフルーツとブラックカラントを思わせる力強い酸味とベリーの風味。ジューシーで果実感あふれるボディ。余韻に広がる甘みが印象的な個性派。
+                </p>
+                <div class="item-card__foot">
+                  <span class="item-card__price">¥850</span>
+                  <span class="item-card__price-sub">ハンドドリップ</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- マンデリン -->
+            <article class="item-card" role="listitem">
+              <img class="item-card__image item-card__image--16-9 item-card__image--coffee"
+                   src="images/menu_coffee_mandheling.png" alt="マンデリン">
+              <div class="item-card__body">
+                <div class="item-card__head">
+                  <h4 class="item-card__name">マンデリン</h4>
+                </div>
+                <p class="item-card__origin">Indonesia / Sumatra</p>
+                <p class="item-card__desc">
+                  どっしりとした重厚なボディとアーシーな香り。低酸味でチョコレートとスパイスを感じる深みのある風味。深煎りで真価を発揮するインドネシアの代名詞。
+                </p>
+                <div class="item-card__foot">
+                  <span class="item-card__price">¥800</span>
+                  <span class="item-card__price-sub">ハンドドリップ</span>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /.items-grid -->
+        </div><!-- /.menu-subsection -->
+
+
+        <!-- ── サブセクション②: ブレンド・その他 ── -->
+        <div class="menu-subsection">
+          <h3 class="menu-subsection__title">ブレンド・その他</h3>
+
+          <div class="simple-menu" role="list">
+
+            <div class="simple-item" role="listitem">
+              <span class="simple-item__name">本日のブレンド</span>
+              <span class="simple-item__price">¥680</span>
+              <p class="simple-item__desc">毎日変わる香舎オリジナルブレンド。産地の個性を活かしながらバランスよく調和させた、日常使いの飲みやすい一杯。</p>
+            </div>
+
+            <div class="simple-item" role="listitem">
+              <span class="simple-item__name">深煎りブレンド</span>
+              <span class="simple-item__price">¥700</span>
+              <p class="simple-item__desc">カカオとキャラメルのような甘みが特徴の、しっかりとした苦みのブレンド。ミルクとの相性も抜群です。</p>
+            </div>
+
+            <div class="simple-item" role="listitem">
+              <span class="simple-item__name">カフェオレ</span>
+              <span class="simple-item__price">¥750</span>
+              <p class="simple-item__desc">香舎のブレンドと地元牧場の新鮮なミルクを1:1で合わせた定番の一杯。ホット・アイスお選びいただけます。</p>
+            </div>
+
+            <div class="simple-item" role="listitem">
+              <span class="simple-item__name">水出しアイスコーヒー</span>
+              <span class="simple-item__price">¥750</span>
+              <p class="simple-item__desc">12時間かけてゆっくり抽出。雑味のないクリーンな甘みとコクが楽しめます。夏季限定ご提供。</p>
+            </div>
+
+          </div><!-- /.simple-menu -->
+        </div><!-- /.menu-subsection -->
+
+      </div><!-- /.container -->
+    </section><!-- /#drink -->
+
+
+    <!-- ======================================================
+         Section: SWEETS
+         ====================================================== -->
+    <section class="menu-section menu-section--bg" id="sweets" aria-labelledby="sweets-heading">
+      <div class="container">
+
+        <div class="menu-section__header">
+          <h2 class="menu-section__en" id="sweets-heading">Sweets</h2>
+          <span class="menu-section__ja">スイーツ</span>
+        </div>
+
+        <div class="items-grid" role="list">
+
+          <!-- ベイクドチーズケーキ ★オリジナル -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--4-3 item-card__image--sweets"
+                 src="images/menu_sweets_baked_cheesecake.png" alt="ベイクドチーズケーキ">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">ベイクドチーズケーキ</h4>
+                <span class="badge badge--original">★ オリジナル</span>
+              </div>
+              <p class="item-card__desc">
+                珈琲風味のクリームチーズを使った香舎特製レシピ。ほろ苦いスポンジとコクのあるチーズが絶妙なバランス。珈琲との相性を追求した逸品です。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥650</span>
+                <span class="item-card__price-sub">ドリンクとのセット ¥200引</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ガトーショコラ ★オリジナル -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--4-3 item-card__image--sweets"
+                 src="images/menu_sweets_gateau_chocolat.png" alt="ガトーショコラ">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">ガトーショコラ</h4>
+                <span class="badge badge--original">★ オリジナル</span>
+              </div>
+              <p class="item-card__desc">
+                カカオ72%のビターチョコを使用した濃厚な一品。珈琲の甘みを引き立てるよう設計された、口どけなめらかなチョコレートケーキ。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥680</span>
+                <span class="item-card__price-sub">ドリンクとのセット ¥200引</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- バスクチーズケーキ ★オリジナル -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--4-3 item-card__image--sweets"
+                 src="images/menu_sweets_basque_cheesecake.png" alt="バスクチーズケーキ">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">バスクチーズケーキ</h4>
+                <span class="badge badge--original">★ オリジナル</span>
+              </div>
+              <p class="item-card__desc">
+                外側をあえて焦がした、バスク地方発祥のチーズケーキ。珈琲の苦みと呼応する焦げの風味となめらかなクリームチーズが、口の中で溶け合います。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥650</span>
+                <span class="item-card__price-sub">ドリンクとのセット ¥200引</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 季節のフルーツタルト -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--4-3 item-card__image--sweets"
+                 src="images/menu_sweets_fruit_tart.png" alt="季節のフルーツタルト">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">季節のフルーツタルト</h4>
+              </div>
+              <p class="item-card__desc">
+                旬の果物をふんだんに使ったタルト。季節ごとに変わる表情をお楽しみください。入荷状況によりフルーツの種類は異なります。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥720</span>
+                <span class="item-card__price-sub">ドリンクとのセット ¥200引</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- クラシックプリン -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--4-3 item-card__image--sweets"
+                 src="images/menu_sweets_purin.png" alt="クラシックプリン">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">クラシックプリン</h4>
+              </div>
+              <p class="item-card__desc">
+                卵の風味豊かな昔ながらのプリン。ほろ苦いカラメルソースとほんのり珈琲を感じる生地が、口の中でとろけます。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥550</span>
+                <span class="item-card__price-sub">ドリンクとのセット ¥150引</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- スコーン -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--4-3 item-card__image--sweets"
+                 src="images/menu_sweets_scone.png" alt="スコーン">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">スコーン</h4>
+              </div>
+              <p class="item-card__desc">
+                バターと国産小麦の香りが広がる、さっくりとした食感のスコーン。クロテッドクリームとジャムをお添えします。珈琲との定番ペアリング。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥450</span>
+                <span class="item-card__price-sub">ドリンクとのセット ¥100引</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.items-grid -->
+      </div><!-- /.container -->
+    </section><!-- /#sweets -->
+
+
+    <!-- ======================================================
+         Section: FOOD
+         ====================================================== -->
+    <section class="menu-section menu-section--white" id="food" aria-labelledby="food-heading">
+      <div class="container">
+
+        <div class="menu-section__header">
+          <h2 class="menu-section__en" id="food-heading">Food</h2>
+          <span class="menu-section__ja">フード</span>
+        </div>
+
+        <div class="items-grid items-grid--3col" role="list">
+
+          <!-- 厚切りバタートースト -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--3-2 item-card__image--food"
+                 src="images/menu_food_thick_toast.png" alt="厚切りバタートースト">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">厚切りバタートースト</h4>
+              </div>
+              <p class="item-card__desc">
+                自家製食パンを厚さ3cmにカットし、発酵バターをたっぷり塗ってトースト。シンプルだからこそ際立つ素材の美味しさ。小倉あん＋ホイップ追加可（+¥150）。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥500</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- クロックムッシュ -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--3-2 item-card__image--food"
+                 src="images/menu_food_croque_monsieur.png" alt="クロックムッシュ">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">クロックムッシュ</h4>
+              </div>
+              <p class="item-card__desc">
+                国産豚のハムと濃厚なベシャメルソース、グリュイエールチーズを重ねて香ばしく焼き上げた一品。サラダとピクルス添え。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥850</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- たまごサンド -->
+          <article class="item-card" role="listitem">
+            <img class="item-card__image item-card__image--3-2 item-card__image--food"
+                 src="images/menu_food_egg_sandwich.png" alt="たまごサンド">
+            <div class="item-card__body">
+              <div class="item-card__head">
+                <h4 class="item-card__name">たまごサンド</h4>
+              </div>
+              <p class="item-card__desc">
+                自家製マヨネーズで和えたなめらかなたまごフィリングを、ふわふわの食パンで挟んだサンドイッチ。ポテトサラダとピクルス添え。
+              </p>
+              <div class="item-card__foot">
+                <span class="item-card__price">¥780</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.items-grid -->
+      </div><!-- /.container -->
+    </section><!-- /#food -->
+
+
+    <!-- ======================================================
+         注記
+         ====================================================== -->
+    <div class="menu-notes">
+      <div class="container">
+        <ul class="menu-notes__list">
+          <li class="menu-notes__item">価格はすべて税込です。</li>
+          <li class="menu-notes__item">仕入れ状況により、一部銘柄・メニューが変更・品切れとなる場合がございます。</li>
+          <li class="menu-notes__item">シングルオリジンは豆の状態により、抽出方法をご相談させていただく場合がございます。</li>
+          <li class="menu-notes__item">アレルギーをお持ちの方はご注文の際にスタッフへお申し付けください。</li>
+        </ul>
+      </div>
+    </div>
+
+
+  </main><!-- /.page-main -->
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+
+        <div class="footer-shop">
+          <span class="footer-col__label">Shop</span>
+          <span class="footer-shop__logo-ja">焙煎珈琲処 香舎</span>
+          <span class="footer-shop__logo-en">Kōsha Coffee Roasters</span>
+          <p class="footer-shop__tagline">
+            豆の声に耳を澄ませ、<br>
+            一杯に誠実であり続ける。
+          </p>
+        </div>
+
+        <div class="footer-hours">
+          <span class="footer-col__label">Hours</span>
+          <div class="footer-hours__table" role="table" aria-label="営業時間">
+            <div class="footer-hours__row" role="row">
+              <span class="footer-hours__day"  role="cell">平日</span>
+              <span class="footer-hours__time" role="cell">8:00 – 20:00</span>
+            </div>
+            <div class="footer-hours__row" role="row">
+              <span class="footer-hours__day"  role="cell">土日祝</span>
+              <span class="footer-hours__time" role="cell">9:00 – 21:00</span>
+            </div>
+            <div class="footer-hours__row" role="row">
+              <span class="footer-hours__day"   role="cell">火曜日</span>
+              <span class="footer-hours__closed" role="cell">定休日</span>
+            </div>
+          </div>
+          <p class="footer-hours__note">
+            ラストオーダーは閉店30分前<br>
+            祝日の営業は土日祝に準じます
+          </p>
+        </div>
+
+        <div class="footer-location">
+          <span class="footer-col__label">Location</span>
+          <address class="footer-location__address">
+            <span class="footer-location__zip">〒220-0011</span>
+            神奈川県横浜市西区高島 2-X-X
+          </address>
+          <p class="footer-location__access">
+            <span class="footer-location__access-icon">Access</span>
+            横浜駅 東口より徒歩5分
+          </p>
+          <div class="footer-location__tel-wrap">
+            <span class="footer-location__tel-label">Tel</span>
+            <a href="tel:045-XXX-XXXX" class="footer-location__tel">045-XXX-XXXX</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <small class="site-footer__copy">
+          &copy; 2026 焙煎珈琲処 香舎 Kōsha Coffee Roasters. All rights reserved.
+        </small>
+        <ul class="site-footer__policy-list">
+          <li><a href="#" class="site-footer__policy-link">プライバシーポリシー</a></li>
+          <li><a href="#" class="site-footer__policy-link">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

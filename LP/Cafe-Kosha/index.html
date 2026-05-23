@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!-- 最終更新: 2026-05-19 -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="焙煎珈琲処 香舎（こうしゃ）— 豆の個性を引き出す、丁寧な一杯を。神奈川県横浜市の珈琲専門店。">
+  <title>焙煎珈琲処 香舎 | 珈琲専門店 横浜</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- ========================================
+       チェックボックス（ハンバーガー制御）
+       ヘッダー・ドロワー両方の兄弟要素として配置
+       ======================================== -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+  <!-- ========================================
+       HEADER
+       ======================================== -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+
+      <!-- ロゴ -->
+      <a href="index.html" class="site-logo" aria-label="焙煎珈琲処 香舎 トップページへ">
+        <span class="site-logo__ja">焙煎珈琲処 香舎</span>
+        <span class="site-logo__sub">Kōsha Coffee Roasters</span>
+      </a>
+
+      <!-- デスクトップナビ -->
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link is-current">HOME</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="about.html" class="site-nav__link">こだわり</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="menu.html" class="site-nav__link">メニュー</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="origin.html" class="site-nav__link">産地</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="access.html" class="site-nav__link">店舗情報</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガーアイコン（モバイル） -->
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="メニューを開閉する">
+        <span class="nav-toggle-label__bar"></span>
+        <span class="nav-toggle-label__bar"></span>
+        <span class="nav-toggle-label__bar"></span>
+      </label>
+
+    </div>
+  </header>
+
+  <!-- ========================================
+       モバイルドロワー
+       ======================================== -->
+  <div class="nav-drawer" role="dialog" aria-label="モバイルメニュー" aria-modal="true">
+    <nav>
+      <ul class="nav-drawer__list">
+        <li><a href="index.html" class="nav-drawer__link is-current">HOME</a></li>
+        <li><a href="about.html" class="nav-drawer__link">こだわり</a></li>
+        <li><a href="menu.html"  class="nav-drawer__link">メニュー</a></li>
+        <li><a href="origin.html" class="nav-drawer__link">産地</a></li>
+        <li><a href="access.html" class="nav-drawer__link">店舗情報</a></li>
+      </ul>
+      <div class="nav-drawer__divider"></div>
+      <p class="nav-drawer__sub">Kōsha Coffee Roasters — Yokohama</p>
+    </nav>
+  </div>
+
+  <!-- ========================================
+       MAIN
+       ======================================== -->
+  <main class="page-main" id="main-content">
+
+    <!-- ========== Section 1: Hero ========== -->
+    <section class="hero" aria-label="ヒーロー">
+
+      <div class="hero__content">
+        <span class="hero__label">Kōsha Coffee Roasters — Yokohama</span>
+
+        <p class="hero__name">焙煎珈琲処 香舎</p>
+
+        <h1 class="hero__catch">
+          一杯に、<br>
+          世界を旅する香りを。
+        </h1>
+
+        <p class="hero__sub">
+          横浜・高島で、世界の珈琲豆を自家焙煎。<br>
+          エチオピア、グアテマラ、コロンビア——<br>
+          産地の個性を活かした、真摯な一杯を。
+        </p>
+
+        <a href="#concept" class="btn btn--ghost">
+          店舗について
+          <span class="btn__arrow">→</span>
+        </a>
+      </div>
+
+      <!-- スクロール誘導 -->
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-label">Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+
+    </section>
+
+
+    <!-- ========== Section 2: Concept ========== -->
+    <section class="concept" id="concept" aria-labelledby="concept-heading">
+      <div class="container">
+        <div class="concept__grid">
+
+          <!-- 左: 画像 -->
+          <div class="concept__image-wrap">
+            <img class="concept__image" src="images/img_interior.png" alt="店内の様子">
+          </div>
+
+          <!-- 右: テキスト -->
+          <div class="concept__body">
+            <span class="label">About</span>
+            <h2 class="concept__heading" id="concept-heading">
+              焙煎珈琲処 香舎について
+            </h2>
+
+            <div class="concept__text">
+              <p>
+                「香舎」は、珈琲の香りが宿る場所。横浜・高島の片隅に店を構え、世界各地から厳選した生豆を仕入れ、自家焙煎した珈琲を一杯ずつ丁寧にご提供しています。
+              </p>
+              <p>
+                店主は、年に二度、エチオピア・グアテマラ・コロンビアをはじめとする産地を直接訪問します。農園主と対話し、その土地の気候や土壌、収穫の過程を体感することで、豆が本来持つ個性を深く理解することができます。
+              </p>
+              <p>
+                焙煎は、素材との静かな対話です。豆の水分値・密度・糖度を測りながら、その日の気温と湿度に合わせて火力と時間を調整する。数値と感覚の両方を頼りに、それぞれの豆が最も輝く焙煎度を見つけ出します。
+              </p>
+              <p>
+                一杯の珈琲の向こうに、農園の朝の光、焙煎機の熱、バリスタの息遣いがある。香舎はその連なりを、誠実に届けたいと思っています。
+              </p>
+            </div>
+
+            <a href="about.html" class="btn btn--outline">
+              こだわりを読む
+              <span class="btn__arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== Section 3: Features（3つの特徴）========== -->
+    <section class="features section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-header__en">Our Promise</span>
+          <span class="section-header__ja" id="features-heading">香舎の三つの約束</span>
+          <p class="section-header__desc">
+            豆・焙煎・スイーツ。すべての工程に、妥協しない理由があります。
+          </p>
+        </div>
+
+        <div class="features__grid">
+
+          <!-- Feature 1: 厳選した世界の豆 -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <!-- 地球（世界の豆）アイコン -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                   stroke="currentColor" stroke-width="1.2"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="13"/>
+                <ellipse cx="20" cy="20" rx="6.5" ry="13"/>
+                <line x1="7" y1="15" x2="33" y2="15"/>
+                <line x1="7" y1="25" x2="33" y2="25"/>
+              </svg>
+            </div>
+            <span class="feature-card__num">01</span>
+            <h3 class="feature-card__title">厳選した世界の豆</h3>
+            <p class="feature-card__desc">
+              エチオピアのゲシャ、グアテマラのアンティグア、コロンビアのナリーニョ。年に二度、産地を直接訪問し、農園主と対話しながら豆を選びます。産地の空気を知る者だけが選べる、本物の一杯のために。
+            </p>
+          </article>
+
+          <!-- Feature 2: 自家焙煎 -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <!-- 炎（焙煎）アイコン -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                   stroke="currentColor" stroke-width="1.2"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 35C13.5 35 9 30 9 24C9 18 13 13 17 8C16 13 18.5 17 20 18C21.5 17 24 13 23 8C27 13 31 18 31 24C31 30 26.5 35 20 35Z"/>
+                <path d="M20 35C16.5 35 14 32.5 14 29.5C14 26.5 16 24.5 18 22.5C17.5 24.5 18.5 26 20 27C21.5 26 22.5 24.5 22 22.5C24 24.5 26 26.5 26 29.5C26 32.5 23.5 35 20 35Z" opacity="0.45"/>
+              </svg>
+            </div>
+            <span class="feature-card__num">02</span>
+            <h3 class="feature-card__title">自家焙煎</h3>
+            <p class="feature-card__desc">
+              焙煎は、素材との対話です。豆の水分値・密度・糖度を計測しながら、その豆が本来持つ甘みと香りを最大限に引き出します。気温・湿度・豆の個体差まで考慮した、一期一会の焙煎を毎日続けています。
+            </p>
+          </article>
+
+          <!-- Feature 3: オリジナルスイーツ -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <!-- ケーキ（スイーツ）アイコン -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                   stroke="currentColor" stroke-width="1.2"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="21" width="20" height="11" rx="1"/>
+                <path d="M10 21C10 14.5 30 14.5 30 21"/>
+                <line x1="7"  y1="32" x2="33" y2="32"/>
+                <line x1="20" y1="13" x2="20" y2="10"/>
+                <path d="M17 10C17 7.5 20 6 20 6C20 6 23 7.5 23 10"/>
+                <line x1="15" y1="21" x2="15" y2="32"/>
+                <line x1="25" y1="21" x2="25" y2="32"/>
+              </svg>
+            </div>
+            <span class="feature-card__num">03</span>
+            <h3 class="feature-card__title">オリジナルスイーツ</h3>
+            <p class="feature-card__desc">
+              珈琲と寄り添うために生まれたスイーツ。店主の妻が担当するパティスリーは、珈琲の風味を引き立てるよう計算された素材と甘みで構成されています。季節ごとに変わる限定スイーツも人気です。
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== Section 4: Menu Guide ========== -->
+    <section class="menu-guide" id="menu-guide" aria-labelledby="menu-guide-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-header__en">Menu</span>
+          <span class="section-header__ja" id="menu-guide-heading">メニュー</span>
+          <p class="section-header__desc">
+            珈琲、スイーツ、フード。それぞれのカテゴリで、香舎の世界をお楽しみください。
+          </p>
+        </div>
+
+        <div class="menu-guide__grid">
+
+          <!-- Card: Drink -->
+          <a href="menu.html#drink" class="menu-card">
+            <div class="menu-card__image menu-card__image--drink" aria-hidden="true">
+              Drink
+            </div>
+            <div class="menu-card__body">
+              <span class="menu-card__en">Drink</span>
+              <h3 class="menu-card__title">ドリンク</h3>
+              <p class="menu-card__desc">
+                シングルオリジン・ハンドドリップから、エスプレッソベースのドリンクまで。産地別の飲み比べセットも。
+              </p>
+              <span class="menu-card__link">View Menu →</span>
+            </div>
+          </a>
+
+          <!-- Card: Sweets -->
+          <a href="menu.html#sweets" class="menu-card">
+            <div class="menu-card__image menu-card__image--sweets" aria-hidden="true">
+              Sweets
+            </div>
+            <div class="menu-card__body">
+              <span class="menu-card__en">Sweets</span>
+              <h3 class="menu-card__title">スイーツ</h3>
+              <p class="menu-card__desc">
+                珈琲に寄り添うために生まれた、手作りの甘み。季節のタルト、フィナンシェ、生チョコレートなど。
+              </p>
+              <span class="menu-card__link">View Menu →</span>
+            </div>
+          </a>
+
+          <!-- Card: Food -->
+          <a href="menu.html#food" class="menu-card">
+            <div class="menu-card__image menu-card__image--food" aria-hidden="true">
+              Food
+            </div>
+            <div class="menu-card__body">
+              <span class="menu-card__en">Food</span>
+              <h3 class="menu-card__title">フード</h3>
+              <p class="menu-card__desc">
+                厳選素材を使った軽食とサンドイッチ。朝のモーニングから、午後のプレートまで。
+              </p>
+              <span class="menu-card__link">View Menu →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== Section 5: Origin CTA ========== -->
+    <section class="origin-cta" aria-labelledby="origin-cta-heading">
+      <div class="origin-cta__inner">
+
+        <div class="origin-cta__text">
+          <span class="origin-cta__label">World Origin</span>
+          <h2 class="origin-cta__heading" id="origin-cta-heading">
+            世界の珈琲産地を巡る
+          </h2>
+          <p class="origin-cta__desc">
+            エチオピア高原、コロンビアの山岳地帯、グアテマラの火山麓——。<br>
+            香舎が選ぶ豆の産地と、その土地が育む味わいの物語を地図とともに。
+          </p>
+        </div>
+
+        <div class="origin-cta__action">
+          <a href="origin.html" class="btn btn--ghost btn--lg">
+            産地を見る
+            <span class="btn__arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========== Section 6: Access Preview ========== -->
+    <section class="access-preview" id="access" aria-labelledby="access-preview-heading">
+      <div class="access-preview__inner">
+
+        <div class="section-header">
+          <span class="section-header__en">Access</span>
+          <span class="section-header__ja" id="access-preview-heading">店舗情報・アクセス</span>
+          <p class="section-header__desc">神奈川県横浜市西区 — 横浜駅より徒歩5分</p>
+        </div>
+
+        <dl class="access-preview__grid">
+          <div class="access-preview__row">
+            <dt class="access-preview__term">住所</dt>
+            <dd class="access-preview__desc">
+              <address>〒220-0011 神奈川県横浜市西区<br>高島 2-X-X 香舎ビル 1F</address>
+            </dd>
+          </div>
+          <div class="access-preview__row">
+            <dt class="access-preview__term">電話</dt>
+            <dd class="access-preview__desc">
+              <a href="tel:045-XXX-XXXX"
+                 class="access-preview__tel"
+                 aria-label="お電話でのお問い合わせ: 045-XXX-XXXX">045-XXX-XXXX</a>
+            </dd>
+          </div>
+          <div class="access-preview__row">
+            <dt class="access-preview__term">営業時間</dt>
+            <dd class="access-preview__desc">
+              平日 8:00 – 20:00 &ensp;/&ensp; 土日祝 9:00 – 21:00<br>
+              <span class="access-preview__closed">火曜定休</span>
+            </dd>
+          </div>
+          <div class="access-preview__row">
+            <dt class="access-preview__term">アクセス</dt>
+            <dd class="access-preview__desc">横浜駅 みなみ東口より徒歩 5分<br>みなとみらい線 新高島駅より徒歩 3分</dd>
+          </div>
+        </dl>
+
+        <div class="access-preview__cta">
+          <a href="access.html" class="btn btn--ghost">
+            詳しいアクセス・地図を見る <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__grid">
+
+        <!-- カラム1: 店舗情報 -->
+        <div class="footer-shop">
+          <span class="footer-col__label">Shop</span>
+          <span class="footer-shop__logo-ja">焙煎珈琲処 香舎</span>
+          <span class="footer-shop__logo-en">Kōsha Coffee Roasters</span>
+          <p class="footer-shop__tagline">
+            豆の声に耳を澄ませ、<br>
+            一杯に誠実であり続ける。
+          </p>
+        </div>
+
+        <!-- カラム2: 営業時間 -->
+        <div class="footer-hours">
+          <span class="footer-col__label">Hours</span>
+          <div class="footer-hours__table" role="table" aria-label="営業時間">
+
+            <div class="footer-hours__row" role="row">
+              <span class="footer-hours__day"  role="cell">平日</span>
+              <span class="footer-hours__time" role="cell">8:00 – 20:00</span>
+            </div>
+
+            <div class="footer-hours__row" role="row">
+              <span class="footer-hours__day"  role="cell">土日祝</span>
+              <span class="footer-hours__time" role="cell">9:00 – 21:00</span>
+            </div>
+
+            <div class="footer-hours__row" role="row">
+              <span class="footer-hours__day"   role="cell">火曜日</span>
+              <span class="footer-hours__closed" role="cell">定休日</span>
+            </div>
+
+          </div>
+          <p class="footer-hours__note">
+            ラストオーダーは閉店30分前<br>
+            祝日の営業は土日祝に準じます
+          </p>
+        </div>
+
+        <!-- カラム3: 所在地 -->
+        <div class="footer-location">
+          <span class="footer-col__label">Location</span>
+
+          <address class="footer-location__address">
+            <span class="footer-location__zip">〒220-0011</span>
+            神奈川県横浜市西区高島 2-X-X
+          </address>
+
+          <p class="footer-location__access">
+            <span class="footer-location__access-icon">Access</span>
+            横浜駅 東口より徒歩5分
+          </p>
+
+          <div class="footer-location__tel-wrap">
+            <span class="footer-location__tel-label">Tel</span>
+            <a href="tel:045-XXX-XXXX" class="footer-location__tel">045-XXX-XXXX</a>
+          </div>
+        </div>
+
+      </div><!-- /.site-footer__grid -->
+
+      <!-- コピーライト -->
+      <div class="site-footer__bottom">
+        <small class="site-footer__copy">
+          &copy; 2026 焙煎珈琲処 香舎 Kōsha Coffee Roasters. All rights reserved.
+        </small>
+        <ul class="site-footer__policy-list">
+          <li><a href="#" class="site-footer__policy-link">プライバシーポリシー</a></li>
+          <li><a href="#" class="site-footer__policy-link">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.site-footer__inner -->
+  </footer>
+
+</body>
+</html>

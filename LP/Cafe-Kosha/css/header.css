@@ -1,0 +1,343 @@
+/* ============================================================
+   header.css — 追従ヘッダー
+   縮小: CSS Scroll-Driven Animations (@supports フォールバック付き)
+   ハンバーガー: チェックボックスハック（JSなし）
+   ============================================================ */
+
+
+/* --------------------------------------------------
+   ヘッダー本体
+   position: sticky で自然なスクロール追従
+   -------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  height: var(--header-h);
+  background-color: rgba(255, 252, 247, 0.97);
+  border-bottom: var(--border-thin);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+/*
+  Scroll-Driven Animations でヘッダーを縮小
+  対応: Chrome 115+, Safari 18+, Firefox 130+
+  非対応ブラウザは固定高さのまま（機能的には問題なし）
+*/
+@supports (animation-timeline: scroll()) {
+  .site-header {
+    animation: header-shrink linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 100px;
+  }
+
+  .site-logo__sub {
+    animation: logo-sub-fade linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 70px;
+  }
+}
+
+@keyframes header-shrink {
+  from {
+    height: var(--header-h);
+    box-shadow: none;
+  }
+  to {
+    height: var(--header-h-shrunk);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@keyframes logo-sub-fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+
+/* --------------------------------------------------
+   ヘッダー内レイアウト
+   -------------------------------------------------- */
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-inline: var(--container-pad);
+  max-width: var(--container-xl);
+  margin-inline: auto;
+}
+
+
+/* --------------------------------------------------
+   ロゴ（明朝体・日本語主体）
+   -------------------------------------------------- */
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* メインロゴ: 焙煎処 香舎 */
+.site-logo__ja {
+  font-family: var(--font-mincho);
+  font-size: 2.2rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+/* サブロゴ: Kōsha（スクロールでフェードアウト） */
+.site-logo__sub {
+  font-family: var(--font-roman);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-widest);
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+
+/* --------------------------------------------------
+   ナビゲーション（デスクトップ）
+   -------------------------------------------------- */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-nav__item {
+  position: relative;
+}
+
+.site-nav__link {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  padding: var(--space-2) var(--space-4);
+  transition: color var(--duration-base) var(--ease-default);
+  white-space: nowrap;
+}
+
+/* ホバー・アクティブ時の下線 */
+.site-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 1px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.site-nav__link:hover {
+  color: var(--color-accent);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link.is-current::after {
+  transform: scaleX(1);
+}
+
+.site-nav__link.is-current {
+  color: var(--color-accent);
+}
+
+
+/* --------------------------------------------------
+   ドロワー — 現在地ハイライト
+   -------------------------------------------------- */
+.nav-drawer__link.is-current {
+  color: var(--color-accent);
+}
+
+.nav-drawer__link.is-current::after {
+  transform: scaleX(1);
+}
+
+
+/* --------------------------------------------------
+   ハンバーガーボタン（モバイル）
+   チェックボックスハック — JSなし
+   -------------------------------------------------- */
+
+/* チェックボックス本体: 非表示・位置は任意でOK */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* ハンバーガーアイコン */
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  width: 3.2rem;
+  height: 3.2rem;
+  cursor: pointer;
+  z-index: calc(var(--z-header) + 10);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.nav-toggle-label__bar {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text);
+  transition:
+    transform var(--duration-base) var(--ease-in-out),
+    opacity  var(--duration-base) var(--ease-in-out);
+  transform-origin: center center;
+}
+
+/* チェック時: ハンバーガー → × */
+.nav-toggle:checked ~ .site-header .nav-toggle-label .nav-toggle-label__bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle:checked ~ .site-header .nav-toggle-label .nav-toggle-label__bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle:checked ~ .site-header .nav-toggle-label .nav-toggle-label__bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* --------------------------------------------------
+   モバイルドロワー（フルスクリーン）
+   -------------------------------------------------- */
+.nav-drawer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg);
+  z-index: calc(var(--z-header) - 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  /* 非表示状態 */
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity    var(--duration-slow) var(--ease-in-out),
+    visibility var(--duration-slow) var(--ease-in-out);
+}
+
+/* チェック時: ドロワー表示 */
+.nav-toggle:checked ~ .nav-drawer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-drawer__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav-drawer__link {
+  font-family: var(--font-mincho);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  padding-block: var(--space-2);
+  position: relative;
+  transition: color var(--duration-base) var(--ease-default);
+}
+
+.nav-drawer__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.nav-drawer__link:hover {
+  color: var(--color-accent);
+}
+
+.nav-drawer__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ドロワー内の小さいサブテキスト */
+.nav-drawer__sub {
+  font-family: var(--font-roman);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: var(--space-4);
+}
+
+/* ドロワー内の区切り線 */
+.nav-drawer__divider {
+  width: 2.4rem;
+  height: 1px;
+  background-color: var(--color-line);
+  margin: var(--space-2) auto;
+}
+
+
+/* --------------------------------------------------
+   レスポンシブ: タブレット (768px)
+   -------------------------------------------------- */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+  }
+}
+
+
+/* --------------------------------------------------
+   レスポンシブ: スマートフォン (480px)
+   -------------------------------------------------- */
+@media (max-width: 480px) {
+  .site-logo__ja {
+    font-size: 1.9rem;
+  }
+
+  .nav-drawer__link {
+    font-size: var(--fs-lg);
+  }
+}

@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!-- 最終更新: 2026-05-19 -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="焙煎珈琲処 香舎の産地インフォグラフィック — 世界12産地から厳選した珈琲豆の個性と風味を一覧で。">
+  <title>産地 | 焙煎珈琲処 香舎</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/origin.css">
+</head>
+<body>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo" aria-label="焙煎珈琲処 香舎 トップページへ">
+        <span class="site-logo__ja">焙煎珈琲処 香舎</span>
+        <span class="site-logo__sub">Kōsha Coffee Roasters</span>
+      </a>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">HOME</a></li>
+          <li class="site-nav__item"><a href="about.html" class="site-nav__link">こだわり</a></li>
+          <li class="site-nav__item"><a href="menu.html" class="site-nav__link">メニュー</a></li>
+          <li class="site-nav__item"><a href="origin.html" class="site-nav__link is-current">産地</a></li>
+          <li class="site-nav__item"><a href="access.html" class="site-nav__link">店舗情報</a></li>
+        </ul>
+      </nav>
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="メニューを開閉する">
+        <span class="nav-toggle-label__bar"></span>
+        <span class="nav-toggle-label__bar"></span>
+        <span class="nav-toggle-label__bar"></span>
+      </label>
+    </div>
+  </header>
+
+  <div class="nav-drawer" role="dialog" aria-label="モバイルメニュー" aria-modal="true">
+    <nav>
+      <ul class="nav-drawer__list">
+        <li><a href="index.html"       class="nav-drawer__link">HOME</a></li>
+        <li><a href="about.html"       class="nav-drawer__link">こだわり</a></li>
+        <li><a href="menu.html"        class="nav-drawer__link">メニュー</a></li>
+        <li><a href="origin.html"      class="nav-drawer__link is-current">産地</a></li>
+        <li><a href="access.html" class="nav-drawer__link">店舗情報</a></li>
+      </ul>
+      <div class="nav-drawer__divider"></div>
+      <p class="nav-drawer__sub">Kōsha Coffee Roasters — Yokohama</p>
+    </nav>
+  </div>
+
+  <main class="page-main" id="main-content">
+
+    <!-- ======================================================
+         Origin Hero
+         ====================================================== -->
+    <section class="origin-hero">
+      <div class="origin-hero__inner">
+        <span class="origin-hero__label">World Origin</span>
+        <h1 class="origin-hero__title">一杯の珈琲が、<br>辿ってきた旅</h1>
+        <p class="origin-hero__sub">世界12産地から厳選した豆たち</p>
+      </div>
+    </section>
+
+
+    <!-- ======================================================
+         Section 1: 世界地図
+         ====================================================== -->
+    <section class="map-section" aria-labelledby="map-heading">
+      <div class="map-section__inner">
+
+        <div class="map-section__header">
+          <span class="label">Coffee Belt Map</span>
+          <h2 class="map-section__title" id="map-heading">香舎が訪ねた、12の産地</h2>
+        </div>
+
+        <!-- Map Container: SVG + HTML pin overlays -->
+        <div class="map-container">
+
+          <!-- World Map Image -->
+          <img class="world-map"
+               src="images/img_world_map.png"
+               alt="世界地図 — 珈琲産地の位置"
+               role="presentation">
+
+          <!-- HTML Pins (positioned over SVG as percentages of container) -->
+
+          <!-- ◆ Latin America -->
+          <a class="map-pin map-pin--latin"
+             href="#panama"
+             data-tooltip="パナマ ゲイシャ / パナマ"
+             aria-label="パナマ ゲイシャ産地カードへ"
+             style="left:28.0%;top:45.0%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--latin"
+             href="#jamaica"
+             data-tooltip="ブルーマウンテン No.1 / ジャマイカ"
+             aria-label="ブルーマウンテン No.1産地カードへ"
+             style="left:28.6%;top:40.0%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--latin"
+             href="#colombia"
+             data-tooltip="コロンビア スプレモ / コロンビア"
+             aria-label="コロンビア スプレモ産地カードへ"
+             style="left:29.5%;top:47.8%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--latin"
+             href="#guatemala"
+             data-tooltip="グアテマラ アンティグア / グアテマラ"
+             aria-label="グアテマラ アンティグア産地カードへ"
+             style="left:25.0%;top:42.2%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <!-- ◆ Africa -->
+          <a class="map-pin map-pin--africa"
+             href="#yemen"
+             data-tooltip="モカマタリ / イエメン"
+             aria-label="モカマタリ産地カードへ"
+             style="left:62.2%;top:41.6%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--africa"
+             href="#ethiopia"
+             data-tooltip="イルガチェフェ / エチオピア"
+             aria-label="イルガチェフェ産地カードへ"
+             style="left:60.6%;top:46.2%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--africa"
+             href="#kenya"
+             data-tooltip="ケニア AA / ケニア"
+             aria-label="ケニア AA産地カードへ"
+             style="left:60.3%;top:50.4%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--africa"
+             href="#tanzania"
+             data-tooltip="キリマンジャロ / タンザニア"
+             aria-label="キリマンジャロ産地カードへ"
+             style="left:60.0%;top:53.4%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <!-- ◆ Asia -->
+          <a class="map-pin map-pin--asia"
+             href="#mandheling"
+             data-tooltip="マンデリン / インドネシア"
+             aria-label="マンデリン産地カードへ"
+             style="left:77.3%;top:48.0%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--asia"
+             href="#toraja"
+             data-tooltip="トラジャ / インドネシア"
+             aria-label="トラジャ産地カードへ"
+             style="left:83.6%;top:51.2%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--asia"
+             href="#vietnam"
+             data-tooltip="ロブスタ プレミアム / ベトナム"
+             aria-label="ロブスタ プレミアム産地カードへ"
+             style="left:80.1%;top:43.4%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+          <a class="map-pin map-pin--asia"
+             href="#india"
+             data-tooltip="モンスーン マラバール / インド"
+             aria-label="モンスーン マラバール産地カードへ"
+             style="left:70.9%;top:43.4%">
+            <span class="map-pin__dot"></span>
+            <span class="map-pin__stem"></span>
+          </a>
+
+        </div><!-- /.map-container -->
+
+        <!-- Legend -->
+        <div class="map-legend" role="list" aria-label="地域凡例">
+          <div class="map-legend__item" role="listitem">
+            <span class="map-legend__dot map-legend__dot--latin" aria-hidden="true"></span>
+            中南米
+          </div>
+          <div class="map-legend__item" role="listitem">
+            <span class="map-legend__dot map-legend__dot--africa" aria-hidden="true"></span>
+            アフリカ
+          </div>
+          <div class="map-legend__item" role="listitem">
+            <span class="map-legend__dot map-legend__dot--asia" aria-hidden="true"></span>
+            アジア
+          </div>
+        </div>
+
+      </div><!-- /.map-section__inner -->
+    </section>
+
+
+    <!-- ======================================================
+         Section 2: 産地別カード (12種類)
+         ====================================================== -->
+    <section class="origins-section" aria-labelledby="origins-heading">
+      <div class="origins-section__inner">
+
+        <div class="section-header">
+          <span class="section-header__en">12 Origins</span>
+          <span class="section-header__ja" id="origins-heading">12産地の個性</span>
+          <p class="section-header__desc">産地ごとの気候・土壌・精製方法の違いが、それぞれ唯一無二の味わいを生み出します。</p>
+        </div>
+
+
+        <!-- ── 中南米 / Latin America ── -->
+        <div class="region-group">
+          <div class="region-group__header region-group__header--latin">
+            <span class="region-group__en">Latin America</span>
+            <span class="region-group__ja">中南米</span>
+          </div>
+
+          <div class="origin-grid">
+
+            <!-- ① Panama Geisha -->
+            <article class="origin-card origin-card--latin" id="panama">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">パナマ ゲイシャ</h3>
+                  <span class="origin-card__country-en">Panama Geisha — Boquete</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：パナマ・ボケテ地区</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,600 – 1,800m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：高地・涼冷</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">スペシャルティコーヒーの頂点と称されるゲイシャ種の聖地。華やかなジャスミンの香りにベルガモット、熟した桃のような甘みが溢れます。丁寧なウォッシュド精製が、透き通るような清潔感と複雑さを生み出す逸品。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 1/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ② Jamaica Blue Mountain -->
+            <article class="origin-card origin-card--latin" id="jamaica">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">ブルーマウンテン No.1</h3>
+                  <span class="origin-card__country-en">Jamaica Blue Mountain — Blue Mountain Range</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：ジャマイカ・ブルーマウンテン山脈</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,200 – 1,500m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：霧の多い高地</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">「コーヒーの王様」と称される希少豆。上品な酸味と深いコクが絶妙に交わり、繊細なバランスと滑らかな舌触りが持ち味。霧が育む穏やかな環境が、雑味のない純粋な甘みを引き出します。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ③ Colombia Supremo -->
+            <article class="origin-card origin-card--latin" id="colombia">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">コロンビア スプレモ</h3>
+                  <span class="origin-card__country-en">Colombia Supremo — Huila</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：コロンビア・ウイラ県</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,500 – 2,000m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：高地・湿潤</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">コロンビアの最高等級「スプレモ」を冠する大粒の豆。明るい酸味とナッツの香ばしさが心地よく、後味にはほんのりチョコレートの甘みが残ります。飲み飽きない安定感が、長年愛される理由です。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ④ Guatemala Antigua -->
+            <article class="origin-card origin-card--latin" id="guatemala">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">グアテマラ アンティグア</h3>
+                  <span class="origin-card__country-en">Guatemala Antigua — Antigua Valley</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：グアテマラ・アンティグア地区</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,500 – 1,700m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：火山性土壌</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">三つの火山に囲まれた渓谷の火山灰土壌が、深みのある個性を育みます。スモーキーな奥行きとフルーティーな酸味、しっかりとしたコクのバランスが特徴。エスプレッソにすると甘みが際立ちます。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /.origin-grid (latin) -->
+        </div><!-- /.region-group (latin) -->
+
+
+        <!-- ── アフリカ / Africa ── -->
+        <div class="region-group">
+          <div class="region-group__header region-group__header--africa">
+            <span class="region-group__en">Africa</span>
+            <span class="region-group__ja">アフリカ</span>
+          </div>
+
+          <div class="origin-grid">
+
+            <!-- ⑤ Yemen Mocha Matari -->
+            <article class="origin-card origin-card--africa" id="yemen">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">イエメン モカマタリ</h3>
+                  <span class="origin-card__country-en">Yemen Mocha Matari — Bani Matar</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：イエメン・バニーマタル地方</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,500 – 2,400m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：乾燥した山岳地帯</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">数千年の栽培史を誇る、コーヒー文化の発祥地イエメン。野性的で複雑な香りと、チョコレート・ワインを思わせる奥深い味わいが、他のどの産地にもない唯一無二の個性を放ちます。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ⑥ Ethiopia Yirgacheffe -->
+            <article class="origin-card origin-card--africa" id="ethiopia">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">エチオピア イルガチェフェ</h3>
+                  <span class="origin-card__country-en">Ethiopia Yirgacheffe — Yirgacheffe Village</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：エチオピア・イルガチェフェ村</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,700 – 2,200m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：高地・冷涼</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">コーヒー発祥の地エチオピアが誇る名産地。柑橘とフローラルな香りが次々と開き、紅茶のような繊細な後味が続きます。ナチュラル精製の複雑さと、ウォッシュドの清潔感——両方の顔を持つ産地です。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 1/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ⑦ Kenya AA -->
+            <article class="origin-card origin-card--africa" id="kenya">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">ケニア AA</h3>
+                  <span class="origin-card__country-en">Kenya AA — Nyeri District</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：ケニア・ニエリ地区</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,500 – 2,100m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：双季雨期</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">最高等級「AA」の大粒豆が放つ、鮮烈な酸味とブラックカラントの香り。ジューシーで力強い余韻が長く続き、一口で目を覚まされるような鮮やかさ。厳格なウォッシュドが生む、カップの純粋さが際立ちます。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ⑧ Tanzania Kilimanjaro -->
+            <article class="origin-card origin-card--africa" id="tanzania">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">タンザニア キリマンジャロ</h3>
+                  <span class="origin-card__country-en">Tanzania Kilimanjaro — Mt. Kilimanjaro Foothills</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：タンザニア・キリマンジャロ山麓</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,400 – 2,000m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：火山性土壌</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">アフリカ最高峰の山麓が育む、キリッとした酸味とすっきりした飲み口。重さはなく、口に広がる上品な甘みとともにすっと消えていく余韻が心地よい。食事との相性も抜群な、オールラウンドな一豆。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /.origin-grid (africa) -->
+        </div><!-- /.region-group (africa) -->
+
+
+        <!-- ── アジア / Asia ── -->
+        <div class="region-group">
+          <div class="region-group__header region-group__header--asia">
+            <span class="region-group__en">Asia</span>
+            <span class="region-group__ja">アジア</span>
+          </div>
+
+          <div class="origin-grid">
+
+            <!-- ⑨ Indonesia Mandheling -->
+            <article class="origin-card origin-card--asia" id="mandheling">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">インドネシア マンデリン</h3>
+                  <span class="origin-card__country-en">Indonesia Mandheling — Sumatra</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：インドネシア・スマトラ島</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,100 – 1,600m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：熱帯雨林</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">独自の「スマトラ式精製」が生み出す重厚なコク。ハーブとアーシーな香りが層をなし、低い酸味とともに長い余韻を刻みます。深煎り好みの方に特に愛される、飲み応えのある一豆。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 1/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ⑩ Indonesia Toraja -->
+            <article class="origin-card origin-card--asia" id="toraja">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">インドネシア トラジャ</h3>
+                  <span class="origin-card__country-en">Indonesia Toraja — Sulawesi</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：インドネシア・スラウェシ島</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：1,200 – 1,800m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：山岳熱帯</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">スラウェシ島の山岳地帯に育つ、スパイシーな香りと深いコクが特徴の稀少豆。独特のミネラル感が舌に残り、長い余韻がゆっくりと続きます。マンデリンより穏やかな個性が、幅広い飲み方に対応します。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ⑪ Vietnam Robusta Premium -->
+            <article class="origin-card origin-card--asia" id="vietnam">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">ベトナム ロブスタ プレミアム</h3>
+                  <span class="origin-card__country-en">Vietnam Robusta Premium — Central Highlands</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：ベトナム・中部高原</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：600 – 800m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：熱帯モンスーン</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">一般的なロブスタとは一線を画す、高品質な豆を厳選。力強い苦みとナッツ・カカオの香ばしさが濃厚なボディを形成します。カフェイン量はアラビカ種の約2倍。アイスコーヒーやカフェオレに最適。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 1/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 5/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 2/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ⑫ India Monsoon Malabar -->
+            <article class="origin-card origin-card--asia" id="india">
+              <div class="origin-card__body">
+                <div>
+                  <h3 class="origin-card__name">インド モンスーン マラバール</h3>
+                  <span class="origin-card__country-en">India Monsoon Malabar — Malabar Coast</span>
+                </div>
+                <hr class="origin-card__divider">
+                <ul class="origin-card__meta" aria-label="産地情報">
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">📍</span>
+                    <span>産地：インド・マラバール海岸</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">⛰</span>
+                    <span>標高：900 – 1,200m</span>
+                  </li>
+                  <li class="origin-card__meta-item">
+                    <span class="origin-card__meta-icon" aria-hidden="true">🌤</span>
+                    <span>気候：モンスーン熟成</span>
+                  </li>
+                </ul>
+                <p class="origin-card__desc">インド洋のモンスーン風に当てて熟成させる「モンスーニング」という独自製法が生む、唯一無二の風味。低酸味に土と木の豊かな香り、まろやかな深みが重なります。インド伝統のチャイにも用いられる個性的な一豆。</p>
+                <hr class="origin-card__divider">
+                <div class="origin-card__profile" aria-label="風味バランス">
+                  <div class="profile-row">
+                    <span class="profile-label">酸味</span>
+                    <div class="bean-bar" role="img" aria-label="酸味 1/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">苦味</span>
+                    <div class="bean-bar" role="img" aria-label="苦味 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">コク</span>
+                    <div class="bean-bar" role="img" aria-label="コク 4/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="profile-row">
+                    <span class="profile-label">香り</span>
+                    <div class="bean-bar" role="img" aria-label="香り 3/5">
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--on" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                      <i class="bean bean--off" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /.origin-grid (asia) -->
+        </div><!-- /.region-group (asia) -->
+
+      </div><!-- /.origins-section__inner -->
+    </section>
+
+
+    <!-- ======================================================
+         Section 3: 風味比較チャート
+         ====================================================== -->
+    <section class="compare-section" aria-labelledby="compare-heading">
+      <div class="compare-section__inner">
+
+        <div class="compare-section__header">
+          <h2 class="compare-section__title" id="compare-heading">あなたの好みに出会う、12の選択肢</h2>
+          <p class="compare-section__sub">酸味・苦味・コク・香りの強度を、一目で。</p>
+        </div>
+
+        <div class="compare-wrap" role="region" aria-label="風味比較テーブル（横スクロール可）">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">銘柄</th>
+                <th scope="col">酸味</th>
+                <th scope="col">苦味</th>
+                <th scope="col">コク</th>
+                <th scope="col">香り</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Latin America -->
+              <tr>
+                <td><a href="#panama"><span class="region-dot region-dot--latin" aria-hidden="true"></span>パナマ ゲイシャ</a></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="酸味 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="苦味 1/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="コク 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="香り 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#jamaica"><span class="region-dot region-dot--latin" aria-hidden="true"></span>ブルーマウンテン No.1</a></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="酸味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="苦味 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="コク 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="香り 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#colombia"><span class="region-dot region-dot--latin" aria-hidden="true"></span>コロンビア スプレモ</a></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="酸味 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="苦味 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="コク 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="香り 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#guatemala"><span class="region-dot region-dot--latin" aria-hidden="true"></span>グアテマラ アンティグア</a></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="酸味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="苦味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="コク 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--latin" role="img" aria-label="香り 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <!-- Africa -->
+              <tr>
+                <td><a href="#yemen"><span class="region-dot region-dot--africa" aria-hidden="true"></span>イエメン モカマタリ</a></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="酸味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="苦味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="コク 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="香り 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#ethiopia"><span class="region-dot region-dot--africa" aria-hidden="true"></span>エチオピア イルガチェフェ</a></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="酸味 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="苦味 1/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="コク 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="香り 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#kenya"><span class="region-dot region-dot--africa" aria-hidden="true"></span>ケニア AA</a></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="酸味 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="苦味 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="コク 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="香り 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#tanzania"><span class="region-dot region-dot--africa" aria-hidden="true"></span>タンザニア キリマンジャロ</a></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="酸味 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="苦味 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="コク 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--africa" role="img" aria-label="香り 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <!-- Asia -->
+              <tr>
+                <td><a href="#mandheling"><span class="region-dot region-dot--asia" aria-hidden="true"></span>インドネシア マンデリン</a></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="酸味 1/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="苦味 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="コク 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="香り 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#toraja"><span class="region-dot region-dot--asia" aria-hidden="true"></span>インドネシア トラジャ</a></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="酸味 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="苦味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="コク 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="香り 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#vietnam"><span class="region-dot region-dot--asia" aria-hidden="true"></span>ベトナム ロブスタ プレミアム</a></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="酸味 1/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="苦味 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="コク 5/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="香り 2/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+              <tr>
+                <td><a href="#india"><span class="region-dot region-dot--asia" aria-hidden="true"></span>インド モンスーン マラバール</a></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="酸味 1/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="苦味 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="コク 4/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+                <td><div class="bean-bar bean-bar--asia" role="img" aria-label="香り 3/5"><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--on" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i><i class="bean bean--off" aria-hidden="true"></i></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /.compare-section__inner -->
+    </section>
+
+
+    <!-- ======================================================
+         Section 4: CTA Banner
+         ====================================================== -->
+    <section class="cta-banner" aria-labelledby="cta-heading">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__content">
+          <h2 class="cta-banner__title" id="cta-heading">お気に入りの一杯を、店頭で。</h2>
+          <p class="cta-banner__text">
+            ご来店の際は、スタッフへお気軽にお声がけください。<br>
+            産地や風味の好みをお伝えいただければ、あなただけの一杯をご提案します。
+          </p>
+        </div>
+        <div class="cta-banner__actions">
+          <a href="menu.html" class="btn btn--ghost btn--lg">
+            メニューを見る <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="index.html#access" class="btn btn--ghost btn--lg">
+            店舗情報を見る <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       Footer
+       ====================================================== -->
+  <footer class="site-footer" role="contentinfo">
+      <div class="site-footer__inner">
+        <div class="site-footer__grid">
+
+          <div class="footer-shop">
+            <span class="footer-col__label">Shop</span>
+            <span class="footer-shop__logo-ja">焙煎珈琲処 香舎</span>
+            <span class="footer-shop__logo-en">Kōsha Coffee Roasters</span>
+            <p class="footer-shop__tagline">豆の声に耳を澄ませ、<br>一杯に誠実であり続ける。</p>
+          </div>
+
+          <div class="footer-hours">
+            <span class="footer-col__label">Hours</span>
+            <div class="footer-hours__table" role="table" aria-label="営業時間">
+              <div class="footer-hours__row" role="row">
+                <span class="footer-hours__day" role="cell">平日</span>
+                <span class="footer-hours__time" role="cell">8:00 – 20:00</span>
+              </div>
+              <div class="footer-hours__row" role="row">
+                <span class="footer-hours__day" role="cell">土日祝</span>
+                <span class="footer-hours__time" role="cell">9:00 – 21:00</span>
+              </div>
+              <div class="footer-hours__row" role="row">
+                <span class="footer-hours__day" role="cell">火曜日</span>
+                <span class="footer-hours__closed" role="cell">定休日</span>
+              </div>
+            </div>
+            <p class="footer-hours__note">ラストオーダーは閉店30分前<br>祝日の営業は土日祝に準じます</p>
+          </div>
+
+          <div class="footer-location">
+            <span class="footer-col__label">Location</span>
+            <address class="footer-location__address">
+              <span class="footer-location__zip">〒220-0011</span>
+              神奈川県横浜市西区高島 2-X-X
+            </address>
+            <p class="footer-location__access">
+              <span class="footer-location__access-icon">Access</span>
+              横浜駅 東口より徒歩5分
+            </p>
+            <div class="footer-location__tel-wrap">
+              <span class="footer-location__tel-label">Tel</span>
+              <a href="tel:045-XXX-XXXX" class="footer-location__tel">045-XXX-XXXX</a>
+            </div>
+          </div>
+
+        </div><!-- /.site-footer__grid -->
+
+        <div class="site-footer__bottom">
+          <small class="site-footer__copy">
+            &copy; 2026 焙煎珈琲処 香舎 Kōsha Coffee Roasters. All rights reserved.
+          </small>
+          <ul class="site-footer__policy-list">
+            <li><a href="#" class="site-footer__policy-link">プライバシーポリシー</a></li>
+            <li><a href="#" class="site-footer__policy-link">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /.site-footer__inner -->
+  </footer>
+
+</body>
+</html>

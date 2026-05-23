@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"c:\\\\work\\\\ClaudeCodeWork\\\\20260512_prj1\\\\Cafe\\\\LP\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName)",
+      "PowerShell(Get-ChildItem \"c:\\\\work\\\\ClaudeCodeWork\\\\20260512_prj1\\\\Cafe\\\\LP\" -Recurse | ForEach-Object { $_.FullName.Replace\\(\"c:\\\\work\\\\ClaudeCodeWork\\\\20260512_prj1\\\\Cafe\\\\LP\\\\\", \"\"\\) })",
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\work\\\\ClaudeCodeWork\\\\20260512_prj1\\\\Cafe\\\\LP\\\\Cafe-Kosha\")",
+      "PowerShell(Move-Item -Destination \"C:\\\\work\\\\ClaudeCodeWork\\\\20260512_prj1\\\\Cafe\\\\LP\\\\Cafe-Kosha\")"
+    ],
+    "additionalDirectories": [
+      "c:\\work\\ClaudeCodeWork\\20260512_prj1\\Cafe\\LP"
+    ]
+  }
+}
