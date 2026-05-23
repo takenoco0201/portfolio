@@ -95,9 +95,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop
 .cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
 .work{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .work .w-img{background:var(--bg-band);position:relative;aspect-ratio:16/9;overflow:hidden}
-.work .w-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.work .w-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;position:relative;z-index:1}
 .work:hover .w-img img{transform:scale(1.04)}
-.w-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#a3afc0;font-family:var(--display);font-size:13px;letter-spacing:.12em;background:linear-gradient(135deg,#eef2f8,#dee6f1)}
+.w-fallback{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;color:#a3afc0;font-family:var(--display);font-size:13px;letter-spacing:.12em;background:linear-gradient(135deg,#eef2f8,#dee6f1)}
 .w-body{padding:22px 22px 24px}
 .w-cat{display:inline-block;font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:4px 11px;border-radius:6px;margin-bottom:12px;letter-spacing:.03em}
 .w-body h4{font-size:16px;font-weight:700;margin-bottom:9px;letter-spacing:.02em}
@@ -112,14 +112,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop
 
 /* リンク付き作品カード */
 a.work{cursor:pointer}
-a.work .w-img::after,.featured .f-img.linkable::after{content:"クリックでサイトを見る ↗";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(35,79,138,.78);color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .3s}
+a.work .w-img::after,.featured .f-img.linkable::after{content:"クリックでサイトを見る ↗";position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(35,79,138,.78);color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .3s}
 a.work:hover .w-img::after,.featured.linkable:hover .f-img.linkable::after{opacity:1}
 .view-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12.5px;font-weight:700;color:var(--brand)}
 .view-link::after{content:"↗"}
 
 .featured{grid-column:1 / -1;display:grid;grid-template-columns:1.05fr 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .featured .f-img{position:relative;min-height:300px;background:#cdd7e4}
-.featured .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.featured .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .featured .f-badge{position:absolute;top:14px;left:14px;background:var(--brand-deep);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 12px;border-radius:6px;z-index:2}
 .featured .f-body{padding:34px 32px}
 
