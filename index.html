@@ -158,9 +158,27 @@ footer small{color:var(--ink-soft);font-size:12px}
   .nav-toggle{display:block}
   .abilities,.cards3{grid-template-columns:1fr}
 }
+
+/* ===== Lightbox(画像拡大表示) ===== */
+article.work .w-img{cursor:zoom-in}
+article.work .w-img::after{content:"クリックで拡大 ⤢";position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(35,79,138,.72);color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .3s;pointer-events:none}
+article.work .w-img:hover::after{opacity:1}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(20,24,31,.92);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:40px 20px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,100%);height:auto;border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.5);margin:auto 0;cursor:default}
+.lightbox-close{position:fixed;top:18px;right:24px;z-index:1001;width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:24px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.lightbox-close:hover{background:rgba(255,255,255,.3)}
+.lightbox-cap{position:fixed;bottom:18px;left:0;right:0;text-align:center;color:#cdd5e0;font-size:13px;letter-spacing:.04em;pointer-events:none}
 </style>
 </head>
 <body>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">×</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
 
 <header>
   <div class="wrap nav">
@@ -518,6 +536,24 @@ footer small{color:var(--ink-soft);font-size:12px}
   document.querySelectorAll('.work, .merit, .profile-grid, .spec').forEach(el=>{
     el.style.opacity=0;el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease, transform .6s ease';io.observe(el);
   });
+
+  // Lightbox: article.work(画像作品)の画像をクリックで拡大
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg'),
+        lbCap=document.getElementById('lightboxCap'),lbClose=document.getElementById('lightboxClose');
+  document.querySelectorAll('article.work .w-img img').forEach(img=>{
+    img.parentElement.addEventListener('click',()=>{
+      lbImg.src=img.getAttribute('src');
+      lbImg.alt=img.alt||'';
+      const h=img.closest('.work').querySelector('h4');
+      lbCap.textContent=h?h.textContent:'';
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+  lb.addEventListener('click',e=>{if(e.target!==lbImg)closeLb();});
+  lbClose.addEventListener('click',closeLb);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))closeLb();});
 </script>
 
 </body>
