@@ -1,804 +1,524 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>takenoco works — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    /* ── Reset ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>takenoco works — AI活用 Webデザイナー</title>
+<meta name="description" content="takenoco works のポートフォリオ。AIツールを活用し、Web広告・LP・インフォグラフィック・YouTubeサムネイルを制作。情報の分かりやすさと伝わりやすさを大切にしています。">
 
-    :root {
-      --bg:           #f7f3ee;
-      --bg-alt:       #fff8f3;
-      --white:        #fffcf7;
-      --text:         #2a2018;
-      --text-muted:   #7a6858;
-      --accent:       #b58b5b;
-      --accent-dark:  #8b6a40;
-      --line:         #e0d5c5;
-      --tag-bg:       #f0e8db;
-      --shadow:       0 4px 20px rgba(60,40,20,0.09);
-      --shadow-hover: 0 14px 40px rgba(60,40,20,0.17);
-      --radius:       14px;
-      --ease:         0.25s ease;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    html { scroll-behavior: smooth; }
+<style>
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f4f6f9;
+  --bg-band:#eef1f6;
+  --ink:#1f2937;
+  --ink-soft:#5b6675;
+  --line:#dfe4ec;
+  --brand:#2f6db6;
+  --brand-deep:#234f8a;
+  --brand-soft:#eaf2fb;
+  --accent:#3b82c4;
+  --tag-bg:#e8f0fa;
+  --tag-ink:#2f6db6;
+  --note-bg:#f1f6fc;
+  --note-bar:#2f6db6;
+  --maxw:980px;
+  --sans:'Zen Kaku Gothic New', sans-serif;
+  --display:'Outfit','Zen Kaku Gothic New',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.9;-webkit-font-smoothing:antialiased;font-size:15px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-    body {
-      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+.block{padding:72px 0}
+.block.band{background:var(--bg-soft)}
+.h2{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:.02em;position:relative;padding-bottom:12px;margin-bottom:10px;display:inline-block}
+.h2::after{content:"";position:absolute;left:0;bottom:0;width:54px;height:3px;background:var(--brand);border-radius:2px}
+.lead{color:var(--ink-soft);font-size:14px;margin-bottom:36px;max-width:760px}
+.sub-title{font-weight:700;font-size:18px;margin:38px 0 18px;letter-spacing:.02em}
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; }
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.01em;color:var(--brand-deep)}
+.nav-links{display:flex;gap:26px;font-size:13px;color:var(--ink-soft)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--brand)}
+.nav-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink)}
 
-    /* ════════════════════════════════
-       Header
-    ════════════════════════════════ */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247,243,238,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
+.hero{background:linear-gradient(180deg,#f7faff 0%,#ffffff 100%);text-align:center;padding:84px 24px 64px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:900;letter-spacing:.02em;color:var(--brand-deep);margin-bottom:22px;animation:rise .8s ease both}
+.hero .hero-sub{color:var(--ink-soft);font-size:14.5px;max-width:600px;margin:0 auto 6px;animation:rise .8s ease .1s both}
+.hero .hero-sub.tagline{color:var(--ink);font-weight:500;margin-top:14px}
 
-    .header-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+.abilities{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:840px;margin:44px auto 0}
+.ability{border:1px solid var(--line);border-radius:14px;background:#fff;padding:26px 20px;text-align:center;transition:.3s;animation:rise .8s ease both}
+.ability:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(47,109,182,.12);border-color:var(--brand-soft)}
+.ability .ic{font-size:26px;margin-bottom:12px}
+.ability h3{color:var(--brand);font-size:16px;font-weight:700;margin-bottom:8px}
+.ability p{font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
-    .site-logo {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 19px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      white-space: nowrap;
-    }
+.profile-top{color:var(--ink-soft);font-size:14px;margin-bottom:30px;max-width:820px}
+.profile-grid{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
+.profile-photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg-band);aspect-ratio:1/1;position:relative}
+.profile-photo img{width:100%;height:100%;object-fit:cover}
+.profile-photo .ph-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#9aa6b6;font-size:13px;background:linear-gradient(135deg,#eef2f8,#dde5f0)}
+.profile-name{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:.01em;margin-bottom:6px}
+.profile-role{color:var(--brand);font-size:13px;font-weight:500;margin-bottom:16px;letter-spacing:.04em}
+.profile-bio{font-size:14px;color:var(--ink);margin-bottom:8px}
+.profile-bio .accent{color:var(--brand-deep);font-weight:700}
 
-    .site-nav {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
+.spec-h{font-weight:700;font-size:15px;margin:26px 0 12px}
+.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+.spec th,.spec td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.spec th{width:120px;color:var(--brand-deep);font-weight:700;background:var(--bg-soft);white-space:nowrap}
+.spec td{color:var(--ink-soft)}
 
-    .site-nav a {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      transition: color var(--ease);
-      white-space: nowrap;
-    }
+.skill-h{font-weight:700;font-size:15px;margin:30px 0 14px}
+.skills{display:flex;flex-wrap:wrap;gap:9px}
+.skill{font-size:12.5px;padding:7px 15px;border-radius:999px;background:var(--tag-bg);color:var(--tag-ink);font-weight:500}
 
-    .site-nav a:hover { color: var(--accent); }
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:8px;background:var(--brand);color:#fff;font-size:14px;font-weight:700;transition:.25s;box-shadow:0 6px 16px rgba(47,109,182,.22)}
+.cta:hover{background:var(--brand-deep);transform:translateY(-2px)}
+.cta.ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand);box-shadow:none}
+.cta.ghost:hover{background:var(--brand-soft)}
 
-    /* ════════════════════════════════
-       Hero
-    ════════════════════════════════ */
-    .hero {
-      background: linear-gradient(140deg, #efe3d2 0%, #f8f1e8 55%, #eddfc8 100%);
-      padding: 88px 24px 76px;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-    }
+.works-wrap{margin-top:8px}
+.cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.work{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.work .w-img{background:var(--bg-band);position:relative;aspect-ratio:16/9;overflow:hidden}
+.work .w-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.work:hover .w-img img{transform:scale(1.04)}
+.w-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#a3afc0;font-family:var(--display);font-size:13px;letter-spacing:.12em;background:linear-gradient(135deg,#eef2f8,#dee6f1)}
+.w-body{padding:22px 22px 24px}
+.w-cat{display:inline-block;font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:4px 11px;border-radius:6px;margin-bottom:12px;letter-spacing:.03em}
+.w-body h4{font-size:16px;font-weight:700;margin-bottom:9px;letter-spacing:.02em}
+.w-desc{font-size:13px;color:var(--ink-soft);line-height:1.8}
 
-    .hero__eyebrow {
-      display: inline-block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 12px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
+.note{background:var(--note-bg);border-left:3px solid var(--note-bar);border-radius:0 8px 8px 0;padding:14px 16px;margin-top:16px}
+.note .note-h{font-size:11.5px;font-weight:700;color:var(--brand-deep);margin-bottom:6px;letter-spacing:.04em}
+.note p{font-size:12.5px;color:var(--ink-soft);line-height:1.8;margin:0}
 
-    .hero__title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
+.w-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.w-tag{font-size:10.5px;padding:4px 9px;border-radius:6px;background:var(--bg-soft);color:var(--ink-soft);border:1px solid var(--line)}
 
-    .hero__desc {
-      font-size: 14.5px;
-      line-height: 2;
-      color: var(--text-muted);
-      max-width: 500px;
-      margin: 0 auto 40px;
-    }
+/* リンク付き作品カード */
+a.work{cursor:pointer}
+a.work .w-img::after,.featured .f-img.linkable::after{content:"クリックでサイトを見る ↗";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(35,79,138,.78);color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .3s}
+a.work:hover .w-img::after,.featured.linkable:hover .f-img.linkable::after{opacity:1}
+.view-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12.5px;font-weight:700;color:var(--brand)}
+.view-link::after{content:"↗"}
 
-    .hero__chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
+.featured{grid-column:1 / -1;display:grid;grid-template-columns:1.05fr 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.featured .f-img{position:relative;min-height:300px;background:#cdd7e4}
+.featured .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.featured .f-badge{position:absolute;top:14px;left:14px;background:var(--brand-deep);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 12px;border-radius:6px;z-index:2}
+.featured .f-body{padding:34px 32px}
 
-    .hero__chip {
-      padding: 6px 20px;
-      border: 1px solid var(--accent);
-      border-radius: 99px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      color: var(--accent-dark);
-    }
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cards3 .w-img{aspect-ratio:16/10}
 
-    /* ════════════════════════════════
-       Main
-    ════════════════════════════════ */
-    main {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 72px 24px 88px;
-    }
+.contact{background:var(--bg-soft);text-align:center}
+.contact .h2{display:inline-block}
+.contact .lead{margin:0 auto 30px;text-align:center}
+.contact-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-    /* ════════════════════════════════
-       Section
-    ════════════════════════════════ */
-    .p-section { margin-bottom: 88px; }
+.merits{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:30px auto 0;text-align:left}
+.merit{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.merit .mk{color:var(--brand);font-weight:900;font-size:16px;line-height:1.5}
+.merit div h5{font-size:13.5px;font-weight:700;margin-bottom:3px}
+.merit div p{font-size:12px;color:var(--ink-soft);line-height:1.7}
 
-    .section-hd {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      margin-bottom: 36px;
-      padding-bottom: 14px;
-      border-bottom: 2px solid var(--line);
-    }
+footer{background:#fff;border-top:1px solid var(--line);padding:34px 0;text-align:center}
+footer .brand{margin-bottom:6px}
+footer small{color:var(--ink-soft);font-size:12px}
 
-    .section-hd__num {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-    }
-
-    .section-hd__title {
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-    }
-
-    .section-hd__count {
-      margin-left: auto;
-      font-size: 12px;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    /* ════════════════════════════════
-       Gallery grid
-    ════════════════════════════════ */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    /* ════════════════════════════════
-       Card — base
-    ════════════════════════════════ */
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform var(--ease), box-shadow var(--ease);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    /* inner anchor fills the card */
-    .card > a {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .card__img-wrap {
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .card__img-wrap img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #e8e0d4;
-      transition: transform 0.4s ease;
-    }
-
-    .card:hover .card__img-wrap img { transform: scale(1.05); }
-
-    /* badge on image */
-    .badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 4px 12px;
-      border-radius: 99px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(6px);
-    }
-
-    .badge--lp      { background: rgba(181,139,91,0.88);  color:#fff; }
-    .badge--info    { background: rgba(72,112,160,0.88);  color:#fff; }
-    .badge--ad      { background: rgba(90,150,100,0.88);  color:#fff; }
-    .badge--youtube { background: rgba(200,55,55,0.88);   color:#fff; }
-    .badge--new     { background: rgba(40,40,40,0.88);    color:#fff; }
-
-    .card__body {
-      padding: 18px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
-    }
-
-    .card__title {
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      line-height: 1.45;
-    }
-
-    .card__desc {
-      font-size: 12.5px;
-      line-height: 1.8;
-      color: var(--text-muted);
-      flex: 1;
-    }
-
-    .card__tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 6px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 3px 10px;
-      background: var(--tag-bg);
-      border-radius: 4px;
-      font-size: 11px;
-      color: var(--accent-dark);
-      letter-spacing: 0.03em;
-    }
-
-    /* ════════════════════════════════
-       Card — featured (横2カラム)
-    ════════════════════════════════ */
-    .card--featured {
-      grid-column: 1 / -1;
-    }
-
-    .card--featured > a {
-      flex-direction: row;
-    }
-
-    .card--featured .card__img-wrap {
-      flex: 0 0 45%;
-    }
-
-    .card--featured .card__img-wrap img {
-      height: 100%;
-      min-height: 240px;
-    }
-
-    .card--featured .card__body {
-      padding: 32px 36px;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .card__featured-label {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .card--featured .card__title { font-size: 20px; }
-
-    .card--featured .card__desc  { font-size: 13.5px; }
-
-    /* ════════════════════════════════
-       Footer
-    ════════════════════════════════ */
-    .site-footer {
-      background: #211810;
-      color: rgba(255,252,247,0.55);
-      text-align: center;
-      padding: 56px 24px 40px;
-    }
-
-    .footer__logo {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      color: rgba(255,252,247,0.88);
-      margin-bottom: 12px;
-    }
-
-    .footer__desc {
-      font-size: 13px;
-      line-height: 1.9;
-      margin-bottom: 28px;
-    }
-
-    .footer__links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 36px;
-      flex-wrap: wrap;
-    }
-
-    .footer__link {
-      font-size: 12.5px;
-      color: rgba(255,252,247,0.6);
-      letter-spacing: 0.06em;
-      border-bottom: 1px solid rgba(255,252,247,0.2);
-      padding-bottom: 2px;
-      transition: color var(--ease);
-    }
-
-    .footer__link:hover { color: var(--accent); }
-
-    .footer__copy {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-    }
-
-    /* ════════════════════════════════
-       Responsive
-    ════════════════════════════════ */
-    @media (max-width: 768px) {
-      .site-nav { display: none; }
-      .hero { padding: 60px 20px 52px; }
-
-      .card--featured > a { flex-direction: column; }
-      .card--featured .card__img-wrap { flex: none; }
-      .card--featured .card__img-wrap img { height: 220px; }
-      .card--featured .card__body { padding: 20px; }
-      .card--featured .card__title { font-size: 17px; }
-    }
-
-    @media (max-width: 480px) {
-      .gallery { grid-template-columns: 1fr; }
-      .hero__title { font-size: 36px; }
-    }
-  </style>
+@media(max-width:860px){
+  .abilities{grid-template-columns:repeat(2,1fr)}
+  .profile-grid{grid-template-columns:1fr;gap:24px}
+  .profile-photo{max-width:200px}
+  .cards2{grid-template-columns:1fr}
+  .featured{grid-template-columns:1fr}
+  .featured .f-img{min-height:220px}
+  .cards3{grid-template-columns:repeat(2,1fr)}
+  .merits{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .block{padding:54px 0}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line)}
+  .nav-toggle{display:block}
+  .abilities,.cards3{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-<!-- ══ Header ══ -->
-<header class="site-header">
-  <div class="header-inner">
-    <span class="site-logo">takenoco works</span>
-    <nav aria-label="メインナビゲーション">
-      <ul class="site-nav">
-        <li><a href="#infographics">InfoGraphics</a></li>
-        <li><a href="#lp">LP</a></li>
-        <li><a href="#advertising">Web Advertising</a></li>
-        <li><a href="#youtube">YouTube</a></li>
-      </ul>
+<header>
+  <div class="wrap nav">
+    <div class="brand">takenoco works</div>
+    <nav class="nav-links" id="navlinks">
+      <a href="#profile">Profile</a>
+      <a href="#lp">Landing Page</a>
+      <a href="#design">Web広告</a>
+      <a href="#special">InfoGraphics</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <button class="nav-toggle" id="navtoggle" aria-label="menu">☰</button>
   </div>
 </header>
 
-<!-- ══ Hero ══ -->
-<section class="hero" aria-label="プロフィール">
-  <p class="hero__eyebrow">Portfolio</p>
-  <h1 class="hero__title">takenoco works</h1>
-  <p class="hero__desc">
-    AIツールを活用し、Web広告・LP・インフォグラフィック・<br>
-    YouTubeサムネイルなどを制作しています。<br>
-    目的やイメージに合わせ、見やすく伝わりやすいデザインを心がけています。
-  </p>
-  <div class="hero__chips">
-    <span class="hero__chip">AI × Design</span>
-    <span class="hero__chip">Landing Page</span>
-    <span class="hero__chip">InfoGraphics</span>
-    <span class="hero__chip">Web Advertising</span>
-    <span class="hero__chip">YouTube Thumbnail</span>
+<section class="hero">
+  <h1>伝えたいことを、形にします。</h1>
+  <p class="hero-sub">LP制作を主軸に、Web広告・インフォグラフィック・YouTubeサムネイルを、AIツールを活用して制作しています。</p>
+  <p class="hero-sub tagline">目的やイメージに寄り添い、「見て分かる・伝わる」デザインをお届けします。</p>
+
+  <div class="abilities">
+    <a href="#lp" class="ability" style="animation-delay:.15s">
+      <div class="ic">🖥️</div>
+      <h3>Landing Page</h3>
+      <p>主軸とする領域。構成設計からビジュアル・HTML+CSS実装まで一貫対応します。</p>
+    </a>
+    <a href="#design" class="ability" style="animation-delay:.25s">
+      <div class="ic">🎨</div>
+      <h3>Web Advertising</h3>
+      <p>Web広告バナー・サムネイルなど、魅力が伝わるビジュアル制作。</p>
+    </a>
+    <a href="#special" class="ability" style="animation-delay:.35s">
+      <div class="ic">💡</div>
+      <h3>InfoGraphics</h3>
+      <p>複雑な情報を整理した、インフォグラフィック・図解作品。</p>
+    </a>
   </div>
 </section>
 
-<main>
+<section class="block band" id="profile">
+  <div class="wrap">
+    <h2 class="h2">Profile</h2>
+    <p class="profile-top">AI画像生成ツールやデザインツールを活用しながら、用途に合った画像・Webデザイン制作を行うフリーランスクリエイターです。</p>
 
-  <!-- ══ 01 InfoGraphics ══ -->
-  <section class="p-section" id="infographics" aria-labelledby="hd-info">
-    <div class="section-hd">
-      <span class="section-hd__num">01</span>
-      <h2 class="section-hd__title" id="hd-info">InfoGraphics</h2>
-      <span class="section-hd__count">6 works</span>
+    <div class="profile-grid">
+      <div class="profile-photo">
+        <img src="assets/profile.png" alt="takenoco works プロフィール画像" onerror="this.style.display='none'">
+        <div class="ph-fallback"><span style="font-size:30px">🧑‍💻</span><span>Profile Photo</span></div>
+      </div>
+
+      <div>
+        <div class="profile-name">takenoco works</div>
+        <div class="profile-role">AI活用 ／ Webデザイナー ／ クリエイター</div>
+        <p class="profile-bio"><span class="accent">「伝えたいことを、形にする」</span>をモットーに、AIツールを活用した画像・Webデザイン制作を手がけています。</p>
+        <p class="profile-bio">クライアント様の目的やイメージを丁寧にヒアリングし、完成イメージのすり合わせを大切にしながら、見た目の美しさだけでなく「情報の分かりやすさ・伝わりやすさ」を意識した制作を心がけています。</p>
+
+        <div class="spec-h">経歴・スペック</div>
+        <table class="spec">
+          <tr><th>活動歴</th><td>副業1年目／架空サービスを想定したLP・広告画像の自主制作で実績を積んでいます</td></tr>
+          <tr><th>稼働時間</th><td>平日 20:00〜23:00／土日 10:00〜18:00（週10〜15時間を目安に対応可能）</td></tr>
+          <tr><th>対応形式</th><td>単発依頼・継続契約どちらも対応可</td></tr>
+          <tr><th>使用ツール</th><td>ChatGPT / Gemini / Claude（Claude Code）/ Canva / Photoshop / Premiere Pro / DaVinci Resolve</td></tr>
+          <tr><th>得意ジャンル</th><td>LP制作・Webデザイン／商品・サービスの魅力を伝える広告画像制作／情報を整理して伝えるインフォグラフィックス制作</td></tr>
+          <tr><th>連絡について</th><td>メッセージは24時間以内に返信。Slack・Zoom でのやり取りにも対応可能です</td></tr>
+        </table>
+
+        <div class="skill-h">スキル</div>
+        <div class="skills">
+          <span class="skill">LP制作</span>
+          <span class="skill">HTML・CSS</span>
+          <span class="skill">Webデザイン・LP構成</span>
+          <span class="skill">Web広告</span>
+          <span class="skill">YouTubeサムネイル</span>
+          <span class="skill">インフォグラフィック</span>
+          <span class="skill">画像生成AIの活用</span>
+          <span class="skill">構成・キャッチコピー案作成</span>
+          <span class="skill">AI活用</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta" href="https://crowdworks.jp/public/employees/6783843" target="_blank" rel="noopener">クラウドワークスで依頼する</a>
+          <a class="cta ghost" href="https://coconala.com/users/5864749" target="_blank" rel="noopener">ココナラで依頼する</a>
+        </div>
+      </div>
     </div>
-    <div class="gallery">
-
-      <div class="card">
-        <a href="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForAdults).png">
-          <div class="card__img-wrap">
-            <img src="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForAdults).png" alt="産業革命 大人向け">
-            <span class="badge badge--info">InfoGraphics</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">産業革命 大人向け</p>
-            <p class="card__desc">一般の大人向けに、産業革命の流れを分かりやすくまとめたデザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForJUniorHighScheelStudentsudents).png">
-          <div class="card__img-wrap">
-            <img src="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForJUniorHighScheelStudentsudents).png" alt="産業革命 中学生向け">
-            <span class="badge badge--info">InfoGraphics</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">産業革命 中学生向け</p>
-            <p class="card__desc">中学生にも理解しやすいよう、要点をシンプルに整理したインフォグラフィックです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForUniversityStudents).png">
-          <div class="card__img-wrap">
-            <img src="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForUniversityStudents).png" alt="産業革命 大学生向け">
-            <span class="badge badge--info">InfoGraphics</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">産業革命 大学生向け</p>
-            <p class="card__desc">大学生向けに、産業革命の背景や社会への影響を整理したインフォグラフィックです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion).png">
-          <div class="card__img-wrap">
-            <img src="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion).png" alt="超新星爆発">
-            <span class="badge badge--info">InfoGraphics</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">超新星爆発</p>
-            <p class="card__desc">超新星爆発の仕組みを、一般向けに図解したインフォグラフィックです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion)_LandscapeLong.png">
-          <div class="card__img-wrap">
-            <img src="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion)_LandscapeLong.png" alt="超新星爆発 横長">
-            <span class="badge badge--info">InfoGraphics</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">超新星爆発 横長</p>
-            <p class="card__desc">横長レイアウトで、発生の流れを見やすく構成したデザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion)_PortraitLong.png">
-          <div class="card__img-wrap">
-            <img src="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion)_PortraitLong.png" alt="超新星爆発 縦長">
-            <span class="badge badge--info">InfoGraphics</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">超新星爆発 縦長</p>
-            <p class="card__desc">スマートフォンや縦長表示を想定した超新星爆発の図解デザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ 02 LP ══ -->
-  <section class="p-section" id="lp" aria-labelledby="hd-lp">
-    <div class="section-hd">
-      <span class="section-hd__num">02</span>
-      <h2 class="section-hd__title" id="hd-lp">Landing Page</h2>
-      <span class="section-hd__count">4 works</span>
-    </div>
-    <div class="gallery">
-
-      <!-- Featured -->
-      <div class="card card--featured">
-        <a href="LP/Cafe-Kosha/">
-          <div class="card__img-wrap">
-            <img src="LP/Cafe-Kosha/images/img_store_exterior.png" alt="焙煎珈琲処 香舎 LP">
-            <span class="badge badge--new">NEW</span>
-          </div>
-          <div class="card__body">
-            <p class="card__featured-label">★ Featured Work</p>
-            <p class="card__title">珈琲専門店 LP — 焙煎珈琲処 香舎</p>
-            <p class="card__desc">自家焙煎珈琲店「焙煎珈琲処 香舎」の5ページ構成ランディングページ。HTML + CSS のみで実装し、世界12産地インフォグラフィック・店舗情報・メニューページを含む本格的なWebサイトです。</p>
-            <div class="card__tools">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">5ページ構成</span>
-              <span class="tag">レスポンシブ</span>
-              <span class="tag">CSS Only</span>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="LP/YogiBase/">
-          <div class="card__img-wrap">
-            <img src="LP/YogiBase/img/hero.png" alt="ヨガスタジオ LP">
-            <span class="badge badge--lp">LP</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">ヨガスタジオ LP</p>
-            <p class="card__desc">完全個室・少人数制のパーソナルヨガスタジオ「YOGI BASE」の体験申込みLPです。</p>
-            <div class="card__tools"><span class="tag">HTML</span><span class="tag">CSS</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="LP/Chiropractic/Chiropractic_LP.png">
-          <div class="card__img-wrap">
-            <img src="LP/Chiropractic/Chiropractic_LP.png" alt="整体 LP">
-            <span class="badge badge--lp">LP</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">整体 LP</p>
-            <p class="card__desc">整体院のサービス内容や営業時間を伝えるLPデザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="LP/RelaxationSalon/RelaxationSalon(Liora)_LP.png">
-          <div class="card__img-wrap">
-            <img src="LP/RelaxationSalon/RelaxationSalon(Liora)_LP.png" alt="リラクゼーションサロン LP">
-            <span class="badge badge--lp">LP</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">リラクゼーションサロン LP</p>
-            <p class="card__desc">20〜30代女性向けに、柔らかく上品な印象で制作したLPです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ 03 Web Advertising ══ -->
-  <section class="p-section" id="advertising" aria-labelledby="hd-ad">
-    <div class="section-hd">
-      <span class="section-hd__num">03</span>
-      <h2 class="section-hd__title" id="hd-ad">Web Advertising</h2>
-      <span class="section-hd__count">7 works</span>
-    </div>
-    <div class="gallery">
-
-      <div class="card">
-        <a href="WebAdvertising/Cafe/webAdvertising__(cafe)-PortraitLong.png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Cafe/webAdvertising__(cafe)-PortraitLong.png" alt="カフェ 縦長広告">
-            <span class="badge badge--ad">広告</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">カフェ 縦長広告</p>
-            <p class="card__desc">スマートフォン表示を想定した縦長広告デザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="WebAdvertising/Cafe/webAdvertising__(cafe)-LandscapeLong.png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Cafe/webAdvertising__(cafe)-LandscapeLong.png" alt="カフェ 横長広告">
-            <span class="badge badge--ad">広告</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">カフェ 横長広告</p>
-            <p class="card__desc">SNS広告やWebバナーを想定した横長デザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="WebAdvertising/Cafe/LP_(cafe).png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Cafe/LP_(cafe).png" alt="カフェ LP">
-            <span class="badge badge--ad">広告</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">カフェ LP</p>
-            <p class="card__desc">こだわりの珈琲と店舗の雰囲気を伝えるLPデザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="WebAdvertising/Cafe/CafeMenu.png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Cafe/CafeMenu.png" alt="カフェメニュー">
-            <span class="badge badge--ad">広告</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">カフェメニュー</p>
-            <p class="card__desc">架空カフェの上質な雰囲気を表現したメニューデザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="WebAdvertising/Cafe/Infographic_COffeBeansProducingRegions.png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Cafe/Infographic_COffeBeansProducingRegions.png" alt="珈琲豆産地インフォグラフィック">
-            <span class="badge badge--info">Info</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">珈琲豆産地インフォグラフィック</p>
-            <p class="card__desc">各国の珈琲豆の特徴を、視覚的に分かりやすくまとめたデザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="WebAdvertising/Perfume/webAdvertising__(Perfume)_Porrait.png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Perfume/webAdvertising__(Perfume)_Porrait.png" alt="香水 縦長広告">
-            <span class="badge badge--ad">広告</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">香水 縦長広告</p>
-            <p class="card__desc">20〜30代女性向けに、余白と透明感を活かした縦型広告です。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="WebAdvertising/Perfume/webAdvertising__(Perfume)_Landscape.png">
-          <div class="card__img-wrap">
-            <img src="WebAdvertising/Perfume/webAdvertising__(Perfume)_Landscape.png" alt="香水 横長広告">
-            <span class="badge badge--ad">広告</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">香水 横長広告</p>
-            <p class="card__desc">透明感と上品さを意識した香水のWeb広告デザインです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ 04 YouTube ══ -->
-  <section class="p-section" id="youtube" aria-labelledby="hd-yt">
-    <div class="section-hd">
-      <span class="section-hd__num">04</span>
-      <h2 class="section-hd__title" id="hd-yt">YouTube Thumbnail</h2>
-      <span class="section-hd__count">4 works</span>
-    </div>
-    <div class="gallery">
-
-      <div class="card">
-        <a href="YouTubeThumbnail/CultureShotInJapan/Thumbnail_(CultureShotInJapan)_1.png">
-          <div class="card__img-wrap">
-            <img src="YouTubeThumbnail/CultureShotInJapan/Thumbnail_(CultureShotInJapan)_1.png" alt="日本のカルチャーショック 1">
-            <span class="badge badge--youtube">YouTube</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">日本のカルチャーショック 1</p>
-            <p class="card__desc">外国人が日本で感じた驚きをテーマにしたYouTubeサムネイルです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="YouTubeThumbnail/CultureShotInJapan/Thumbnail_(CultureShotInJapan)_2.png">
-          <div class="card__img-wrap">
-            <img src="YouTubeThumbnail/CultureShotInJapan/Thumbnail_(CultureShotInJapan)_2.png" alt="日本のカルチャーショック 2">
-            <span class="badge badge--youtube">YouTube</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">日本のカルチャーショック 2</p>
-            <p class="card__desc">インパクトのある文字と人物表情で、クリック率を意識したサムネイルです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="YouTubeThumbnail/EvolutionOfAI/Thumbnail_(EvolutionOfAI)_1.png">
-          <div class="card__img-wrap">
-            <img src="YouTubeThumbnail/EvolutionOfAI/Thumbnail_(EvolutionOfAI)_1.png" alt="AIの進化 1">
-            <span class="badge badge--youtube">YouTube</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">AIの進化 1</p>
-            <p class="card__desc">AIの進化と仕事の変化をテーマにした情報系YouTubeサムネイルです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="card">
-        <a href="YouTubeThumbnail/EvolutionOfAI/Thumbnail_(EvolutionOfAI)_2.png">
-          <div class="card__img-wrap">
-            <img src="YouTubeThumbnail/EvolutionOfAI/Thumbnail_(EvolutionOfAI)_2.png" alt="AIの進化 2">
-            <span class="badge badge--youtube">YouTube</span>
-          </div>
-          <div class="card__body">
-            <p class="card__title">AIの進化 2</p>
-            <p class="card__desc">知的で信頼感のある印象を意識したAI解説動画向けサムネイルです。</p>
-            <div class="card__tools"><span class="tag">AI生成</span></div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- ══ Footer ══ -->
-<footer class="site-footer">
-  <p class="footer__logo">takenoco works</p>
-  <p class="footer__desc">AIツールを活用したデザイン制作<br>Web広告 / Landing Page / InfoGraphics / YouTube Thumbnail</p>
-  <div class="footer__links">
-    <a href="https://www.lancers.jp/" class="footer__link" target="_blank" rel="noopener noreferrer">ランサーズ</a>
-    <a href="https://crowdworks.jp/" class="footer__link" target="_blank" rel="noopener noreferrer">クラウドワークス</a>
   </div>
-  <p class="footer__copy">© 2026 takenoco works</p>
+</section>
+
+<section class="block" id="lp">
+  <div class="wrap">
+    <h2 class="h2">Landing Page</h2>
+    <p class="lead">最も力を入れている主軸の領域です。デザインの知識とコーディングを掛け合わせ、構成設計からメインビジュアル、HTML + CSS の実装まで一貫して対応します。商品・サービスの魅力が伝わり、行動につながる導線設計を大切にしています。</p>
+
+    <div class="cards2 works-wrap">
+
+      <a class="work featured linkable" href="LP/Cafe-Kosha/index.html" target="_blank" rel="noopener">
+        <div class="f-img linkable">
+          <span class="f-badge">FEATURED</span>
+          <img src="LP/Cafe-Kosha/thumb.png" alt="焙煎珈琲処 香舎 LP" onerror="this.parentElement.style.background='linear-gradient(135deg,#5b4636,#2e231b)'">
+        </div>
+        <div class="f-body">
+          <span class="w-cat">Landing Page ／ 独立サイト</span>
+          <h4>珈琲専門店 LP ― 焙煎珈琲処 香舎</h4>
+          <p class="w-desc">自家焙煎珈琲店「焙煎珈琲処 香舎」の5ページ構成ランディングページ。HTML + CSS のみで実装し、産地インフォグラフィック・店舗情報・メニューページを含む本格的な Web サイトです。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>珈琲の世界観に合わせた落ち着いた配色と余白設計で、ブランドの上質さを表現。世界の産地インフォグラフィックを組み込み、「読ませる」だけでなく「見て分かる」構成にしました。CSS のみでレスポンシブ対応しています。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">HTML</span><span class="w-tag">CSS</span><span class="w-tag">5ページ構成</span><span class="w-tag">レスポンシブ</span><span class="w-tag">CSS Only</span></div>
+          <span class="view-link">実際のサイトを見る</span>
+        </div>
+      </a>
+
+      <a class="work" href="LP/YogiBase/index.html" target="_blank" rel="noopener">
+        <div class="w-img"><img src="LP/YogiBase/thumb.png" alt="Yogi Base LP" onerror="this.style.display='none'"><div class="w-fallback">Landing Page</div></div>
+        <div class="w-body">
+          <span class="w-cat">Landing Page ／ 独立サイト</span>
+          <h4>ヨガスタジオ LP ― Yogi Base</h4>
+          <p class="w-desc">完全個室・少人数制のヨガスタジオ向けランディングページ。心地よさが伝わるトーンで、体験予約への導線を設計しました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>呼吸するような余白と落ち着いた写真使いで「通いたくなる雰囲気」を演出。初めての方が不安なく予約まで進めるよう、料金・流れを上から自然に追える構成にしました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">HTML</span><span class="w-tag">CSS</span><span class="w-tag">レスポンシブ</span></div>
+          <span class="view-link">実際のサイトを見る</span>
+        </div>
+      </a>
+
+      <article class="work">
+        <div class="w-img"><img src="LP/RelaxationSalon/RelaxationSalon(Liora)_LP.png" alt="リラクゼーションサロン LP" onerror="this.style.display='none'"><div class="w-fallback">Landing Page</div></div>
+        <div class="w-body">
+          <span class="w-cat">Landing Page</span>
+          <h4>リラクゼーションサロン LP ― Liora</h4>
+          <p class="w-desc">サロンの世界観を伝える落ち着いたトーンで構成。メニューと料金が一目で分かる情報設計です。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>「癒し」の印象を損なわないよう装飾を抑え、メニュー比較と料金を視線の流れに沿って配置。スマホでも崩れず、迷わず予約に進める導線を意識しました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">LPデザイン</span><span class="w-tag">メニュー設計</span></div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="w-img"><img src="LP/Chiropractic/Chiropractic_LP.png" alt="整体院 LP" onerror="this.style.display='none'"><div class="w-fallback">Landing Page</div></div>
+        <div class="w-body">
+          <span class="w-cat">Landing Page</span>
+          <h4>整体院 LP ― Chiropractic</h4>
+          <p class="w-desc">悩み・施術内容・来院フローを整理し、初めての方でも安心して予約できる構成にしました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>来院前の不安を解消するため「悩み → 施術内容 → 来院の流れ」の順で情報を整理。信頼感を伝えるトーンで配色を統一し、行動につながる導線を設計しました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">LPデザイン</span><span class="w-tag">導線設計</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block band" id="design">
+  <div class="wrap">
+    <h2 class="h2">Web広告 ・ Design</h2>
+    <p class="lead">商品・サービスの魅力を伝える広告画像制作を得意としています。Web広告バナーやYouTubeサムネイルなど、見た目の美しさだけでなく、目的・媒体・受け手を考慮した訴求設計を心がけています。</p>
+
+    <h3 class="sub-title">Web広告</h3>
+    <div class="cards2">
+      <article class="work">
+        <div class="w-img"><img src="WebAdvertising/Cafe/webAdvertising_(cafe)-PortraitLong.png" alt="カフェ Web広告" onerror="this.style.display='none'"><div class="w-fallback">Web Advertising</div></div>
+        <div class="w-body">
+          <span class="w-cat">Web Advertising</span>
+          <h4>カフェ Web広告</h4>
+          <p class="w-desc">来店を促すカフェの広告バナー。あたたかみのあるビジュアルで、思わず立ち寄りたくなる訴求にしました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>「居心地の良さ」が一目で伝わる色味と光の表現を選定。キャッチコピーとビジュアルの主従を整理し、限られたバナー面積でも訴求点がぶれないようにしました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">バナー</span><span class="w-tag">訴求設計</span></div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="w-img"><img src="WebAdvertising/Perfume/webAdvertising_(Perfume)_Portrait.png" alt="香水 Web広告" onerror="this.style.display='none'"><div class="w-fallback">Web Advertising</div></div>
+        <div class="w-body">
+          <span class="w-cat">Web Advertising</span>
+          <h4>香水 Web広告</h4>
+          <p class="w-desc">香水ブランドの広告バナー。高級感と香りの世界観を、配色と質感の表現で伝えるデザインです。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>「香り」という見えない価値を、光沢・質感・余白で視覚化。高級感を損なわないよう要素を絞り込み、ブランドイメージに合うトーンに統一しました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">バナー</span><span class="w-tag">高級感</span></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="sub-title">YouTubeサムネイル</h3>
+    <div class="cards2">
+      <article class="work">
+        <div class="w-img"><img src="YouTubeThumbnail/CultureShotInJapan/Thumbnail_(CultureShotInJapan)_1.png" alt="Culture Shot in Japan サムネイル" onerror="this.style.display='none'"><div class="w-fallback">YouTube Thumbnail</div></div>
+        <div class="w-body">
+          <span class="w-cat">YouTube Thumbnail</span>
+          <h4>Culture Shot in Japan</h4>
+          <p class="w-desc">日本文化を紹介する動画向けサムネイル。テーマが直感的に伝わるビジュアルと文字配置にしました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>一覧表示で埋もれないよう、被写体と文字のコントラストを強調。小さく表示されても内容が伝わる文字サイズ・配置を検証しながら仕上げました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">視認性</span></div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="w-img"><img src="YouTubeThumbnail/EvolutionOfAI/Thumbnail_(EvolutionOfAI)_1.png" alt="Evolution of AI サムネイル" onerror="this.style.display='none'"><div class="w-fallback">YouTube Thumbnail</div></div>
+        <div class="w-body">
+          <span class="w-cat">YouTube Thumbnail</span>
+          <h4>Evolution of AI</h4>
+          <p class="w-desc">AIの進化をテーマにした動画向けサムネイル。先進的な印象とインパクトを両立させた構成です。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>テーマの「先進性」を配色と光の演出で表現しつつ、情報過多にならないよう要素を整理。クリックしたくなる引きと、内容の分かりやすさを両立させました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">インパクト</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="special">
+  <div class="wrap">
+    <h2 class="h2">Special Works</h2>
+    <p class="lead">「複雑な情報を、見て一瞬で分かる形に変換する」ことが得意です。調査力・構成力・ビジュアライズ力を掛け合わせた、知識 × デザインの作品群です。</p>
+
+    <h3 class="sub-title">産業革命シリーズ（対象別 3バージョン）</h3>
+    <div class="cards3">
+      <article class="work">
+        <div class="w-img"><img src="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForAdults).png" alt="産業革命 大人向け" onerror="this.style.display='none'"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-body">
+          <span class="w-cat">InfoGraphics</span>
+          <h4>産業革命 大人向け</h4>
+          <p class="w-desc">一般の大人向けに、産業革命の流れを分かりやすくまとめたデザイン。要点を絞り全体像を俯瞰できます。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>同じテーマを「大人／中学生／大学生」の3バージョンに作り分けた1点。専門用語を絞り、流れを時系列で追える構成にしました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">対象別最適化</span></div>
+        </div>
+      </article>
+      <article class="work">
+        <div class="w-img"><img src="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForJuniorHighSchoolStudents).png" alt="産業革命 中学生向け" onerror="this.style.display='none'"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-body">
+          <span class="w-cat">InfoGraphics</span>
+          <h4>産業革命 中学生向け</h4>
+          <p class="w-desc">中学生にも理解しやすいよう、要点をシンプルに整理。学習用途を想定しました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>読み手の前提知識に合わせ、情報量と用語をさらに削減。図とキーワード中心で「初めてでも追える」設計にしています。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">学習向け</span></div>
+        </div>
+      </article>
+      <article class="work">
+        <div class="w-img"><img src="InfoGraphics/IndustrialRevolution/Infographic_(IndustrialRevolution-ForUniversityStudents).png" alt="産業革命 大学生向け" onerror="this.style.display='none'"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-body">
+          <span class="w-cat">InfoGraphics</span>
+          <h4>産業革命 大学生向け</h4>
+          <p class="w-desc">大学生向けに、産業革命の背景や社会への影響を整理。考察を促す情報量にしました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>背景・因果関係まで踏み込み、考察の起点になる密度に調整。同テーマでも対象に応じて情報設計を変えられることを示す作品です。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">考察向け</span></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="sub-title">超新星爆発シリーズ（レイアウト違い）</h3>
+    <div class="cards3">
+      <article class="work">
+        <div class="w-img"><img src="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion).png" alt="超新星爆発" onerror="this.style.display='none'"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-body">
+          <span class="w-cat">InfoGraphics</span>
+          <h4>超新星爆発</h4>
+          <p class="w-desc">超新星爆発の仕組みを一般向けに図解。専門的な現象を直感的に把握できるビジュアルにまとめました。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>宇宙のスケール感を配色とコントラストで表現。難しい現象を段階的に追える流れにして、専門知識がなくても理解できる図解にしました。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">図解</span></div>
+        </div>
+      </article>
+      <article class="work">
+        <div class="w-img"><img src="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion)_LandscapeLong.png" alt="超新星爆発 横長" onerror="this.style.display='none'"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-body">
+          <span class="w-cat">InfoGraphics</span>
+          <h4>超新星爆発 横長</h4>
+          <p class="w-desc">横長レイアウトで、発生の流れを見やすく構成したデザイン。PC・スライド表示を想定しています。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>横スクロール・スライド表示を想定し、左から右への時間軸で発生プロセスを配置。同じ内容を媒体に合わせて再設計できることを示しています。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">横長</span></div>
+        </div>
+      </article>
+      <article class="work">
+        <div class="w-img"><img src="InfoGraphics/SupernovaExplosion/infographic_(SupernovaExplosion)_PortraitLong.png" alt="超新星爆発 縦長" onerror="this.style.display='none'"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-body">
+          <span class="w-cat">InfoGraphics</span>
+          <h4>超新星爆発 縦長</h4>
+          <p class="w-desc">スマートフォンや縦長表示を想定した図解デザイン。スクロールで流れを追えます。</p>
+          <div class="note">
+            <div class="note-h">こだわりポイント</div>
+            <p>スマホ縦スクロールに最適化し、上から下へ読み進められる構成に。1枚の情報を横長・縦長で出し分け、デバイス対応力を示す作品です。</p>
+          </div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">縦長</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <h2 class="h2">Contact</h2>
+    <p class="lead">インフォグラフィック・LP・Web広告・サムネイル制作のご依頼やご相談を承っています。ご相談内容に合わせて柔軟に対応いたしますので、まずはお気軽にご相談ください。</p>
+
+    <div class="merits">
+      <div class="merit"><span class="mk">✓</span><div><h5>迅速なレスポンス</h5><p>メッセージは24時間以内の返信を心がけ、スムーズなやり取りを大切にします。</p></div></div>
+      <div class="merit"><span class="mk">✓</span><div><h5>AI活用で効率的な制作</h5><p>複数の表現案を検討しながら、ご要望に合うビジュアルをご提案します。</p></div></div>
+      <div class="merit"><span class="mk">✓</span><div><h5>納期厳守</h5><p>スケジュール管理を徹底し、期日を守って対応します。</p></div></div>
+      <div class="merit"><span class="mk">✓</span><div><h5>柔軟な修正対応</h5><p>色味・文字配置・雰囲気・構図など、ご希望に合わせて丁寧に調整します。</p></div></div>
+    </div>
+
+    <div class="contact-cta" style="margin-top:36px">
+      <a class="cta" href="https://crowdworks.jp/public/employees/6783843" target="_blank" rel="noopener">クラウドワークスで依頼する</a>
+      <a class="cta ghost" href="https://coconala.com/users/5864749" target="_blank" rel="noopener">ココナラで依頼する</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">takenoco works</div>
+    <small>© 2026 takenoco works. All rights reserved.</small>
+  </div>
 </footer>
+
+<script>
+  const t=document.getElementById('navtoggle'),n=document.getElementById('navlinks');
+  t.addEventListener('click',()=>n.classList.toggle('open'));
+  n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));
+
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';io.unobserve(e.target)}})},{threshold:.08});
+  document.querySelectorAll('.work, .merit, .profile-grid, .spec').forEach(el=>{
+    el.style.opacity=0;el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease, transform .6s ease';io.observe(el);
+  });
+</script>
 
 </body>
 </html>
