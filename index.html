@@ -163,12 +163,25 @@ footer small{color:var(--ink-soft);font-size:12px}
 article.work .w-img{cursor:zoom-in}
 article.work .w-img::after{content:"クリックで拡大 ⤢";position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(35,79,138,.72);color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .3s;pointer-events:none}
 article.work .w-img:hover::after{opacity:1}
-.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(20,24,31,.92);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:40px 20px;cursor:zoom-out}
-.lightbox.open{display:flex}
-.lightbox img{max-width:min(1100px,100%);height:auto;border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.5);margin:auto 0;cursor:default}
-.lightbox-close{position:fixed;top:18px;right:24px;z-index:1001;width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:24px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(20,24,31,.93);display:none;overflow:auto;cursor:zoom-out}
+.lightbox.open{display:block}
+.lightbox img{display:block;max-width:min(1100px,92%);height:auto;border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.5);margin:40px auto 150px;cursor:default}
+.lightbox-close{position:fixed;top:18px;right:24px;z-index:1003;width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:24px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;line-height:1}
 .lightbox-close:hover{background:rgba(255,255,255,.3)}
-.lightbox-cap{position:fixed;bottom:18px;left:0;right:0;text-align:center;color:#cdd5e0;font-size:13px;letter-spacing:.04em;pointer-events:none}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);z-index:1002;width:52px;height:52px;border:none;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:32px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;line-height:1;padding-bottom:4px}
+.lb-nav:hover{background:rgba(255,255,255,.32)}
+.lb-prev{left:24px}.lb-next{right:24px}
+.lb-nav.hidden{display:none}
+.lb-bottom{position:fixed;bottom:0;left:0;right:0;z-index:1001;padding:14px 16px 18px;background:linear-gradient(0deg,rgba(20,24,31,.95),rgba(20,24,31,0));pointer-events:none}
+.lightbox-cap{text-align:center;color:#e3e8ef;font-size:13px;letter-spacing:.04em;margin-bottom:10px;font-weight:600}
+.lb-thumbs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;pointer-events:auto}
+.lb-thumbs img{width:52px;height:52px;object-fit:cover;border-radius:6px;margin:0;box-shadow:none;cursor:pointer;opacity:.5;border:2px solid transparent;transition:opacity .2s,border-color .2s;max-width:52px}
+.lb-thumbs img:hover{opacity:.85}
+.lb-thumbs img.active{opacity:1;border-color:#fff}
+@media(max-width:540px){
+  .lb-nav{width:42px;height:42px;font-size:26px}
+  .lb-prev{left:8px}.lb-next{right:8px}
+}
 </style>
 </head>
 <body>
@@ -176,8 +189,13 @@ article.work .w-img:hover::after{opacity:1}
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="前へ">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="次へ">›</button>
   <img id="lightboxImg" src="" alt="">
-  <div class="lightbox-cap" id="lightboxCap"></div>
+  <div class="lb-bottom">
+    <div class="lightbox-cap" id="lightboxCap"></div>
+    <div class="lb-thumbs" id="lbThumbs"></div>
+  </div>
 </div>
 
 <header>
@@ -308,7 +326,7 @@ article.work .w-img:hover::after{opacity:1}
       </a>
 
       <article class="work">
-        <div class="w-img"><img src="LP/RelaxationSalon/RelaxationSalon%28Liora%29_LP.png" alt="リラクゼーションサロン LP"><div class="w-fallback">Landing Page</div></div>
+        <div class="w-img" data-images="LP/RelaxationSalon/RelaxationSalon%28Liora%29_LP.png|LP/RelaxationSalon/RelaxationSalon%28Liora%29_webAdvertising.png" data-caps="LP|Web広告"><img src="LP/RelaxationSalon/RelaxationSalon%28Liora%29_LP.png" alt="リラクゼーションサロン LP"><div class="w-fallback">Landing Page</div></div>
         <div class="w-body">
           <span class="w-cat">Landing Page</span>
           <h4>リラクゼーションサロン LP ― Liora</h4>
@@ -322,7 +340,7 @@ article.work .w-img:hover::after{opacity:1}
       </article>
 
       <article class="work">
-        <div class="w-img"><img src="LP/Chiropractic/Chiropractic_LP.png" alt="整体院 LP"><div class="w-fallback">Landing Page</div></div>
+        <div class="w-img" data-images="LP/Chiropractic/Chiropractic_LP.png|LP/Chiropractic/Chiropractic_webAdvretising.png" data-caps="LP|Web広告"><img src="LP/Chiropractic/Chiropractic_LP.png" alt="整体院 LP"><div class="w-fallback">Landing Page</div></div>
         <div class="w-body">
           <span class="w-cat">Landing Page</span>
           <h4>整体院 LP ― Chiropractic</h4>
@@ -347,21 +365,21 @@ article.work .w-img:hover::after{opacity:1}
     <h3 class="sub-title">Web広告</h3>
     <div class="cards2">
       <article class="work">
-        <div class="w-img"><img src="WebAdvertising/Cafe/webAdvertising__%28cafe%29-PortraitLong.png" alt="カフェ Web広告"><div class="w-fallback">Web Advertising</div></div>
+        <div class="w-img" data-images="WebAdvertising/Cafe/webAdvertising__%28cafe%29-PortraitLong.png|WebAdvertising/Cafe/webAdvertising__%28cafe%29-LandscapeLong.png|WebAdvertising/Cafe/CafeMenu.png|WebAdvertising/Cafe/Infographic_COffeBeansProducingRegions.png|WebAdvertising/Cafe/LP_%28cafe%29.png" data-caps="Web広告（縦長）|Web広告（横長）|カフェメニュー|生豆の産地インフォグラフィック|カフェ LP"><img src="WebAdvertising/Cafe/webAdvertising__%28cafe%29-PortraitLong.png" alt="カフェ Web広告"><div class="w-fallback">Web Advertising</div></div>
         <div class="w-body">
-          <span class="w-cat">Web Advertising</span>
-          <h4>カフェ Web広告</h4>
-          <p class="w-desc">来店を促すカフェの広告バナー。あたたかみのあるビジュアルで、思わず立ち寄りたくなる訴求にしました。</p>
+          <span class="w-cat">Web Advertising ／ 5点</span>
+          <h4>カフェ ブランディング一式</h4>
+          <p class="w-desc">来店を促すカフェの広告バナーを中心に、メニュー・生豆の産地インフォグラフィック・LPまで、1つの店舗のビジュアルをトータルで制作しました。</p>
           <div class="note">
             <div class="note-h">こだわりポイント</div>
-            <p>「居心地の良さ」が一目で伝わる色味と光の表現を選定。キャッチコピーとビジュアルの主従を整理し、限られたバナー面積でも訴求点がぶれないようにしました。</p>
+            <p>「居心地の良さ」が一目で伝わる色味と光の表現で全体のトーンを統一。広告・メニュー・LP・図解と媒体が違っても世界観がぶれないよう、配色と余白のルールを揃えました。</p>
           </div>
-          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">バナー</span><span class="w-tag">訴求設計</span></div>
+          <div class="w-tags"><span class="w-tag">AI生成</span><span class="w-tag">バナー</span><span class="w-tag">メニュー</span><span class="w-tag">インフォグラフィック</span><span class="w-tag">LP</span></div>
         </div>
       </article>
 
       <article class="work">
-        <div class="w-img"><img src="WebAdvertising/Perfume/webAdvertising__%28Perfume%29_Porrait.png" alt="香水 Web広告"><div class="w-fallback">Web Advertising</div></div>
+        <div class="w-img" data-images="WebAdvertising/Perfume/webAdvertising__%28Perfume%29_Porrait.png|WebAdvertising/Perfume/webAdvertising__%28Perfume%29_Landscape.png" data-caps="Web広告（縦長）|Web広告（横長）"><img src="WebAdvertising/Perfume/webAdvertising__%28Perfume%29_Porrait.png" alt="香水 Web広告"><div class="w-fallback">Web Advertising</div></div>
         <div class="w-body">
           <span class="w-cat">Web Advertising</span>
           <h4>香水 Web広告</h4>
@@ -378,7 +396,7 @@ article.work .w-img:hover::after{opacity:1}
     <h3 class="sub-title">YouTubeサムネイル</h3>
     <div class="cards2">
       <article class="work">
-        <div class="w-img"><img src="YouTubeThumbnail/CultureShotInJapan/Thumbnail_%28CultureShotInJapan%29_1.png" alt="Culture Shot in Japan サムネイル"><div class="w-fallback">YouTube Thumbnail</div></div>
+        <div class="w-img" data-images="YouTubeThumbnail/CultureShotInJapan/Thumbnail_%28CultureShotInJapan%29_1.png|YouTubeThumbnail/CultureShotInJapan/Thumbnail_%28CultureShotInJapan%29_2.png" data-caps="サムネイル案1|サムネイル案2"><img src="YouTubeThumbnail/CultureShotInJapan/Thumbnail_%28CultureShotInJapan%29_1.png" alt="Culture Shot in Japan サムネイル"><div class="w-fallback">YouTube Thumbnail</div></div>
         <div class="w-body">
           <span class="w-cat">YouTube Thumbnail</span>
           <h4>Culture Shot in Japan</h4>
@@ -392,7 +410,7 @@ article.work .w-img:hover::after{opacity:1}
       </article>
 
       <article class="work">
-        <div class="w-img"><img src="YouTubeThumbnail/EvolutionOfAI/Thumbnail_%28EvolutionOfAI%29_1.png" alt="Evolution of AI サムネイル"><div class="w-fallback">YouTube Thumbnail</div></div>
+        <div class="w-img" data-images="YouTubeThumbnail/EvolutionOfAI/Thumbnail_%28EvolutionOfAI%29_1.png|YouTubeThumbnail/EvolutionOfAI/Thumbnail_%28EvolutionOfAI%29_2.png" data-caps="サムネイル案1|サムネイル案2"><img src="YouTubeThumbnail/EvolutionOfAI/Thumbnail_%28EvolutionOfAI%29_1.png" alt="Evolution of AI サムネイル"><div class="w-fallback">YouTube Thumbnail</div></div>
         <div class="w-body">
           <span class="w-cat">YouTube Thumbnail</span>
           <h4>Evolution of AI</h4>
@@ -459,7 +477,7 @@ article.work .w-img:hover::after{opacity:1}
     <h3 class="sub-title">超新星爆発シリーズ（レイアウト違い）</h3>
     <div class="cards3">
       <article class="work">
-        <div class="w-img"><img src="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29.png" alt="超新星爆発"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-img" data-images="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29.png|InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_LandscapeLong.png|InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_PortraitLong.png" data-caps="通常版|横長版|縦長版" data-start="0"><img src="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29.png" alt="超新星爆発"><div class="w-fallback">InfoGraphics</div></div>
         <div class="w-body">
           <span class="w-cat">InfoGraphics</span>
           <h4>超新星爆発</h4>
@@ -472,7 +490,7 @@ article.work .w-img:hover::after{opacity:1}
         </div>
       </article>
       <article class="work">
-        <div class="w-img"><img src="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_LandscapeLong.png" alt="超新星爆発 横長"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-img" data-images="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29.png|InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_LandscapeLong.png|InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_PortraitLong.png" data-caps="通常版|横長版|縦長版" data-start="1"><img src="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_LandscapeLong.png" alt="超新星爆発 横長"><div class="w-fallback">InfoGraphics</div></div>
         <div class="w-body">
           <span class="w-cat">InfoGraphics</span>
           <h4>超新星爆発 横長</h4>
@@ -485,7 +503,7 @@ article.work .w-img:hover::after{opacity:1}
         </div>
       </article>
       <article class="work">
-        <div class="w-img"><img src="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_PortraitLong.png" alt="超新星爆発 縦長"><div class="w-fallback">InfoGraphics</div></div>
+        <div class="w-img" data-images="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29.png|InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_LandscapeLong.png|InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_PortraitLong.png" data-caps="通常版|横長版|縦長版" data-start="2"><img src="InfoGraphics/SupernovaExplosion/infographic_%28SupernovaExplosion%29_PortraitLong.png" alt="超新星爆発 縦長"><div class="w-fallback">InfoGraphics</div></div>
         <div class="w-body">
           <span class="w-cat">InfoGraphics</span>
           <h4>超新星爆発 縦長</h4>
@@ -537,23 +555,59 @@ article.work .w-img:hover::after{opacity:1}
     el.style.opacity=0;el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease, transform .6s ease';io.observe(el);
   });
 
-  // Lightbox: article.work(画像作品)の画像をクリックで拡大
+  // Lightbox: 画像作品をクリックでギャラリー拡大
   const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg'),
-        lbCap=document.getElementById('lightboxCap'),lbClose=document.getElementById('lightboxClose');
-  document.querySelectorAll('article.work .w-img img').forEach(img=>{
-    img.parentElement.addEventListener('click',()=>{
-      lbImg.src=img.getAttribute('src');
-      lbImg.alt=img.alt||'';
-      const h=img.closest('.work').querySelector('h4');
-      lbCap.textContent=h?h.textContent:'';
-      lb.classList.add('open');
-      document.body.style.overflow='hidden';
+        lbCap=document.getElementById('lightboxCap'),lbClose=document.getElementById('lightboxClose'),
+        lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext'),
+        lbThumbs=document.getElementById('lbThumbs');
+  let gImages=[],gCaps=[],gIndex=0;
+
+  function showImg(i){
+    gIndex=(i+gImages.length)%gImages.length;
+    lbImg.src=gImages[gIndex];
+    lbCap.textContent=(gCaps[gIndex]||'')+(gImages.length>1?`  （${gIndex+1} / ${gImages.length}）`:'');
+    lbThumbs.querySelectorAll('img').forEach((t,j)=>t.classList.toggle('active',j===gIndex));
+    lb.scrollTop=0;
+  }
+  function openGallery(imgs,caps,start){
+    gImages=imgs;gCaps=caps;
+    const multi=imgs.length>1;
+    lbPrev.classList.toggle('hidden',!multi);
+    lbNext.classList.toggle('hidden',!multi);
+    lbThumbs.innerHTML='';
+    if(multi){
+      imgs.forEach((src,j)=>{
+        const t=document.createElement('img');t.src=src;
+        t.addEventListener('click',e=>{e.stopPropagation();showImg(j);});
+        lbThumbs.appendChild(t);
+      });
+    }
+    showImg(start||0);
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  document.querySelectorAll('article.work .w-img').forEach(box=>{
+    box.addEventListener('click',()=>{
+      const data=box.getAttribute('data-images');
+      let imgs,caps;
+      if(data){imgs=data.split('|');caps=(box.getAttribute('data-caps')||'').split('|');}
+      else{const im=box.querySelector('img');imgs=[im.getAttribute('src')];caps=[im.alt||''];}
+      const start=parseInt(box.getAttribute('data-start')||'0',10);
+      openGallery(imgs,caps,start);
     });
   });
   function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
-  lb.addEventListener('click',e=>{if(e.target!==lbImg)closeLb();});
-  lbClose.addEventListener('click',closeLb);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))closeLb();});
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  lbImg.addEventListener('click',e=>e.stopPropagation());
+  lbClose.addEventListener('click',e=>{e.stopPropagation();closeLb();});
+  lbPrev.addEventListener('click',e=>{e.stopPropagation();showImg(gIndex-1);});
+  lbNext.addEventListener('click',e=>{e.stopPropagation();showImg(gIndex+1);});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')closeLb();
+    else if(e.key==='ArrowLeft'&&gImages.length>1)showImg(gIndex-1);
+    else if(e.key==='ArrowRight'&&gImages.length>1)showImg(gIndex+1);
+  });
 </script>
 
 </body>
