@@ -910,6 +910,12 @@ footer { background: var(--navy-deep); padding-block: 3.5rem; border-top: 1px so
   .js-ready #final-cta .final-cta-inner.visible .btn-primary.large { animation: none !important; }
 }
 
+/* ─── Mobile-only line break ────────────────────────────── */
+.sp-br { display: none; }
+@media (max-width: 600px) {
+  .sp-br { display: inline; }
+}
+
 /* ─── Mobile sticky CTA ──────────────────────────────────── */
 .mobile-sticky-cta {
   display: none;

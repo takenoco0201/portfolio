@@ -120,7 +120,7 @@ a.work:hover .w-img::after,.featured.linkable:hover .f-img.linkable::after{opaci
 .featured{grid-column:1 / -1;display:grid;grid-template-columns:1.05fr 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .featured .f-img{position:relative;min-height:300px;background:#cdd7e4}
 .featured .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
-.featured .f-badge{position:absolute;top:14px;left:14px;background:var(--brand-deep);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 12px;border-radius:6px;z-index:2}
+.featured .f-badge,.w-img .f-badge{position:absolute;top:14px;left:14px;background:var(--brand-deep);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 12px;border-radius:6px;z-index:2}
 .featured .f-body{padding:34px 32px}
 
 .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -307,12 +307,9 @@ article.work .w-img:hover::after{opacity:1}
         </div>
       </a>
 
-      <a class="work featured linkable" href="LP/Cafe-Kosha/index.html" target="_blank" rel="noopener">
-        <div class="f-img linkable">
-          <span class="f-badge">FEATURED</span>
-          <img src="LP/Cafe-Kosha/thumb.png" alt="焙煎珈琲処 香舎 LP">
-        </div>
-        <div class="f-body">
+      <a class="work linkable" href="LP/Cafe-Kosha/index.html" target="_blank" rel="noopener">
+        <div class="w-img"><span class="f-badge">FEATURED</span><img src="LP/Cafe-Kosha/thumb.png" alt="焙煎珈琲処 香舎 LP"><div class="w-fallback">Landing Page</div></div>
+        <div class="w-body">
           <span class="w-cat">Landing Page ／ 独立サイト</span>
           <h4>珈琲専門店 LP ― 焙煎珈琲処 香舎</h4>
           <p class="w-desc">自家焙煎珈琲店「焙煎珈琲処 香舎」の5ページ構成ランディングページ。HTML + CSS のみで実装し、産地インフォグラフィック・店舗情報・メニューページを含む本格的な Web サイトです。</p>
