@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="株式会社テックブリッジ エンジニア採用。フルリモート・最新スタック・少数精鋭。あなたのコードが直接プロダクトを動かす環境で、次のキャリアを。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/techbridge-recruit/">
+  <!-- Open Graph / SNS share — TODO: set BASE_URL above to actual GitHub Pages URL -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/techbridge-recruit/">
+  <meta property="og:title" content="エンジニア採用 | 株式会社テックブリッジ">
+  <meta property="og:description" content="フルリモート・Go/AWS/K8s・少数精鋭。エンジニアが本当に輝ける環境。カジュアル面談（無料・30分）で話しましょう。">
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/techbridge-recruit/images/hero-bg.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="株式会社テックブリッジ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="エンジニア採用 | 株式会社テックブリッジ">
+  <meta name="twitter:description" content="フルリモート・最新スタック・少数精鋭。カジュアル面談（無料30分）で話しましょう。">
+  <meta name="twitter:image" content="https://YOUR-USERNAME.github.io/techbridge-recruit/images/hero-bg.png">
+  <title>エンジニア採用 | 株式会社テックブリッジ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <noscript>
+    <style>
+      /* JS が無効な環境ではアニメーションと依存 UI をフォールバック */
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .hero-stagger > * { opacity: 1 !important; filter: none !important; }
+      .stagger-grid > * { opacity: 1 !important; transform: none !important; }
+      .tab-pane { display: block !important; border-top: 1px solid #C8DDD9; padding-top: 1rem; }
+      .tab-nav { display: none; }
+      .faq-a { grid-template-rows: 1fr !important; }
+      .mobile-sticky-cta { display: none !important; }
+    </style>
+    <p style="background:#1A2E4A;color:#fff;text-align:center;padding:.75rem;font-family:sans-serif;font-size:.875rem;margin:0;">
+      JavaScript を有効にするとより快適にご覧いただけます。
+    </p>
+  </noscript>
+</head>
+<body>
+
+<a href="#main-content" class="skip-to-content">コンテンツへスキップ</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container inner">
+    <a href="#main-content" class="logo"><span class="logo-mark"></span>Tech<span class="logo-bridge">Bridge</span></a>
+    <div class="nav-links">
+      <a href="#positions">仕事を知る</a>
+      <a href="#voices">人を知る</a>
+      <a href="#culture">環境を知る</a>
+      <a href="#process">選考の流れ</a>
+      <a href="contact.html" class="btn-nav">カジュアル面談を予約する</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- ======================================================
+     S01 HERO — Full-screen background photo
+====================================================== -->
+<section id="hero" class="photo-bg">
+  <!-- Background photo -->
+  <div class="photo-bg__img ph">
+    <img src="images/hero-bg.png" width="1920" height="1080" alt="" loading="eager">
+  </div>
+  <!-- Overlay: heavy on left, fades right -->
+  <div class="photo-bg__overlay overlay-navy-left"></div>
+
+  <!-- Content -->
+  <div class="photo-bg__content container">
+    <div class="hero-content">
+      <div class="hero-text hero-stagger">
+        <span class="hero-tag">ソフトウェアエンジニア募集 — 残り3名</span>
+
+        <h1 class="catch" style="color:#fff; margin-bottom:1.75rem;">
+          あなたのコードが、<br>
+          直接プロダクトを<br>
+          動かす場所がある。
+        </h1>
+
+        <p style="color:rgba(255,255,255,0.68); font-size:1.0625rem; line-height:1.95; max-width:500px; margin-bottom:2.5rem;">
+          株式会社テックブリッジは、フルリモート・最新スタック・少数精鋭のソフトウェア開発会社です。
+          「言われた通りに実装するだけ」の毎日に疲れたなら、一度だけ話を聞いてください。
+        </p>
+
+        <div style="display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; margin-bottom:2.5rem;">
+          <a href="contact.html" class="btn-primary large">
+            カジュアル面談を予約する
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#process" class="btn-outline">採用の流れを見る</a>
+        </div>
+
+        <div class="hero-trust">
+          <span class="hero-trust-item">離職率 <strong>5%</strong></span>
+          <span class="hero-trust-item">従業員満足度 <strong>92%</strong></span>
+          <span class="hero-trust-item">設立 <strong>10年</strong></span>
+          <span class="hero-trust-item">エンジニア <strong>32名</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll photo-bg__content">
+    <span>scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ======================================================
+     S01.5 PHILOSOPHY
+====================================================== -->
+<section id="philosophy">
+  <div class="container">
+    <div class="philosophy-inner fade-in">
+      <p class="philosophy-en">Our Mission</p>
+      <h2 class="catch" style="color:var(--navy); font-size:clamp(1.5rem,3.5vw,2.375rem);">
+        エンジニアが輝ける場所を、<br>エンジニアが作る。
+      </h2>
+      <div class="philosophy-divider"></div>
+      <p class="body-text" style="color:var(--slate); max-width:640px;">
+        テックブリッジは2015年、「エンジニアが本当に力を発揮できる環境をつくりたい」という思いで
+        元エンジニアの山田が立ち上げた会社です。大きな会社で歯車になる必要はない。
+        自分のコードが直接プロダクトを変えていく。そういう仕事の仕方を、当たり前にしたいと考えています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S02 PAIN
+====================================================== -->
+<section id="pain" style="background:var(--cool-white);">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="h2-section" style="color:var(--navy); max-width:560px;">
+        こんな状況に、<br>心当たりはありませんか？
+      </h2>
+    </div>
+    <div class="pain-grid stagger-grid">
+      <div class="pain-card">
+        <span class="pain-num">01</span>
+        <h3 class="h3-card" style="color:var(--navy); margin-bottom:.625rem;">新技術に触れられない</h3>
+        <p class="body-text" style="color:var(--slate);">
+          レガシーシステムの保守が続いて、ReactもGoもDockerも、業務で使う機会が来ない。
+          技術記事を読んでいるだけで、手を動かせていない。
+        </p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-num">02</span>
+        <h3 class="h3-card" style="color:var(--navy); margin-bottom:.625rem;">裁量が与えられない</h3>
+        <p class="body-text" style="color:var(--slate);">
+          技術選定は上が決める。アーキテクチャは前任者のまま。「こうした方がいい」と思っても、通る場がない。
+          自分はただ、仕様書を実装しているだけ。
+        </p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-num">03</span>
+        <h3 class="h3-card" style="color:var(--navy); margin-bottom:.625rem;">残業で、勉強できない</h3>
+        <p class="body-text" style="color:var(--slate);">
+          帰宅するとエネルギーが残っていない。勉強しようと思っても、開けないまま積まれていく本。
+          このままでいいのか、という漠然とした不安。
+        </p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-num">04</span>
+        <h3 class="h3-card" style="color:var(--navy); margin-bottom:.625rem;">5年後が、見えない</h3>
+        <p class="body-text" style="color:var(--slate);">
+          このまま続けたら、自分は何が得意なエンジニアになっているのか。
+          転職したい気持ちはある。でも、「どこに」行けばいいのかわからない。
+        </p>
+      </div>
+    </div>
+    <div class="pain-bridge fade-in">
+      <p class="pain-bridge-headline">その悩み、実は<em>環境が原因</em>です。</p>
+      <p class="pain-bridge-sub"><em>テックブリッジ</em>には、それを<em>丸ごと解決</em>できる仕組みがあります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S03 SOLUTION — Edge-to-edge split
+====================================================== -->
+<section id="solution">
+  <div class="solution-split">
+
+    <!-- Left: Office photo fills full height -->
+    <div class="solution-photo-panel ph">
+      <img src="images/office.png" width="1920" height="1080" alt="テックブリッジのオフィス" loading="lazy">
+    </div>
+
+    <!-- Right: Navy text panel -->
+    <div class="solution-text-panel">
+      <div class="solution-text-inner fade-in">
+        <h2 class="h2-section" style="color:#fff; margin-bottom:1.75rem;">
+          エンジニアが本当に<br>輝ける場所が、ここにある。
+        </h2>
+        <p style="color:rgba(255,255,255,.72); font-size:1rem; line-height:2; margin-bottom:2.25rem;">
+          テックブリッジは「エンジニアのために作られた会社」です。
+          少数精鋭だからこそ、1人ひとりの影響範囲が広い。
+          最新スタックを使うからこそ、毎日が学びになる。
+          代表の山田は、今も現場でコードを書くエンジニアです。
+          経営者が、あなたの気持ちを誰よりも理解しています。
+        </p>
+        <a href="contact.html" class="btn-primary">まず話を聞いてみる（完全無料）</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     S04 USP
+====================================================== -->
+<section id="usp" style="background:#fff;">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="h2-section" style="color:var(--navy);">テックブリッジが選ばれる、<br>3つの理由</h2>
+    </div>
+    <div class="usp-grid stagger-grid">
+      <div class="usp-card">
+        <div class="usp-header">
+          <svg class="usp-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <h3 class="h3-card" style="color:var(--navy);">出社不要。毎日、最前線を走る。</h3>
+        </div>
+        <p class="body-text" style="color:var(--slate);">
+          完全フルリモート（出社は月1〜2回）。React / TypeScript・Go・AWS・Kubernetes。
+          エンジニアが「使いたい」と思ってきた技術スタックを、業務で毎日触り続けられます。
+        </p>
+        <div class="badge-list" style="margin-top:1.25rem;">
+          <span class="tech-badge">React</span><span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">Go</span><span class="tech-badge">AWS</span><span class="tech-badge">K8s</span>
+        </div>
+      </div>
+      <div class="usp-card">
+        <div class="usp-header">
+          <svg class="usp-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3 class="h3-card" style="color:var(--navy);">1人の影響範囲が、桁違いに広い。</h3>
+        </div>
+        <p class="body-text" style="color:var(--slate);">
+          エンジニア32名の少数精鋭チーム。技術選定・アーキテクチャ設計・プロダクトの方向性。
+          入社初日から、その議論の場にいられます。「指示を待つ仕事」は、ここにはありません。
+        </p>
+      </div>
+      <div class="usp-card">
+        <div class="usp-header">
+          <svg class="usp-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          <h3 class="h3-card" style="color:var(--navy);">学ぶことが、仕事になる。</h3>
+        </div>
+        <p class="body-text" style="color:var(--slate);">
+          月次技術勉強会（業務時間内）・書籍購入補助年3万円・個人学習の推奨。
+          「勉強は自分の時間でやるもの」という文化は、ここにはありません。成長することが、仕事の一部です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S04.5 POSITIONS
+====================================================== -->
+<section id="positions" class="photo-bg">
+  <div class="photo-bg__img ph" style="opacity:.35;"></div>
+  <div class="photo-bg__overlay" style="background:var(--navy);"></div>
+  <div class="photo-bg__content container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="h2-section" style="color:#fff;">仕事を知る</h2>
+      <p style="color:rgba(255,255,255,.6); margin-top:.875rem; max-width:480px; margin-inline:auto;">
+        現在募集しているポジションです。「完璧に当てはまらなくても」相談できます。
+      </p>
+    </div>
+    <div class="positions-grid stagger-grid">
+      <div class="position-card">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.25rem;">
+          <div>
+            <p class="label" style="color:var(--cyan); margin-bottom:.375rem;">Backend Engineer</p>
+            <h3 class="h3-card" style="color:#fff;">バックエンドエンジニア</h3>
+          </div>
+          <span class="position-badge">正社員</span>
+        </div>
+        <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.85; margin-bottom:1.5rem;">
+          Go / Node.js を中心に、APIサーバー・マイクロサービスの設計・実装・運用を担当。技術選定の議論に初日から参加できます。
+        </p>
+        <div class="badge-list" style="margin-bottom:1.5rem;">
+          <span class="tech-badge">Go</span><span class="tech-badge">Node.js</span>
+          <span class="tech-badge">AWS</span><span class="tech-badge">PostgreSQL</span>
+        </div>
+        <div class="position-meta"><span>📍 フルリモート</span><span>💴 年収 500〜800万</span></div>
+      </div>
+      <div class="position-card">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.25rem;">
+          <div>
+            <p class="label" style="color:var(--cyan); margin-bottom:.375rem;">Frontend Engineer</p>
+            <h3 class="h3-card" style="color:#fff;">フロントエンドエンジニア</h3>
+          </div>
+          <span class="position-badge">正社員</span>
+        </div>
+        <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.85; margin-bottom:1.5rem;">
+          React / TypeScript でプロダクトのUI全体を担当。UXの意思決定・コンポーネント設計・パフォーマンス改善まで幅広く関わります。
+        </p>
+        <div class="badge-list" style="margin-bottom:1.5rem;">
+          <span class="tech-badge">React</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Next.js</span>
+        </div>
+        <div class="position-meta"><span>📍 フルリモート</span><span>💴 年収 450〜750万</span></div>
+      </div>
+      <div class="position-card">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.25rem;">
+          <div>
+            <p class="label" style="color:var(--cyan); margin-bottom:.375rem;">Full-Stack Engineer</p>
+            <h3 class="h3-card" style="color:#fff;">フルスタックエンジニア</h3>
+          </div>
+          <span class="position-badge position-badge--hot">残り1名</span>
+        </div>
+        <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.85; margin-bottom:1.5rem;">
+          フロントからインフラまで横断的に担当。小さなチームだからこそ、プロダクト全体のオーナーシップを持てるポジションです。
+        </p>
+        <div class="badge-list" style="margin-bottom:1.5rem;">
+          <span class="tech-badge">React</span><span class="tech-badge">Go</span>
+          <span class="tech-badge">AWS</span><span class="tech-badge">Kubernetes</span>
+        </div>
+        <div class="position-meta"><span>📍 フルリモート</span><span>💴 年収 550〜800万</span></div>
+      </div>
+    </div>
+    <div class="fade-in" style="text-align:center; margin-top:3rem;">
+      <p style="color:rgba(255,255,255,.5); font-size:.875rem; margin-bottom:1.5rem;">「どのポジションか迷っている」場合も、カジュアル面談でお話しできます。</p>
+      <a href="contact.html" class="btn-primary">まずカジュアル面談で話してみる</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S05 STACK
+====================================================== -->
+<section id="stack" style="background:#fff;">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="h2-section" style="color:var(--navy);">技術と、働き方</h2>
+      <p style="color:var(--slate); margin-top:1rem; max-width:520px;">「どんな技術を使うのか」「実際どう働くのか」。判断材料はすべて、ここに書きました。</p>
+    </div>
+    <div class="fade-in" style="margin-top:3rem;">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tech">技術スタック</button>
+        <button class="tab-btn" data-tab="work">勤務体系</button>
+        <button class="tab-btn" data-tab="benefit">福利厚生</button>
+      </div>
+      <div class="tab-pane active" id="tab-tech">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+          <div>
+            <p class="label" style="color:var(--navy); margin-bottom:.75rem;">フロントエンド</p>
+            <div class="badge-list"><span class="tech-badge">React</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Next.js</span></div>
+            <p class="label" style="color:var(--navy); margin-top:1.5rem; margin-bottom:.75rem;">バックエンド</p>
+            <div class="badge-list"><span class="tech-badge">Go</span><span class="tech-badge">Node.js</span></div>
+          </div>
+          <div>
+            <p class="label" style="color:var(--navy); margin-bottom:.75rem;">インフラ</p>
+            <div class="badge-list"><span class="tech-badge">AWS</span><span class="tech-badge">Kubernetes</span><span class="tech-badge">Terraform</span></div>
+            <p class="label" style="color:var(--navy); margin-top:1.5rem; margin-bottom:.75rem;">ツール・その他</p>
+            <div class="badge-list"><span class="tech-badge">GitHub Actions</span><span class="tech-badge">Datadog</span><span class="tech-badge">PostgreSQL</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-work">
+        <table class="info-table">
+          <tr><th>勤務形態</th><td>フルリモート（出社は月1〜2回、任意）</td></tr>
+          <tr><th>勤務時間</th><td>フレックスタイム制（コアタイム 11:00〜16:00）</td></tr>
+          <tr><th>年収</th><td>450万〜800万円（月給35万〜65万、賞与年2回）<br><span class="caption">※ 経験・スキルによる</span></td></tr>
+          <tr><th>雇用形態</th><td>正社員（無期雇用）</td></tr>
+          <tr><th>試用期間</th><td>3ヶ月（条件同一）</td></tr>
+          <tr><th>休日</th><td>完全週休2日（土日）、祝日、年次有給休暇</td></tr>
+        </table>
+      </div>
+      <div class="tab-pane" id="tab-benefit">
+        <table class="info-table">
+          <tr><th>書籍補助</th><td>年3万円（申請不要、領収書提出のみ）</td></tr>
+          <tr><th>勉強会</th><td>月次技術勉強会（業務時間内。参加推奨）</td></tr>
+          <tr><th>機器</th><td>MacBook Pro 支給（スペック相談可）</td></tr>
+          <tr><th>社会保険</th><td>健康保険・厚生年金・雇用保険・労災保険</td></tr>
+          <tr><th>副業</th><td>可（月20時間以内・事前申請。OSS活動は積極推奨）</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S06 NUMBERS — Full-bleed photo background
+====================================================== -->
+<section id="numbers" class="photo-bg">
+  <div class="photo-bg__img ph">
+    <img src="images/numbers-bg.png" width="1920" height="1080" alt="" loading="lazy">
+  </div>
+  <div class="photo-bg__overlay overlay-navy-deep"></div>
+  <div class="photo-bg__content numbers-bg-wrap container">
+    <div class="fade-in" style="text-align:center;">
+      <span class="section-label">Track Record</span>
+      <h2 class="h2-section" style="color:#fff;">数字が証明する、テックブリッジの実力</h2>
+    </div>
+    <div class="numbers-grid stagger-grid">
+      <div class="number-cell">
+        <span class="num">5<span class="unit">%</span></span>
+        <span class="desc">年間離職率<br>（業界平均 15% の 1/3）</span>
+      </div>
+      <div class="number-cell">
+        <span class="num">92<span class="unit">%</span></span>
+        <span class="desc">従業員満足度<br>（2025年度社内調査）</span>
+      </div>
+      <div class="number-cell">
+        <span class="num">10<span class="unit">年</span></span>
+        <span class="desc">設立年数<br>（2015年創業）</span>
+      </div>
+      <div class="number-cell">
+        <span class="num">150<span class="unit">社+</span></span>
+        <span class="desc">累計導入企業数</span>
+      </div>
+    </div>
+    <div class="awards fade-in">
+      <span class="award-badge">🏆 2024年 日経XTECH「働きがいのあるIT企業ランキング」関東部門 TOP50</span>
+      <span class="award-badge">🏅 2023年 DX推進支援事業 経済産業省認定</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S07 VOICES — Panoramic photo header + cards
+====================================================== -->
+<section id="voices" style="padding:0; background:var(--cool-white);">
+
+  <!-- Full-width panoramic photo header -->
+  <div class="voices-photo-header ph">
+    <img src="images/voices-ambient.png" width="1920" height="1080" alt="テックブリッジのチームの様子" loading="lazy">
+  </div>
+
+  <!-- Cards below -->
+  <div class="voices-section-body">
+    <div class="container">
+      <div class="fade-in">
+        <h2 class="h2-section" style="color:var(--navy);">先輩エンジニアたちの、<br>リアルな声</h2>
+      </div>
+      <div class="voices-grid stagger-grid">
+
+        <div class="voice-card">
+          <div class="voice-before">
+            <span class="voice-label">転職前</span>
+            大手SIerで10年物のJavaシステムを保守。「GoもAWSも、業務では触れないまま年齢だけ重なっていく気がした。」
+          </div>
+          <div class="voice-quote">"</div>
+          <p class="voice-text">
+            転職して1年で技術力が3倍になった気がします。
+            GoとAWSを毎日使うようになって、コードを書くのが純粋に楽しくなりました。
+            前職の自分には戻れないです。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar"><img src="images/member-1.png" width="1024" height="1024" alt="A.K.さん" onerror="this.style.display='none'" loading="lazy"></div>
+            <div>
+              <p class="voice-name">A.K. さん</p>
+              <p class="voice-role">バックエンドエンジニア・入社2年目<br>大手SIerから転職</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-before">
+            <span class="voice-label">転職前</span>
+            Web制作会社でデザインカンプ通りに実装するだけ。「技術的な提案をしても、通るプロセスがなかった。」
+          </div>
+          <div class="voice-quote">"</div>
+          <p class="voice-text">
+            自分の提案がすぐ採用されるのが嬉しい。
+            先週出したアーキテクチャの改善案が、今週もうコードに入っていました。
+            「ちゃんと聞いてもらえる」って、これほど大事なことだったのかと。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar"><img src="images/member-2.png" width="1024" height="1024" alt="Y.S.さん" onerror="this.style.display='none'" loading="lazy"></div>
+            <div>
+              <p class="voice-name">Y.S. さん</p>
+              <p class="voice-role">フロントエンドエンジニア・入社1年目<br>Web制作会社から転職</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-before">
+            <span class="voice-label">転職前</span>
+            受託開発会社で月残業80時間超。「帰宅するともう何もできない。勉強どころか、本も開けなかった。」
+          </div>
+          <div class="voice-quote">"</div>
+          <p class="voice-text">
+            残業はほぼゼロになって、退勤後に勉強する気力が戻ってきました。
+            OSS活動も始められて、エンジニアとして生き返った感覚です。
+            今が一番、仕事が好きかもしれない。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar"><img src="images/member-3.png" width="1024" height="1024" alt="T.M.さん" onerror="this.style.display='none'" loading="lazy"></div>
+            <div>
+              <p class="voice-name">T.M. さん</p>
+              <p class="voice-role">フルスタックエンジニア・入社3年目<br>受託開発会社から転職</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-before">
+            <span class="voice-label">転職前</span>
+            大手IT企業でシステム運用・監視の繰り返し業務。「手を動かして何かを作っている感覚がなかった。このままキャリアが終わるのが怖かった。」
+          </div>
+          <div class="voice-quote">"</div>
+          <p class="voice-text">
+            入社してはじめて「自分がインフラを設計している」という実感を持てました。
+            女性エンジニアが少ない業界ですが、ここでは当たり前に意見を言える。
+            技術で評価してもらえる環境って、こういうことなんだと思いました。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar"><img src="images/member-4.png" width="1024" height="1024" alt="R.N.さん" onerror="this.style.display='none'" loading="lazy"></div>
+            <div>
+              <p class="voice-name">R.N. さん</p>
+              <p class="voice-role">インフラ / SRE エンジニア・入社1年半<br>大手IT企業から転職</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.voices-grid -->
+
+      <div class="mid-cta fade-in">
+        <a href="contact.html" class="btn-primary">あなたも仲間になりませんか？（残り3名）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S08 CEO — Edge-to-edge dramatic split
+====================================================== -->
+<section id="ceo">
+  <div class="ceo-split fade-in">
+
+    <!-- Left: Full-height photo -->
+    <div class="ceo-photo-panel">
+      <img src="images/ceo-portrait.png" width="1024" height="1792" alt="代表取締役 山田健太" loading="lazy">
+    </div>
+
+    <!-- Right: Text -->
+    <div class="ceo-text-panel">
+      <div class="ceo-text-inner">
+        <span class="section-label">From Our CEO</span>
+        <p class="ceo-name">山田 健太（やまだ けんた）</p>
+        <p class="ceo-title">代表取締役CEO — 元大手SIer・10年エンジニア歴<br>現在もコードを書くプレイングマネージャー</p>
+        <blockquote class="ceo-message">
+          「私自身が、かつてあなたと同じ悩みを抱えたエンジニアでした。
+          技術を磨きたいのに時間がない。裁量を持ちたいのに機会がない。
+          そんな状況を変えたくて、この会社を作りました。
+          今でも毎日コードを書いています。<br><br>
+          エンジニアとして正直に話せる会社です。
+          まず、話を聞かせてください。」
+        </blockquote>
+        <p class="ceo-stat">設立2015年。累計150社以上のDX・プロダクト開発を支援。<br>2024年 日経XTECH「働きがいのあるIT企業ランキング」関東TOP50選出。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     S08.5 CULTURE — Photo gallery + items
+====================================================== -->
+<section id="culture" style="padding:0;">
+
+  <!-- 4-cell gallery -->
+  <div class="culture-gallery">
+    <div class="culture-gallery-cell ph">
+      <img src="images/gallery-1.png" width="1024" height="1024" alt="オフィスの様子" loading="lazy">
+    </div>
+    <div class="culture-gallery-cell ph">
+      <img src="images/gallery-2.png" width="1024" height="1024" alt="チームミーティング" loading="lazy">
+    </div>
+    <div class="culture-gallery-cell ph">
+      <img src="images/gallery-3.png" width="1024" height="1024" alt="コードレビューの様子" loading="lazy">
+    </div>
+    <div class="culture-gallery-cell ph">
+      <img src="images/gallery-4.png" width="1024" height="1024" alt="勉強会の様子" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Culture content -->
+  <div class="culture-content">
+    <div class="container">
+      <div class="fade-in">
+        <h2 class="h2-section" style="color:#fff;">環境を知る</h2>
+        <p style="color:rgba(255,255,255,.6); margin-top:.875rem; max-width:520px;">
+          制度や福利厚生ではなく、「どういう空気の会社か」を伝えたくて書きました。
+        </p>
+      </div>
+      <div class="culture-grid fade-in">
+        <div class="culture-item">
+          <div class="culture-icon">💬</div>
+          <h3 class="h3-card" style="color:#fff; margin-bottom:.75rem;">意見が、翌週には動いている。</h3>
+          <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.9;">
+            週次のチームMTGで「こうした方がいい」と言ったことが、翌週には実装されている。
+            そういう会社です。稟議も承認フローも、ほとんどありません。
+          </p>
+        </div>
+        <div class="culture-item">
+          <div class="culture-icon">📖</div>
+          <h3 class="h3-card" style="color:#fff; margin-bottom:.75rem;">勉強することを、応援している。</h3>
+          <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.9;">
+            書籍補助年3万円、月次勉強会（業務時間内）、登壇・OSS活動の奨励。
+            「自分の時間で勉強しろ」という文化は、ここにはありません。
+          </p>
+        </div>
+        <div class="culture-item">
+          <div class="culture-icon">🤝</div>
+          <h3 class="h3-card" style="color:#fff; margin-bottom:.75rem;">コードレビューが、会話になっている。</h3>
+          <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.9;">
+            PRのレビューコメントは、指摘ではなく対話です。「なぜそう書いたか」「他にどんな選択肢があるか」を一緒に考える文化が、チームを育てます。
+          </p>
+        </div>
+        <div class="culture-item">
+          <div class="culture-icon">🏠</div>
+          <h3 class="h3-card" style="color:#fff; margin-bottom:.75rem;">フルリモートでも、孤独じゃない。</h3>
+          <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.9;">
+            Slackの雑談チャンネルは毎日にぎやか。月次の全社オンラインイベント、チームランチ（任意）、気軽に話しかけられる空気があります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S09 PROCESS
+====================================================== -->
+<section id="process" class="process-tint">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="h2-section" style="color:var(--navy);">採用の流れ（最短2週間）</h2>
+      <p style="color:var(--slate); margin-top:1rem;">難しいことは何もありません。まず話すだけでいいです。</p>
+    </div>
+    <div class="process-steps stagger-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <p class="step-title">カジュアル面談<br>（30分）</p>
+        <p class="step-desc">オンライン完結。スキルも転職意向も問いません。会社の雰囲気を知るためだけの場です。</p>
+        <p class="step-special">🎁 参加者全員にAmazonギフト券1,000円</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <p class="step-title">1次選考<br>（技術課題）</p>
+        <p class="step-desc">GitHubへの課題提出 + オンラインコードレビュー面談（60分）。スキルより思考プロセスを見ます。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <p class="step-title">最終面談<br>（60分）</p>
+        <p class="step-desc">代表 + チームメンバーとの対話型面談。カルチャーフィットと相互理解を確認します。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <p class="step-title">内定・<br>オファー提示</p>
+        <p class="step-desc">最短5営業日でご連絡。給与は経験・スキルを考慮した個別提示です。</p>
+        <p class="step-special">🎁 通過者に技術書3,000円相当プレゼント</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S10 OFFER
+====================================================== -->
+<section id="offer" style="background:var(--navy); padding-block:clamp(5rem,9vw,8rem);">
+  <div class="container">
+    <div class="offer-inner fade-in">
+      <h2 class="h2-section" style="color:#fff; margin-bottom:.5rem;">今回の募集は、</h2>
+      <div class="offer-count">3<span>名</span></div>
+      <p style="color:rgba(255,255,255,.6); margin-top:.75rem; font-size:.9375rem; line-height:1.8;">
+        定員に達し次第、採用を締め切ります。<br>少数精鋭チームの品質を守るため、一度に多くは採用しません。
+      </p>
+      <div class="offer-badges">
+        <div class="offer-badge"><span class="check">✓</span> カジュアル面談参加者全員 → Amazonギフト券1,000円</div>
+        <div class="offer-badge"><span class="check">✓</span> 選考通過者 → 技術書プレゼント（3,000円相当）</div>
+      </div>
+      <a href="contact.html" class="btn-primary large" style="margin-top:1.5rem;">残り3名の枠を確認する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S11 FAQ
+====================================================== -->
+<section id="faq" style="background:#fff;">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="h2-section" style="color:var(--navy);">よくあるご質問</h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">今すぐ転職する気はないのですが、話を聞くだけでも大丈夫ですか？<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-1" role="region"><p class="faq-a-inner">もちろんです。カジュアル面談はキャリア相談の場です。転職時期は問いません。「今の環境がベストか確かめたい」「他社のエンジニア文化を知りたい」という方も、ぜひお気軽にどうぞ。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">スキルがまだ十分でないか不安です。<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-2" role="region"><p class="faq-a-inner">スキルより成長意欲を重視しています。開発経験2年以上かつ「もっと技術を深めたい」という気持ちがある方であれば、現在のスキルセットは問いません。選考では、解法の正解よりも思考プロセスを見ています。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">現在の会社にバレませんか？<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-3" role="region"><p class="faq-a-inner">応募・面談の事実は外部に一切開示しません。秘密は厳守します。面談はすべてオンライン対応可能ですので、在職中の方もご安心ください。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">フルリモートで孤独にならないか心配です。<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-4" role="region"><p class="faq-a-inner">月次の全社オンラインイベント、チーム別のWeekly MTG、Slackでの雑談チャンネルなど、コミュニケーション文化を大切にしています。「テキストで話しかけたら即レスが返ってくる」環境です。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">副業はできますか？<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-5" role="region"><p class="faq-a-inner">月20時間以内・事前申請の条件付きで可能です。OSS活動は積極的に推奨しています。むしろ、社外でアウトプットしているエンジニアを歓迎します。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">試用期間中の給与・待遇は変わりますか？<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-6" role="region"><p class="faq-a-inner">試用期間3ヶ月も、給与・待遇は内定条件と完全に同一です。「試用期間中は低め」という文化は、ここにはありません。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">技術課題はどんな内容ですか？<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-7" role="region"><p class="faq-a-inner">GitHubへの提出形式で、実務に近い小さな設計・実装課題です。特定の正解を求めるものではなく、「なぜその設計にしたか」という思考プロセスを重視しています。所要時間は3〜5時間程度を想定しています。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">リモートワークに必要な機材・費用のサポートはありますか？<span class="icon">+</span></button>
+        <div class="faq-a" id="faq-answer-8" role="region"><p class="faq-a-inner">入社時にMacBook Proを支給します（スペックは相談可能）。モニターや周辺機器については、必要に応じて会社負担で手配できます。通信費の補助については現在検討中です。カジュアル面談でお気軽にご確認ください。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S12 GUARANTEE
+====================================================== -->
+<section id="guarantee">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="h2-section" style="color:var(--navy);">入社後も、ひとりにしません。</h2>
+      <p style="color:var(--slate); margin-top:1rem; max-width:480px; margin-inline:auto;">新しい環境で最初の3ヶ月は、誰でも不安があります。だから、仕組みとして支えます。</p>
+    </div>
+    <div class="guarantee-grid fade-in">
+      <div class="guarantee-card">
+        <h3 class="h3-card" style="color:var(--navy); margin-bottom:.875rem;">🔒 3ヶ月フォローアップ保証</h3>
+        <p class="body-text" style="color:var(--charcoal);">入社後3ヶ月間は専任メンターが週1で1on1を実施。技術・カルチャー・人間関係。すべてのオンボーディングをサポートします。「こんなはずじゃなかった」を、なくすための仕組みです。</p>
+      </div>
+      <div class="guarantee-card">
+        <h3 class="h3-card" style="color:var(--navy); margin-bottom:.875rem;">👥 メンター制度</h3>
+        <p class="body-text" style="color:var(--charcoal);">先輩エンジニアとのペアプログラミング週2回、コードレビュー文化で自然にスキルアップ。孤独な独学ではなく、チームで育てる文化があります。「壁にぶつかったら気軽に聞ける」環境を大切にしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S12.5 DECK
+====================================================== -->
+<section id="deck" style="background:#fff; padding-block:clamp(3rem,6vw,5rem);">
+  <div class="container">
+    <div class="deck-inner fade-in">
+      <div>
+        <h2 class="h2-section" style="color:var(--navy); font-size:clamp(1.25rem,2.5vw,1.75rem);">まずは資料から知りたい方へ</h2>
+        <p style="color:var(--slate); margin-top:.875rem; font-size:.9375rem; line-height:1.85;">テックブリッジの事業・技術・チーム・文化をまとめた会社紹介資料をご用意しています。面談の前に雰囲気を知りたい方は、ぜひご覧ください。</p>
+      </div>
+      <a href="#" class="btn-deck">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        会社紹介資料をダウンロード（PDF）
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     S13 FINAL CTA — Full-bleed photo background
+====================================================== -->
+<section id="final-cta" class="photo-bg">
+  <div class="photo-bg__img ph">
+    <img src="images/cta-bg.png" width="1920" height="1080" alt="" loading="lazy">
+  </div>
+  <div class="photo-bg__overlay overlay-navy"></div>
+  <div class="photo-bg__content container">
+    <div class="final-cta-inner fade-in">
+      <span class="section-label">Apply Now</span>
+      <h2 class="catch" style="color:#fff; margin-bottom:1rem;">
+        まず、話してみてください。<br>それだけでいいです。
+      </h2>
+      <ul class="final-checklist">
+        <li><span class="ck">✓</span> 無料・30分・オンラインで完結します</li>
+        <li><span class="ck">✓</span> 面談に来てくれた方全員にAmazonギフト券1,000円をお送りします</li>
+        <li><span class="ck">✓</span> 転職意向は問いません。在職中も、秘密もしっかり守ります。</li>
+      </ul>
+      <a href="contact.html" class="btn-primary large" style="width:100%; max-width:420px; justify-content:center; margin-top:.5rem;">
+        カジュアル面談を申し込む（残り3名）
+      </a>
+      <p class="final-note">
+        申し込みから48時間以内にご連絡します。<br>
+        個人情報の取扱いについては<a href="#" style="color:rgba(255,255,255,.45); text-decoration:underline;">プライバシーポリシー</a>をご確認ください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-sticky-cta" aria-label="カジュアル面談の予約">
+  <a href="contact.html" class="btn-primary" style="font-size:.9rem; padding:.75rem 1.5rem;">
+    カジュアル面談を予約する（無料）
+  </a>
+</div>
+
+</main><!-- /#main-content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-logo">Tech<span>Bridge</span></p>
+        <p class="footer-copy">
+          株式会社テックブリッジ<br>
+          設立2015年 / 代表取締役 山田健太<br>
+          © 2026 TechBridge Inc. All Rights Reserved.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">採用情報トップ</a>
+        <a href="#">会社HP</a>
+        <a href="#">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Bootstrap js-ready
+document.documentElement.classList.add('js-ready');
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ── Tab switching with fade ──────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + target).classList.add('active');
+  });
+});
+
+// ── FAQ accordion ────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  });
+});
+
+// ── Scroll reveal observer ───────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.hero-stagger').forEach(el => observer.observe(el));
+
+// Stagger grids: assign --i index to each child, clean up after animation
+// so hover transforms (e.g. translateY on cards) aren't blocked by fill-mode forwards
+document.querySelectorAll('.stagger-grid').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.setProperty('--i', i);
+    child.addEventListener('animationend', e => {
+      if (e.animationName !== 'staggerEnter') return;
+      child.style.removeProperty('animation');
+      child.style.opacity = '1';
+    }, { once: true });
+  });
+  observer.observe(grid);
+});
+
+// ── Nav scroll state ─────────────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Number counter animation ─────────────────────────────────
+function animateCounter(numEl) {
+  const textNode = numEl.childNodes[0];
+  const target = parseInt(textNode.nodeValue, 10);
+  if (isNaN(target)) return;
+  const duration = 1600;
+  const startTime = performance.now();
+  (function update(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    textNode.nodeValue = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else textNode.nodeValue = target;
+  })(performance.now());
+}
+
+if (!prefersReducedMotion) {
+  const numbersGrid = document.querySelector('.numbers-grid');
+  if (numbersGrid) {
+    const counterObs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      numbersGrid.querySelectorAll('.number-cell .num').forEach((numEl, i) => {
+        setTimeout(() => animateCounter(numEl), i * 75);
+      });
+      counterObs.unobserve(numbersGrid);
+    }, { threshold: 0.3 });
+    counterObs.observe(numbersGrid);
+  }
+}
+</script>
+
+</body>
+</html>

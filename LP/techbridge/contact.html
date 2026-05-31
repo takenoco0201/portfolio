@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="株式会社テックブリッジ カジュアル面談申し込み。完全無料・30分・オンライン。">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/techbridge-recruit/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/techbridge-recruit/contact.html">
+  <meta property="og:title" content="カジュアル面談を申し込む | 株式会社テックブリッジ">
+  <meta property="og:description" content="完全無料・30分・オンライン。スキル不問。参加者全員にAmazonギフト券1,000円プレゼント。">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="カジュアル面談申し込み | テックブリッジ">
+  <title>カジュアル面談を申し込む | 株式会社テックブリッジ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── Contact page specific ─── */
+    .contact-wrap {
+      min-height: 100svh;
+      background: var(--cool-white);
+      padding-top: 64px;
+    }
+    .contact-hero {
+      background: var(--navy);
+      padding-block: clamp(3rem, 6vw, 5rem);
+      text-align: center;
+    }
+    .contact-body {
+      max-width: 680px;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 2rem);
+    }
+
+    /* ─── Benefits strip ─── */
+    .contact-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .contact-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .contact-benefit-item .ck { color: var(--cyan); font-weight: 700; font-size: 1rem; }
+
+    /* ─── Form card ─── */
+    .form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: clamp(2rem, 5vw, 3rem);
+      box-shadow: 0 8px 40px rgba(26,46,74,0.1);
+      margin-top: -2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Form fields ─── */
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .form-label .req {
+      color: var(--cyan);
+      font-size: 0.75rem;
+      margin-left: 0.375rem;
+      font-weight: 400;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--charcoal);
+      background: var(--cool-white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0,191,165,0.15);
+      background: #fff;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.875rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 120px; line-height: 1.75; }
+    .form-hint { font-size: 0.75rem; color: var(--slate); margin-top: 0.375rem; }
+
+    /* ─── Radio group ─── */
+    .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.25rem; }
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      transition: border-color .2s, background .2s;
+      user-select: none;
+    }
+    .radio-label input[type="radio"] { accent-color: var(--cyan); width: 16px; height: 16px; }
+    .radio-label:has(input:checked) {
+      border-color: var(--cyan);
+      background: rgba(0,191,165,0.07);
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    /* ─── Divider ─── */
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ─── Submit area ─── */
+    .form-submit-area { text-align: center; }
+    .btn-submit {
+      width: 100%;
+      max-width: 400px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      background: var(--cyan);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      padding: 1.125rem 2rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .btn-submit:hover { background: var(--cyan-hover); transform: translateY(-2px); }
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--slate);
+      margin-top: 1rem;
+      line-height: 1.75;
+    }
+    .form-note a { color: var(--slate); text-decoration: underline; }
+
+    /* ─── Thank-you screen (hidden by default) ─── */
+    #thanks {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    #thanks .thanks-icon { font-size: 3.5rem; margin-bottom: 1.25rem; }
+    #thanks h2 { color: var(--navy); margin-bottom: 0.875rem; }
+    #thanks p { color: var(--slate); font-size: 0.9375rem; line-height: 1.85; }
+    #thanks .gift-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-top: 1.75rem;
+      padding: 0.875rem 1.5rem;
+      background: rgba(0,191,165,0.1);
+      border: 1.5px solid rgba(0,191,165,0.3);
+      border-radius: 10px;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    #thanks .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--slate);
+      text-decoration: underline;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 480px) {
+      .radio-group { flex-direction: column; }
+      .form-card { padding: 1.5rem; border-radius: 14px; margin-top: -1rem; }
+    }
+  </style>
+  <noscript>
+    <style>.fade-in { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+</head>
+<body>
+
+<a href="#main-content" class="skip-to-content">フォームへスキップ</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Tech<span class="logo-bridge">Bridge</span></a>
+    <div class="nav-links">
+      <a href="index.html#positions">仕事を知る</a>
+      <a href="index.html#voices">人を知る</a>
+      <a href="index.html#culture">環境を知る</a>
+      <a href="index.html#process">選考の流れ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="contact-wrap" id="main-content">
+
+  <!-- Hero -->
+  <div class="contact-hero">
+    <div class="container">
+      <span class="section-label">Apply Now</span>
+      <h1 class="catch" style="color:#fff; font-size:clamp(1.5rem,4vw,2.5rem); margin-bottom:1rem;">
+        まず、話してみてください。<br>それだけでいいです。
+      </h1>
+      <p style="color:rgba(255,255,255,.65); font-size:.9375rem; max-width:480px; margin-inline:auto; line-height:1.85;">
+        スキルや転職意向は問いません。30分のオンライン面談で、テックブリッジの雰囲気をそのまま感じてください。
+      </p>
+      <div class="contact-benefits">
+        <span class="contact-benefit-item"><span class="ck">✓</span> 完全無料・30分・オンライン</span>
+        <span class="contact-benefit-item"><span class="ck">✓</span> 参加でAmazonギフト券1,000円</span>
+        <span class="contact-benefit-item"><span class="ck">✓</span> 秘密厳守・在職中OK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form body -->
+  <div class="contact-body">
+
+    <div class="form-card">
+
+      <!-- Thank-you screen (shown after submit) -->
+      <div id="thanks">
+        <div class="thanks-icon">🎉</div>
+        <h2 class="h2-section">申し込みを受け付けました</h2>
+        <p>
+          ご入力いただいたメールアドレスに確認メールをお送りしました。<br>
+          <strong>48時間以内</strong>に担当者からご連絡いたします。
+        </p>
+        <div class="gift-box">
+          🎁 面談参加後、Amazonギフト券1,000円をお送りします
+        </div>
+        <a href="index.html" class="back-link">← LPトップに戻る</a>
+      </div>
+
+      <!-- Form -->
+      <!--
+        =====================================================
+        Formspree エンドポイント設定方法:
+        1. https://formspree.io にアクセスしてアカウント作成
+        2. 「New Form」を作成し、通知先に Gmail アドレスを設定
+        3. 発行された endpoint（例: https://formspree.io/f/xxxxxxxx）を
+           下の action="" に貼り付ける
+        =====================================================
+      -->
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/XXXXXXXX"
+        <!-- ⚠️  TODO: Formspree エンドポイントを設定してください
+             https://formspree.io でフォームを作成し
+             XXXXXXXX を発行されたIDに置き換えてください -->
+        method="POST"
+      >
+        <!-- Formspree: 送信後に thanks を表示するための hidden リダイレクト無効化 -->
+        <input type="hidden" name="_next" value="false">
+        <input type="hidden" name="_subject" value="【テックブリッジ】カジュアル面談 申し込み">
+        <!-- スパム対策 -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <h2 class="h3-card" style="color:var(--navy); margin-bottom:2rem; font-size:1.125rem;">
+          申し込みフォーム
+        </h2>
+
+        <!-- お名前 -->
+        <div class="form-group">
+          <label class="form-label" for="name">
+            お名前<span class="req">必須</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            placeholder="山田 太郎"
+            required
+            autocomplete="name"
+            maxlength="100"
+          >
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス<span class="req">必須</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="taro@example.com"
+            required
+            autocomplete="email"
+            maxlength="254"
+            inputmode="email"
+          >
+          <p class="form-hint">確認メールをお送りします。迷惑メールフォルダもご確認ください。</p>
+        </div>
+
+        <!-- 現在の職種 -->
+        <div class="form-group">
+          <label class="form-label" for="position">
+            現在の職種<span class="req">必須</span>
+          </label>
+          <select id="position" name="position" class="form-select" required>
+            <option value="" disabled selected>選択してください</option>
+            <option>バックエンドエンジニア</option>
+            <option>フロントエンドエンジニア</option>
+            <option>フルスタックエンジニア</option>
+            <option>インフラ / SRE エンジニア</option>
+            <option>モバイルエンジニア</option>
+            <option>その他エンジニア</option>
+            <option>エンジニア以外</option>
+          </select>
+        </div>
+
+        <!-- 経験年数 -->
+        <div class="form-group">
+          <label class="form-label">
+            開発経験年数<span class="req">必須</span>
+          </label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="experience" value="1年未満" required> 1年未満
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="experience" value="1〜2年"> 1〜2年
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="experience" value="3〜5年"> 3〜5年
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="experience" value="6〜9年"> 6〜9年
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="experience" value="10年以上"> 10年以上
+            </label>
+          </div>
+        </div>
+
+        <!-- 希望ポジション -->
+        <div class="form-group">
+          <label class="form-label" for="apply_position">
+            希望ポジション
+          </label>
+          <select id="apply_position" name="apply_position" class="form-select">
+            <option value="" selected>特にこだわらない / 相談したい</option>
+            <option>バックエンドエンジニア</option>
+            <option>フロントエンドエンジニア</option>
+            <option>フルスタックエンジニア</option>
+          </select>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- 転職意向 -->
+        <div class="form-group">
+          <label class="form-label">転職のご意向</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="intent" value="積極的に転職活動中"> 積極的に転職活動中
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="intent" value="良い機会があれば"> 良い機会があれば
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="intent" value="情報収集中"> 情報収集中
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="intent" value="まだ迷っている"> まだ迷っている
+            </label>
+          </div>
+        </div>
+
+        <!-- メッセージ -->
+        <div class="form-group">
+          <label class="form-label" for="message">
+            ひとことメッセージ（任意）
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-textarea"
+            placeholder="「GoとAWSの環境で働きたい」「裁量を持って開発したい」など、気になっていることを何でもどうぞ。"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit-area">
+          <button type="submit" class="btn-submit">
+            カジュアル面談を申し込む
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="form-note">
+            送信後、48時間以内にメールでご連絡します。<br>
+            個人情報の取扱いについては<a href="#">プライバシーポリシー</a>をご確認ください。
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Back link -->
+    <p style="text-align:center; margin-top:2rem;">
+      <a href="index.html" style="font-size:.875rem; color:var(--slate); text-decoration:underline;">
+        ← LP トップに戻る
+      </a>
+    </p>
+
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-logo">Tech<span>Bridge</span></p>
+        <p class="footer-copy">
+          株式会社テックブリッジ<br>
+          © 2026 TechBridge Inc. All Rights Reserved.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="index.html">採用情報トップ</a>
+        <a href="#">会社HP</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Formspree AJAX送信 + サンクス表示
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('.btn-submit');
+  btn.textContent = '送信中…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      btn.textContent = '送信に失敗しました。再度お試しください。';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = '送信に失敗しました。再度お試しください。';
+    btn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
