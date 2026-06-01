@@ -383,6 +383,119 @@
     .fi-d1{transition-delay:.1s;}
     .fi-d2{transition-delay:.2s;}
     .fi-d3{transition-delay:.3s;}
+
+    /* ─── HAMBURGER ─── */
+    .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px 4px;z-index:201;}
+    .nav-burger span{display:block;width:22px;height:1px;background:rgba(255,255,255,.85);transition:all .3s;}
+    .nav-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+    .nav-burger.open span:nth-child(2){opacity:0;}
+    .nav-burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+    /* ─── TABLET 768px ─── */
+    @media (min-width:768px) and (max-width:1279px){
+      section{padding:100px 40px;}
+      .gallery{padding:72px 40px;}
+      .final-cta{padding:100px 40px;}
+      .nav{padding:18px 40px;}
+      .nav-links{gap:20px;}
+      .nav-cta{padding:9px 18px;font-size:10px;}
+
+      .hero-inner{grid-template-columns:1fr;gap:48px;padding:130px 40px 80px;}
+      .hero-title{font-size:68px;}
+      .hero-visual{padding:0;max-width:600px;margin:0 auto;}
+      .hero-photo{aspect-ratio:16/9;}
+      .hero-photo-sub{display:none;}
+      .hero-badge{top:-14px;right:14px;}
+
+      .pain-grid{grid-template-columns:repeat(2,1fr);}
+
+      .str-grid{grid-template-columns:repeat(2,1fr);}
+
+      .gal-grid{grid-template-rows:200px 200px;}
+
+      .prog-grid{grid-template-columns:repeat(2,1fr);}
+      .prog-card:nth-child(3){grid-column:span 2;max-width:calc((100% - 24px) / 2);margin:0 auto;}
+
+      .instr-inner{gap:48px;}
+
+      .testi-grid{grid-template-columns:repeat(2,1fr);}
+      .testi-card:nth-child(3){grid-column:span 2;max-width:calc((100% - 20px) / 2);margin:0 auto;}
+
+      .trial-steps{grid-template-columns:repeat(2,1fr);gap:40px;}
+      .trial-steps::before{left:25%;right:25%;}
+      .trial-price-box{padding:36px 60px;}
+
+      .access-inner{grid-template-columns:1fr;gap:48px;}
+      .access-map{height:300px;}
+    }
+
+    /* ─── MOBILE max-width 767px ─── */
+    @media (max-width:767px){
+      section{padding:64px 20px;}
+      .gallery{padding:64px 20px;}
+      .final-cta{padding:72px 20px;}
+      .sec-title{margin-bottom:48px;}
+      .sec-title .en{font-size:36px;}
+      .sec-title .jp{font-size:18px;letter-spacing:2px;}
+
+      .nav{padding:14px 20px;}
+      .nav-cta{display:none;}
+      .nav-links{display:none;}
+      .nav-links.open{
+        display:flex;flex-direction:column;gap:0;
+        position:fixed;top:0;left:0;right:0;bottom:0;
+        background:rgba(12,26,14,.97);backdrop-filter:blur(12px);
+        padding:90px 28px 60px;z-index:199;
+        align-items:center;justify-content:center;
+      }
+      .nav-links.open li{border-bottom:1px solid rgba(200,164,90,.15);width:100%;text-align:center;}
+      .nav-links.open li a{font-size:16px;padding:18px 0;display:block;letter-spacing:3px;}
+      .nav-burger{display:flex;}
+
+      .hero-inner{grid-template-columns:1fr;gap:32px;padding:86px 20px 60px;}
+      .hero::after{font-size:100px;bottom:-20px;right:-10px;}
+      .hero-title{font-size:46px;}
+      .hero-title-jp{font-size:13px;letter-spacing:3px;}
+      .hero-desc{font-size:13px;}
+      .hero-visual{padding:0;}
+      .hero-photo{aspect-ratio:4/3;}
+      .hero-photo-sub{display:none;}
+      .hero-badge{top:-14px;right:14px;width:74px;height:74px;}
+      .hero-badge .price{font-size:15px;}
+      .btn-gold-outline{width:100%;text-align:center;padding:15px 20px;}
+
+      .pain-grid{grid-template-columns:1fr;}
+      .pain-card{padding:32px 20px;}
+
+      .concept-quote{font-size:26px;line-height:1.6;}
+      .concept-body{font-size:13px;line-height:2.4;}
+
+      .str-grid{grid-template-columns:1fr;gap:12px;}
+      .str-item{padding:36px 24px;}
+
+      .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px;gap:6px;}
+
+      .prog-grid{grid-template-columns:1fr;}
+
+      .instr-inner{grid-template-columns:1fr;gap:32px;}
+      .instr-photo{aspect-ratio:3/4;max-width:280px;margin:0 auto;}
+
+      .testi-grid{grid-template-columns:1fr;}
+
+      .trial-steps{grid-template-columns:1fr;gap:24px;}
+      .trial-steps::before{display:none;}
+      .step-num{font-size:40px;}
+      .trial-price-box{padding:24px 28px;}
+      .trial-price-box .price{font-size:40px;}
+
+      .faq-q{padding:20px 0;}
+
+      .access-inner{grid-template-columns:1fr;gap:32px;}
+      .access-map{height:220px;}
+
+      .final-title{font-size:34px;}
+      .final-title-jp{font-size:13px;}
+    }
   </style>
 </head>
 <body>
@@ -390,7 +503,7 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">YOGI <em>BASE</em></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#concept">コンセプト</a></li>
     <li><a href="#programs">プログラム</a></li>
     <li><a href="#instructor">インストラクター</a></li>
@@ -398,6 +511,9 @@
     <li><a href="#access">アクセス</a></li>
   </ul>
   <a href="#trial" class="nav-cta">体験レッスン ¥3,200</a>
+  <button class="nav-burger" id="navBurger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -419,7 +535,12 @@
       </div>
     </div>
     <div class="hero-visual fi fi-d2">
-      <div class="hero-photo"><img src="img/hero.png" alt="ヨガポーズ Warrior II"></div>
+      <div class="hero-photo">
+        <picture>
+          <source media="(min-width:768px) and (max-width:1279px)" srcset="img/hero-wide.png">
+          <img src="img/hero.png" alt="ヨガポーズ Warrior II">
+        </picture>
+      </div>
       <div class="hero-photo-sub"><img src="img/hero-sub.png" alt="合掌 Anjali Mudra"></div>
       <div class="hero-badge">
         <span class="price">¥3,200</span>
@@ -512,7 +633,14 @@
     <span class="sec-label">STUDIO</span>
     <div class="sec-title" style="margin-bottom:40px;"><span class="en">Gallery</span><span class="jp">スタジオの雰囲気</span></div>
     <div class="gal-grid">
-      <div class="gal-item"><div class="gal-img gi-1"><img src="img/gal1.png" alt="メインスタジオ"></div></div>
+      <div class="gal-item">
+        <div class="gal-img gi-1">
+          <picture>
+            <source media="(max-width:767px)" srcset="img/gal1-portrait.png">
+            <img src="img/gal1.png" alt="メインスタジオ">
+          </picture>
+        </div>
+      </div>
       <div class="gal-item"><div class="gal-img gi-2"><img src="img/gal2.png" alt="完全個室"></div></div>
       <div class="gal-item"><div class="gal-img gi-3"><img src="img/gal3.png" alt="受付"></div></div>
       <div class="gal-item"><div class="gal-img gi-4"><img src="img/gal4.png" alt="ラウンジ"></div></div>
@@ -765,6 +893,22 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+  // Hamburger menu (mobile)
+  const burger = document.getElementById('navBurger');
+  const navLinksEl = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    navLinksEl.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navLinksEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      navLinksEl.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 </body>
 </html>
