@@ -914,6 +914,8 @@ footer { background: var(--navy-deep); padding-block: 3.5rem; border-top: 1px so
 .sp-br { display: none; }
 @media (max-width: 600px) {
   .sp-br { display: inline; }
+  /* Hero BG: shift right so person appears left-anchored in portrait crop */
+  #hero .photo-bg__img img { object-position: 75% center; }
 }
 
 /* ─── Mobile sticky CTA ──────────────────────────────────── */
