@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- WordPress移植時: このファイルを削除し、Contact Form 7等を使ったWordPressの固定ページ（スラッグ: sample-request）に置き換えてください -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サンプル請求 | UV FORTE シールドセラム</title>
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="font-sans bg-white text-navy">
+
+<header class="sp-header">
+  <a href="../" class="sp-header-logo">LUMIÉRE</a>
+  <a href="../order/index.html?plan=teiki" class="btn-gold-sm">今すぐ購入</a>
+</header>
+
+<main class="sp-body">
+  <div class="sp-inner">
+    <h1>サンプル請求</h1>
+
+    <div class="sp-notice">
+      UV FORTE シールドセラムの1回分サンプル（約2ml）を無料でお届けします。お一人様1回限り。発送先は日本国内のみ。送料は当社負担です。数量限定のため、在庫がなくなり次第終了します。
+    </div>
+
+    <!-- WordPress移植時: このformタグをContact Form 7のショートコードに置き換えてください -->
+    <form class="sp-form-grid" action="#" method="post" novalidate>
+      <input type="hidden" name="form_type" value="sample_request">
+
+      <div>
+        <label class="sp-form-label" for="sr-name">
+          お名前 <span class="req">必須</span>
+        </label>
+        <input class="sp-form-input" type="text" id="sr-name" name="name"
+          placeholder="山田 花子" autocomplete="name" required>
+      </div>
+
+      <div>
+        <label class="sp-form-label" for="sr-email">
+          メールアドレス <span class="req">必須</span>
+        </label>
+        <input class="sp-form-input" type="email" id="sr-email" name="email"
+          placeholder="example@email.com" autocomplete="email" required>
+      </div>
+
+      <div>
+        <label class="sp-form-label" for="sr-zip">
+          郵便番号 <span class="req">必須</span>
+        </label>
+        <input class="sp-form-input" type="text" id="sr-zip" name="zip"
+          placeholder="000-0000" autocomplete="postal-code" maxlength="8" required
+          style="max-width:200px;">
+      </div>
+
+      <div>
+        <label class="sp-form-label" for="sr-address">
+          住所 <span class="req">必須</span>
+        </label>
+        <input class="sp-form-input" type="text" id="sr-address" name="address"
+          placeholder="東京都渋谷区〇〇町1-2-3" autocomplete="street-address" required>
+      </div>
+
+      <div>
+        <label class="sp-form-label" for="sr-building">
+          建物名・部屋番号 <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意</span>
+        </label>
+        <input class="sp-form-input" type="text" id="sr-building" name="building"
+          placeholder="LUMIÉREマンション 101号室" autocomplete="address-line2">
+      </div>
+
+      <div>
+        <label class="sp-form-label" for="sr-skin">
+          肌質（参考情報） <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意</span>
+        </label>
+        <select class="sp-form-select" id="sr-skin" name="skin_type">
+          <option value="" disabled selected>選択してください</option>
+          <option value="sensitive">敏感肌</option>
+          <option value="dry">乾燥肌</option>
+          <option value="oily">脂性肌</option>
+          <option value="combination">混合肌</option>
+          <option value="normal">普通肌</option>
+        </select>
+      </div>
+
+      <div>
+        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-size:.875rem;color:var(--gray-dk);">
+          <input type="checkbox" name="newsletter" value="1" style="margin-top:.2rem;flex-shrink:0;" checked>
+          <span>新商品・キャンペーン情報のメールを受け取る（いつでも解除可能）</span>
+        </label>
+      </div>
+
+      <div>
+        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-size:.875rem;color:var(--gray-dk);">
+          <input type="checkbox" name="privacy" required style="margin-top:.2rem;flex-shrink:0;">
+          <span><a href="../privacy-policy/index.html" target="_blank" style="color:var(--blue);text-decoration:underline;">プライバシーポリシー</a>に同意する</span>
+        </label>
+      </div>
+
+      <div>
+        <button type="submit" class="btn-gold" style="width:100%;justify-content:center;">
+          サンプルを請求する（無料）
+        </button>
+        <p style="font-size:.8rem;color:var(--gray);margin-top:.75rem;text-align:center;">
+          お申込み受付後、2〜3営業日以内に発送します
+        </p>
+      </div>
+    </form>
+
+    <p style="font-size:.8rem;color:var(--gray);line-height:1.8;">
+      ※ サンプルはお一人様1回限りです。同一住所への複数申込はお断りする場合があります。<br>
+      ※ 在庫状況によりご希望に添えない場合がございます。あらかじめご了承ください。
+    </p>
+  </div>
+</main>
+
+<footer class="sp-footer">
+  <p>© <span id="yr">2026</span> LUMIÉRE Japan. All rights reserved.</p>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

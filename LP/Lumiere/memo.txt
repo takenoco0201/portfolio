@@ -1,0 +1,21 @@
+「定期便 初回 50%OFF」「UVリップ サンプル同梱」「皮膚科医監修 PDF」は、「残りわずか」と同じオレンジ色にしてください
+API Error: Usage credits required for 1M context ? turn on usage credits at claude.ai/settings/usage, or use --model to switch to standard context
+
+・「夏の先行発売キャンペーン」のフォントサイズを大きくしてください
+API Error: Usage credits required for 1M context ? turn on usage credits at claude.ai/settings/usage, or use --model to switch to standard context
+
+「初回ロット限定 2,000本 残りわずか」もフォントを大きくしてください
+API Error: Usage credits required for 1M context ? turn on usage credits at claude.ai/settings/usage, or use --model to switch to standard context
+
+「30日間」「全額返金保証」でのように改行してしてください。
+ただし、"30"は大きなフォントを使用する
+API Error: Usage credits required for 1M context ? turn on usage credits at claude.ai/settings/usage, or use --model to switch to standard context
+
+・「量を取る」「均一に伸ばす」「あとはまかせて」は右斜め下にシャドウを入れてください
+・「量を取る」は「適量を取る」にテキストを変更してください
+・「あとはまかせて」は「あとはそのまま」にテキストを変更してください
+API Error: Usage credits required for 1M context ? turn on usage credits at claude.ai/settings/usage, or use --model to switch to standard context
+
+・「量を取る」「均一に伸ばす」「あとはまかせて」は中央ではなく、画面下に配置してください
+API Error: Usage credits required for 1M context ? turn on usage credits at claude.ai/settings/usage, or use --model to switch to standard context
+

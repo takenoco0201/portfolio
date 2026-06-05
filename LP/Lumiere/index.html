@@ -1,0 +1,990 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UV FORTE シールドセラム — 汗に触れるほど強くなる、業界唯一の特許アクティブシールド処方® SPF50+PA++++。LUMIÉRE">
+  <title>UV FORTE シールドセラム | LUMIÉRE</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#1A2B3C">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UV FORTE シールドセラム | LUMIÉRE">
+  <meta property="og:description" content="汗に触れるほど強くなる、業界唯一の特許アクティブシールド処方® SPF50+PA++++。">
+  <meta property="og:image" content="./images/og-image.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="LUMIÉRE">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UV FORTE シールドセラム | LUMIÉRE">
+  <meta name="twitter:description" content="汗に触れるほど強くなる、業界唯一の特許アクティブシールド処方® SPF50+PA++++。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand:  '#1B6CA8',
+            gold:   '#C9A84C',
+            ice:    'oklch(95.8% 0.024 248)',
+            navy:   '#1A2B3C',
+          },
+          fontFamily: {
+            cormorant: ['"Barlow"', '"Noto Serif JP"', 'serif'],
+            nserif:    ['"Noto Serif JP"', 'serif'],
+            sans:      ['"Noto Sans JP"', 'sans-serif'],
+          },
+          screens: {
+            sm: '375px',
+            md: '768px',
+            lg: '1280px',
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="font-sans bg-white text-navy overflow-x-hidden">
+
+<a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+<!-- ============================================================
+     STICKY HEADER
+     ============================================================ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
+    <a href="./" class="font-cormorant text-2xl italic tracking-[.08em] text-white header-logo">LUMIÉRE</a>
+    <a href="#pricing" class="btn-gold-sm">今すぐ購入</a>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ============================================================
+     S01 — HERO（フルブリード・オーバーレイ構成）
+     ============================================================ -->
+<section id="hero" class="hero relative min-h-screen overflow-hidden">
+
+  <!-- 背景: 海・空の写真 -->
+  <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+
+  <!-- テキスト可読性用: 左側グラデーションオーバーレイ -->
+  <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
+
+  <!-- テキスト: 左寄せ・画面縦中央 -->
+  <div class="hero-text-wrap absolute z-20">
+
+    <p class="font-cormorant tracking-[.10em] text-gold/80 text-xs md:text-sm mb-8 fade-in delay-1">
+      UV FORTE SHIELD SERUM &nbsp;·&nbsp; SPF50+ PA++++
+    </p>
+
+    <h1 class="hero-h1 font-cormorant italic text-white mb-7 fade-in delay-2">
+      <span class="hero-h1-pre">夏の日差しに、</span><span class="hero-h1-main">汗で、<br>強くなる。</span>
+    </h1>
+
+    <p class="text-white/80 text-base md:text-lg leading-[1.9] mb-10 font-light fade-in delay-3">
+      汗に触れるたびにUVバリアが増強される。<br>
+      業界唯一の特許処方®で、もう塗り直しに<br>
+      疲れなくていい夏が、はじめて手に入ります。
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-4 fade-in delay-4">
+      <a href="#pricing" class="btn-gold">今すぐ購入する<span class="opacity-80 text-sm">¥3,480</span></a>
+      <a href="#pricing" class="btn-subscription"><span>定期便なら初回</span><span class="hidden md:inline"> </span><span><span>¥1,740</span><span class="btn-sub-off">（50%OFF）</span></span></a>
+    </div>
+
+    <div class="flex flex-wrap gap-3 mt-10 fade-in delay-5">
+      <span class="trust-pill">@cosme ベストコスメ2024 1位</span>
+      <span class="trust-pill">皮膚科医15名 共同開発</span>
+      <span class="trust-pill">累計50,000本突破</span>
+    </div>
+
+  </div>
+
+  <!-- 商品 + 右バッジ: 同一flexコンテナで底辺を確実に揃える -->
+  <div class="hero-prod-zone absolute z-10">
+
+    <!-- 商品 -->
+    <div class="hero-prod-wrap">
+      <div class="hero-prod-glow"></div>
+      <img src="./images/product-hero.png" alt="UV FORTE シールドセラム 50ml ボトル"
+           class="hero-prod-img fade-in delay-3"
+           onerror="this.style.display='none'">
+    </div>
+
+    <!-- 右側: SPFバッジ + サブスペック -->
+    <div class="hero-right-col fade-in delay-4">
+      <div class="hero-spf-badge">
+        <span class="hero-spf-tagline">日焼け止め</span>
+        <span class="hero-spf-label-top">SPF</span>
+        <span class="hero-spf-num">50+</span>
+        <span class="hero-spf-pa">PA++++</span>
+      </div>
+      <div class="hero-spec-item hero-spec-item--gold">
+        <span class="hero-spec-label">特許処方</span>
+        <span class="hero-spec-val hero-spec-val--sm">汗で強化</span>
+      </div>
+      <div class="hero-spec-item">
+        <span class="hero-spec-val hero-spec-val--sm">塗り直し</span>
+        <span class="hero-spec-val hero-spec-val--sm">不要</span>
+      </div>
+    </div>
+
+  </div><!-- /.hero-prod-zone -->
+
+  <!-- スクロールヒント -->
+  <div class="scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2" aria-hidden="true"></div>
+</section>
+
+
+<!-- ============================================================
+     S02 — PAIN / EMPATHY
+     ============================================================ -->
+<section id="pain" class="bg-ice px-6 md:px-10" style="padding-top:10rem;padding-bottom:11rem;">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-20 reveal">
+      <h2 class="font-nserif text-2xl md:text-[2.4rem] leading-snug text-navy font-semibold mt-4">
+        どんなに丁寧に塗っても、<br>
+        <span class="md:whitespace-nowrap">なぜ汗が出るたびに<br class="md:hidden">不安になるのでしょう。</span>
+      </h2>
+      <div class="gold-rule mt-8 mx-auto"></div>
+    </div>
+
+    <!-- Pain cards — purposely irregular spacing -->
+    <div class="grid md:grid-cols-3 gap-5 mb-24">
+      <div class="pain-card reveal" style="--i:0">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <h3>汗をかくたびに<br>流れ落ちていく</h3>
+        <p>どれだけ厚塗りしても、汗が出た瞬間に不安が走る。あの感覚、何年も繰り返してきませんでしたか。</p>
+      </div>
+
+      <div class="pain-card reveal" style="margin-top:1.5rem; --i:1">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>メイクと重ねると<br>必ずヨレる</h3>
+        <p>日焼け止めを塗るたびにファンデが崩れる予感がする。結局、塗ることを諦めてしまっていた。</p>
+      </div>
+
+      <div class="pain-card reveal" style="--i:2">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>外出先での<br>塗り直しが難しい</h3>
+        <p>外来を走り回っていたら、気づいたら夕方。<br class="md:hidden">塗り直す時間も、場所も、ありませんでした。</p>
+      </div>
+    </div>
+
+    <!-- Lifestyle scenes -->
+    <div class="grid md:grid-cols-2 gap-5 mb-16 reveal items-stretch">
+      <div class="scene-card">
+        <div class="scene-photo" style="background-image:url('./images/scene-nurse.png')"></div>
+        <blockquote>
+          「外来で走り回って、気づいたら夕方。<br class="md:hidden">日焼け止めなんてとっくに落ちてた気がする。」
+          <cite>28歳 / 看護師</cite>
+        </blockquote>
+      </div>
+      <div class="scene-card">
+        <div class="scene-photo" style="background-image:url('./images/scene-ol.png')"></div>
+        <blockquote>
+          「外回りで汗びっしょりになるたびに、<br class="md:hidden">日焼け止めが意味ないって思ってた。<br class="md:hidden">もう慣れちゃってた。」
+          <cite>30歳 / 営業OL</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="text-center reveal">
+      <p class="bridge-line font-cormorant italic">
+        UV FORTEは、<br>その問いに真正面から<br class="md:hidden">答えるために生まれました。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S03 — TECHNOLOGY (核心セクション)
+     ============================================================ -->
+<section id="technology" class="bg-brand text-white relative overflow-hidden" style="padding-top:8rem;padding-bottom:9rem;">
+  <div class="tech-orb" aria-hidden="true"></div>
+
+  <div class="max-w-5xl mx-auto px-6 md:px-10 relative z-10">
+
+    <div class="text-center mb-16 reveal">
+      <h2 class="font-cormorant italic text-5xl md:text-7xl mt-4 leading-none" style="color:#fff8c0">
+        汗が、<br class="md:hidden">武器になる。
+      </h2>
+      <p class="text-white/70 text-base md:text-lg leading-relaxed mt-8 max-w-2xl mx-auto font-light">
+        アクティブシールド処方®は、汗・皮脂の成分に反応して<br class="hidden md:block">
+        分子間の結合を自己強化します。<br>
+        「汗で薄まる」という常識を逆転させた、<br class="md:hidden">国内唯一の特許技術。
+      </p>
+    </div>
+
+    <!-- Comparison visual -->
+    <div class="grid md:grid-cols-2 gap-6 mb-14 reveal">
+      <!-- Normal UV -->
+      <div class="tech-box">
+        <p class="tech-box-label">一般的なUVケア</p>
+        <div class="molecule-stage" aria-hidden="true">
+          <div class="uv-shield uv-shield--weak"><span class="uv-label">UV</span></div>
+          <!-- 環状粒子 → 飛散破片 (10方向) -->
+          <div class="frag" style="--a:0deg;  --d:.00s"></div>
+          <div class="frag" style="--a:36deg; --d:.03s"></div>
+          <div class="frag" style="--a:72deg; --d:.06s"></div>
+          <div class="frag" style="--a:108deg;--d:.02s"></div>
+          <div class="frag" style="--a:144deg;--d:.05s"></div>
+          <div class="frag" style="--a:180deg;--d:.01s"></div>
+          <div class="frag" style="--a:216deg;--d:.04s"></div>
+          <div class="frag" style="--a:252deg;--d:.07s"></div>
+          <div class="frag" style="--a:288deg;--d:.03s"></div>
+          <div class="frag" style="--a:324deg;--d:.06s"></div>
+          <!-- UV素通り光線 (崩壊後に照射) -->
+          <div class="uv-ray" style="--r:25deg"></div>
+          <div class="uv-ray" style="--r:145deg"></div>
+          <div class="uv-ray" style="--r:265deg"></div>
+          <div class="sweat-emoji sweat-anim">💧</div>
+          <div class="status-label status-bad">UV流出 ⚡</div>
+        </div>
+        <div class="tech-desc">
+          <span class="tech-tag tech-tag--bad">✖</span>
+          <p>汗に触れると乳化が崩れ、UV成分が分離・流出。時間が経つほど保護力が低下していく。</p>
+        </div>
+      </div>
+
+      <!-- UV FORTE -->
+      <div class="tech-box tech-box--forte">
+        <p class="tech-box-label text-gold">UV FORTE</p>
+        <div class="molecule-stage" aria-hidden="true">
+          <div class="uv-shield uv-shield--forte"><span class="uv-label" style="color:var(--gold)">UV+</span></div>
+          <!-- 強化リング (3重) -->
+          <div class="power-ring pr-1"></div>
+          <div class="power-ring pr-2"></div>
+          <div class="power-ring pr-3"></div>
+          <!-- 周回→収束分子 (8粒) -->
+          <div class="mol mol--bond" style="--angle:0deg;  --d:0s"></div>
+          <div class="mol mol--bond" style="--angle:45deg; --d:.06s"></div>
+          <div class="mol mol--bond" style="--angle:90deg; --d:.12s"></div>
+          <div class="mol mol--bond" style="--angle:135deg;--d:.18s"></div>
+          <div class="mol mol--bond" style="--angle:180deg;--d:.09s"></div>
+          <div class="mol mol--bond" style="--angle:225deg;--d:.15s"></div>
+          <div class="mol mol--bond" style="--angle:270deg;--d:.03s"></div>
+          <div class="mol mol--bond" style="--angle:315deg;--d:.21s"></div>
+          <!-- 汗しずく (2滴・左右) -->
+          <div class="sweat-emoji sa-1">💧</div>
+          <div class="sweat-emoji sa-2">💧</div>
+          <div class="status-label status-good">バリア強化 ✨</div>
+        </div>
+        <div class="tech-desc">
+          <span class="tech-tag tech-tag--good">✔</span>
+          <!-- BEFORE: かくほどバリア膜が強くなる、世界唯一の処方。 -->
+          <p>汗・皮脂に反応して分子が結合・増強。<br class="md:hidden">かくほど強くなる、この処方だけの逆転仕様。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patent + CTA -->
+    <div class="text-center reveal">
+      <div class="patent-pill">
+        <span class="text-gold text-lg font-cormorant italic mr-2">®</span>
+        <!-- BEFORE: 特許取得済み / 国内唯一 -->
+        アクティブシールド処方 · 特許取得済み / 特許第1234567号
+      </div>
+      <div class="mt-10">
+        <a href="#pricing" class="btn-gold">今すぐ購入する <span class="btn-gold-icon">→</span><span class="opacity-80 ml-1 text-sm">¥3,480</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S04 — PRODUCT FEATURES
+     ============================================================ -->
+<section id="features" class="bg-white" style="padding-top:8rem;padding-bottom:6rem;">
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-20 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-navy font-semibold mt-4">
+        1本で3つの最強を実現する
+      </h2>
+      <div class="gold-rule mt-8 mx-auto"></div>
+    </div>
+
+    <!-- 3-col feature grid -->
+    <div class="grid md:grid-cols-3 gap-6 mb-28">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>SPF50+ PA++++</h3>
+        <p>国内基準の最高グレード。UVA・UVBを両方<br class="md:hidden">ブロックし、シミ・くすみの根本原因に立ち向かいます。</p>
+      </div>
+
+      <div class="feature-card feature-card--hl reveal" style="margin-top:-1rem;">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+        </div>
+        <h3>汗で強化される<br>特許処方®</h3>
+        <p>汗・皮脂に触れると分子結合が増強。<br class="md:hidden">かくほど強くなる、世界でこの処方だけの逆転仕様。</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <h3>ノンケミカル<br>低刺激設計</h3>
+        <p>紫外線吸収剤不使用。皮膚科医15名が処方設計した、敏感肌でも毎日使える安心の処方。</p>
+      </div>
+    </div>
+
+    <!-- Zigzag — 写真とテキストの交互レイアウト -->
+    <div class="space-y-0">
+
+      <div class="zigzag reveal">
+        <div class="zigzag-photo">
+          <div class="zigzag-photo-inner" style="background-image:url('./images/scene-sport.png')"></div>
+        </div>
+        <div class="zigzag-body">
+          <h3>朝1回塗るだけ。<br>あとは汗にまかせていい。</h3>
+          <p>マラソン、ビーチ、炎天下の外回り。<br class="md:hidden">どんな場面でも汗をかくほどUVバリアが再補強されます。塗り直しを気にしない夏が、はじめて手に入ります。</p>
+        </div>
+      </div>
+
+      <div class="zigzag zigzag--rev reveal">
+        <div class="zigzag-photo">
+          <div class="zigzag-photo-inner" style="background-image:url('./images/scene-makeup.png')"></div>
+        </div>
+        <div class="zigzag-body">
+          <h3>崩れないから、<br>外出先でも自信が持てる。</h3>
+          <p>ファンデの上から重ねてもヨレない軽い処方<br class="md:hidden">設計。白浮きもベタつきもない。夕方になっても、朝のメイクが生きています。</p>
+        </div>
+      </div>
+
+      <div class="zigzag reveal">
+        <div class="zigzag-photo">
+          <div class="zigzag-photo-inner" style="background-image:url('./images/scene-skincare.png')"></div>
+        </div>
+        <div class="zigzag-body">
+          <h3>守りながら、<br>肌を育てていく。</h3>
+          <p>ヒアルロン酸・ビタミンC誘導体配合。紫外線をカットしながら、美容液と同じ成分が肌に届きます。日焼け止めがスキンケアになる、そんな感覚。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S05 — COMPARISON TABLE
+     ============================================================ -->
+<section id="comparison" class="bg-ice" style="padding-top:7rem;padding-bottom:8rem;">
+  <div class="max-w-4xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-navy font-semibold mt-4">
+        なぜUV FORTEが<br class="md:hidden">選ばれるのか
+      </h2>
+    </div>
+
+    <div class="overflow-x-auto reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th class="comp-th-item">比較項目</th>
+            <th class="comp-th-normal">一般的なUVケア</th>
+            <th class="comp-th-forte">UV FORTE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>UVカット指数</td><td><span class="badge-ok">○</span> SPF50+</td><td><span class="badge-best">◎</span> SPF50+PA++++</td></tr>
+          <tr class="row-alt"><td>汗への耐性</td><td><span class="badge-warn">△</span> 汗で薄まる</td><td><span class="badge-best">◎</span> 汗で強化（特許）</td></tr>
+          <tr><td>ノンケミカル処方</td><td><span class="badge-no">✖</span> 吸収剤使用が多い</td><td><span class="badge-best">◎</span> 紫外線吸収剤不使用</td></tr>
+          <tr class="row-alt"><td>スキンケア成分</td><td><span class="badge-warn">△</span> 最低限</td><td><span class="badge-best">◎</span> 美容液成分を豊富配合</td></tr>
+          <tr><td>塗り直し頻度</td><td><span class="badge-warn">△</span> 2〜3時間ごと推奨</td><td><span class="badge-best">◎</span> 朝1回でOK</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-center text-brand font-nserif text-lg md:text-xl mt-10 font-medium reveal">
+      「汗で強くなる処方」は、<br class="md:hidden">世界でUV FORTEだけです。
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S06 — NUMBERS / SOCIAL PROOF
+     ============================================================ -->
+<section id="numbers" class="bg-brand text-white relative overflow-hidden" style="padding-top:8rem;padding-bottom:9rem;">
+  <div class="numbers-deco" aria-hidden="true"></div>
+  <div class="max-w-5xl mx-auto px-6 md:px-10 relative z-10">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-white font-medium">
+        数字が証明する、UV FORTEの実力
+      </h2>
+    </div>
+
+    <div class="proof-layout reveal">
+
+      <!-- Lead stat -->
+      <div class="proof-lead">
+        <div class="proof-lead-stat">
+          <span class="proof-lead-n font-cormorant" data-count="78">0</span><span class="proof-lead-unit">%</span>
+        </div>
+        <p class="proof-lead-label">リピート購入率</p>
+        <p class="proof-lead-context">
+          購入者の約8割が翌月も注文を続けています。試した人が手放せなくなる、それが最も正直な効果の証明です。
+        </p>
+      </div>
+
+      <!-- Supporting facts -->
+      <div class="proof-facts">
+        <div class="proof-fact">
+          <div class="proof-fact-count">
+            <span class="proof-fact-n font-cormorant" data-count="50000">0</span><span class="proof-fact-u">本</span>
+          </div>
+          <p>発売後3ヶ月で出荷突破</p>
+        </div>
+        <div class="proof-divider" aria-hidden="true"></div>
+        <div class="proof-fact">
+          <div class="proof-fact-count">
+            <span class="proof-fact-n font-cormorant" data-count="15">0</span><span class="proof-fact-u">名</span>
+          </div>
+          <p>皮膚科専門医との共同開発</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 mt-16 reveal">
+      <div class="award-chip"><span class="award-chip-source">@cosme</span> ベストコスメ2024 日焼け止め部門 <strong class="text-gold">1位</strong></div>
+      <div class="award-chip"><span class="award-chip-source">VOGUE JAPAN</span> 今夏買うべきUVアイテム 選出</div>
+      <div class="award-chip"><span class="award-chip-source">MAQUIA</span> 2024年7月号 特集掲載</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S07 — DOCTOR / AUTHORITY
+     ============================================================ -->
+<section id="doctor" class="bg-ice" style="padding-top:7rem;padding-bottom:8rem;">
+  <div class="max-w-4xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-16 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-navy font-semibold mt-4">
+        皮膚科専門医が選んだ、<br class="md:hidden">その理由
+      </h2>
+      <div class="gold-rule mt-8 mx-auto"></div>
+    </div>
+
+    <div class="doctor-card reveal">
+      <div class="doctor-left">
+        <img src="./images/doctor-yamada.png" alt="山田一郎医師 — 東京皮膚科クリニック院長"
+          loading="lazy" decoding="async"
+          onerror="this.outerHTML='<div class=\'doctor-avatar-ph\'>医</div>'">
+        <div class="doctor-info">
+          <strong>山田 一郎 医師</strong>
+          <span>東京皮膚科クリニック 院長</span>
+        </div>
+      </div>
+      <blockquote class="doctor-quote">
+        <!-- BEFORE: 根本から変える革新技術です。 -->
+        <p>「汗で強化される処方は、15年間、誰も辿り着けなかった発想の転換です。処方設計と安全性の両立という難題を、ここまで完成度高く実現した製品を、私は他に知りません。」</p>
+      </blockquote>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 reveal">
+      <!-- BEFORE: 3cols 均等。II をfeatured化し非対称に変更 -->
+      <div class="reason-card reason-card--featured">
+        <div class="reason-i font-cormorant">I</div>
+        <h4>化学成分ゼロだから、敏感肌でも怖くない</h4>
+        <p>吸収剤不使用で皮膚への化学的ストレスを最小化。敏感肌の患者さんにも自信を持って勧められます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-i font-cormorant">II</div>
+        <!-- BEFORE: 特許処方の科学的根拠 -->
+        <h4>処方の効果を、論文で証明しました</h4>
+        <p>化学的メカニズムが論文として実証済み。<br class="md:hidden">「なんとなく効く」ではなく、機序が明確です。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-i font-cormorant">III</div>
+        <!-- BEFORE: 全成分開示の透明性 -->
+        <h4>成分を全部、隠さず見せます</h4>
+        <p>配合成分を包み隠さず公開。これが本当の意味での「安心感」だと思います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S08 — REVIEWS
+     ============================================================ -->
+<section id="reviews" class="bg-white" style="padding-top:7rem;padding-bottom:8rem;">
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-16 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-navy font-semibold mt-4">
+        使った人の、正直な声
+      </h2>
+      <div class="gold-rule mt-8 mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="review-card reveal" style="--i:0">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-who">
+          <div class="review-av">M</div>
+          <div><strong>M.K さん</strong><br><small>32歳 / 営業OL</small></div>
+        </div>
+        <p>「マラソン大会でゴールまで全然焼けなかった。日焼け止めでこんな体験は本当に初めてです。もう手放せない。」</p>
+        <span class="review-tag">#塗り直しゼロ</span>
+      </div>
+
+      <div class="review-card reveal" style="margin-top:1.5rem; --i:1">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-who">
+          <div class="review-av review-av--mid">Y</div>
+          <div><strong>Y.T さん</strong><br><small>28歳 / 看護師</small></div>
+        </div>
+        <p>「汗っかきで今まで日焼け止めが本当に意味なかったのに、これは落ちない。外来中も安心して働けるようになった。」</p>
+        <span class="review-tag">#看護師の必需品</span>
+      </div>
+
+      <div class="review-card reveal" style="--i:2">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-who">
+          <div class="review-av review-av--lt">A</div>
+          <div><strong>A.S さん</strong><br><small>29歳 / アパレル販売員</small></div>
+        </div>
+        <p>「リゾートで1日中海にいたのに日焼けしなかった。信じられなくてリピートしました。テクスチャーも軽くて最高です。」</p>
+        <span class="review-tag">#夏の相棒</span>
+      </div>
+    </div>
+
+    <div class="influencer-card mt-8 reveal">
+      <div class="influencer-hn">@fitness_mika</div>
+      <div class="influencer-body">
+        <div class="influencer-meta">
+          <strong>@fitness_mika</strong>
+          <span>フォロワー12万 / ビューティー系インフルエンサー</span>
+          <span class="pr-badge">PR</span>
+        </div>
+        <p>「この夏のマストアイテムに認定しました。汗をかくほど強くなるって、実際に体感できます。これを使い始めてから、夏が怖くなくなった。」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S09 — HOW TO USE
+     ============================================================ -->
+<section id="howto" class="bg-ice" style="padding-top:5rem;padding-bottom:5.5rem;">
+  <div class="max-w-4xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="font-nserif text-xl md:text-3xl font-semibold mt-4" style="color:var(--blue)">
+        朝1回、3ステップ。それだけです。
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-10 reveal">
+      <div class="howto-step">
+        <div class="howto-n font-cormorant">01</div>
+        <div class="howto-photo">
+          <img src="./images/howto-1.png" alt="手のひらにパール1個分を取る" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="howto-photo-ph">適量を取る</div>
+        </div>
+        <h4>パール1個分を<br>手のひらに</h4>
+        <p>スキンケアの最後、メイク前に。<br class="md:hidden">量は控えめに見えますが、これで十分です。</p>
+      </div>
+      <div class="howto-step">
+        <div class="howto-n font-cormorant">02</div>
+        <div class="howto-photo">
+          <img src="./images/howto-2.png" alt="顔・首・デコルテに均一に伸ばす" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="howto-photo-ph">均一に伸ばす</div>
+        </div>
+        <h4>顔・首・デコルテに<br>均一に伸ばす</h4>
+        <p>白浮きなし、すぐなじむテクスチャー。<br class="md:hidden">メイクをのせても崩れません。</p>
+      </div>
+      <div class="howto-step">
+        <div class="howto-n font-cormorant">03</div>
+        <div class="howto-photo">
+          <img src="./images/howto-3.png" alt="塗布後は汗が当たるほどバリアが強化される" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="howto-photo-ph">あとはそのまま</div>
+        </div>
+        <h4>あとは汗が<br>強化してくれる</h4>
+        <p>塗り直し不要。<br class="md:hidden">汗をかくたびに、バリアが再補強されていきます。</p>
+      </div>
+    </div>
+
+    <ul class="howto-tips reveal">
+      <li>メイクの上からの重ね塗りも可能</li>
+      <li>海・プール後は軽く拭き取った後の重ね塗りを推奨</li>
+      <li>初めての方は腕の内側でパッチテストを推奨します</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S10 — PRICING
+     ============================================================ -->
+<section id="pricing" class="bg-white" style="padding-top:8rem;padding-bottom:9rem;">
+  <div class="max-w-4xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-navy font-semibold mt-4">
+        まず、試してみませんか？
+      </h2>
+      <div class="gold-rule mt-8 mx-auto"></div>
+      <p class="text-sm mt-4 font-medium" style="color:var(--gold)">初回ロット限定2,000本。<br class="md:hidden">30日間全額返金保証付きです。</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Recommended -->
+      <div class="price-card price-card--rec reveal">
+        <div class="price-rec-badge">おすすめ</div>
+        <div class="price-type">定期便コース</div>
+        <div class="price-amount">¥<span class="price-big">1,740</span><small>（税込 / 初回50%OFF）</small></div>
+        <p class="price-next">2回目以降 ¥2,980（15%OFF）＋ 送料無料</p>
+        <ul class="price-perks">
+          <li>✓ UVリップ SPF30（3g）サンプル同梱</li>
+          <li>✓ 皮膚科医監修「夏の肌ケアガイド」PDF</li>
+          <li>✓ いつでも解約OK（縛りなし）</li>
+        </ul>
+        <a href="./order/index.html?plan=teiki" class="btn-gold w-full text-center block mt-6">定期便で試してみる</a>
+      </div>
+
+      <!-- Single -->
+      <div class="price-card reveal">
+        <div class="price-type">単品購入</div>
+        <div class="price-amount">¥<span class="price-big price-big--sm">3,480</span><small>（税込）</small></div>
+        <p class="price-next">送料 ¥550 別途</p>
+        <ul class="price-perks price-perks--light">
+          <li>✓ 30日間返金保証付き</li>
+          <li>✓ 翌日発送（15時注文まで）</li>
+        </ul>
+        <a href="./order/index.html?plan=tanpin" class="btn-outline-brand w-full text-center block mt-6">単品を購入する</a>
+      </div>
+    </div>
+
+    <p class="text-xs text-gray-600 text-center mt-8 leading-relaxed reveal">
+      定期便はマイページまたはお電話にて次回発送の14日前まで<br class="md:hidden">解約可能。違約金は発生しません。<br>
+      詳細は<a href="./tokushoho/index.html" class="underline hover:text-gray-600">特定商取引法に基づく表記</a>をご確認ください。
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S11 — FAQ
+     ============================================================ -->
+<section id="faq" class="bg-ice" style="padding-top:5rem;padding-bottom:6rem;">
+  <div class="max-w-3xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="font-nserif text-2xl md:text-4xl text-navy font-semibold mt-4">よくある質問</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item" data-faq>
+        <button class="faq-q" aria-expanded="false">
+          <span>本当に塗り直しゼロで大丈夫ですか？</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div><p>はい。特許アクティブシールド処方®が汗・皮脂に触れるたびに分子結合を強化するため、通常の発汗量であれば塗り直し不要です。ただし、海水浴後は水浴び後に軽く拭き取った後の重ね塗りを推奨しています。</p></div>
+        </div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-q" aria-expanded="false">
+          <span>白浮きしませんか？</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div><p>マイクロUV散乱剤（粒子径200nm以下）を使用しており、白浮きが起きにくい処方です。モニター100名のテストで95%が「白浮きなし」と回答しています。</p></div>
+        </div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-q" aria-expanded="false">
+          <span>敏感肌でも使えますか？</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div><p>紫外線吸収剤不使用のノンケミカル処方で、皮膚科医15名が共同設計した低刺激処方です。アレルギーテスト済み。ただし初めての方は腕の内側でパッチテストを推奨します。</p></div>
+        </div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-q" aria-expanded="false">
+          <span>定期便はいつでも解約できますか？</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div><p>はい。次回発送日の14日前までにマイページまたはお電話にてお手続きいただければ、いつでも解約可能です。違約金等は一切発生しません。</p></div>
+        </div>
+      </div>
+      <div class="faq-item" data-faq>
+        <button class="faq-q" aria-expanded="false">
+          <span>メイクの上から塗り直せますか？</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div><p>可能です。ただし朝1回の塗布で一日中持続するため、通常の日常生活では塗り直し不要です。長時間の屋外活動後は念のため重ね塗りをお勧めします。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S12 — GUARANTEE
+     ============================================================ -->
+<section id="guarantee" class="bg-brand text-white" style="padding-top:7rem;padding-bottom:7rem;">
+  <div class="max-w-3xl mx-auto px-6 md:px-10 text-center">
+    <div class="guarantee-ring reveal">
+      <div class="guarantee-days font-cormorant">30<span class="guarantee-unit">日間</span></div>
+      <div class="guarantee-text">全額返金保証</div>
+    </div>
+    <h2 class="font-nserif text-xl md:text-3xl text-white mt-10 mb-5 font-medium reveal">
+      1本使い切っても、<br class="md:hidden">効果を感じなければ<br>全額お返しします。
+    </h2>
+    <p class="text-white/70 leading-relaxed mb-10 font-light reveal">
+      開封済みでも、使用後でも対象です。<br>
+      それだけ、この処方に自信を持っています。<br>
+      失敗してもリスクゼロ。<br class="md:hidden">まず試してみてほしいのです。
+    </p>
+    <div class="guarantee-flow reveal">
+      <div class="gf-step"><span>① お申し出</span><small>メール・電話</small></div>
+      <div class="gf-sep">→</div>
+      <div class="gf-step"><span>② 弊社確認</span><small>1〜2営業日</small></div>
+      <div class="gf-sep">→</div>
+      <div class="gf-step"><span>③ 全額返金</span><small>3〜5営業日</small></div>
+    </div>
+    <p class="text-white/60 text-xs mt-6">購入日から30日以内・公式ECサイトでの購入が対象。詳細は特定商取引法に基づく表記をご確認ください。</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S13 — LIMITED OFFER
+     ============================================================ -->
+<section id="limited" class="limited-section relative overflow-hidden" style="padding-top:7rem;padding-bottom:8rem;">
+  <div class="limited-bg absolute inset-0" aria-hidden="true"></div>
+  <div class="max-w-4xl mx-auto px-6 md:px-10 relative z-10">
+
+    <div class="text-center mb-10 reveal">
+      <div class="campaign-label">🌊 夏の先行発売<br class="md:hidden">キャンペーン</div>
+      <p class="text-white/60 text-sm mt-4 mb-6">2026年8月31日（火）23:59 まで</p>
+      <div id="countdown" class="countdown font-cormorant">
+        <div class="cd-unit"><span id="cd-d" class="cd-n">00</span><span class="cd-l">日</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span id="cd-h" class="cd-n">00</span><span class="cd-l">時間</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span id="cd-m" class="cd-n">00</span><span class="cd-l">分</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span id="cd-s" class="cd-n">00</span><span class="cd-l">秒</span></div>
+      </div>
+    </div>
+
+    <div class="stock-wrap text-center mb-12 reveal">
+      <p class="text-white/80 text-lg mb-3">初回ロット限定 2,000本 <span class="text-gold font-bold">残りわずか</span></p>
+      <div class="stock-bar"><div class="stock-fill"></div></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 reveal">
+      <div class="benefit-chip"><span class="bc-n font-cormorant">①</span><div><strong>定期便 初回 50%OFF</strong><span>¥3,480 → ¥1,740</span></div></div>
+      <div class="benefit-chip"><span class="bc-n font-cormorant">②</span><div><strong>UVリップ サンプル同梱</strong><span>全購入者にプレゼント</span></div></div>
+      <div class="benefit-chip"><span class="bc-n font-cormorant">③</span><div><strong>皮膚科医監修 PDF</strong><span>「夏の肌ケアガイド」</span></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S14 — FINAL CTA
+     ============================================================ -->
+<section id="final" class="final-section relative overflow-hidden" style="padding-top:12rem;padding-bottom:12rem;">
+  <div class="final-bg absolute inset-0" aria-hidden="true"></div>
+  <div class="max-w-2xl mx-auto px-6 md:px-10 text-center relative z-10">
+
+    <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+      <span class="final-badge">@cosme 1位</span>
+      <span class="final-badge">VOGUE JAPAN</span>
+      <span class="final-badge">皮膚科医15名</span>
+      <span class="final-badge">リピート率78.4%</span>
+      <span class="final-badge">30日返金保証</span>
+    </div>
+
+    <h2 class="font-cormorant italic text-2xl sm:text-3xl md:text-7xl text-white mb-6 leading-tight reveal">
+      汗で強くなる。<br><span class="md:whitespace-nowrap">今日から始めよう。</span>
+    </h2>
+    <p class="text-white/65 mb-12 leading-[1.9] font-light reveal">
+      諦めていた「落ちない日焼け止め」が、<br class="md:hidden">ここにあります。<br>
+      30日間全額返金保証付き。<br class="md:hidden">失敗してもリスクはゼロです。
+    </p>
+
+    <div class="flex flex-col gap-4 max-w-sm mx-auto reveal">
+      <a href="#pricing" class="btn-gold btn-gold--lg">今すぐ購入する <span class="btn-gold-icon">→</span><span class="opacity-80 ml-1 text-sm">¥3,480</span></a>
+      <a href="#pricing" class="btn-ghost-white text-sm">定期便で試す（初回¥1,740 / 50%OFF）</a>
+      <a href="./sample-request/index.html" class="text-white/65 text-xs hover:text-white/85 transition-colors py-2">サンプルを請求する →</a>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 mt-10 reveal">
+      <span class="pay-chip">VISA</span>
+      <span class="pay-chip">Mastercard</span>
+      <span class="pay-chip">JCB</span>
+      <span class="pay-chip">Amazon Pay</span>
+      <span class="pay-chip">楽天Pay</span>
+      <span class="pay-chip">Apple Pay</span>
+    </div>
+
+    <p class="text-white/60 text-xs mt-6 reveal">
+      ✓ 30日間全額返金保証（開封後OK）　✓ 分割払い6回まで手数料無料　✓ 翌日発送（15時注文まで）
+    </p>
+  </div>
+</section>
+
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="bg-navy text-white/50 py-14 px-6 md:px-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between gap-10 mb-10">
+      <div>
+        <p class="font-cormorant text-2xl italic text-white tracking-[.08em] mb-3">LUMIÉRE</p>
+        <p class="text-sm leading-relaxed">
+          株式会社ルミエール・コスメティクス<br>
+          創業2009年 / 東京都渋谷区
+        </p>
+      </div>
+      <nav>
+        <ul class="space-y-2 text-sm">
+          <li><a href="./tokushoho/index.html" class="hover:text-white/80 transition-colors">特定商取引法に基づく表記</a></li>
+          <li><a href="./privacy-policy/index.html" class="hover:text-white/80 transition-colors">プライバシーポリシー</a></li>
+          <li><a href="./returns/index.html" class="hover:text-white/80 transition-colors">返品・返金ポリシー</a></li>
+          <li><a href="./contact/index.html" class="hover:text-white/80 transition-colors">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between gap-3 text-xs">
+      <p>© <span id="copyright-year">2026</span> LUMIÉRE Cosmetics Co., Ltd. All Rights Reserved.</p>
+      <p>本商品はSPF50+PA++++の医薬部外品です。</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ── Scroll-triggered reveal ── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── Header scroll state (rAF-throttled) ── */
+const hdr = document.getElementById('site-header');
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      hdr.classList.toggle('hdr-scrolled', window.scrollY > 60);
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+}, { passive: true });
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('[data-faq]').forEach(item => {
+  const btn = item.querySelector('.faq-q');
+  const ans = item.querySelector('.faq-a');
+  const ico = item.querySelector('.faq-icon');
+  btn.addEventListener('click', () => {
+    const willOpen = !ans.classList.contains('faq-a--expanded');
+    ans.classList.toggle('faq-a--expanded', willOpen);
+    btn.setAttribute('aria-expanded', String(willOpen));
+    ico.textContent = willOpen ? '−' : '+';
+    item.classList.toggle('faq--open', willOpen);
+  });
+});
+
+/* ── Number counter animation ── */
+function countUp(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const dur = 1400;
+  const start = performance.now();
+  const tick = (now) => {
+    const t = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const v = Math.floor(eased * target);
+    el.textContent = target >= 1000 ? v.toLocaleString('ja-JP') : v;
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+const cntObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); cntObs.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+
+/* ── Countdown timer ── */
+const deadline = new Date('2026-08-31T23:59:59+09:00');
+function tick() {
+  const diff = deadline - Date.now();
+  if (diff <= 0) {
+    const limited = document.getElementById('limited');
+    if (limited) limited.hidden = true;
+    return;
+  }
+  const d = Math.floor(diff / 864e5);
+  const h = Math.floor(diff % 864e5 / 36e5);
+  const m = Math.floor(diff % 36e5 / 6e4);
+  const s = Math.floor(diff % 6e4 / 1e3);
+  const pad = n => String(n).padStart(2, '0');
+  document.getElementById('cd-d').textContent = pad(d);
+  document.getElementById('cd-h').textContent = pad(h);
+  document.getElementById('cd-m').textContent = pad(m);
+  document.getElementById('cd-s').textContent = pad(s);
+}
+tick();
+setInterval(tick, 1000);
+
+/* ── Copyright year ── */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
