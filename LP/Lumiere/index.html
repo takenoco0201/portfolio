@@ -69,7 +69,7 @@
      ============================================================ -->
 <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
   <div class="max-w-6xl mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
-    <a href="./" class="font-cormorant text-2xl italic tracking-[.08em] text-white header-logo">LUMIÉRE</a>
+    <a href="./index.html" class="font-cormorant text-2xl italic tracking-[.08em] text-white header-logo">LUMIÉRE</a>
     <a href="#pricing" class="btn-gold-sm">今すぐ購入</a>
   </div>
 </header>
@@ -81,8 +81,12 @@
      ============================================================ -->
 <section id="hero" class="hero relative min-h-screen overflow-hidden">
 
-  <!-- 背景: 海・空の写真 -->
-  <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+  <!-- 背景: 海・空の写真スライドショー -->
+  <div class="hero-bg absolute inset-0" aria-hidden="true">
+    <div class="hero-bg-slide active" style="background-image: url('./images/hero-bg.png')"></div>
+    <div class="hero-bg-slide" style="background-image: url('./images/hero-bg2.png')"></div>
+    <div class="hero-bg-slide" style="background-image: url('./images/hero-bg3.png')"></div>
+  </div>
 
   <!-- テキスト可読性用: 左側グラデーションオーバーレイ -->
   <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
@@ -197,14 +201,21 @@
     <!-- Lifestyle scenes -->
     <div class="grid md:grid-cols-2 gap-5 mb-16 reveal items-stretch">
       <div class="scene-card">
-        <div class="scene-photo" style="background-image:url('./images/scene-nurse.png')"></div>
+        <div class="scene-photo" data-slideshow>
+          <div class="scene-photo-slide active" style="background-image:url('./images/scene-nurse.png')"></div>
+          <div class="scene-photo-slide" style="background-image:url('./images/scene-nurse-2.png')"></div>
+          <div class="scene-photo-slide" style="background-image:url('./images/scene-nurse-3.png')"></div>
+        </div>
         <blockquote>
           「外来で走り回って、気づいたら夕方。<br class="md:hidden">日焼け止めなんてとっくに落ちてた気がする。」
           <cite>28歳 / 看護師</cite>
         </blockquote>
       </div>
       <div class="scene-card">
-        <div class="scene-photo" style="background-image:url('./images/scene-ol.png')"></div>
+        <div class="scene-photo" data-slideshow>
+          <div class="scene-photo-slide active" style="background-image:url('./images/scene-ol.png')"></div>
+          <div class="scene-photo-slide" style="background-image:url('./images/scene-ol-2.png')"></div>
+        </div>
         <blockquote>
           「外回りで汗びっしょりになるたびに、<br class="md:hidden">日焼け止めが意味ないって思ってた。<br class="md:hidden">もう慣れちゃってた。」
           <cite>30歳 / 営業OL</cite>
@@ -364,7 +375,8 @@
 
       <div class="zigzag reveal">
         <div class="zigzag-photo">
-          <div class="zigzag-photo-inner" style="background-image:url('./images/scene-sport.png')"></div>
+          <div class="zigzag-photo-slide zigzag-kb-1 active" style="background-image:url('./images/scene-sport.png')"></div>
+          <div class="zigzag-photo-slide zigzag-kb-1" style="background-image:url('./images/scene-sport-2.png')"></div>
         </div>
         <div class="zigzag-body">
           <h3>朝1回塗るだけ。<br>あとは汗にまかせていい。</h3>
@@ -374,7 +386,8 @@
 
       <div class="zigzag zigzag--rev reveal">
         <div class="zigzag-photo">
-          <div class="zigzag-photo-inner" style="background-image:url('./images/scene-makeup.png')"></div>
+          <div class="zigzag-photo-slide zigzag-kb-2 active" style="background-image:url('./images/scene-makeup.png')"></div>
+          <div class="zigzag-photo-slide zigzag-kb-2" style="background-image:url('./images/scene-makeup-2.png')"></div>
         </div>
         <div class="zigzag-body">
           <h3>崩れないから、<br>外出先でも自信が持てる。</h3>
@@ -384,7 +397,8 @@
 
       <div class="zigzag reveal">
         <div class="zigzag-photo">
-          <div class="zigzag-photo-inner" style="background-image:url('./images/scene-skincare.png')"></div>
+          <div class="zigzag-photo-slide zigzag-kb-3 active" style="background-image:url('./images/scene-skincare.png')"></div>
+          <div class="zigzag-photo-slide zigzag-kb-3" style="background-image:url('./images/scene-skincare-2.png')"></div>
         </div>
         <div class="zigzag-body">
           <h3>守りながら、<br>肌を育てていく。</h3>
@@ -985,6 +999,42 @@ setInterval(tick, 1000);
 
 /* ── Copyright year ── */
 document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+/* ── Hero BG slideshow (7s / 枚) ── */
+(function() {
+  const slides = document.querySelectorAll('.hero-bg-slide');
+  if (slides.length <= 1) return;
+  let cur = 0;
+  setInterval(() => {
+    slides[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+  }, 7000);
+})();
+
+/* ── Scene card slideshow (5s / 枚) ── */
+document.querySelectorAll('.scene-photo[data-slideshow]').forEach(photo => {
+  const slides = photo.querySelectorAll('.scene-photo-slide');
+  if (slides.length <= 1) return;
+  let cur = 0;
+  setInterval(() => {
+    slides[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+  }, 5000);
+});
+
+/* ── Zigzag photo slideshow (6s / 枚) ── */
+document.querySelectorAll('.zigzag-photo').forEach(photo => {
+  const slides = photo.querySelectorAll('.zigzag-photo-slide');
+  if (slides.length <= 1) return;
+  let cur = 0;
+  setInterval(() => {
+    slides[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+  }, 6000);
+});
 </script>
 </body>
 </html>

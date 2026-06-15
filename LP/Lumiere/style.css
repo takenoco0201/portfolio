@@ -1854,6 +1854,158 @@ html { scroll-padding-top: 72px; }
   .fade-in { opacity: 1 !important; transform: none !important; }
 }
 
+
+/* =============================================================
+   IMAGE MOTION — Ken Burns / Float / Slideshow
+   ============================================================= */
+
+/* ── Hero BG: スライドショー + 各スライド個別 Ken Burns ── */
+.hero-bg {
+  background: none; /* background は .hero-bg-slide 側に移動 */
+  overflow: hidden;
+}
+.hero-bg-slide {
+  position: absolute;
+  inset: -6%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  will-change: transform, opacity;
+}
+.hero-bg-slide.active { opacity: 1; }
+
+@keyframes heroKB1 {
+  0%   { transform: scale(1.00) translate(0%,    0%);    }
+  100% { transform: scale(1.10) translate(-2%,  -1.5%);  }
+}
+@keyframes heroKB2 {
+  0%   { transform: scale(1.08) translate(2%,    0.5%);  }
+  100% { transform: scale(1.00) translate(-1.5%, -1.5%); }
+}
+@keyframes heroKB3 {
+  0%   { transform: scale(1.00) translate(-1.5%, 1%);    }
+  100% { transform: scale(1.09) translate(1.5%, -1.5%);  }
+}
+.hero-bg-slide:nth-child(1) { animation: heroKB1 12s ease-in-out infinite alternate; }
+.hero-bg-slide:nth-child(2) { animation: heroKB2 12s ease-in-out infinite alternate; }
+.hero-bg-slide:nth-child(3) { animation: heroKB3 12s ease-in-out infinite alternate; }
+
+/* ── 商品画像: フェードイン後にフローティング ── */
+@keyframes prodFloat {
+  0%, 100% { transform: translateY(0px)   rotate(0deg);   }
+  45%       { transform: translateY(-14px) rotate(0.5deg); }
+  75%       { transform: translateY(-7px)  rotate(-0.3deg);}
+}
+.hero-prod-img {
+  animation:
+    fadeUp   0.9s  0.65s var(--ease-out) both,
+    prodFloat 5.5s 1.60s ease-in-out     infinite;
+  will-change: transform;
+}
+
+/* ── シーンカード: スライドショー + Ken Burns ── */
+.scene-photo {
+  position: relative;
+  overflow: hidden;
+}
+.scene-photo-slide {
+  position: absolute;
+  inset: -6%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  will-change: transform, opacity;
+}
+.scene-photo-slide.active { opacity: 1; }
+
+@keyframes spKB1 {
+  0%   { transform: scale(1.00) translate(0%,   0%);  }
+  100% { transform: scale(1.12) translate(-2%,  -1%); }
+}
+@keyframes spKB2 {
+  0%   { transform: scale(1.12) translate(-2%,   1%); }
+  100% { transform: scale(1.02) translate(2%,   -1%); }
+}
+@keyframes spKB3 {
+  0%   { transform: scale(1.04) translate(2%,   0%);  }
+  100% { transform: scale(1.12) translate(-1%,  -2%); }
+}
+.scene-photo-slide:nth-child(1) { animation: spKB1 8s ease-in-out infinite alternate; }
+.scene-photo-slide:nth-child(2) { animation: spKB2 8s ease-in-out infinite alternate; }
+.scene-photo-slide:nth-child(3) { animation: spKB3 8s ease-in-out infinite alternate; }
+
+/* ── Zigzag photo: スライドショー対応 ── */
+.zigzag-photo {
+  position: relative;
+}
+.zigzag-photo-slide {
+  position: absolute;
+  inset: -6%;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #0a2a48;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  will-change: transform, opacity;
+}
+.zigzag-photo-slide.active { opacity: 1; }
+
+/* ── ジグザグ写真: Ken Burns (方向別) ── */
+@keyframes zbKB1 {
+  0%   { transform: scale(1.00) translate(0%,    0%);   }
+  100% { transform: scale(1.08) translate(-2%,  -1%);   }
+}
+@keyframes zbKB2 {
+  0%   { transform: scale(1.06) translate(2.5%,  0.5%); }
+  100% { transform: scale(1.00) translate(-1.5%, -0.5%);}
+}
+@keyframes zbKB3 {
+  0%   { transform: scale(1.02) translate(-1.5%, 1%);   }
+  100% { transform: scale(1.09) translate(1.5%, -1%);   }
+}
+.zigzag-kb-1 {
+  animation: zbKB1 16s ease-in-out infinite alternate;
+  transition: none;
+}
+.zigzag-kb-2 {
+  animation: zbKB2 16s ease-in-out infinite alternate;
+  transition: none;
+}
+.zigzag-kb-3 {
+  animation: zbKB3 16s ease-in-out infinite alternate;
+  transition: none;
+}
+
+/* ── ハウツー写真: Ken Burns ── */
+@keyframes howtoKB1 {
+  0%   { transform: scale(1.00) translate(0%,    0%);   }
+  100% { transform: scale(1.08) translate(-1.5%, -1%);  }
+}
+@keyframes howtoKB2 {
+  0%   { transform: scale(1.06) translate(2%,    0.5%); }
+  100% { transform: scale(1.00) translate(-1%,  -0.5%);}
+}
+@keyframes howtoKB3 {
+  0%   { transform: scale(1.02) translate(-1%,   1%);   }
+  100% { transform: scale(1.08) translate(1%,   -1%);   }
+}
+.howto-photo img {
+  animation: howtoKB1 12s ease-in-out infinite alternate;
+}
+.howto-step:nth-child(2) .howto-photo img {
+  animation-name: howtoKB2;
+  animation-delay: 2s;
+}
+.howto-step:nth-child(3) .howto-photo img {
+  animation-name: howtoKB3;
+  animation-delay: 4s;
+}
+
 /* =============================================================
    SUBPAGES — 特定商取引法 / プライバシー / 返金 / お問い合わせ等
    WordPress移植時: このスタイルはテーマのpage.phpが担う
