@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Celluré（セリュレ）— 製薬会社が生んだ美容サプリ。内側から肌のコンディションを整える、セルフォース因子™配合の7成分。初回3,980円・30日返金保証。">
+  <title>Celluré（セリュレ）| 内側から肌を整える美容サプリ | 製薬会社・医師監修</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Extra page-specific animations -->
+  <style>
+    /* ── scroll progress ── */
+    #scroll-bar {
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--sea), var(--gold));
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    /* ── sticky CTA ── */
+    #sticky-cta {
+      position: fixed; bottom: -80px; left: 0; right: 0; z-index: 250;
+      background: rgba(26,26,46,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.75rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem;
+      transition: bottom 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    #sticky-cta.show { bottom: 0; }
+    #sticky-cta .st-price {
+      font-family: var(--f-min);
+      font-size: 1.1rem; font-weight: 800; color: var(--gold-l);
+    }
+    #sticky-cta .st-sub { font-size: 0.58rem; color: rgba(255,255,255,0.5); }
+    #sticky-cta .st-btn {
+      flex-shrink: 0; background: var(--gold); color: var(--white);
+      font-weight: 700; font-size: 0.78rem; padding: 0.65rem 1.25rem;
+      border-radius: 4px; white-space: nowrap;
+    }
+
+    /* ── opening text: per-line slide-up ── */
+    .opening__headline .line { overflow: hidden; display: block; }
+    .opening__headline .line span {
+      display: block;
+      transform: translateY(110%);
+      animation: lineUp 0.9s cubic-bezier(0.19,1,0.22,1) forwards;
+    }
+    .opening__headline .line:nth-child(1) span { animation-delay: 0.45s; }
+    .opening__headline .line:nth-child(2) span { animation-delay: 0.62s; }
+    .opening__headline .line:nth-child(3) span { animation-delay: 0.78s; }
+    @keyframes lineUp { to { transform: translateY(0); } }
+
+    /* ── floating gold particles ── */
+    .particle-wrap {
+      position: absolute; inset: 0; z-index: 1;
+      pointer-events: none; overflow: hidden;
+    }
+    .particle {
+      position: absolute; border-radius: 50%;
+      background: rgba(201,168,76,0.22);
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0) scale(1); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.5; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+
+    /* ── gold underline sweep ── */
+    .gold-underline { position: relative; display: inline; }
+    .gold-underline::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0%; height: 2px; background: var(--gold);
+      transition: width 1.1s 0.4s ease;
+    }
+    .reveal.in .gold-underline::after { width: 100%; }
+
+    /* ── glow on star ingredient ── */
+    @keyframes goldGlow {
+      0%, 100% { text-shadow: 0 0 24px rgba(224,194,106,0.35), 0 0 48px rgba(224,194,106,0.10); }
+      50%       { text-shadow: 0 0 36px rgba(224,194,106,0.70), 0 0 72px rgba(224,194,106,0.28); }
+    }
+    .star-shimmer {
+      color: var(--gold-l);
+      animation: goldGlow 4s ease-in-out infinite;
+    }
+
+    /* ── story timeline stagger ── */
+    .story__mile {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .story__mile.in { opacity: 1; transform: none; }
+
+    /* ── number stat underline ── */
+    .numbers__stat .num-line { position: relative; display: inline-block; }
+    .numbers__stat .num-line::after {
+      content: '';
+      position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 3px; background: var(--sea);
+      transition: width 1.2s 0.3s ease;
+    }
+    .numbers__stat.in .num-line::after { width: 100%; }
+
+    /* ── doctor pulse ring ── */
+    @keyframes ring {
+      0% { transform: scale(1); opacity: 0.5; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+    .voice__ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1.5px solid rgba(201,168,76,0.4);
+      animation: ring 2.6s ease-out infinite;
+    }
+
+    /* ── wall section light glow ── */
+    .wall { position: relative; overflow: hidden; }
+    .wall::before {
+      content: '';
+      position: absolute; top: -30%; left: -10%;
+      width: 55%; aspect-ratio: 1;
+      background: radial-gradient(circle, rgba(27,108,168,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── closing video section ── */
+    .closing { min-height: 92svh; display: flex; align-items: center; }
+
+    @media (min-width: 1280px) {
+      .wall__split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+      .closing { min-height: 80svh; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- スキップナビゲーション -->
+  <a href="#lp-wrap" class="skip-link">メインコンテンツへスキップ</a>
+
+  <!-- ============================================================
+       PC PHONE FRAME — 769px 以上でモバイルLPを1080×1920フレームで包む
+  ============================================================ -->
+  <div id="phone-frame">
+
+  <!-- Scroll progress -->
+  <div id="scroll-bar" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a href="#top" class="site-header__logo">
+        Celluré<span>.</span>
+      </a>
+      <a href="order.html?plan=sub" class="btn-primary" style="padding:0.5rem 1.1rem; font-size:0.78rem;">
+        今すぐ試す
+      </a>
+    </div>
+  </header>
+
+  <!-- PC サイド装飾（1280px以上でのみ表示） -->
+  <div class="pc-side pc-side--left" aria-hidden="true">
+    <span class="pc-side__logo">Celluré<em>.</em></span>
+    <span class="pc-side__copy">内側から、<br>肌が変わる。</span>
+    <span class="pc-side__tag">Pharmabeauty Est. 2026</span>
+  </div>
+  <div class="pc-side pc-side--right" aria-hidden="true">
+    <span class="pc-side__pill">GMP認定工場</span>
+    <span class="pc-side__pill">医師監修</span>
+    <span class="pc-side__pill">30日返金保証</span>
+    <span class="pc-side__pill">特許出願中</span>
+  </div>
+
+  <!-- LP wrap: PC時に1080px幅で中央表示 -->
+  <main id="lp-wrap">
+
+  <!-- ============================================================
+       S01  OPENING — 映像 + 詩的なキャッチ
+       特徴: 動画BG + Ken Burns + パーティクル + テキストスライドイン
+  ============================================================ -->
+  <section class="opening" id="top">
+
+    <!-- 動画背景 -->
+    <div class="opening__bg">
+      <video
+        class="opening__video"
+        autoplay muted loop playsinline
+        preload="none"
+        poster="images/hero_bg.png"
+        aria-hidden="true">
+        <source src="videos/hero.mp4" type="video/mp4">
+      </video>
+      <!-- 動画フォールバック: Ken Burns 写真 -->
+      <div class="opening__photo kb" role="img" aria-label="朝の光の中で鏡を見る女性"></div>
+      <div class="opening__veil"></div>
+      <!-- Aurora グラデーションオーバーレイ -->
+      <div class="aurora-overlay" aria-hidden="true"></div>
+    </div>
+
+    <!-- 浮遊パーティクル -->
+    <div class="particle-wrap" aria-hidden="true" id="particles"></div>
+
+    <!-- テキスト -->
+    <div class="opening__text c-narrow">
+      <span class="opening__eyebrow">Pharmabeauty × Celluré — Est. 2026</span>
+
+      <h1 class="opening__headline">
+        <div class="line"><span>スキンケアの</span></div>
+        <div class="line"><span><em class="glow-gold">限界を、</em></span></div>
+        <div class="line"><span>超えよう。</span></div>
+      </h1>
+
+      <p class="opening__sub">
+        外側だけでは変えられなかった肌を、内側から整える。<br>
+        創業55年の製薬会社が生んだ、新発想の美容サプリ。
+      </p>
+
+      <div class="opening__cta">
+        <a href="#invest" class="btn-primary btn-primary-lg btn-pulse btn-shine">
+          内側から変わってみる — 初回3,980円
+        </a>
+        <a href="#story" class="btn-ghost-w" style="max-width:360px; text-align:center; width:100%;">
+          Celluréの物語を読む
+        </a>
+        <p class="opening__hint">30日間全額返金保証 / いつでも解約OK / 送料無料</p>
+      </div>
+    </div>
+
+    <!-- Trust chips -->
+    <div class="opening__trust">
+      <span class="trust-chip">GMP認定工場</span>
+      <span class="trust-chip">医師監修</span>
+      <span class="trust-chip">特許出願中</span>
+      <span class="trust-chip">モニター500名</span>
+      <span class="trust-chip">92%が変化を実感</span>
+      <span class="trust-chip">30日返金保証</span>
+    </div>
+  </section>
+
+  <!-- マーキー 1 -->
+  <div class="marquee-band marquee-band--sea" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Celluré</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">スキンケアの限界を超えよう</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">製薬会社55年の本気</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">GMP認定工場製造</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">医師監修</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">特許出願中</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">30日間全額返金保証</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">Celluré</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">スキンケアの限界を超えよう</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">製薬会社55年の本気</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">GMP認定工場製造</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">医師監修</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">特許出願中</span><span class="marquee-sep">×</span>
+      <span class="marquee-item">30日間全額返金保証</span><span class="marquee-sep">×</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       S02  THE FEELING — 感情シーン
+       特徴: フルブリード写真 + ズームイン+パン + 暗背景でドラマチックに
+  ============================================================ -->
+  <section class="feeling" id="feeling">
+
+    <!-- 写真: ズームイン + 右→左パン -->
+    <div class="feeling__photo">
+      <div class="iz" data-pan="l" style="height:100%; min-height:340px;">
+        <div class="iz-inner"></div>
+      </div>
+    </div>
+
+    <!-- キャプション -->
+    <div class="feeling__caption">
+      <blockquote class="feeling__quote reveal">
+        「頑張っているのに、<br>
+        なぜ変わらないんだろう。」
+      </blockquote>
+
+      <p class="feeling__attr reveal d2">
+        そう思った夜、スキンケアに限界を感じた。<br>
+        でも、その限界には理由があった。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S03  THE WALL — 外側ケアの限界
+       特徴: 長文エディトリアル + スキン断面グラフィック + スクロールズーム写真
+  ============================================================ -->
+  <section class="wall" id="wall">
+    <div class="c">
+      <div class="wall__split">
+
+        <!-- 左: テキスト -->
+        <div>
+              <h2 class="reveal" style="font-family:var(--f-min); font-size:clamp(1.4rem,6vw,2rem); font-weight:800; line-height:1.35; margin-bottom:2rem; letter-spacing:0.03em;">
+            外側だけでは、<br>届かない場所がある。
+          </h2>
+
+          <div class="wall__prose reveal d2">
+            <p>
+              毎晩丁寧にスキンケアをしているのに、肌のトーンが落ちてきた。くすみが気になる。
+              化粧ノリが悪くなってきた。田中美佳先生は、そういう相談を診察室で毎日のように聞いていたと言います。
+            </p>
+            <p>
+              スキンケアが届く皮膚の深さには、物理的な限界があります。化粧水や美容液がどれだけ優れていても、
+              表皮より奥の真皮や、皮膚細胞そのものにはリーチできません。これは科学的な事実です。
+            </p>
+            <p>
+              くすみや毛穴、乾燥の本質的な原因は「細胞レベルの変化」にあります。
+              30代に向けて加速するこの変化は、外側ケアだけでは追いかけられなくなっていきます。
+            </p>
+          </div>
+
+          <blockquote class="wall__pull reveal d3">
+            「内側から整える」という発想が、<br>
+            外側では届かない場所に<br>
+            アプローチする唯一の方法でした。
+          </blockquote>
+        </div>
+
+        <!-- 右: ダイアグラム + スクロールズーム写真 -->
+        <div class="reveal d4">
+          <div class="wall__diagram">
+            <div class="wall__diagram-item wall__diagram-item--out">
+              <span class="wall__diagram-label">外側ケア（化粧品）</span>
+              <div class="wall__diagram-icon">
+                <div class="skin-vis skin-vis--out" aria-hidden="true">
+                  <div class="skin-vis__drops">
+                    <div class="skin-vis__drop"></div>
+                    <div class="skin-vis__drop sv-d2"></div>
+                    <div class="skin-vis__drop sv-d3"></div>
+                  </div>
+                  <div class="skin-vis__layers">
+                    <div class="skin-vis__l skin-vis__l--ep">表皮 ◀</div>
+                    <div class="skin-vis__l skin-vis__l--de">真皮</div>
+                    <div class="skin-vis__l skin-vis__l--cl">細胞</div>
+                  </div>
+                </div>
+              </div>
+              <p class="wall__diagram-text">化粧水・美容液<br>届く深さ：<strong>表皮のみ</strong></p>
+            </div>
+            <div class="wall__diagram-item wall__diagram-item--in">
+              <span class="wall__diagram-label">内側ケア（Celluré）</span>
+              <div class="wall__diagram-icon">
+                <div class="skin-vis skin-vis--in" aria-hidden="true">
+                  <div class="skin-vis__layers">
+                    <div class="skin-vis__l skin-vis__l--ep-in">表皮 ✓</div>
+                    <div class="skin-vis__l skin-vis__l--de-in">真皮 ✓</div>
+                    <div class="skin-vis__l skin-vis__l--cl-in">細胞 ✓</div>
+                  </div>
+                  <div class="skin-vis__particles">
+                    <div class="skin-vis__p sv-p1"></div>
+                    <div class="skin-vis__p sv-p2"></div>
+                    <div class="skin-vis__p sv-p3"></div>
+                    <div class="skin-vis__p sv-p4"></div>
+                    <div class="skin-vis__p sv-p5"></div>
+                  </div>
+                </div>
+              </div>
+              <p class="wall__diagram-text">サプリメント摂取<br>届く深さ：<strong>真皮・細胞レベル</strong></p>
+            </div>
+          </div>
+          <p style="font-size:0.6rem; color:var(--ink-50); margin-top:0.6rem; line-height:1.7; padding:0 0.4rem;">
+            ※ イメージ図です。効果を保証するものではありません。
+          </p>
+
+          <!-- 肌ケア動画 -->
+          <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; margin-top:1.5rem;">
+            <video
+              autoplay muted loop playsinline
+              preload="none"
+              poster="images/wall_scene.png"
+              style="width:100%; height:100%; object-fit:cover; display:block; border-radius:12px;">
+              <source src="videos/wall_scene.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S04  BRAND STORY — 55年の物語
+       特徴: 暗背景 + 水平スクロールタイムライン + 商品ボトルズームイン
+  ============================================================ -->
+  <section class="story" id="story">
+    <div class="c">
+      <h2 class="story__lead reveal">
+        製薬会社が、<br>
+        <em>妥協できなかった</em><br>
+        ひとつの答え。
+      </h2>
+
+      <div class="story__prose reveal d2">
+        <p>
+          ファルマビューティ株式会社は、1971年の創業以来55年間、医薬品の品質管理基準で
+          サプリメントを作り続けてきた製薬会社です。「本当に信頼できるものしか届けない」という
+          創業の精神が、私たちのすべての製品の根底にあります。
+        </p>
+        <p>
+          Celluréは、「女性の肌の悩みに、製薬会社だからこそできる答えを出したい」という思いから
+          生まれました。美容皮膚科医との共同開発、大学研究機関との連携、そして500名のモニター調査。
+          すべての過程を経て、2026年に誕生しました。
+        </p>
+      </div>
+
+      <!-- 商品ショーケース -->
+      <div class="story__product reveal-pop d3">
+
+        <!-- 商品画像: 大きく中央配置 + グロー + 浮遊 -->
+        <div class="story__product-img float-anim">
+          <div class="iz" data-pan="r" style="aspect-ratio:3/4; border-radius:16px; overflow:hidden;">
+            <div class="iz-inner"></div>
+          </div>
+        </div>
+
+        <!-- 商品名 + スペック -->
+        <div class="story__product-text">
+          <h3>Celluré（セリュレ）</h3>
+          <p>
+            1日2粒。30日分。セルフォース因子™をはじめ、<br>
+            7つの美容成分を1粒に凝縮。GMP認定工場製造。
+          </p>
+          <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:center;">
+            <span class="trust-chip" style="color:rgba(255,255,255,0.6); border-color:rgba(201,168,76,0.35);">特許出願中</span>
+            <span class="trust-chip" style="color:rgba(255,255,255,0.6); border-color:rgba(201,168,76,0.35);">GMP認定</span>
+            <span class="trust-chip" style="color:rgba(255,255,255,0.6); border-color:rgba(201,168,76,0.35);">医師監修</span>
+            <span class="trust-chip" style="color:rgba(255,255,255,0.6); border-color:rgba(201,168,76,0.35);">30日返金保証</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 水平タイムライン（横スクロール） -->
+      <div class="reveal" style="margin-top:3rem;">
+        <p style="font-size:0.58rem; font-weight:700; letter-spacing:0.22em; color:rgba(201,168,76,0.6); margin-bottom:1rem;">
+          PHARMABEAUTY HISTORY
+        </p>
+      </div>
+
+      <div class="story__timeline">
+        <div class="story__mile">
+          <div class="story__mile-year">1971</div>
+          <p class="story__mile-text">製薬会社として創業。<br>医薬品基準の品質管理体制を確立。</p>
+        </div>
+        <div class="story__mile">
+          <div class="story__mile-year">1990</div>
+          <p class="story__mile-text">GMP認定工場を取得。<br>国内外の研究機関との連携開始。</p>
+        </div>
+        <div class="story__mile">
+          <div class="story__mile-year">2010</div>
+          <p class="story__mile-text">美容分野へ本格参入。<br>美容皮膚科医との共同研究着手。</p>
+        </div>
+        <div class="story__mile">
+          <div class="story__mile-year">2023</div>
+          <p class="story__mile-text">セルフォース因子™特許出願。<br>モニター500名調査を完了。</p>
+        </div>
+        <div class="story__mile">
+          <div class="story__mile-year" style="color:var(--gold-l);">2026</div>
+          <p class="story__mile-text" style="color:rgba(255,255,255,0.9); font-weight:700;">
+            Celluré 誕生。先行予約1,200件。<br>公式Instagram 12.3万フォロワー突破。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- マーキー 2: 成分 -->
+  <div class="marquee-band marquee-band--gold" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">セルフォース因子™</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">NMN</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">コラーゲンペプチド</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">ヒアルロン酸Na</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">プラセンタエキス</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">CoQ10</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">ビタミンC＋アスタキサンチン</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">セルフォース因子™</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">NMN</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">コラーゲンペプチド</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">ヒアルロン酸Na</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">プラセンタエキス</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">CoQ10</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">ビタミンC＋アスタキサンチン</span><span class="marquee-sep">◆</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       S05  THE FORMULA — 成分
+       特徴: スター成分フルブリード + 6成分グリッドリビール
+  ============================================================ -->
+  <section class="formula" id="formula">
+    <!-- スター成分: 全幅ブロック（ゴールドシマー） -->
+    <div class="formula__star">
+      <span class="formula__star-eyebrow reveal">独自特許成分 — FLAGSHIP INGREDIENT</span>
+
+      <h2 class="formula__star-name reveal d1">
+        <span class="star-shimmer">セルフォース因子™</span>
+      </h2>
+
+      <span class="formula__star-patent reveal d2">特許出願中</span>
+
+      <p class="formula__star-desc reveal d3">
+        7成分すべての吸収基盤を整える、業界初の独自特許成分。
+        皮膚細胞の環境を内側から最適化し、他の美容成分が働きやすい土台をつくります。
+        ファルマビューティが10年以上の研究の末に開発した、Celluréの核となる成分です。
+      </p>
+    </div>
+
+    <!-- 6成分: 順番にフェードリビール -->
+    <div class="c" style="padding-top:var(--sp-md);">
+      <p class="reveal" style="font-size:0.65rem; letter-spacing:0.15em; color:var(--ink-50); margin-bottom:0.75rem; font-weight:700;">
+        + 6つの厳選美容成分
+      </p>
+
+      <div class="formula__grid">
+        <div class="formula__item reveal">
+          <div class="formula__item-icon">✨</div>
+          <div class="formula__item-name">NMN</div>
+          <div class="formula__item-role">細胞のエネルギー産生をサポートする成分</div>
+        </div>
+        <div class="formula__item reveal d1">
+          <div class="formula__item-icon">💧</div>
+          <div class="formula__item-name">コラーゲンペプチド</div>
+          <div class="formula__item-role">肌の弾力・ハリを内側からサポート</div>
+        </div>
+        <div class="formula__item reveal d2">
+          <div class="formula__item-icon">🌊</div>
+          <div class="formula__item-name">ヒアルロン酸Na</div>
+          <div class="formula__item-role">保水力・うるおいのサポート成分</div>
+        </div>
+        <div class="formula__item reveal d3">
+          <div class="formula__item-icon">🌸</div>
+          <div class="formula__item-name">プラセンタ</div>
+          <div class="formula__item-role">肌のコンディションを整える成分</div>
+        </div>
+        <div class="formula__item reveal d4">
+          <div class="formula__item-icon">⚡</div>
+          <div class="formula__item-name">CoQ10</div>
+          <div class="formula__item-role">細胞の活性化をサポートする抗酸化成分</div>
+        </div>
+        <div class="formula__item reveal d5">
+          <div class="formula__item-icon">🍊</div>
+          <div class="formula__item-name">ビタミンC + アスタキサンチン</div>
+          <div class="formula__item-role">抗酸化・肌のトーンケアをサポート</div>
+        </div>
+      </div>
+
+      <p class="formula__note reveal">
+        ※ 含有成分の効能・効果を示すものではありません。個人差があります。<br>
+        ※ 全成分はパッケージおよび公式サイト成分ページに記載しています。
+      </p>
+    </div>
+  </section>
+
+  <!-- マーキー 3: 実績 -->
+  <div class="marquee-band marquee-band--ink" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">モニター500名</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">92%が変化を実感</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">平均14日で実感開始</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">先行予約1,200件</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">Instagram 12.3万人</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">GMP認定工場製造</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">モニター500名</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">92%が変化を実感</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">平均14日で実感開始</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">先行予約1,200件</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">Instagram 12.3万人</span><span class="marquee-sep">—</span>
+      <span class="marquee-item">GMP認定工場製造</span><span class="marquee-sep">—</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       S06  NUMBERS — 実績の数字
+       特徴: タイポグラフィアート + カウントアップアニメーション
+  ============================================================ -->
+  <section class="numbers" id="numbers">
+    <div class="c">
+
+      <div class="numbers__editorial reveal">
+        <!-- 主役: 92%満足度 — 感情に刺さる唯一の主役数字 -->
+        <div class="numbers__hero-stat">
+          <span class="numbers__big-hero">
+            <span data-count="92">0</span><span class="numbers__big-unit">%</span>
+          </span>
+          <p class="numbers__hero-label">が<strong>肌の変化</strong>を実感</p>
+          <p class="numbers__hero-sub">先行モニター500名による調査（個人差があります）</p>
+        </div>
+
+        <!-- 脇役: 500名と14日 — 主役を補強するサポートデータ -->
+        <div class="numbers__support">
+          <div class="numbers__support-item reveal d1">
+            <span class="numbers__support-n">
+              <span data-count="500">0</span><span class="numbers__support-unit">名</span>
+            </span>
+            <span class="numbers__support-label">のモニターが参加</span>
+          </div>
+          <div class="numbers__support-item reveal d2">
+            <span class="numbers__support-n">
+              <span data-count="14">0</span><span class="numbers__support-unit">日</span>
+            </span>
+            <span class="numbers__support-label">平均実感開始の目安<br><span style="font-size:0.58rem;opacity:0.75;">(個人差があります)</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- メディア・社会的証明バッジ（12.3万をここに統合） -->
+      <div class="numbers__media reveal">
+        <div class="numbers__media-chip">先行予約 1,200件</div>
+        <div class="numbers__media-chip">Instagram 12.3万人</div>
+        <div class="numbers__media-chip">美的 掲載予定</div>
+        <div class="numbers__media-chip">MAQUIA 掲載予定</div>
+        <div class="numbers__media-chip">VOGUE JAPAN 掲載予定</div>
+        <div class="numbers__media-chip">GMP認定工場製造</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MID CTA — 中間コンバージョンポイント（実績数値の直後）
+  ============================================================ -->
+  <section class="mid-cta">
+    <div class="mid-cta__inner reveal">
+      <p class="mid-cta__eyebrow">今なら初回 59% OFF</p>
+      <p class="mid-cta__copy">内側から変わる、<br><strong>最初の一歩を踏み出しませんか。</strong></p>
+      <a href="#invest" class="btn-primary btn-primary-lg btn-shine btn-pulse mid-cta__btn">
+        初回 ¥3,980 で試してみる
+      </a>
+      <p class="mid-cta__note">30日間全額返金保証 ／ いつでも解約OK ／ 送料無料</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S07  VOICE OF DOCTOR — 全幅ドラマティック引用
+       特徴: 暗背景 + 大きな引用文 + パルスリング
+  ============================================================ -->
+  <section class="voice" id="doctor">
+
+    <div>
+          <!-- 開き引用符 -->
+      <span class="voice__quote-mark" aria-hidden="true">"</span>
+
+      <blockquote class="voice__quote reveal d1">
+        患者さんから「頑張っているのに変わらない」という声を聞くたびに、
+        私はずっと、もどかしさを感じていました。外側のケアには限界がある。
+        ならば、内側から整えることができるものを一緒に作りたい。
+        Celluréは、その思いをそのまま形にしたものです。
+      </blockquote>
+
+      <!-- 金ライン描画 -->
+      <span class="voice__line" aria-hidden="true"></span>
+
+      <div class="voice__person reveal d2">
+        <div class="voice__photo">
+          <div class="voice__ring"></div>
+          <img src="images/doctor.png" alt="田中美佳先生" width="60" height="60" loading="lazy">
+        </div>
+        <div>
+          <p class="voice__name">
+            田中 美佳 先生
+            <span class="voice__degree"> 医学博士</span>
+          </p>
+          <p class="voice__title">田中美容皮膚科クリニック 院長</p>
+        </div>
+      </div>
+
+      <p class="voice__note reveal d3">
+        ※ 田中先生は商品の設計・成分選定の監修を担当しています。<br>
+        ※ コメントは個人の見解に基づくものです。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       S08  THEIR STORIES — ジャーナル型証言
+       特徴: 長文・一人称・ズームイン+左右パン写真 + Before/After
+  ============================================================ -->
+  <section class="stories" id="reviews">
+    <div class="c">
+      <h2 class="reveal" style="font-family:var(--f-min); font-size:clamp(1.4rem,6vw,2rem); font-weight:800; line-height:1.35; margin-bottom:3rem; letter-spacing:0.03em;">
+        モニター500名が体験した、<br>
+        それぞれの<span class="gold-underline">14日間</span>。
+      </h2>
+
+      <div class="stories__grid">
+
+        <!-- 証言 1 -->
+        <article class="journal journal__1">
+          <div class="journal__header">
+            <div class="journal__avatar">
+              <img src="images/user1.png" alt="K.T.さん" width="40" height="40" loading="lazy">
+            </div>
+            <div>
+              <p class="journal__meta-name">K.T. さん（28歳・会社員）</p>
+              <p class="journal__meta-attr">東京都在住 / スキンケア歴6年</p>
+              <p class="journal__stars" aria-label="5つ星中5つ" role="img">★★★★★</p>
+            </div>
+          </div>
+
+          <!-- 写真: ズームイン + 左→右パン -->
+          <div class="journal__photo reveal">
+            <div class="iz" data-pan="r">
+              <div class="iz-inner"></div>
+            </div>
+          </div>
+
+          <blockquote class="journal__pull reveal d1">
+            「14日目の朝、<br>何かが違うと思った。」
+          </blockquote>
+
+          <div class="journal__text reveal d2">
+            <p>
+              毎晩スキンケアを欠かさなかったのに、2年くらい前から化粧ノリが悪くなってきて。
+              朝、ファンデーションを重ねても、なんか違う気がして鏡を見るのが嫌になっていました。
+            </p>
+            <p>
+              Celluréを始めて最初の1週間は、正直あまり変化を感じなかった。
+              でも14日目の朝、洗顔後の肌をさわったとき、なんか違うと思ったんです。
+              しっとり感というか、ふっくら感というか。うまく言えないけど「あ、変わってきた」って。
+            </p>
+          </div>
+        </article>
+
+        <!-- 証言 2 -->
+        <article class="journal journal__2">
+          <div class="journal__header">
+            <div class="journal__avatar">
+              <img src="images/user2.png" alt="M.N.さん" width="40" height="40" loading="lazy">
+            </div>
+            <div>
+              <p class="journal__meta-name">M.N. さん（33歳・フリーランス）</p>
+              <p class="journal__meta-attr">大阪府在住 / 睡眠不足が続いていた時期</p>
+              <p class="journal__stars" aria-label="5つ星中5つ" role="img">★★★★★</p>
+            </div>
+          </div>
+
+          <!-- 写真: ズームイン + 右→左パン -->
+          <div class="journal__photo reveal">
+            <div class="iz" data-pan="l">
+              <div class="iz-inner"></div>
+            </div>
+          </div>
+
+          <blockquote class="journal__pull reveal d1">
+            「友人に"肌きれいになったね"と言われて、<br>
+            泣きそうになった。」
+          </blockquote>
+
+          <div class="journal__text reveal d2">
+            <p>
+              フリーランスになってから睡眠が乱れて、肌荒れが止まらなかった時期がありました。
+              高い美容液を試しても、続かない。費用対効果が見えない。半分諦めていたところで Celluréを知りました。
+            </p>
+            <p>
+              「製薬会社製」というのが決め手でした。なんとなく信頼できる気がして。
+              30日飲み切ったころ、久しぶりに会った友人に「なんか肌きれいになった？」と言われて、
+              本当に泣きそうになりました。それが一番うれしかったかもしれません。
+            </p>
+          </div>
+        </article>
+
+        <!-- 証言 3 + ビフォーアフター（横幅いっぱい） -->
+        <article class="journal journal__3" style="grid-column:1/-1;">
+          <div class="journal__header">
+            <div class="journal__avatar">
+              <img src="images/user3.png" alt="Y.S.さん" width="40" height="40" loading="lazy">
+            </div>
+            <div>
+              <p class="journal__meta-name">Y.S. さん（31歳・会社員）</p>
+              <p class="journal__meta-attr">神奈川県在住 / くすみが長年の悩み</p>
+              <p class="journal__stars" aria-label="5つ星中5つ" role="img">★★★★★</p>
+            </div>
+          </div>
+
+          <blockquote class="journal__pull reveal">
+            「くすみがずっと気になっていた。<br>
+            30日後、久しぶりに素肌で外出できた。」
+          </blockquote>
+
+          <div class="journal__text reveal d1">
+            <p>
+              「最近老けた？」と親に言われたことがあって、それからずっと引っかかっていました。
+              コンシーラーとファンデーションで隠すことに疲れてきていて、
+              「いっそ内側から変えてみようか」と思い立ったのがきっかけです。
+            </p>
+          </div>
+
+          <!-- ビフォーアフター: 両方ともズームイン -->
+          <div class="ba-strip reveal d2">
+            <div class="ba-cell ba-cell--before">
+              <div class="iz" style="aspect-ratio:3/4;">
+                <div class="iz-inner"
+                  style="background-image:url('images/ba_before.png'),linear-gradient(135deg,#ccc,#ddd);">
+                </div>
+              </div>
+              <span class="ba-label ba-label--before">Before</span>
+            </div>
+            <div class="ba-sep">
+              <span class="ba-sep__label">14日<br>後</span>
+            </div>
+            <div class="ba-cell ba-cell--after">
+              <div class="iz" style="aspect-ratio:3/4;">
+                <div class="iz-inner"
+                  style="background-image:url('images/ba_after.png'),linear-gradient(135deg,#1B6CA8,#4a9ecf);">
+                </div>
+              </div>
+              <span class="ba-label ba-label--after">Day 14</span>
+            </div>
+            <p class="ba-note">
+              ※ 写真はモニター様ご本人のもの。未加工。個人差があります。効果を保証するものではありません。
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S09  14 DAYS — 変化の旅タイムライン
+       特徴: 横スクロールタイムライン + 各ステップのフェードイン
+  ============================================================ -->
+  <section class="journey" id="journey">
+    <div class="c">
+      <h2 class="journey__title reveal">
+        14日間という、<br>
+        ひとつの変化の物語。
+      </h2>
+
+      <p class="journey__sub reveal d2">
+        モニター調査の平均データをもとにした、体験の目安です。<br>
+        個人差はありますが、多くの方がこの流れで変化を感じはじめました。
+      </p>
+
+      <div class="journey__track">
+        <div class="journey__step reveal">
+          <div class="journey__day">Day 1</div>
+          <p class="journey__step-text">
+            1日2粒を食後に摂取スタート。<br>
+            まずは30日間続けることを決める。
+          </p>
+        </div>
+        <div class="journey__step reveal d1">
+          <div class="journey__day">Day 3–5</div>
+          <p class="journey__step-text">
+            大きな変化は感じにくい時期。<br>
+            身体の内側では成分が蓄積されはじめる。
+          </p>
+        </div>
+        <div class="journey__step reveal d2">
+          <div class="journey__day">Day 7</div>
+          <p class="journey__step-text">
+            洗顔後の肌に「なんか違う？」を<br>
+            感じはじめる方が増えてくる時期。
+          </p>
+        </div>
+        <div class="journey__step highlight reveal d3">
+          <div class="journey__day">Day 14</div>
+          <p class="journey__step-text">
+            <strong>多くの方が変化を実感する時期。</strong><br>
+            モニターの92%がこの頃に気づきを報告。
+          </p>
+        </div>
+        <div class="journey__step reveal d4">
+          <div class="journey__day">Day 30</div>
+          <p class="journey__step-text">
+            1本飲み切った頃。<br>
+            肌のコンディションが整った実感を<br>
+            持つ方が多くなる。
+          </p>
+        </div>
+      </div>
+
+      <p class="journey__note reveal">
+        ※ 個人差があります。上記は平均的な目安であり、効果を保証するものではありません。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S10  INVEST — 価格・プラン
+       特徴: カウントダウンタイマー + プランカード
+  ============================================================ -->
+  <section class="invest" id="invest">
+    <div class="c">
+      <h2 class="reveal" style="font-family:var(--f-min); font-size:clamp(1.4rem,6vw,2rem); font-weight:800; line-height:1.35; margin-bottom:1rem;">
+        まずは、30日間<br>
+        試してみてください。
+      </h2>
+
+      <p class="invest__intro reveal d2">
+        効果を感じなければ、全額お返しします。<br>
+        そう言い切れるのは、私たちが本当に自信を持っているからです。
+      </p>
+
+      <!-- カウントダウン -->
+      <div class="reveal d3">
+        <p style="font-size:0.65rem; font-weight:700; color:var(--sea); letter-spacing:0.12em; margin-bottom:0.5rem;">
+          ⏱ 初回特別価格の残り時間
+        </p>
+        <div class="cd">
+          <div class="cd__block">
+            <span class="cd__n" id="cd-d">--</span>
+            <span class="cd__l">日</span>
+          </div>
+          <span class="cd__sep">:</span>
+          <div class="cd__block">
+            <span class="cd__n" id="cd-h">--</span>
+            <span class="cd__l">時間</span>
+          </div>
+          <span class="cd__sep">:</span>
+          <div class="cd__block">
+            <span class="cd__n" id="cd-m">--</span>
+            <span class="cd__l">分</span>
+          </div>
+          <span class="cd__sep">:</span>
+          <div class="cd__block">
+            <span class="cd__n" id="cd-s">--</span>
+            <span class="cd__l">秒</span>
+          </div>
+        </div>
+        <p class="cd__deadline">※ 2026年7月31日 23:59（JST）まで</p>
+      </div>
+
+      <!-- プランカード -->
+      <div class="plan-grid" style="margin-top:2rem;">
+
+        <!-- 定期便 -->
+        <div class="plan plan--sub reveal d1">
+          <div class="plan__head">
+            <span class="plan__label">定期便（おすすめ）</span>
+            <span class="plan__tag">59%OFF</span>
+          </div>
+          <div class="plan__body">
+            <p class="plan__original">通常価格 ¥9,800（税込）</p>
+            <div class="plan__price">
+              <span class="plan__yen">3,980</span>
+              <span class="plan__unit">円</span>
+              <span class="plan__tax">（税込）</span>
+            </div>
+            <p class="plan__perday">1日あたり約132円 / 30日分 / 送料無料</p>
+            <hr class="gold-rule" style="margin:0.75rem 0;">
+            <p style="font-size:0.65rem; color:var(--ink); margin-bottom:0.5rem;">2回目以降 ¥7,800（税込）</p>
+            <ul class="plan__perks">
+              <li class="plan__perk">スキンケアポーチ（先着500名）</li>
+              <li class="plan__perk">美肌の教科書PDF（無料）</li>
+              <li class="plan__perk">LINEアドバイス動画</li>
+              <li class="plan__perk">いつでも解約OK / 縛り期間なし</li>
+            </ul>
+            <a href="order.html?plan=sub" class="btn-primary btn-primary-lg btn-pulse btn-shine" style="margin-top:1rem; display:block; text-align:center; max-width:none;">
+              初回3,980円で申し込む
+            </a>
+          </div>
+        </div>
+
+        <!-- 単品 -->
+        <div class="plan plan--single reveal d2">
+          <div class="plan__head">
+            <span class="plan__label">単品購入</span>
+          </div>
+          <div class="plan__body">
+            <p class="plan__original">&nbsp;</p>
+            <div class="plan__price">
+              <span class="plan__yen">9,800</span>
+              <span class="plan__unit">円</span>
+              <span class="plan__tax">（税込）</span>
+            </div>
+            <p class="plan__perday">30日分 / 縛りなし</p>
+            <hr class="gold-rule" style="margin:0.75rem 0;">
+            <p style="font-size:0.65rem; color:var(--ink); margin-bottom:0.5rem;">特典・割引なし</p>
+            <a href="order.html?plan=single" class="btn-ghost" style="margin-top:1rem; display:block; text-align:center; max-width:none; padding:0.9rem;">
+              単品で購入する
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 保証チップ -->
+      <div class="guarantee-row reveal">
+        <span class="g-chip">30日間全額返金保証</span>
+        <span class="g-chip">いつでも解約OK</span>
+        <span class="g-chip">送料無料（定期便）</span>
+        <span class="g-chip">GMP認定工場製造</span>
+        <span class="g-chip">医師監修</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S11  OFFER — 限定特典 + 残り枠バー
+  ============================================================ -->
+  <section class="offer" id="offer">
+    <div class="c">
+      <h2 class="reveal" style="font-family:var(--f-min); font-size:clamp(1.3rem,5.5vw,1.8rem); font-weight:800; line-height:1.35; margin-bottom:2rem;">
+        初回のご注文に、<br>3つの特典をお付けします。
+      </h2>
+
+      <!-- 残り枠バー -->
+      <div class="offer__bar-wrap reveal d2">
+        <p class="offer__bar-label">特典① スキンケアポーチ 残り在庫</p>
+        <div class="offer__bar">
+          <div class="offer__bar-fill" id="offer-bar" style="width:0%;"></div>
+        </div>
+        <p style="font-size:0.6rem; color:var(--ink-50); margin-top:0.35rem;">先着500名様限定 — 残りわずかです</p>
+      </div>
+
+      <div class="offer__cards">
+        <div class="offer__card reveal">
+          <div class="offer__num">◆</div>
+          <div>
+            <p class="offer__title">スキンケアポーチ</p>
+            <p class="offer__desc">先着500名様限定。非売品のCelluréロゴ入りトラベルポーチ（送料込み）。</p>
+          </div>
+        </div>
+        <div class="offer__card reveal d1">
+          <div class="offer__num">◆</div>
+          <div>
+            <p class="offer__title">美肌の教科書PDF</p>
+            <p class="offer__desc">スキンケアと栄養の関係、毎日の習慣を解説した40ページのデジタルブック。</p>
+          </div>
+        </div>
+        <div class="offer__card reveal d2">
+          <div class="offer__num">◆</div>
+          <div>
+            <p class="offer__title">LINEアドバイス動画</p>
+            <p class="offer__desc">専任スタッフによる個別ケアアドバイス動画をLINEでお届けします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d3" style="text-align:center; margin-top:2rem;">
+        <a href="order.html?plan=sub" class="btn-primary btn-primary-lg btn-pulse btn-shine" style="margin:0 auto; display:block; max-width:360px;">
+          特典を受け取って申し込む
+        </a>
+        <p style="font-size:0.6rem; color:var(--ink-50); margin-top:0.75rem;">
+          2026年7月31日 23:59まで / 在庫がなくなり次第終了
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S12  FAQ
+  ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="c">
+      <span class="ch-num reveal">FAQ</span>
+
+      <h2 class="reveal d1" style="font-family:var(--f-min); font-size:clamp(1.3rem,5.5vw,1.8rem); font-weight:800; line-height:1.35; margin-bottom:2rem;">
+        よくあるご質問
+      </h2>
+
+      <div class="faq__list">
+
+        <div class="faq__item reveal">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">いつでも解約できますか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">はい、いつでも解約いただけます。次回お届け日の7日前までにLINEまたはメールでご連絡ください。最低継続回数の縛りは一切ありません。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d1">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">副作用・添加物は大丈夫ですか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">GMP認定工場で製造し、原料の純度・安全性を厳格に管理しています。全成分はパッケージに記載しています。アレルギーのある方は事前にご確認ください。薬を服用中の方は医師にご相談ください。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d2">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">効果が出るまでどのくらいかかりますか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">モニター調査では平均14日で変化を感じはじめた方が多くいらっしゃいました。ただし個人差がありますので、まずは30日間継続してご使用ください。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d3">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">他のサプリや薬と一緒に飲んでも大丈夫ですか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">現在お薬を服用中の方や持病のある方は、事前に医師・薬剤師にご相談ください。他のサプリメントとの相性についてはLINEサポートへお問い合わせください。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d4">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">妊娠中・授乳中でも飲めますか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">妊娠中・授乳中の方は、念のため医師にご相談のうえでご使用ください。お子様への使用はご遠慮ください。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">1日に何粒、いつ飲めばいいですか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">1日2粒を目安に、水またはぬるま湯でお飲みください。時間帯は問いませんが、食後に飲むと胃への負担を軽減できます。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d1">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">30日間返金保証の条件は？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">商品到着から30日以内であれば、理由を問わず全額返金いたします。返品不要です。LINEまたはメールでお申し出ください。※1回のご注文につき1回限りの保証となります。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d2">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">定期購入を解約するにはどうすればいいですか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">次回お届け予定日の7日前までに、公式LINEまたはサポートメール（support@cellure-beauty.jp）に「解約希望」とご連絡ください。手数料・違約金は一切かかりません。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d3">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">全成分は公開されていますか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">はい、パッケージおよび公式サイトの成分ページに全成分を記載しています。ご不明な点はサポートまでお問い合わせください。</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal d4">
+          <button class="faq__q">
+            <span class="faq__q-q">Q.</span>
+            <span class="faq__q-t">支払い方法は何が使えますか？</span>
+            <span class="faq__q-i">+</span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-i">クレジットカード（VISA / Mastercard / JCB / AMEX）、コンビニ払い、銀行振込、Amazon Pay、楽天Payに対応しています。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRE-CLOSING CTA — クロージング直前の最終プッシュ
+  ============================================================ -->
+  <section class="pre-cta">
+    <div class="pre-cta__inner reveal">
+      <p class="pre-cta__label">限定オファー実施中</p>
+      <h2 class="pre-cta__heading">
+        肌が変わると、<br>自信が変わる。
+      </h2>
+      <p class="pre-cta__sub">創業55年の製薬会社が本気で作った、内側ケアの新習慣。</p>
+      <div class="pre-cta__btns">
+        <a href="#invest" class="btn-primary btn-primary-lg btn-shine btn-pulse">
+          初回 ¥3,980 で始める →
+        </a>
+        <p class="pre-cta__guarantee">
+          <span>✓</span> 30日間全額返金保証　<span>✓</span> 送料無料　<span>✓</span> いつでも解約
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       S13  CLOSING — 最終CTA
+       特徴: 動画BG + Ken Burns + ドラマティックな締め
+  ============================================================ -->
+  <section class="closing" id="closing">
+
+    <div class="closing__media">
+      <!-- クロージング動画 -->
+      <video
+        class="closing__video"
+        autoplay muted loop playsinline
+        preload="none"
+        poster="images/closing_bg.png"
+        aria-hidden="true">
+        <source src="videos/closing.mp4" type="video/mp4">
+      </video>
+      <!-- フォールバック写真: Ken Burns -->
+      <div class="closing__photo kb" role="img" aria-label="朝の光の中で鏡を見る女性"></div>
+      <div class="closing__veil"></div>
+      <!-- ラジアルグロー -->
+      <div class="closing__glow" aria-hidden="true"></div>
+    </div>
+
+    <div class="closing__body c-narrow">
+      <span class="reveal" style="display:block; font-size:0.58rem; letter-spacing:0.28em; color:rgba(255,255,255,0.38); font-weight:700; margin-bottom:1.5rem; text-transform:uppercase;">
+        Cellure — Begin Your Journey
+      </span>
+
+      <h2 class="closing__hl reveal d1">
+        朝の鏡が、<br>
+        楽しくなる日が<br>
+        きます。
+      </h2>
+
+      <p class="closing__sub reveal d2">
+        製薬会社55年の本気が詰まった Celluré。<br>
+        まずは30日間、内側から試してみてください。<br>
+        変化を感じなければ、全額お返しします。
+      </p>
+
+      <div class="closing__btns reveal d3">
+        <a href="order.html?plan=sub" class="btn-primary btn-primary-lg btn-pulse btn-shine">
+          今すぐ初回3,980円で申し込む
+        </a>
+        <a href="#faq" class="btn-ghost-w">
+          よくある質問を見る
+        </a>
+      </div>
+
+      <div class="closing__assurance reveal d4">
+        <span class="closing__chip">30日間全額返金保証</span>
+        <span class="closing__chip">いつでも解約OK</span>
+        <span class="closing__chip">送料無料</span>
+        <span class="closing__chip">GMP認定工場</span>
+        <span class="closing__chip">医師監修</span>
+      </div>
+
+      <div class="pay-row reveal d5">
+        <span class="pay">VISA</span>
+        <span class="pay">Mastercard</span>
+        <span class="pay">JCB</span>
+        <span class="pay">AMEX</span>
+        <span class="pay">Amazon Pay</span>
+        <span class="pay">楽天Pay</span>
+        <span class="pay">コンビニ払い</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="c">
+      <p class="footer__logo">Celluré<span>.</span></p>
+      <nav class="footer__nav">
+        <a href="#">特定商取引法に基づく表記</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+        <a href="#">定期便規約</a>
+        <a href="#">全成分表示</a>
+      </nav>
+      <p class="footer__legal">
+        ※ 本ページに記載の体験談・モニター結果は個人の感想であり、効果を保証するものではありません。<br>
+        ※ 食品（サプリメント）のため、医薬品のような治療・予防効果はありません。<br>
+        ※ Celluréは薬機法・景表法を遵守して制作しています。<br>
+        ※ 販売者：ファルマビューティ株式会社 / 〒000-0000 東京都○○区○○ 1-2-3
+      </p>
+      <p>© 2026 Pharmabeauty Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  </main><!-- /#lp-wrap -->
+
+  </div><!-- /#phone-frame -->
+
+  <!-- ============================================================
+       STICKY CTA BAR
+  ============================================================ -->
+  <div id="sticky-cta" aria-hidden="true">
+    <div>
+      <p class="st-price">初回 ¥3,980</p>
+      <p class="st-sub">通常¥9,800 → 59%OFF / 30日返金保証</p>
+    </div>
+    <a href="order.html?plan=sub" class="st-btn">今すぐ申し込む</a>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Phone-frame vs window scroll ── */
+    const phoneFrame = document.getElementById('phone-frame');
+    const pfMQ = window.matchMedia('(min-width: 769px) and (max-width: 1279px)');
+    const isPF = () => pfMQ.matches;
+    const getScrollTop = () => isPF() ? phoneFrame.scrollTop : scrollY;
+    const getScrollMax = () => isPF()
+      ? phoneFrame.scrollHeight - phoneFrame.clientHeight
+      : document.documentElement.scrollHeight - innerHeight;
+
+    /* ── Scroll progress bar ── */
+    const scrollBar = document.getElementById('scroll-bar');
+    function updateScrollBar() {
+      const max = getScrollMax();
+      if (max > 0) scrollBar.style.width = (getScrollTop() / max * 100) + '%';
+    }
+
+    /* ── Sticky header shadow ── */
+    const header = document.getElementById('site-header');
+    function updateHeader() {
+      header.classList.toggle('sc', getScrollTop() > 10);
+    }
+
+    /* ── Sticky CTA ── */
+    const stickyCTA = document.getElementById('sticky-cta');
+    const heroEl = document.querySelector('.opening');
+    function updateStickyCTA() {
+      const zoom = isPF() ? 2.88 : 1;
+      const threshold = (heroEl?.offsetHeight ?? 600) * zoom * 0.7;
+      stickyCTA.classList.toggle('show', getScrollTop() > threshold);
+      stickyCTA.setAttribute('aria-hidden', String(getScrollTop() <= threshold));
+    }
+
+    const scrollHandler = () => {
+      updateScrollBar();
+      updateHeader();
+      updateStickyCTA();
+    };
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    if (phoneFrame) phoneFrame.addEventListener('scroll', scrollHandler, { passive: true });
+
+    updateScrollBar();
+    updateHeader();
+
+    /* ── IntersectionObserver: reveal / iz / numbers / journey / story miles ── */
+    const ioRoot = isPF() ? phoneFrame : null;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, root: ioRoot });
+
+    document.querySelectorAll(
+      '.reveal, .reveal-fade, .reveal-l, .reveal-r, .reveal-pop, .section-deco, .iz, .numbers__stat, .journey__step'
+    ).forEach(el => io.observe(el));
+
+    /* ── Voice (doctor) section: 金ライン描画トリガー ── */
+    const voiceIO = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        entries[0].target.classList.add('anim-in');
+        voiceIO.disconnect();
+      }
+    }, { threshold: 0.3, root: ioRoot });
+    const voiceEl = document.querySelector('.voice');
+    if (voiceEl) voiceIO.observe(voiceEl);
+
+    /* ── Story timeline stagger ── */
+    const storyIO = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll('.story__mile').forEach((m, i) => {
+          setTimeout(() => m.classList.add('in'), i * 190);
+        });
+        storyIO.disconnect();
+      }
+    }, { threshold: 0.2, root: ioRoot });
+    const storyTrack = document.querySelector('.story__timeline');
+    if (storyTrack) storyIO.observe(storyTrack);
+
+    /* ── Count-up animation (easeOutExpo) ── */
+    function easeOutExpo(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+
+    function animateCount(el, target, duration) {
+      const isFloat = String(target).includes('.');
+      const decimals = isFloat ? String(target).split('.')[1].length : 0;
+      let start = null;
+
+      function tick(ts) {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / duration, 1);
+        const val = easeOutExpo(p) * parseFloat(target);
+        el.textContent = isFloat ? val.toFixed(decimals) : Math.floor(val);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = isFloat ? parseFloat(target).toFixed(decimals) : target;
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const countIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const target = e.target.getAttribute('data-count');
+          animateCount(e.target, target, 1600);
+          countIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3, root: ioRoot });
+
+    document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+    /* ── Countdown Timer: 2026-07-31T23:59:59+09:00 ── */
+    const DEADLINE = new Date('2026-07-31T23:59:59+09:00').getTime();
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCD() {
+      const diff = Math.max(0, DEADLINE - Date.now());
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      ['d','h','m','s'].forEach((k, i) => {
+        const el = document.getElementById('cd-' + k);
+        if (el) el.textContent = pad([d,h,m,s][i]);
+      });
+    }
+    updateCD();
+    setInterval(updateCD, 1000);
+
+    /* ── FAQ Accordion ── */
+    document.querySelectorAll('.faq__q').forEach((btn, idx) => {
+      const item = btn.closest('.faq__item');
+      const answerId = `faq-a-${idx}`;
+      const answer = item.querySelector('.faq__a');
+      if (answer) answer.id = answerId;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', answerId);
+      const icon = btn.querySelector('.faq__q-i');
+      if (icon) icon.setAttribute('aria-hidden', 'true');
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq__item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ── Floating gold particles (hero) ── */
+    const pw = document.getElementById('particles');
+    if (pw) {
+      for (let i = 0; i < 16; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 7 + 3;
+        const x    = Math.random() * 100;
+        const dur  = Math.random() * 14 + 8;
+        const del  = Math.random() * 12;
+        p.style.cssText = `width:${size}px;height:${size}px;left:${x}%;bottom:-${size}px;animation-duration:${dur}s;animation-delay:${del}s;`;
+        pw.appendChild(p);
+      }
+    }
+
+    /* ── Offer bar animate ── */
+    const offerBarIO = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        const fill = document.getElementById('offer-bar');
+        if (fill) {
+          setTimeout(() => {
+            fill.style.transition = 'width 1.6s ease';
+            fill.style.width = '58%';
+          }, 200);
+        }
+        offerBarIO.disconnect();
+      }
+    }, { threshold: 0.5, root: ioRoot });
+    const offerBar = document.querySelector('.offer__bar');
+    if (offerBar) offerBarIO.observe(offerBar);
+
+    /* ── Smooth scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const sel = a.getAttribute('href');
+        if (sel === '#') return;
+        const target = document.querySelector(sel);
+        if (target) {
+          e.preventDefault();
+          if (isPF()) {
+            const frameTop = phoneFrame.getBoundingClientRect().top;
+            const targetTop = target.getBoundingClientRect().top;
+            const newTop = phoneFrame.scrollTop + (targetTop - frameTop) - 58;
+            phoneFrame.scrollTo({ top: newTop, behavior: 'smooth' });
+          } else {
+            const top = target.getBoundingClientRect().top + scrollY - 58;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

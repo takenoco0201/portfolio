@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご注文手続き | Celluré（セリュレ）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:   #1a1a2e;
+      --gold:  #c9a84c;
+      --gold2: #e8c96a;
+      --sea:   #1b6ca8;
+      --white: #ffffff;
+      --snow:  #fafaf8;
+      --ink-50: rgba(26,26,46,0.5);
+      --f-min: 'Noto Serif JP', serif;
+      --f-sans: 'Noto Sans JP', sans-serif;
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--f-sans);
+      background: #f3f4f6;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .o-header {
+      background: var(--ink);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .o-header__logo {
+      font-family: var(--f-min);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .o-header__logo span { color: var(--gold); }
+    .o-header__secure {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .o-header__secure::before {
+      content: '🔒';
+      font-size: 0.85rem;
+    }
+
+    /* ── Steps ── */
+    .o-steps {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 0.75rem 1.5rem;
+    }
+    .o-steps__list {
+      display: flex;
+      gap: 0;
+      list-style: none;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .o-steps__item {
+      flex: 1;
+      text-align: center;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.35);
+      position: relative;
+      padding-bottom: 0.4rem;
+    }
+    .o-steps__item.active {
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .o-steps__item.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+    .o-steps__num {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    /* ── Layout ── */
+    .o-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    /* ── Plan Summary Box ── */
+    .o-plan {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .o-plan::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .o-plan__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      border-radius: 100px;
+      padding: 0.2rem 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+    .o-plan__name {
+      font-family: var(--f-min);
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .o-plan__price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .o-plan__price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .o-plan__price-unit { font-size: 0.9rem; color: var(--gold); }
+    .o-plan__price-orig {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: line-through;
+    }
+    .o-plan__note {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+    .o-plan__perks {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .o-plan__perk {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.7);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .o-plan__perk::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Form Card ── */
+    .o-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .o-card__title {
+      font-family: var(--f-min);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 2px solid #f0ede6;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .o-card__title-icon {
+      width: 24px; height: 24px;
+      background: var(--ink);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      color: var(--gold);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ── Form Fields ── */
+    .o-field { margin-bottom: 1rem; }
+    .o-field:last-child { margin-bottom: 0; }
+    .o-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+    .o-label .req {
+      display: inline-block;
+      background: #d9534f;
+      color: white;
+      font-size: 0.58rem;
+      border-radius: 3px;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.3rem;
+      vertical-align: middle;
+    }
+    .o-label .opt {
+      display: inline-block;
+      background: #aaa;
+      color: white;
+      font-size: 0.58rem;
+      border-radius: 3px;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.3rem;
+      vertical-align: middle;
+    }
+    .o-input, .o-select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: var(--f-sans);
+      color: var(--ink);
+      background: var(--snow);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .o-input:focus, .o-select:focus {
+      outline: none;
+      border-color: var(--sea);
+      box-shadow: 0 0 0 3px rgba(27,108,168,0.12);
+    }
+    .o-input::placeholder { color: #bbb; }
+    .o-select-wrap { position: relative; }
+    .o-select-wrap::after {
+      content: '▼';
+      position: absolute;
+      right: 0.9rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.6rem;
+      color: #aaa;
+      pointer-events: none;
+    }
+    .o-row { display: flex; gap: 0.6rem; }
+    .o-row .o-field { flex: 1; }
+    .o-hint {
+      font-size: 0.62rem;
+      color: var(--ink-50);
+      margin-top: 0.25rem;
+    }
+
+    /* ── Payment ── */
+    .o-pay-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .o-pay-opt {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.9rem 1rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .o-pay-opt:has(input:checked) {
+      border-color: var(--sea);
+      background: rgba(27,108,168,0.04);
+    }
+    .o-pay-opt input[type="radio"] {
+      margin-top: 2px;
+      accent-color: var(--sea);
+      flex-shrink: 0;
+    }
+    .o-pay-opt__label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+    .o-pay-opt__sub {
+      font-size: 0.65rem;
+      color: var(--ink-50);
+    }
+    .o-pay-opt__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+    }
+    .o-pay-badge {
+      font-size: 0.58rem;
+      padding: 0.1rem 0.45rem;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      color: var(--ink-50);
+      background: #fafafa;
+    }
+    .o-cc-fields {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    /* ── Agreement ── */
+    .o-agree {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: #f9f8f5;
+      border-radius: 8px;
+      border: 1px solid #e8e4db;
+    }
+    .o-agree input { margin-top: 2px; accent-color: var(--sea); flex-shrink: 0; }
+    .o-agree-text {
+      font-size: 0.72rem;
+      color: var(--ink-50);
+      line-height: 1.6;
+    }
+    .o-agree-text a { color: var(--sea); }
+
+    /* ── Submit ── */
+    .o-submit-wrap { margin-top: 1.2rem; }
+    .o-submit {
+      display: block;
+      width: 100%;
+      padding: 1.1rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      color: var(--ink);
+      font-family: var(--f-sans);
+      font-size: 1rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.45);
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    }
+    .o-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(201,168,76,0.55); }
+    .o-submit:active { transform: translateY(0); }
+    .o-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .o-submit-note {
+      text-align: center;
+      font-size: 0.62rem;
+      color: var(--ink-50);
+      margin-top: 0.7rem;
+      line-height: 1.7;
+    }
+
+    /* ── Trust Row ── */
+    .o-trust {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      padding: 1rem 0.5rem;
+      border-top: 1px solid #e8e4db;
+      margin-top: 0.5rem;
+    }
+    .o-trust__item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      color: var(--ink-50);
+    }
+    .o-trust__icon { font-size: 0.9rem; }
+
+    /* ── Footer ── */
+    .o-footer {
+      background: var(--ink);
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .o-footer__logo {
+      font-family: var(--f-min);
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .o-footer__logo span { color: var(--gold); }
+    .o-footer__links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.8rem;
+    }
+    .o-footer__link {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+    .o-footer__copy {
+      font-size: 0.58rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Success Modal ── */
+    .o-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,46,0.85);
+      z-index: 9999;
+      place-items: center;
+    }
+    .o-modal.show { display: grid; }
+    .o-modal__box {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+    }
+    .o-modal__icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1rem;
+    }
+    .o-modal__title {
+      font-family: var(--f-min);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+    .o-modal__body {
+      font-size: 0.78rem;
+      color: var(--ink-50);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+    .o-modal__email {
+      font-weight: 700;
+      color: var(--sea);
+    }
+    .o-modal__close {
+      display: block;
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      border-radius: 100px;
+      font-family: var(--f-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (min-width: 600px) {
+      .o-wrap { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="o-header">
+    <a href="index.html" class="o-header__logo">Celluré<span>.</span></a>
+    <span class="o-header__secure">SSL暗号化通信で保護されています</span>
+  </header>
+
+  <!-- Steps -->
+  <div class="o-steps">
+    <ul class="o-steps__list">
+      <li class="o-steps__item active">
+        <span class="o-steps__num">①</span>
+        ご注文情報
+      </li>
+      <li class="o-steps__item">
+        <span class="o-steps__num">②</span>
+        確認
+      </li>
+      <li class="o-steps__item">
+        <span class="o-steps__num">③</span>
+        完了
+      </li>
+    </ul>
+  </div>
+
+  <div class="o-wrap">
+
+    <!-- Plan Summary -->
+    <div class="o-plan" id="plan-box">
+      <div class="o-plan__badge" id="plan-badge">定期便</div>
+      <div class="o-plan__name" id="plan-name">Celluré 定期便（おすすめ）</div>
+      <div class="o-plan__price-row">
+        <span class="o-plan__price" id="plan-price">3,980</span>
+        <span class="o-plan__price-unit">円（税込）</span>
+        <span class="o-plan__price-orig" id="plan-orig">通常 ¥9,800</span>
+      </div>
+      <p class="o-plan__note" id="plan-note">1日あたり約132円 ／ 30日分 ／ 送料無料<br>2回目以降 ¥7,800（税込）</p>
+      <ul class="o-plan__perks" id="plan-perks">
+        <li class="o-plan__perk">スキンケアポーチ（先着500名）</li>
+        <li class="o-plan__perk">美肌の教科書PDF（無料）</li>
+        <li class="o-plan__perk">LINEアドバイス動画</li>
+        <li class="o-plan__perk">いつでも解約OK ／ 縛り期間なし</li>
+      </ul>
+    </div>
+
+    <!-- Form -->
+    <form id="order-form" novalidate>
+
+      <!-- お客様情報 -->
+      <div class="o-card">
+        <h2 class="o-card__title">
+          <span class="o-card__title-icon">1</span>
+          お客様情報
+        </h2>
+        <div class="o-row">
+          <div class="o-field">
+            <label class="o-label" for="sei">姓<span class="req">必須</span></label>
+            <input class="o-input" type="text" id="sei" name="sei" placeholder="田中" autocomplete="family-name" required>
+          </div>
+          <div class="o-field">
+            <label class="o-label" for="mei">名<span class="req">必須</span></label>
+            <input class="o-input" type="text" id="mei" name="mei" placeholder="美佳" autocomplete="given-name" required>
+          </div>
+        </div>
+        <div class="o-row">
+          <div class="o-field">
+            <label class="o-label" for="sei-kana">姓（フリガナ）<span class="req">必須</span></label>
+            <input class="o-input" type="text" id="sei-kana" name="sei-kana" placeholder="タナカ" required>
+          </div>
+          <div class="o-field">
+            <label class="o-label" for="mei-kana">名（フリガナ）<span class="req">必須</span></label>
+            <input class="o-input" type="text" id="mei-kana" name="mei-kana" placeholder="ミカ" required>
+          </div>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="email">メールアドレス<span class="req">必須</span></label>
+          <input class="o-input" type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email" required>
+          <p class="o-hint">確認メールをお送りします</p>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="tel">電話番号<span class="req">必須</span></label>
+          <input class="o-input" type="tel" id="tel" name="tel" placeholder="090-0000-0000" autocomplete="tel" required>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="birth">生年月日<span class="opt">任意</span></label>
+          <input class="o-input" type="date" id="birth" name="birth" autocomplete="bday">
+        </div>
+      </div>
+
+      <!-- お届け先 -->
+      <div class="o-card">
+        <h2 class="o-card__title">
+          <span class="o-card__title-icon">2</span>
+          お届け先住所
+        </h2>
+        <div class="o-field">
+          <label class="o-label" for="zip">郵便番号<span class="req">必須</span></label>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <input class="o-input" type="text" id="zip" name="zip" placeholder="123-4567" maxlength="8" style="max-width:160px;" required>
+            <button type="button" id="zip-search" style="padding:0.75rem 1rem; background:var(--ink); color:var(--white); border:none; border-radius:8px; font-size:0.75rem; font-weight:700; cursor:pointer; white-space:nowrap;">住所検索</button>
+          </div>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="pref">都道府県<span class="req">必須</span></label>
+          <div class="o-select-wrap">
+            <select class="o-select" id="pref" name="pref" required>
+              <option value="">選択してください</option>
+              <option>北海道</option><option>青森県</option><option>岩手県</option>
+              <option>宮城県</option><option>秋田県</option><option>山形県</option>
+              <option>福島県</option><option>茨城県</option><option>栃木県</option>
+              <option>群馬県</option><option>埼玉県</option><option>千葉県</option>
+              <option>東京都</option><option>神奈川県</option><option>新潟県</option>
+              <option>富山県</option><option>石川県</option><option>福井県</option>
+              <option>山梨県</option><option>長野県</option><option>岐阜県</option>
+              <option>静岡県</option><option>愛知県</option><option>三重県</option>
+              <option>滋賀県</option><option>京都府</option><option>大阪府</option>
+              <option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+              <option>鳥取県</option><option>島根県</option><option>岡山県</option>
+              <option>広島県</option><option>山口県</option><option>徳島県</option>
+              <option>香川県</option><option>愛媛県</option><option>高知県</option>
+              <option>福岡県</option><option>佐賀県</option><option>長崎県</option>
+              <option>熊本県</option><option>大分県</option><option>宮崎県</option>
+              <option>鹿児島県</option><option>沖縄県</option>
+            </select>
+          </div>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="city">市区町村<span class="req">必須</span></label>
+          <input class="o-input" type="text" id="city" name="city" placeholder="渋谷区渋谷" required>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="addr1">丁目・番地・号<span class="req">必須</span></label>
+          <input class="o-input" type="text" id="addr1" name="addr1" placeholder="1-2-3" required>
+        </div>
+        <div class="o-field">
+          <label class="o-label" for="addr2">建物名・部屋番号<span class="opt">任意</span></label>
+          <input class="o-input" type="text" id="addr2" name="addr2" placeholder="〇〇マンション 101号室">
+        </div>
+      </div>
+
+      <!-- お支払い方法 -->
+      <div class="o-card">
+        <h2 class="o-card__title">
+          <span class="o-card__title-icon">3</span>
+          お支払い方法
+        </h2>
+        <div class="o-pay-opts">
+
+          <!-- クレジットカード -->
+          <label class="o-pay-opt">
+            <input type="radio" name="payment" value="credit" checked>
+            <div>
+              <span class="o-pay-opt__label">クレジットカード</span>
+              <span class="o-pay-opt__sub">即時決済 ／ 3Dセキュア対応</span>
+              <div class="o-pay-opt__badges">
+                <span class="o-pay-badge">VISA</span>
+                <span class="o-pay-badge">Mastercard</span>
+                <span class="o-pay-badge">JCB</span>
+                <span class="o-pay-badge">AMEX</span>
+              </div>
+              <div class="o-cc-fields" id="cc-fields">
+                <div class="o-field">
+                  <label class="o-label" for="cc-num">カード番号</label>
+                  <input class="o-input" type="text" id="cc-num" name="cc-num" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="cc-number">
+                </div>
+                <div class="o-row">
+                  <div class="o-field">
+                    <label class="o-label" for="cc-exp">有効期限</label>
+                    <input class="o-input" type="text" id="cc-exp" name="cc-exp" placeholder="MM / YY" maxlength="7" inputmode="numeric" autocomplete="cc-exp">
+                  </div>
+                  <div class="o-field">
+                    <label class="o-label" for="cc-cvc">セキュリティコード</label>
+                    <input class="o-input" type="text" id="cc-cvc" name="cc-cvc" placeholder="CVV" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+                  </div>
+                </div>
+                <div class="o-field">
+                  <label class="o-label" for="cc-name">カード名義（半角ローマ字）</label>
+                  <input class="o-input" type="text" id="cc-name" name="cc-name" placeholder="TARO YAMADA" autocomplete="cc-name">
+                </div>
+              </div>
+            </div>
+          </label>
+
+          <!-- Amazon Pay -->
+          <label class="o-pay-opt">
+            <input type="radio" name="payment" value="amazon">
+            <div>
+              <span class="o-pay-opt__label">Amazon Pay</span>
+              <span class="o-pay-opt__sub">Amazonアカウントで簡単お支払い</span>
+            </div>
+          </label>
+
+          <!-- 楽天Pay -->
+          <label class="o-pay-opt">
+            <input type="radio" name="payment" value="rakuten">
+            <div>
+              <span class="o-pay-opt__label">楽天ペイ</span>
+              <span class="o-pay-opt__sub">楽天ポイントも使えます</span>
+            </div>
+          </label>
+
+          <!-- コンビニ払い -->
+          <label class="o-pay-opt">
+            <input type="radio" name="payment" value="cvs">
+            <div>
+              <span class="o-pay-opt__label">コンビニ払い</span>
+              <span class="o-pay-opt__sub">セブン・ファミマ・ローソンほか ／ 手数料無料</span>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- 同意 -->
+      <div class="o-card">
+        <label class="o-agree">
+          <input type="checkbox" id="agree" required>
+          <span class="o-agree-text">
+            <a href="#" onclick="return false;">利用規約</a>・<a href="#" onclick="return false;">プライバシーポリシー</a>・<a href="#" onclick="return false;">定期購入の説明</a>に同意します。定期便は2回目以降 ¥7,800（税込）で毎月お届けします。いつでもマイページからキャンセル可能です。
+          </span>
+        </label>
+
+        <div class="o-submit-wrap">
+          <button type="submit" class="o-submit" id="submit-btn" disabled>
+            注文を確定する
+          </button>
+          <p class="o-submit-note">
+            🔒 SSL暗号化で安全に送信されます<br>
+            30日間全額返金保証 ／ 送料無料
+          </p>
+        </div>
+
+        <div class="o-trust">
+          <span class="o-trust__item"><span class="o-trust__icon">🔒</span>SSL暗号化</span>
+          <span class="o-trust__item"><span class="o-trust__icon">↩️</span>30日返金保証</span>
+          <span class="o-trust__item"><span class="o-trust__icon">📦</span>送料無料</span>
+          <span class="o-trust__item"><span class="o-trust__icon">✅</span>GMP認定工場</span>
+          <span class="o-trust__item"><span class="o-trust__icon">👩‍⚕️</span>医師監修</span>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="o-footer">
+    <p class="o-footer__logo">Celluré<span>.</span></p>
+    <div class="o-footer__links">
+      <a href="#" class="o-footer__link">特定商取引法に基づく表記</a>
+      <a href="#" class="o-footer__link">プライバシーポリシー</a>
+      <a href="#" class="o-footer__link">利用規約</a>
+      <a href="#" class="o-footer__link">お問い合わせ</a>
+    </div>
+    <p class="o-footer__copy">© 2026 Celluré All Rights Reserved.</p>
+  </footer>
+
+  <!-- 完了モーダル -->
+  <div class="o-modal" id="success-modal" role="dialog" aria-modal="true">
+    <div class="o-modal__box">
+      <div class="o-modal__icon">✓</div>
+      <h2 class="o-modal__title">ご注文ありがとうございます</h2>
+      <p class="o-modal__body">
+        ご登録のメールアドレスに<br>
+        <span class="o-modal__email" id="modal-email"></span><br>
+        確認メールをお送りしました。<br><br>
+        発送まで2〜3営業日お待ちください。<br>
+        30日以内に変化を感じなければ、全額返金いたします。
+      </p>
+      <button class="o-modal__close" id="modal-close">トップページへ戻る</button>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+
+    /* ── URLパラメータでプラン切り替え ── */
+    const params = new URLSearchParams(location.search);
+    const plan = params.get('plan') || 'sub';
+
+    if (plan === 'single') {
+      document.getElementById('plan-badge').textContent = '単品購入';
+      document.getElementById('plan-name').textContent = 'Celluré 単品購入';
+      document.getElementById('plan-price').textContent = '9,800';
+      document.getElementById('plan-orig').textContent = '';
+      document.getElementById('plan-note').textContent = '30日分 ／ 縛りなし';
+      document.getElementById('plan-perks').innerHTML = '';
+      document.querySelector('.o-plan__badge').style.background = '#888';
+    }
+
+    /* ── 郵便番号フォーマット ── */
+    const zipInput = document.getElementById('zip');
+    zipInput.addEventListener('input', () => {
+      let v = zipInput.value.replace(/[^\d]/g, '');
+      if (v.length > 3) v = v.slice(0, 3) + '-' + v.slice(3, 7);
+      zipInput.value = v;
+    });
+
+    /* ── 住所検索（ZipCloud API） ── */
+    document.getElementById('zip-search').addEventListener('click', () => {
+      const zip = zipInput.value.replace(/-/g, '');
+      if (zip.length !== 7) { alert('郵便番号を7桁で入力してください'); return; }
+
+      fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + zip)
+        .then(r => r.json())
+        .then(data => {
+          if (data.results) {
+            const r = data.results[0];
+            const pref = document.getElementById('pref');
+            const city = document.getElementById('city');
+            Array.from(pref.options).forEach(o => {
+              if (o.textContent === r.address1) { pref.value = r.address1; }
+            });
+            city.value = r.address2 + r.address3;
+            document.getElementById('addr1').focus();
+          } else {
+            alert('該当する住所が見つかりませんでした');
+          }
+        })
+        .catch(() => alert('住所検索に失敗しました。手動で入力してください。'));
+    });
+
+    /* ── クレジットカード番号フォーマット ── */
+    const ccNum = document.getElementById('cc-num');
+    ccNum.addEventListener('input', () => {
+      let v = ccNum.value.replace(/\D/g, '').slice(0, 16);
+      ccNum.value = v.replace(/(.{4})/g, '$1 ').trim();
+    });
+
+    /* ── 有効期限フォーマット ── */
+    const ccExp = document.getElementById('cc-exp');
+    ccExp.addEventListener('input', () => {
+      let v = ccExp.value.replace(/\D/g, '').slice(0, 4);
+      if (v.length > 2) v = v.slice(0, 2) + ' / ' + v.slice(2);
+      ccExp.value = v;
+    });
+
+    /* ── 支払い方法切り替え → クレカフィールドの表示/非表示 ── */
+    const ccFields = document.getElementById('cc-fields');
+    document.querySelectorAll('input[name="payment"]').forEach(r => {
+      r.addEventListener('change', () => {
+        ccFields.style.display = r.value === 'credit' ? 'flex' : 'none';
+      });
+    });
+
+    /* ── 同意チェックで送信ボタン有効化 ── */
+    const agreeBox  = document.getElementById('agree');
+    const submitBtn = document.getElementById('submit-btn');
+    agreeBox.addEventListener('change', () => {
+      submitBtn.disabled = !agreeBox.checked;
+    });
+
+    /* ── フォーム送信 ── */
+    const form  = document.getElementById('order-form');
+    const modal = document.getElementById('success-modal');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+
+      // ★ 実装時: ここでAPIリクエスト or フォームPOST
+      setTimeout(() => {
+        const email = document.getElementById('email').value;
+        document.getElementById('modal-email').textContent = email;
+        modal.classList.add('show');
+      }, 1200);
+    });
+
+    /* ── モーダル閉じる ── */
+    document.getElementById('modal-close').addEventListener('click', () => {
+      location.href = 'index.html';
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) { location.href = 'index.html'; }
+    });
+
+  })();
+  </script>
+</body>
+</html>
