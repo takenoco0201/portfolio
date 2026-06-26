@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>無料カウンセリング予約 | スマイルデザイン矯正歯科</title>
+  <meta name="description" content="スマイルデザイン矯正歯科の無料カウンセリングをご予約いただけます。月10組限定・初回通常5,500円が無料です。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="fhdr">
+  <div class="fhdr__inner">
+    <a href="index.html" class="fhdr__logo" aria-label="スマイルデザイン矯正歯科 LPへ戻る">
+      <span class="fhdr__logo-en">SMILE DESIGN ORTHODONTICS</span>
+      <span class="fhdr__logo-ja">スマイルデザイン矯正歯科</span>
+    </a>
+    <a href="tel:03-XXXX-XXXX" class="fhdr__tel">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M6.4 1.6C6.1 1 5.3.8 4.7 1.1L2.5 2.2C1.9 2.5 1.6 3.2 1.8 3.9c1.1 4.3 4.6 7.8 8.9 8.9.7.2 1.4-.1 1.7-.7l1.1-2.2c.3-.6.1-1.4-.5-1.7l-2-1c-.6-.3-1.3-.1-1.7.4l-.5.7A6.7 6.7 0 0 1 5.3 5L6 4.5c.5-.4.7-1.1.4-1.7l-1-2Z" stroke="currentColor" stroke-width="1.3"/>
+      </svg>
+      03-XXXX-XXXX
+    </a>
+  </div>
+</header>
+
+<!-- メイン -->
+<main class="fmain">
+  <div class="fmain__inner">
+
+    <!-- ヒーローバナー -->
+    <div class="fhero">
+      <p class="fhero__badge">月10組限定　初回無料</p>
+      <p class="fhero__en">FREE COUNSELING</p>
+      <h1 class="fhero__heading">無料カウンセリングのご予約</h1>
+      <p class="fhero__sub">口元のお悩みを、専任スタッフが丁寧にお聞きします。<br>まずはお気軽にお問い合わせください。</p>
+    </div>
+
+    <!-- 安心ポイント -->
+    <ul class="ftrust">
+      <li class="ftrust__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="8" stroke="#4A8FD4" stroke-width="1.5"/>
+          <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#4A8FD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>費用のご説明あり・押し売りなし</span>
+      </li>
+      <li class="ftrust__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="8" stroke="#4A8FD4" stroke-width="1.5"/>
+          <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#4A8FD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>AIシミュレーション無料体験（初回のみ）</span>
+      </li>
+      <li class="ftrust__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="8" stroke="#4A8FD4" stroke-width="1.5"/>
+          <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#4A8FD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>カウンセリング後のお申し込みは任意</span>
+      </li>
+    </ul>
+
+    <!-- フォーム -->
+    <section class="fbody">
+      <div id="form-wrap">
+
+        <form class="bform" id="booking-form" action="#" method="post" novalidate>
+
+          <div class="bform__group">
+            <label class="bform__label" for="f-name">
+              お名前<span class="bform__req">必須</span>
+            </label>
+            <input
+              type="text"
+              id="f-name"
+              name="name"
+              class="bform__input"
+              placeholder="山田 花子"
+              autocomplete="name"
+              required
+            >
+            <p class="bform__error" id="err-name" role="alert" aria-live="polite"></p>
+          </div>
+
+          <div class="bform__group">
+            <label class="bform__label" for="f-phone">
+              電話番号<span class="bform__req">必須</span>
+            </label>
+            <input
+              type="tel"
+              id="f-phone"
+              name="phone"
+              class="bform__input"
+              placeholder="090-0000-0000"
+              autocomplete="tel"
+              required
+            >
+            <p class="bform__error" id="err-phone" role="alert" aria-live="polite"></p>
+          </div>
+
+          <div class="bform__group">
+            <label class="bform__label" for="f-email">
+              メールアドレス<span class="bform__opt">任意</span>
+            </label>
+            <input
+              type="email"
+              id="f-email"
+              name="email"
+              class="bform__input"
+              placeholder="example@mail.com"
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="bform__row">
+            <div class="bform__group">
+              <label class="bform__label" for="f-date1">
+                ご希望日（第1希望）<span class="bform__opt">任意</span>
+              </label>
+              <input
+                type="date"
+                id="f-date1"
+                name="date1"
+                class="bform__input bform__input--date"
+              >
+            </div>
+            <div class="bform__group">
+              <label class="bform__label" for="f-date2">
+                ご希望日（第2希望）<span class="bform__opt">任意</span>
+              </label>
+              <input
+                type="date"
+                id="f-date2"
+                name="date2"
+                class="bform__input bform__input--date"
+              >
+            </div>
+          </div>
+
+          <div class="bform__group">
+            <label class="bform__label" for="f-time">
+              ご希望時間帯<span class="bform__opt">任意</span>
+            </label>
+            <div class="bform__select-wrap">
+              <select id="f-time" name="time" class="bform__select">
+                <option value="">選択してください</option>
+                <option value="morning">午前（10:00〜12:00）</option>
+                <option value="afternoon">午後（13:00〜16:00）</option>
+                <option value="evening">夕方（16:00〜19:00）</option>
+                <option value="any">いつでも可</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bform__group">
+            <label class="bform__label" for="f-concern">
+              ご相談内容<span class="bform__opt">任意</span>
+            </label>
+            <div class="bform__select-wrap">
+              <select id="f-concern" name="concern" class="bform__select">
+                <option value="">選択してください</option>
+                <option value="suki-ba">すきっ歯・歯間のすき間</option>
+                <option value="yaeba">八重歯・歯のでこぼこ</option>
+                <option value="deba">出っ歯（上顎前突）</option>
+                <option value="uke-guchi">受け口（下顎前突）</option>
+                <option value="open-bite">開咬（前歯が噛み合わない）</option>
+                <option value="price">費用・ローンについて</option>
+                <option value="other">その他・よくわからない</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bform__group">
+            <label class="bform__label" for="f-message">
+              ご質問・ご要望<span class="bform__opt">任意</span>
+            </label>
+            <textarea
+              id="f-message"
+              name="message"
+              class="bform__textarea"
+              placeholder="ご自由にご記入ください（他院からのセカンドオピニオン、ブラケット矯正との比較など）"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="bform__group bform__group--privacy">
+            <label class="bform__check-label" for="f-privacy">
+              <input
+                type="checkbox"
+                id="f-privacy"
+                name="privacy"
+                class="bform__check"
+                required
+              >
+              <span class="bform__check-text">
+                <a href="privacy.html" target="_blank" rel="noopener" class="bform__privacy-link">プライバシーポリシー</a>に同意する<span class="bform__req">必須</span>
+              </span>
+            </label>
+            <p class="bform__error" id="err-privacy" role="alert" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" class="bform__submit" id="submit-btn">
+            <span class="bform__submit-text">予約を申し込む</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <p class="bform__note">
+            ご予約確認のご連絡は翌営業日（土日祝日を除く）までにお電話またはメールにてご連絡いたします。
+          </p>
+
+        </form>
+
+        <!-- 完了メッセージ（送信後に表示） -->
+        <div class="bthanks" id="thanks-msg" aria-live="assertive" hidden>
+          <div class="bthanks__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" stroke="#4A8FD4" stroke-width="2"/>
+              <path d="M14 24l7 7 13-13" stroke="#4A8FD4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="bthanks__heading">ご予約を受け付けました</h2>
+          <p class="bthanks__body">
+            翌営業日までにスタッフよりご連絡いたします。<br>
+            ご不明な点はお電話（03-XXXX-XXXX）にてお気軽にお問い合わせください。
+          </p>
+          <a href="index.html" class="bthanks__back">LPに戻る</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 電話予約 -->
+    <div class="falt">
+      <p class="falt__heading">お電話でもご予約いただけます</p>
+      <a href="tel:03-XXXX-XXXX" class="falt__phone">03-XXXX-XXXX</a>
+      <p class="falt__hours">平日 10:00〜19:00 ／ 土日 10:00〜18:00（祝日休診）</p>
+    </div>
+
+  </div>
+</main>
+
+<!-- フッター -->
+<footer class="fftr">
+  <div class="fftr__inner">
+    <p class="fftr__name">スマイルデザイン矯正歯科</p>
+    <p class="fftr__address">〒160-0000 東京都新宿区西新宿X-X-X ○○ビル3F（新宿駅西口徒歩3分）</p>
+    <nav class="fftr__nav" aria-label="フッターナビゲーション">
+      <a href="privacy.html" target="_blank" rel="noopener" class="fftr__link">プライバシーポリシー</a>
+      <span class="fftr__sep" aria-hidden="true">|</span>
+      <a href="tokusho.html" target="_blank" rel="noopener" class="fftr__link">特定商取引法に基づく表記</a>
+    </nav>
+    <p class="fftr__copy">&copy; 2026 スマイルデザイン矯正歯科. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="form.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/*
+ * ============================================================
+ *  スマイルデザイン矯正歯科 LP — デザイントークン
+ *  パターン C（エディトリアル）採用版
+ *  生成日：2026-06-25
+ * ============================================================
+ */
+
+:root {
+
+  /* ─── カラー ────────────────────────────────────── */
+
+  --color-primary      : #4A8FD4;           /* スマイルブルー：セカンダリCTA・ピルタグ枠・アクセント要素 */
+  --color-primary-light: #EBF3FC;           /* ブルー薄地：ローン帯・インフォBOX背景 */
+  --color-secondary    : #2D2D2D;           /* チャコール：メインCTAボタン・ブランドバー・フッター */
+  --color-accent       : #C9A84C;           /* ゴールド：バッジ・番号装飾・区切り線・強調テキスト */
+  --color-accent-light : #DEBD72;           /* ゴールドハイライト：グラデーション最終CTAボタン終端色 */
+  --color-white        : #FFFFFF;           /* 純白：ダーク背景上のテキスト・SVGストローク */
+  --color-text         : #2D2D2D;           /* 本文最大コントラスト：見出し・ラベル */
+  --color-text-sub     : #666666;           /* サブテキスト：説明文・本文 */
+  --color-text-muted   : #AAAAAA;           /* ミュートテキスト：注記・日付・サブキャプション */
+  --color-text-light   : #CCCCCC;           /* 最弱テキスト：免責注記・著作権表記 */
+  --color-bg           : #F5F7FB;           /* ページ交互BG：奇数セクション・カード下地 */
+  --color-bg-white     : #FFFFFF;           /* 偶数セクション・カード・モーダル背景 */
+  --color-bg-dark      : #2D2D2D;           /* ダークセクション：S05実績・フッター・ブランドバー */
+  --color-bg-blue      : #4A8FD4;           /* ブルーセクション：S11最終CTA */
+  --color-border       : #DDE2EA;           /* 汎用ボーダー：FAQ区切り・カード枠 */
+  --color-border-gold  : rgba(201,168,76,.70); /* ゴールドボーダー：Diamondバッジ枠・限定BOX枠 */
+  --color-overlay-dark : rgba(0,0,0,0.06);  /* オーバーレイ：ダークセクション内カード背景 */
+
+  /* ─── フォント ──────────────────────────────────── */
+
+  --font-heading  : 'Noto Serif JP', serif;        /* 見出し：h1〜h3・引用ブロック */
+  --font-body     : 'Noto Sans JP', sans-serif;    /* 本文：p・リスト・UI全般 */
+  --font-deco     : 'Cormorant Garamond', serif;   /* 装飾英字：ENラベル・大番号・ウォーターマーク */
+
+  /* ─── タイポスケール ─────────────────────────────── */
+
+  --fs-h1        : clamp(28px, 8.5vw, 34px);   /* FV大見出し */
+  --fs-h2        : clamp(22px, 6.5vw, 24px);   /* セクション見出し */
+  --fs-h3        : clamp(14px, 4vw,   15px);   /* カード見出し・ステップタイトル */
+  --fs-body      : 13px;                        /* 標準本文 */
+  --fs-body-md   : 14px;                        /* やや大きめ本文・FAQ質問 */
+  --fs-body-lg   : 15px;                        /* 強調本文・引用ブロック */
+  --fs-small     : 12px;                        /* 補足・料金ラベル */
+  --fs-xsmall    : 11px;                        /* 日付・著者・注記 */
+  --fs-xxsmall   : 10px;                        /* 免責・著作権・ENラベル */
+  --fs-deco-num  : clamp(28px, 10vw, 40px);     /* Cormorant装飾番号（01/02/03） */
+  --fs-deco-stat : clamp(28px, 9vw,  36px);     /* Cormorant実績数字 */
+  --fs-watermark : 108px;                       /* 背景ウォーターマーク文字 */
+
+  --lh-tight  : 1.4;   /* 見出し行高 */
+  --lh-base   : 1.52;  /* h2標準行高 */
+  --lh-body   : 1.8;   /* 本文標準行高 */
+  --lh-relaxed: 1.88;  /* 長文本文・説明文 */
+
+  --ls-deco   : .26em;  /* ENラベル文字間隔 */
+  --ls-brand  : .18em;  /* ブランドバーロゴ文字間隔 */
+  --ls-cta    : .07em;  /* CTAボタン文字間隔 */
+  --ls-stat   : .02em;  /* 見出し微細文字間隔 */
+
+  /* ─── 余白スケール ───────────────────────────────── */
+
+  --space-2xs : 4px;    /* アイコン・バッジ内padding */
+  --space-xs  : 8px;    /* ピルタグ・細かいgap */
+  --space-sm  : 12px;   /* カード内要素間・小gap */
+  --space-md  : 16px;   /* カードpadding・標準gap */
+  --space-lg  : 22px;   /* セクション内要素間 */
+  --space-xl  : 32px;   /* フッターpadding */
+  --space-2xl : 44px;   /* セクションpadding（上下） */
+  --space-3xl : 64px;   /* 将来のデスクトップ拡張余白 */
+
+  --section-px : 22px;  /* セクション左右padding（SP375px基準） */
+  --section-py : 44px;  /* セクション上下padding */
+
+  /* ─── CTAボタン ──────────────────────────────────── */
+
+  --btn-bg-primary    : #2D2D2D;                              /* メインCTA背景（チャコール） */
+  --btn-bg-secondary  : #4A8FD4;                              /* セカンダリCTA背景（ブルー） */
+  --btn-bg-gold       : linear-gradient(135deg,#C9A84C,#DEBD72); /* 最終CTA背景（ゴールドグラデ） */
+  --btn-text          : #FFFFFF;                              /* ボタン文字色 */
+  --btn-radius        : 4px;                                  /* ボタン角丸（エディトリアル：直角寄り） */
+  --btn-radius-pill   : 50px;                                 /* ピル型ボタン（将来利用） */
+  --btn-padding-y     : 16px;                                 /* ボタン縦padding */
+  --btn-padding-x     : 24px;                                 /* ボタン横padding */
+  --btn-shadow-gold   : 0 6px 24px rgba(201,168,76,.50);      /* ゴールドCTAドロップシャドウ */
+  --btn-shadow-blue   : 0 4px 18px rgba(74,143,212,.38);      /* ブルーCTAドロップシャドウ */
+
+  /* ─── カード・BOX ────────────────────────────────── */
+
+  --card-radius       : 8px;                         /* 標準カード角丸 */
+  --card-radius-lg    : 10px;                        /* 大きめBOX（限定オファー等） */
+  --card-shadow       : 0 1px 6px rgba(0,0,0,.05);   /* 料金カード影 */
+
+  /* ─── アクセントライン ───────────────────────────── */
+
+  --rule-gold-w       : 18px;   /* ENラベル前の横線幅 */
+  --rule-gold-h       : 1px;    /* ENラベル前の横線高さ */
+  --rule-cta-w        : 32px;   /* CTAボタン下のゴールドダッシュ幅 */
+  --rule-cta-h        : 2px;    /* CTAボタン下のゴールドダッシュ高さ */
+  --rule-usp-w        : 4px;    /* USPカード左ボーダー幅 */
+
+  /* ─── レイアウト ────────────────────────────────── */
+
+  --max-width-sp      : 375px;  /* SPファースト基準幅 */
+  --sticky-bar-height : 40px;   /* ブランドバー高さ（sticky offset計算用） */
+  --floating-cta-h    : 54px;   /* フローティングCTAバー高さ（本文pb計算用） */
+}

@@ -1,0 +1,192 @@
+<style>
+/* ── S04: 選ばれる3つの強み（USP） ────────────── */
+
+#section-usp {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg);
+}
+
+.usp__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.usp__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.usp__card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-accent);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.usp__card-inner {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.usp__number {
+  font-family: var(--font-deco);
+  font-size: var(--fs-deco-num);
+  color: var(--color-accent);
+  line-height: 1;
+  flex-shrink: 0;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.usp__card-body {
+  flex: 1;
+}
+
+.usp__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-xs);
+}
+
+.usp__card-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+}
+
+.usp__card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .usp__list {
+    gap: var(--space-lg);
+  }
+
+  .usp__card {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+  }
+
+  .usp__card:nth-child(even) {
+    flex-direction: row-reverse;
+
+  }
+
+  .usp__card-main {
+    flex: 1;
+  }
+
+  .usp__card-visual {
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .usp__card-img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-usp {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+  .usp__card-visual {
+    width: 280px;
+  }
+}
+</style>
+
+<!-- S04: 選ばれる3つの強み -->
+<section id="section-usp" class="usp">
+
+  <div class="usp__header">
+    <p class="section-en-label" aria-hidden="true">WHY CHOOSE US</p>
+    <h2 class="section-heading anim-item">スマイルデザインが選ばれる、3つの理由</h2>
+  </div>
+
+  <div class="usp__list">
+
+    <!-- USP① ダイヤモンドプロバイダー -->
+    <div class="usp__card anim-item">
+      <div class="usp__card-main">
+        <div class="usp__card-inner">
+          <span class="usp__number" aria-hidden="true">01</span>
+          <div class="usp__card-body">
+            <h3 class="usp__card-title">インビザライン最上位資格<br>「ダイヤモンドプロバイダー」認定</h3>
+            <p class="usp__card-desc">ダイヤモンドプロバイダーは、インビザライン社が認定する最高位の資格です。都内でもわずかな医院しか取得できていない権威ある証明。豊富な症例数と高い技術水準を持つ医院にのみ与えられます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="usp__card-visual">
+        <img
+          src="assets/images/clinic-reception.png"
+          alt="クリニック受付・待合室"
+          class="usp__card-img"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <!-- USP② 院長全担当 -->
+    <div class="usp__card anim-item">
+      <div class="usp__card-main">
+        <div class="usp__card-inner">
+          <span class="usp__number" aria-hidden="true">02</span>
+          <div class="usp__card-body">
+            <h3 class="usp__card-title">院長が全症例を直接担当。<br>完全個室での矯正体験</h3>
+            <p class="usp__card-desc">あなたの矯正を最初から最後まで院長が担当します。完全個室・完全予約制だから、周囲を気にせずゆっくりと相談できます。治療中のちょっとした変化も、担当医師がすぐに対応します。</p>
+          </div>
+        </div>
+      </div>
+      <div class="usp__card-visual">
+        <img
+          src="assets/images/doctor-consulting.png"
+          alt="院長によるカウンセリングの様子"
+          class="usp__card-img"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <!-- USP③ AIシミュレーション -->
+    <div class="usp__card anim-item">
+      <div class="usp__card-main">
+        <div class="usp__card-inner">
+          <span class="usp__number" aria-hidden="true">03</span>
+          <div class="usp__card-body">
+            <h3 class="usp__card-title">AIシミュレーションで<br>治療前に仕上がりをご確認いただけます</h3>
+            <p class="usp__card-desc">治療を始める前に、AIが予測する仕上がりイメージをご確認いただけます。「どんな歯並びになるか」という最大の不安を、実際のビジュアルで解消。納得してから治療をスタートできます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="usp__card-visual">
+        <img
+          src="assets/images/ai-simulation.png"
+          alt="AIシミュレーション画面のイメージ（写真はイメージです）"
+          class="usp__card-img"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+  </div>
+</section>

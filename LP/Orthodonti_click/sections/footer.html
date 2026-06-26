@@ -1,0 +1,207 @@
+<style>
+/* ── S12: フッター ──────────────────────────── */
+
+#section-footer {
+  background: var(--color-bg-dark);
+  padding: var(--space-xl) var(--section-px) var(--space-lg);
+}
+
+.footer__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ロゴ・クリニック名 */
+
+.footer__brand {
+  text-align: center;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: var(--space-lg);
+}
+
+.footer__logo-text {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: var(--ls-brand);
+}
+
+.footer__logo-sub {
+  font-family: var(--font-deco);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: var(--ls-deco);
+  margin-top: 4px;
+}
+
+/* クリニック情報 */
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.footer__info-block {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: var(--lh-body);
+}
+
+.footer__info-label {
+  font-size: var(--fs-xsmall);
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.footer__info-value {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer__map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.footer__map-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 法的リンク */
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: var(--space-md);
+}
+
+.footer__legal-link {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__legal-link:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* コピーライト */
+
+.footer__copyright {
+  font-family: var(--font-deco);
+  font-size: var(--fs-xsmall);
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* タブレット以上 */
+
+@media (min-width: 768px) {
+  .footer__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-footer {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S12: フッター -->
+<footer id="section-footer" role="contentinfo">
+
+  <div class="footer__inner">
+
+    <!-- ブランド名 -->
+    <div class="footer__brand">
+      <p class="footer__logo-text">スマイルデザイン矯正歯科</p>
+      <p class="footer__logo-sub">Smile Design Orthodontic Clinic</p>
+    </div>
+
+    <!-- クリニック情報 -->
+    <div class="footer__info">
+
+      <div class="footer__info-block">
+        <p class="footer__info-label">住所</p>
+        <p class="footer__info-value">
+          〒000-0000<br>
+          東京都○○区○○1-2-3<br>
+          ○○ビル 3F
+        </p>
+        <a
+          href="https://maps.google.com/"
+          class="footer__map-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Google マップで場所を確認（新しいタブで開く）"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M6 1a4 4 0 014 4c0 3-4 6-4 6S2 8 2 5a4 4 0 014-4z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="6" cy="5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          Google マップで確認
+        </a>
+      </div>
+
+      <div class="footer__info-block">
+        <p class="footer__info-label">電話番号</p>
+        <p class="footer__info-value">03-XXXX-XXXX</p>
+      </div>
+
+      <div class="footer__info-block">
+        <p class="footer__info-label">診療時間</p>
+        <p class="footer__info-value">
+          平日 10:00〜19:00<br>
+          土日祝 10:00〜18:00
+        </p>
+      </div>
+
+      <div class="footer__info-block">
+        <p class="footer__info-label">休診日</p>
+        <p class="footer__info-value">
+          毎週水曜日<br>
+          年末年始・お盆
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 法的リンク -->
+    <div class="footer__legal">
+      <a href="/privacy" class="footer__legal-link">プライバシーポリシー</a>
+      <a href="/tokushoho" class="footer__legal-link">特定商取引法に基づく表記</a>
+      <a href="/sitemap" class="footer__legal-link">サイトマップ</a>
+    </div>
+
+    <!-- コピーライト -->
+    <p class="footer__copyright">
+      &copy; 2024 スマイルデザイン矯正歯科. All Rights Reserved.
+    </p>
+
+  </div>
+
+</footer>

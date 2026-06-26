@@ -1,0 +1,187 @@
+<style>
+/* ── S02: 課題・共感提示 ───────────────────────── */
+
+#section-problem {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg);
+}
+
+.problem__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.section-en-label {
+  font-family: var(--font-deco);
+  font-size: var(--fs-xxsmall);
+  color: var(--color-accent);
+  letter-spacing: var(--ls-deco);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.section-en-label::before,
+.section-en-label::after {
+  content: '';
+  display: block;
+  width: var(--rule-gold-w);
+  height: var(--rule-gold-h);
+  background: var(--color-accent);
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-stat);
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.problem__card {
+  background: var(--color-bg-white);
+  border-radius: 12px;
+  padding: var(--space-md);
+  border: 1px solid #E8EDF5;
+  box-shadow: 0 2px 12px rgba(74,143,212,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.problem__card--wide {
+  grid-column: 1 / -1;
+}
+
+.problem__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.problem__card-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+}
+
+.problem__bridge {
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-lg);
+}
+
+.problem__bridge-text {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body-lg);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+}
+
+.problem__bridge-text em {
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+/* アニメーション */
+.anim-item {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-item { opacity: 1; transform: none; }
+}
+
+@media (min-width: 768px) {
+  .problem__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+  .problem__card--wide {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-problem {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S02: 課題・共感提示 -->
+<section id="section-problem" class="problem">
+
+  <div class="problem__header">
+    <p class="section-en-label" aria-hidden="true">YOUR CONCERN</p>
+    <h2 class="section-heading anim-item">こんな瞬間、ありませんか？</h2>
+  </div>
+
+  <div class="problem__grid">
+
+    <div class="problem__card anim-item">
+      <svg class="problem__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 10v7l4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <p class="problem__card-text">写真を撮られるとき、つい手で口元を隠してしまう</p>
+    </div>
+
+    <div class="problem__card anim-item">
+      <svg class="problem__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M8 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="3" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <p class="problem__card-text">大笑いするとき、口元が気になって声を抑えてしまう</p>
+    </div>
+
+    <div class="problem__card anim-item">
+      <svg class="problem__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="6" y="8" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6 12h20" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 18h4M18 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <p class="problem__card-text">接客中、笑顔でいると歯並びを見られていないか気になる</p>
+    </div>
+
+    <div class="problem__card anim-item">
+      <svg class="problem__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 6c-5.5 0-10 4-10 9s4.5 9 10 9 10-4 10-9-4.5-9-10-9z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M12 16c.8 1.2 2.2 2 4 2s3.2-.8 4-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <p class="problem__card-text">初対面の人と話すとき、口元を見られているような気がする</p>
+    </div>
+
+    <div class="problem__card anim-item">
+      <svg class="problem__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 6v4M16 22v4M6 16h4M22 16h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <p class="problem__card-text">鏡を見るたびに歯並びが気になって、気分が下がる</p>
+    </div>
+
+  </div>
+
+  <div class="problem__bridge anim-item">
+    <p class="problem__bridge-text">
+      それは、あなたが悪いのではありません。<br>
+      歯並びを整えれば、<em>あなたの笑顔は自然と変わります。</em>
+    </p>
+  </div>
+
+</section>

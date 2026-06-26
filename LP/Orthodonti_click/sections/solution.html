@@ -1,0 +1,149 @@
+<style>
+/* ── S03: 解決策の提示 ──────────────────────────── */
+
+#section-solution {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-white);
+}
+
+.solution__header {
+  margin-bottom: var(--space-lg);
+}
+
+.solution__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-stat);
+  margin-top: var(--space-xs);
+}
+
+.solution__visual {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  aspect-ratio: 4 / 3;
+}
+
+.solution__visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.solution__body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-lg);
+}
+
+.solution__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.solution__badge {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border-radius: 50px;
+  padding: 6px var(--space-md);
+  white-space: nowrap;
+}
+
+.solution__cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: var(--ls-cta);
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.solution__cta-link:hover {
+  opacity: 0.75;
+}
+
+.solution__cta-link svg {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .solution__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+  .solution__visual {
+    margin-bottom: 0;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-solution {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S03: 解決策の提示 -->
+<section id="section-solution" class="solution">
+  <div class="solution__inner">
+
+    <div class="solution__visual anim-item">
+      <img
+        src="assets/images/clinic-treatment.png"
+        alt="透明なマウスピース矯正のイメージ"
+        class="solution__visual-img"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="solution__content">
+      <div class="solution__header">
+        <p class="section-en-label" aria-hidden="true">The Solution</p>
+        <h2 class="solution__heading anim-item">バレない矯正が、あります。</h2>
+      </div>
+
+      <p class="solution__body anim-item">
+        インビザライン®は、0.5mm厚の透明なマウスピースで歯並びを整える最新矯正法です。ワイヤーもブラケットも使わないため、装着していても周囲からほとんど気づかれません。接客の仕事中も、大切な商談中も、あなたのスマイルをそっとサポートします。
+      </p>
+
+      <div class="solution__badges anim-item">
+        <span class="solution__badge">透明で目立たない</span>
+        <span class="solution__badge">食事中は取り外せる</span>
+        <span class="solution__badge">ワイヤーより痛みが少ない</span>
+      </div>
+
+      <a
+        href="#section-simulation"
+        class="solution__cta-link anim-item"
+        data-gtm-click="cta-solution"
+      >
+        AI で仕上がりをシミュレーションする
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

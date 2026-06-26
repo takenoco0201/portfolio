@@ -1,0 +1,270 @@
+<style>
+/* ── S09: 治療フロー 5ステップ ─────────────────── */
+
+#section-flow {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg);
+}
+
+.flow__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* SP: 縦ステップ */
+
+.flow__list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: var(--space-lg);
+}
+
+.flow__connector {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  z-index: 0;
+}
+
+.flow__step {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--space-lg);
+}
+
+.flow__step:last-child {
+  padding-bottom: 0;
+}
+
+.flow__step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.flow__step-num {
+  font-family: var(--font-deco);
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  background: var(--color-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--color-bg-white);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.flow__step-body {
+  flex: 1;
+  padding-top: 6px;
+}
+
+.flow__step-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 2px var(--space-sm);
+  border-radius: 100px;
+  margin-bottom: var(--space-xs);
+  letter-spacing: 0.04em;
+}
+
+.flow__step-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  margin-bottom: 4px;
+}
+
+.flow__step-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+}
+
+.flow__step-detail {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* ゴール表示 */
+
+.flow__goal {
+  background: var(--color-bg-blue);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.flow__goal-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.flow__goal-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.flow__goal-sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* PC: 横ステップ */
+
+@media (min-width: 768px) {
+  .flow__list {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .flow__connector {
+    display: none;
+  }
+
+  .flow__step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    padding-bottom: 0;
+    position: relative;
+  }
+
+  .flow__step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: calc(-1 * var(--space-md) / 2);
+    top: 20px;
+    width: var(--space-md);
+    height: 2px;
+    background: var(--color-primary-light);
+  }
+
+  .flow__step-marker {
+    margin-bottom: var(--space-xs);
+  }
+
+  .flow__step-body {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-flow {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S09: 治療フロー 5ステップ -->
+<section id="section-flow" class="flow">
+
+  <div class="flow__header">
+    <p class="section-en-label" aria-hidden="true">TREATMENT FLOW</p>
+    <h2 class="section-heading anim-item">治療の流れ</h2>
+  </div>
+
+  <div class="flow__list anim-item" role="list">
+
+    <div class="flow__connector" aria-hidden="true"></div>
+
+    <div class="flow__step" role="listitem">
+      <div class="flow__step-marker">
+        <span class="flow__step-num">1</span>
+      </div>
+      <div class="flow__step-body">
+        <span class="flow__step-tag">まずは来院</span>
+        <p class="flow__step-title">無料カウンセリング</p>
+        <p class="flow__step-desc">お悩みや希望をお聞きします。AIシミュレーションで仕上がりもご確認いただけます。</p>
+        <p class="flow__step-detail">所要時間：約60分 ／ 無料</p>
+      </div>
+    </div>
+
+    <div class="flow__step" role="listitem">
+      <div class="flow__step-marker">
+        <span class="flow__step-num">2</span>
+      </div>
+      <div class="flow__step-body">
+        <span class="flow__step-tag">ご検討・ご納得後</span>
+        <p class="flow__step-title">精密検査・診断</p>
+        <p class="flow__step-desc">レントゲン・口腔内スキャン・写真撮影で現状を徹底的に把握し、最適な治療計画を作成します。</p>
+        <p class="flow__step-detail">費用：38,500円</p>
+      </div>
+    </div>
+
+    <div class="flow__step" role="listitem">
+      <div class="flow__step-marker">
+        <span class="flow__step-num">3</span>
+      </div>
+      <div class="flow__step-body">
+        <span class="flow__step-tag">いよいよスタート</span>
+        <p class="flow__step-title">マウスピース装着・矯正スタート</p>
+        <p class="flow__step-desc">オーダーメイドのマウスピースをお渡しします。自分のペースで装着開始。</p>
+        <p class="flow__step-detail">1日20時間以上の装着が目安</p>
+      </div>
+    </div>
+
+    <div class="flow__step" role="listitem">
+      <div class="flow__step-marker">
+        <span class="flow__step-num">4</span>
+      </div>
+      <div class="flow__step-body">
+        <span class="flow__step-tag">安心のサポート</span>
+        <p class="flow__step-title">月1回の定期通院</p>
+        <p class="flow__step-desc">進捗確認・新しいマウスピースのお渡し・ご不明点の相談。1回あたり約15〜30分です。</p>
+        <p class="flow__step-detail">治療期間：6ヶ月〜2年（症例により異なる）</p>
+      </div>
+    </div>
+
+    <div class="flow__step" role="listitem">
+      <div class="flow__step-marker">
+        <span class="flow__step-num">5</span>
+      </div>
+      <div class="flow__step-body">
+        <span class="flow__step-tag">治療完了</span>
+        <p class="flow__step-title">保定・アフターケア</p>
+        <p class="flow__step-desc">矯正完了後は後戻りを防ぐリテーナーを装着。美しい歯並びを長く維持します。</p>
+        <p class="flow__step-detail">定期チェックは年1〜2回</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ゴール -->
+  <div class="flow__goal anim-item">
+    <span class="flow__goal-icon" aria-hidden="true">✨</span>
+    <p class="flow__goal-title">美しい歯並びで、笑顔に自信を</p>
+    <p class="flow__goal-sub">※治療期間・費用は症例により異なります。カウンセリングにて詳しくご説明いたします。</p>
+  </div>
+
+</section>

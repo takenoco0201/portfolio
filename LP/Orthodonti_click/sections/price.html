@@ -1,0 +1,283 @@
+<style>
+/* ── S08: 料金・特典・ローン ─────────────────────── */
+
+#section-price {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-white);
+}
+
+.price__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* 特典バナー */
+
+.price__offer {
+  background: var(--color-accent);
+  color: var(--btn-text);
+  border-radius: 12px;
+  padding: var(--space-md);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  box-shadow: 0 4px 18px rgba(201,168,76,0.4);
+}
+
+.price__offer-badge {
+  font-family: var(--font-deco);
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-deco);
+  margin-bottom: var(--space-xs);
+  opacity: 0.9;
+}
+
+.price__offer-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-xs);
+}
+
+.price__offer-detail {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  opacity: 0.9;
+  line-height: var(--lh-body);
+}
+
+/* 料金テーブル */
+
+.price__table {
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+}
+
+.price__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-sm);
+}
+
+.price__row:last-child {
+  border-bottom: none;
+}
+
+.price__row:nth-child(even) {
+  background: var(--color-bg);
+}
+
+.price__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  flex: 1;
+}
+
+.price__amount {
+  font-family: var(--font-deco);
+  font-size: var(--fs-h3);
+  color: var(--color-text);
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ローン補足 */
+
+.price__loan {
+  background: var(--color-primary-light);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.price__loan-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.price__loan-monthly {
+  font-family: var(--font-deco);
+  font-size: var(--fs-h2);
+  color: var(--color-primary);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-xs);
+}
+
+.price__loan-note {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}
+
+/* 安心保証 */
+
+.price__guarantee {
+  background: var(--color-bg);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.price__guarantee-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.price__guarantee-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-body);
+}
+
+.price__guarantee-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* CTA */
+
+.price__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  background: var(--btn-bg-primary);
+  color: var(--btn-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-cta);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.price__cta:hover {
+  opacity: 0.85;
+}
+
+@media (min-width: 768px) {
+  .price__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+  .price__table-wrap { grid-row: 1 / 3; }
+  .price__cta { width: auto; min-width: 280px; }
+}
+
+@media (min-width: 1280px) {
+  #section-price {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S08: 料金・特典・ローン -->
+<section id="section-price" class="price">
+
+  <div class="price__header">
+    <p class="section-en-label" aria-hidden="true">PRICING</p>
+    <h2 class="section-heading anim-item">料金・特典のご案内</h2>
+  </div>
+
+  <!-- 特典バナー -->
+  <div class="price__offer anim-item">
+    <p class="price__offer-badge">★ MONTHLY 10 SLOTS LIMITED ★</p>
+    <p class="price__offer-title">月10組限定 ／ 初回カウンセリング 完全無料</p>
+    <p class="price__offer-detail">通常5,500円 → 今だけ無料<br>＋ AIシミュレーション無料体験つき</p>
+  </div>
+
+  <!-- 料金テーブル -->
+  <div class="price__table anim-item">
+    <div class="price__row">
+      <span class="price__label">精密検査・診断料</span>
+      <span class="price__amount">38,500円</span>
+    </div>
+    <div class="price__row">
+      <span class="price__label">部分矯正（前歯のみ）</span>
+      <span class="price__amount">198,000円〜</span>
+    </div>
+    <div class="price__row">
+      <span class="price__label">全顎マウスピース矯正</span>
+      <span class="price__amount">880,000〜1,100,000円</span>
+    </div>
+    <div class="price__row">
+      <span class="price__label">小児矯正（一期）</span>
+      <span class="price__amount">440,000円</span>
+    </div>
+  </div>
+
+  <!-- ローン補足 -->
+  <div class="price__loan anim-item">
+    <p class="price__loan-title">デンタルローン対応（最長84回払い）</p>
+    <p class="price__loan-monthly">月々 約11,000円〜</p>
+    <p class="price__loan-note">
+      ※全顎矯正 84回払いの場合の目安額（金利・手数料含む）。詳細はカウンセリングにてご確認ください。<br>
+      ※医療費控除の対象です。確定申告により一部の税還付が受けられる可能性があります。
+    </p>
+  </div>
+
+  <!-- 安心保証 -->
+  <div class="price__guarantee anim-item">
+    <ul class="price__guarantee-list">
+      <li class="price__guarantee-item">
+        <svg class="price__guarantee-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5 8l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        治療前に納得いくまで丁寧に説明いたします
+      </li>
+      <li class="price__guarantee-item">
+        <svg class="price__guarantee-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5 8l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        マウスピースの紛失・破損時のサポートも完備
+      </li>
+      <li class="price__guarantee-item">
+        <svg class="price__guarantee-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5 8l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        カウンセリング当日のご契約は不要。ゆっくりご検討いただけます
+      </li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <a
+    href="#section-form"
+    class="price__cta anim-item"
+    data-gtm-click="cta-price"
+  >
+    今すぐ無料カウンセリングを予約する
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+</section>

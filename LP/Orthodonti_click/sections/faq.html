@@ -1,0 +1,263 @@
+<style>
+/* ── S10: FAQ ────────────────────────────────── */
+
+#section-faq {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-white);
+}
+
+.faq__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq__item summary {
+  list-style: none;
+}
+
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  user-select: none;
+}
+
+.faq__q-icon {
+  font-family: var(--font-deco);
+  font-size: 20px;
+  color: var(--color-primary);
+  font-weight: 400;
+  width: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.faq__q-text {
+  flex: 1;
+}
+
+.faq__q-arrow {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.2s;
+}
+
+.faq__q-arrow svg {
+  transition: transform 0.25s ease;
+}
+
+.faq__item[open] .faq__q-arrow {
+  background: var(--color-primary);
+}
+
+.faq__item[open] .faq__q-arrow svg {
+  transform: rotate(180deg);
+}
+
+.faq__item[open] .faq__q-arrow path {
+  stroke: #fff;
+}
+
+.faq__a {
+  padding: 0 0 var(--space-md) calc(28px + var(--space-sm));
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+}
+
+/* アニメーション — 開閉 */
+
+details[open] .faq__a {
+  animation: faqSlideIn 0.25s ease-out both;
+}
+
+@keyframes faqSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details[open] .faq__a { animation: none; }
+}
+
+/* CTA補足 */
+
+.faq__cta-note {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-body);
+}
+
+.faq__cta-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.faq__cta-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1280px) {
+  #section-faq {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S10: FAQ -->
+<section id="section-faq" class="faq">
+
+  <div class="faq__header">
+    <p class="section-en-label" aria-hidden="true">FAQ</p>
+    <h2 class="section-heading anim-item">よくあるご質問</h2>
+  </div>
+
+  <div class="faq__list anim-item">
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">マウスピース矯正は周囲にバレますか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        ほとんどバレません。マウスピースは透明な素材でできており、接近して見ても気づかれないほど目立たないものがほとんどです。お仕事で人と話す機会が多い方にもご利用いただいており、「全く気づかれなかった」との声を多くいただいています。
+      </div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">費用はどのくらいかかりますか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        全顎矯正は880,000円〜（精密検査費用38,500円別途）が目安です。部分矯正（前歯のみ）は198,000円〜と、気になる部分だけを整えるリーズナブルなプランもあります。デンタルローン（最長84回）にも対応しており、月々約11,000円〜から始められます。また、医療費控除の対象となるため、確定申告で一部の還付を受けられる可能性があります。
+      </div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">痛みはありますか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        ワイヤー矯正に比べて痛みが少ないことが特徴です。マウスピースを新しいステージに変えた直後は数日間、歯が動く際の軽い違和感（締め付け感）を感じることがありますが、鎮痛剤が必要なほどの強い痛みはまれです。患者様によって感じ方は異なりますので、気になることがあればいつでも担当医にご相談ください。
+      </div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">食事の制限はありますか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        食事の際はマウスピースを外せるため、食べ物の制限はほとんどありません。これがワイヤー矯正との大きな違いで、外食や旅行先でも普通に食事を楽しめます。ただし食後の歯磨きとマウスピースの洗浄は忘れずに行ってください。
+      </div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">通院の頻度はどのくらいですか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        月1回程度の定期通院が基本です。1回あたり15〜30分程度で完了するため、お昼休みや仕事終わりにも立ち寄りやすい設計になっています。ワイヤー矯正のように頻繁な調整が不要なことも、忙しい方に選ばれる理由のひとつです。
+      </div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">治療期間はどのくらいかかりますか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        症例の複雑さによって大きく異なりますが、一般的には6ヶ月〜2年が目安です。部分矯正（前歯のみ）であれば6〜12ヶ月程度で完了するケースが多くあります。カウンセリング時にAIシミュレーションをもとに詳細なスケジュールをご提案します。
+      </div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__q" aria-expanded="false">
+        <span class="faq__q-icon" aria-hidden="true">Q</span>
+        <span class="faq__q-text">カウンセリングだけでもOKですか？その日に契約しなければいけませんか？</span>
+        <span class="faq__q-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div class="faq__a">
+        もちろんです。カウンセリング当日に契約・治療開始の必要は一切ありません。AIシミュレーションで仕上がりを確認して、ご自宅でゆっくりご検討いただけます。「まず話を聞きたい」「費用感を知りたい」だけでも大歓迎です。何度でも無料でご相談いただけます。
+      </div>
+    </details>
+
+  </div>
+
+  <p class="faq__cta-note anim-item">
+    その他のご質問は<a href="#section-form" class="faq__cta-link">無料カウンセリング</a>でお気軽にどうぞ。
+  </p>
+
+</section>

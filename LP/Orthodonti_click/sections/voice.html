@@ -1,0 +1,292 @@
+<style>
+/* ── S07: 患者の声 ─────────────────────────────── */
+
+#section-voice {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg);
+}
+
+.voice__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.voice__disclaimer {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.voice__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.voice__card {
+  background: var(--color-bg-white);
+  border-radius: 16px;
+  padding: var(--space-md);
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+.voice__quote-mark {
+  font-family: var(--font-deco);
+  font-size: 56px;
+  color: var(--color-accent);
+  line-height: 0.8;
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  opacity: 0.35;
+  pointer-events: none;
+  aria-hidden: true;
+}
+
+.voice__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-sm);
+}
+
+.voice__star {
+  color: var(--color-accent);
+  font-size: 14px;
+}
+
+.voice__text {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.voice__person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.voice__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border);
+}
+
+.voice__avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.voice__avatar-initial {
+  font-family: var(--font-deco);
+  font-size: 20px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.voice__person-info {
+  flex: 1;
+}
+
+.voice__person-name {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.voice__person-attr {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+}
+
+.voice__google-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.voice__google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.voice__google-badge:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.voice__google-score {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.voice__note {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+  line-height: var(--lh-body);
+}
+
+@media (min-width: 768px) {
+  .voice__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-voice {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S07: 患者の声 -->
+<section id="section-voice" class="voice">
+
+  <div class="voice__header">
+    <p class="section-en-label" aria-hidden="true">PATIENT VOICES</p>
+    <h2 class="section-heading anim-item">通院された方の声</h2>
+  </div>
+
+  <p class="voice__disclaimer">※個人の感想であり、効果には個人差があります。効果を保証するものではありません。</p>
+
+  <div class="voice__grid">
+
+    <div class="voice__card anim-item">
+      <div class="voice__quote-mark" aria-hidden="true">&ldquo;</div>
+      <div class="voice__stars" aria-label="★5評価">
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+      </div>
+      <p class="voice__text">「接客業なので最初はとても心配でしたが、お客様に全く気づかれませんでした！装着していても違和感がなく、仕事中も普通に話せています。もっと早く始めればよかったと思っています。」</p>
+      <div class="voice__person">
+        <img src="assets/images/voice-avatar-01.png" alt="" class="voice__avatar" loading="lazy" aria-hidden="true">
+        <div class="voice__person-info">
+          <p class="voice__person-name">T.M. さま</p>
+          <p class="voice__person-attr">32歳・女性・接客業</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="voice__card anim-item">
+      <div class="voice__quote-mark" aria-hidden="true">&ldquo;</div>
+      <div class="voice__stars" aria-label="★5評価">
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+      </div>
+      <p class="voice__text">「AIで事前に仕上がりを見せてもらったので、安心して始めることができました。実際にあのシミュレーション通りに歯並びが整ってきていて、毎月の変化が楽しみです。」</p>
+      <div class="voice__person">
+        <img src="assets/images/voice-avatar-02.png" alt="" class="voice__avatar" loading="lazy" aria-hidden="true">
+        <div class="voice__person-info">
+          <p class="voice__person-name">K.S. さま</p>
+          <p class="voice__person-attr">28歳・女性・会社員</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="voice__card anim-item">
+      <div class="voice__quote-mark" aria-hidden="true">&ldquo;</div>
+      <div class="voice__stars" aria-label="★5評価">
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+      </div>
+      <p class="voice__text">「ワイヤー矯正は怖くて諦めていたのですが、インビザラインは痛みがほとんどなくて驚きました。完全個室なので、相談しやすい雰囲気も気に入っています。」</p>
+      <div class="voice__person">
+        <img src="assets/images/voice-avatar-03.png" alt="" class="voice__avatar" loading="lazy" aria-hidden="true">
+        <div class="voice__person-info">
+          <p class="voice__person-name">Y.H. さま</p>
+          <p class="voice__person-attr">36歳・女性・会社員</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="voice__card anim-item">
+      <div class="voice__quote-mark" aria-hidden="true">&ldquo;</div>
+      <div class="voice__stars" aria-label="★5評価">
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+        <span class="voice__star" aria-hidden="true">★</span>
+      </div>
+      <p class="voice__text">「食事制限がないと聞いていましたが、本当にありませんでした！外食も普通にできて、ストレスなく続けられています。先生がいつも丁寧に説明してくれるので安心です。」</p>
+      <div class="voice__person">
+        <div class="voice__avatar-placeholder" aria-hidden="true">
+          <span class="voice__avatar-initial">N</span>
+        </div>
+        <div class="voice__person-info">
+          <p class="voice__person-name">N.O. さま</p>
+          <p class="voice__person-attr">40歳・女性・主婦</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="voice__google-link anim-item">
+    <a
+      href="https://g.co/kgs/example"
+      class="voice__google-badge"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Googleクチコミを見る（新しいタブで開く）"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      Google クチコミ <span class="voice__google-score">4.8</span>（320件以上）を見る
+    </a>
+  </div>
+
+  <p class="voice__note">
+    ※掲載している声は患者さまの許可を得て掲載しています。<br>
+    個人の感想であり、効果を保証するものではありません。
+  </p>
+
+</section>

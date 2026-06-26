@@ -1,0 +1,173 @@
+<style>
+/* ── S05: 実績・信頼の数字 ──────────────────────── */
+
+#section-results {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-blue);
+}
+
+.results__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.results__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: #fff;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-stat);
+}
+
+.results__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.results__stat {
+  text-align: center;
+  padding: var(--space-md) var(--space-sm);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.results__stat-number {
+  font-family: var(--font-deco);
+  font-size: var(--fs-deco-stat);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.results__stat-unit {
+  font-size: 0.5em;
+  letter-spacing: 0;
+}
+
+.results__stat-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--lh-body);
+}
+
+.results__review {
+  background: var(--color-overlay-dark);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.results__stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: var(--space-xs);
+}
+
+.results__star {
+  color: var(--color-accent);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.results__review-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.results__review-sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.results__note {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--lh-body);
+}
+
+.results__note-small {
+  display: block;
+  font-size: var(--fs-xsmall);
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+  .results__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-results {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S05: 実績・信頼の数字 -->
+<section id="section-results" class="results">
+
+  <div class="results__header">
+    <p class="section-en-label" aria-hidden="true">TRACK RECORD</p>
+    <h2 class="results__heading anim-item">積み重ねてきた、実績という信頼</h2>
+  </div>
+
+  <div class="results__grid">
+
+    <div class="results__stat anim-item">
+      <span class="results__stat-number" data-countup="7" data-suffix="年" aria-label="7年">7<span class="results__stat-unit">年</span></span>
+      <span class="results__stat-label">開院実績</span>
+    </div>
+
+    <div class="results__stat anim-item">
+      <span class="results__stat-number" data-countup="3500" data-suffix="名" aria-label="3,500名">3,500<span class="results__stat-unit">名</span></span>
+      <span class="results__stat-label">累計治療患者数</span>
+    </div>
+
+    <div class="results__stat anim-item">
+      <span class="results__stat-number" data-countup-decimal="4.8" aria-label="4.8">4.8</span>
+      <span class="results__stat-label">Googleクチコミ評価<br>（320件以上）</span>
+    </div>
+
+    <div class="results__stat anim-item">
+      <span class="results__stat-number" data-countup="3000" data-suffix="症例" aria-label="3,000症例">3,000<span class="results__stat-unit">症例</span></span>
+      <span class="results__stat-label">インビザライン累計症例</span>
+    </div>
+
+  </div>
+
+  <div class="results__review anim-item">
+    <div class="results__stars" aria-label="★5評価">
+      <span class="results__star" aria-hidden="true">★</span>
+      <span class="results__star" aria-hidden="true">★</span>
+      <span class="results__star" aria-hidden="true">★</span>
+      <span class="results__star" aria-hidden="true">★</span>
+      <span class="results__star" aria-hidden="true">★</span>
+    </div>
+    <p class="results__review-text">Google クチコミ 4.8 ／ 320件以上</p>
+    <p class="results__review-sub">患者さまからの口コミで支えられています</p>
+  </div>
+
+  <p class="results__note anim-item">
+    東京都内インビザライン症例数 上位0.1%のクリニックです
+    <span class="results__note-small">※調査はインビザライン社の認定実績データに基づきます</span>
+  </p>
+
+</section>

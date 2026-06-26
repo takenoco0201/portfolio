@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375, initial-scale=1">
+<title>FV Opening — スマイルデザイン矯正歯科</title>
+<!--
+  HyperFrames Composition: fv-opening
+  Duration : 6s
+  Rules    : discrete-text-sequence (smooth-slice) + counting-dynamic-scale + sine-wave-loop
+  Output   : npx hyperframes render fv-opening.html -o ../assets/videos/fv-opening.mp4
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── Composition Root ─────────────────────────────────── */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0D1520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.scene {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  background: linear-gradient(170deg, #1A2236 0%, #0D1520 60%, #0A0F1A 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Blue ambient glow */
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 45% at 50% 58%, rgba(74,143,212,0.16) 0%, transparent 72%);
+  pointer-events: none;
+}
+
+/* Gold ring accent */
+.bg-ring {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Content Stack ───────────────────────────────────── */
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  will-change: transform;
+}
+
+/* EN label row */
+.en-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.en-label-line {
+  width: 22px;
+  height: 1px;
+  background: #C9A84C;
+}
+.en-label-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: #C9A84C;
+}
+
+/* Clinic name */
+.clinic-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+/* Cursor — inline-block so width applies */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #C9A84C;
+  vertical-align: text-bottom;
+  margin-left: 3px;
+}
+
+/* Sub tagline */
+.sub-tagline {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.48);
+  letter-spacing: 0.18em;
+  margin-bottom: 44px;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Gold vertical divider */
+.divider {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(201,168,76,0.8), rgba(201,168,76,0));
+  margin-bottom: 32px;
+  opacity: 0;
+  transform-origin: top center;
+  will-change: opacity, transform;
+}
+
+/* Counter section */
+.counter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  will-change: opacity;
+}
+.counter-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 220px;
+  text-align: center;
+}
+.counter-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-variant-numeric: tabular-nums;
+  font-size: 60px; /* GSAP tweens this */
+  letter-spacing: -3px;
+  line-height: 1;
+  will-change: font-size;
+}
+.counter-suffix {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: #C9A84C;
+  font-size: 22px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+}
+.counter-label {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* CTA badge */
+.cta-badge {
+  margin-top: 40px;
+  padding: 11px 28px;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #C9A84C;
+  letter-spacing: 0.18em;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+</style>
+</head>
+<body>
+
+<div
+  class="scene"
+  data-composition-id="fv-opening"
+  data-start="0"
+  data-duration="6"
+  data-track-index="0"
+>
+  <div class="bg-glow"></div>
+  <div class="bg-ring"></div>
+
+  <div class="content" id="content">
+
+    <!-- Phase 1: EN Label -->
+    <div class="en-label" id="en-label">
+      <span class="en-label-line"></span>
+      <span class="en-label-text">Smile Design Orthodontics</span>
+      <span class="en-label-line"></span>
+    </div>
+
+    <!-- Phase 2: Clinic name (typewriter) -->
+    <div class="clinic-name">
+      <span id="clinic-text"></span><span class="cursor" id="cursor"></span>
+    </div>
+
+    <!-- Phase 3: Sub tagline -->
+    <div class="sub-tagline" id="sub-tagline">マウスピース矯正専門院</div>
+
+    <!-- Gold divider -->
+    <div class="divider" id="divider"></div>
+
+    <!-- Phase 4: Counter -->
+    <div class="counter-section" id="counter-section">
+      <div class="counter-wrap">
+        <span class="counter-num" id="counter-num">0</span>
+        <span class="counter-suffix" id="counter-suffix">名+</span>
+      </div>
+      <div class="counter-label">累計治療実績</div>
+    </div>
+
+    <!-- Phase 5: CTA badge -->
+    <div class="cta-badge" id="cta-badge">無料カウンセリング受付中</div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  window.__timelines = window.__timelines || {};
+
+  /* ── Constants ───────────────────────────────────────── */
+
+  var FULL_TEXT        = "スマイルデザイン矯正歯科"; // 12 chars
+  var TYPE_START       = 0.50;
+  var TYPE_DUR         = 1.55; // 12 chars × ~0.13s
+
+  var COUNT_TARGET     = 3500;
+  var COUNT_START      = 2.60;
+  var COUNT_DUR        = 2.00;
+  var COUNT_START_SIZE = 52;   // px
+  var COUNT_END_SIZE   = 104;  // px
+  var COUNT_EASE       = "power3.out";
+
+  var IDLE_START       = 5.10;
+  var IDLE_DUR         = 0.90; // composition ends at 6s
+  var IDLE_CYCLES      = 0.38; // ~1 gentle breath
+
+  /* ── Elements ────────────────────────────────────────── */
+
+  var enLabel    = document.getElementById("en-label");
+  var clinicText = document.getElementById("clinic-text");
+  var cursorEl   = document.getElementById("cursor");
+  var subTagline = document.getElementById("sub-tagline");
+  var divider    = document.getElementById("divider");
+  var counterSec = document.getElementById("counter-section");
+  var counterNum = document.getElementById("counter-num");
+  var suffixEl   = document.getElementById("counter-suffix");
+  var ctaBadge   = document.getElementById("cta-badge");
+  var content    = document.getElementById("content");
+
+  /* ── Timeline ────────────────────────────────────────── */
+
+  var tl = gsap.timeline({ paused: true });
+
+  /* Phase 1: EN label fade-up (0 → 0.55s) */
+  tl.fromTo(
+    enLabel,
+    { opacity: 0, y: 14 },
+    { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" },
+    0
+  );
+
+  /* Phase 2a: Smooth-slice typewriter (0.5 → 2.05s) */
+  var typeLen = { v: 0 };
+  tl.to(
+    typeLen,
+    {
+      v: FULL_TEXT.length,
+      duration: TYPE_DUR,
+      ease: "power1.inOut",
+      onUpdate: function () {
+        clinicText.textContent = FULL_TEXT.substring(0, Math.floor(typeLen.v));
+      },
+    },
+    TYPE_START
+  );
+
+  /* Phase 2b: Cursor blink — sin-based, deterministic */
+  var blinkPhase = { p: 0 };
+  var BLINK_CYCLES = 7;
+  tl.to(
+    blinkPhase,
+    {
+      p: Math.PI * 2 * BLINK_CYCLES,
+      duration: TYPE_DUR + 0.5,
+      ease: "none",
+      onUpdate: function () {
+        cursorEl.style.opacity = Math.sin(blinkPhase.p) > 0 ? "1" : "0";
+      },
+    },
+    TYPE_START
+  );
+
+  /* Cursor fade-out after typing completes */
+  tl.to(
+    cursorEl,
+    { opacity: 0, duration: 0.25, ease: "power1.in" },
+    TYPE_START + TYPE_DUR + 0.30
+  );
+
+  /* Phase 3: Sub tagline fade-up (2.0 → 2.55s) */
+  tl.fromTo(
+    subTagline,
+    { opacity: 0, y: 10 },
+    { opacity: 1, y: 0, duration: 0.50, ease: "power2.out" },
+    2.05
+  );
+
+  /* Gold divider draws in (2.35 → 2.65s) */
+  tl.fromTo(
+    divider,
+    { opacity: 0, scaleY: 0 },
+    { opacity: 1, scaleY: 1, duration: 0.30, ease: "power2.out" },
+    2.35
+  );
+
+  /* Phase 4a: Counter section appears */
+  tl.to(counterSec, { opacity: 1, duration: 0.25, ease: "power2.out" }, COUNT_START);
+
+  /* Phase 4b: counting-dynamic-scale — value AND font-size share one ease */
+  var state = { value: 0, fontSize: COUNT_START_SIZE };
+  tl.to(
+    state,
+    {
+      value: COUNT_TARGET,
+      fontSize: COUNT_END_SIZE,
+      duration: COUNT_DUR,
+      ease: COUNT_EASE,
+      onUpdate: function () {
+        counterNum.textContent = Math.round(state.value).toLocaleString("ja-JP");
+        counterNum.style.fontSize = state.fontSize + "px";
+      },
+    },
+    COUNT_START
+  );
+
+  /* Suffix slides in after count lands */
+  tl.to(
+    suffixEl,
+    { opacity: 1, y: 0, duration: 0.38, ease: "back.out(1.7)" },
+    COUNT_START + COUNT_DUR
+  );
+
+  /* Phase 5: CTA badge fades in (5.0s) */
+  tl.fromTo(
+    ctaBadge,
+    { opacity: 0, y: 8 },
+    { opacity: 1, y: 0, duration: 0.42, ease: "power2.out" },
+    COUNT_START + COUNT_DUR + 0.18
+  );
+
+  /* Phase 6: Idle breathing (5.1 → 6.0s) — sine-wave-loop */
+  var breathPhase = { p: 0 };
+  tl.to(
+    breathPhase,
+    {
+      p: Math.PI * 2 * IDLE_CYCLES,
+      duration: IDLE_DUR,
+      ease: "none",
+      onUpdate: function () {
+        var y   = Math.sin(breathPhase.p) * 2.5;
+        var scl = 1 + Math.sin(breathPhase.p) * 0.009;
+        content.style.transform = "translateY(" + y + "px) scale(" + scl + ")";
+      },
+    },
+    IDLE_START
+  );
+
+  /* Register */
+  window.__timelines["fv-opening"] = tl;
+
+})();
+</script>
+</body>
+</html>

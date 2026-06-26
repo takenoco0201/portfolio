@@ -1,0 +1,444 @@
+<style>
+/* ── S11: 最終CTA + フローティングCTA ──────────── */
+
+#section-closing {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-blue);
+  text-align: center;
+}
+
+.closing__en-label {
+  font-family: var(--font-deco);
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-deco);
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.closing__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: #fff;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-stat);
+  margin-bottom: var(--space-md);
+}
+
+.closing__sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-lg);
+}
+
+.closing__offer {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.closing__offer-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.closing__offer-detail {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--lh-body);
+}
+
+.closing__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background: var(--btn-bg-gold);
+  color: var(--btn-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-cta);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  width: 100%;
+  height: 60px;
+  max-width: 400px;
+  box-shadow: 0 6px 24px rgba(201, 168, 76, 0.5);
+  transition: opacity 0.2s, transform 0.15s;
+  margin-bottom: var(--space-md);
+}
+
+.closing__cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.closing__cta-note {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--lh-body);
+}
+
+/* ─── フォームエリア ─────────────────────────── */
+
+#section-form {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-white);
+}
+
+.form__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.form__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+}
+
+.form__sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-body);
+  margin-top: var(--space-xs);
+}
+
+.form__box {
+  background: var(--color-bg);
+  border-radius: var(--card-radius);
+  padding: var(--space-lg);
+}
+
+.form__group {
+  margin-bottom: var(--space-md);
+}
+
+.form__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.form__label-required {
+  display: inline-block;
+  font-size: var(--fs-xxsmall);
+  color: #fff;
+  background: var(--color-primary);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.form__input,
+.form__select,
+.form__textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  padding: var(--space-sm) var(--space-md);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(74, 143, 212, 0.15);
+}
+
+.form__textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form__select-wrap {
+  position: relative;
+}
+
+.form__select-wrap::after {
+  content: '';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-text-muted);
+  pointer-events: none;
+}
+
+.form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  height: 58px;
+  background: var(--btn-bg-primary);
+  color: var(--btn-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-cta);
+  border: none;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: var(--space-md);
+}
+
+.form__submit:hover {
+  opacity: 0.85;
+}
+
+.form__privacy {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+.form__privacy a {
+  color: var(--color-primary);
+  text-underline-offset: 3px;
+}
+
+/* ─── フローティングCTAバー ──────────────────── */
+
+#cta-floating {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--floating-cta-h);
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  padding: 0 var(--section-px);
+}
+
+#cta-floating.is-visible {
+  transform: translateY(0);
+}
+
+.floating-cta__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  color: var(--btn-text);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  letter-spacing: var(--ls-cta);
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  #cta-floating {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-closing {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+
+  #section-form {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S11: 最終CTA -->
+<section id="section-closing" class="closing">
+
+  <p class="closing__en-label" aria-hidden="true">Limited Offer</p>
+
+  <h2 class="closing__heading anim-item">
+    まず「見るだけ」でOK。<br>
+    相談だけで終わっても、一切問いません。
+  </h2>
+
+  <p class="closing__sub anim-item">
+    初回カウンセリングは完全無料。<br>
+    あなたの歯並びのこと、ゆっくりお話しください。
+  </p>
+
+  <div class="closing__offer anim-item">
+    <p class="closing__offer-title">月10組限定 ／ 今月の残枠を確認する</p>
+    <p class="closing__offer-detail">
+      ✔ 初回カウンセリング 完全無料（通常5,500円）<br>
+      ✔ AIシミュレーション 無料体験つき<br>
+      ✔ 当日のご契約は不要・セールスの心配なし
+    </p>
+  </div>
+
+  <a
+    href="#section-form"
+    class="closing__cta anim-item"
+    data-gtm-click="cta-closing"
+  >
+    今すぐ無料カウンセリングを予約する
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+  <p class="closing__cta-note anim-item">
+    お電話でのご予約：03-XXXX-XXXX（平日10〜19時 / 土日10〜18時）
+  </p>
+
+</section>
+
+<!-- フォームエリア -->
+<section id="section-form" class="form" aria-labelledby="form-heading">
+
+  <div class="form__header">
+    <p class="section-en-label" aria-hidden="true">BOOKING</p>
+    <h2 class="form__heading" id="form-heading">無料カウンセリングのご予約</h2>
+    <p class="form__sub">LINEやお電話よりスムーズにご予約いただけます。</p>
+  </div>
+
+  <div class="form__box">
+    <form action="#" method="post" novalidate>
+
+      <div class="form__group">
+        <label class="form__label" for="form-name">
+          お名前<span class="form__label-required">必須</span>
+        </label>
+        <input
+          type="text"
+          id="form-name"
+          name="name"
+          class="form__input"
+          placeholder="山田 花子"
+          autocomplete="name"
+          required
+        >
+      </div>
+
+      <div class="form__group">
+        <label class="form__label" for="form-phone">
+          電話番号<span class="form__label-required">必須</span>
+        </label>
+        <input
+          type="tel"
+          id="form-phone"
+          name="phone"
+          class="form__input"
+          placeholder="090-0000-0000"
+          autocomplete="tel"
+          required
+        >
+      </div>
+
+      <div class="form__group">
+        <label class="form__label" for="form-email">
+          メールアドレス
+        </label>
+        <input
+          type="email"
+          id="form-email"
+          name="email"
+          class="form__input"
+          placeholder="example@mail.com"
+          autocomplete="email"
+        >
+      </div>
+
+      <div class="form__group">
+        <label class="form__label" for="form-concern">
+          お悩み・ご希望
+        </label>
+        <div class="form__select-wrap">
+          <select id="form-concern" name="concern" class="form__select">
+            <option value="">選択してください</option>
+            <option value="suki-ba">すきっ歯が気になる</option>
+            <option value="yaeba">八重歯・歯のでこぼこ</option>
+            <option value="age-me">出っ歯・受け口</option>
+            <option value="other">その他・相談したい</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <label class="form__label" for="form-message">
+          その他ご質問・ご要望
+        </label>
+        <textarea
+          id="form-message"
+          name="message"
+          class="form__textarea"
+          placeholder="ご自由にご記入ください"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="form__submit" data-gtm-click="cta-form">
+        送信して予約を確認する
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </form>
+
+    <p class="form__privacy">
+      送信することにより<a href="/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとみなします。
+    </p>
+  </div>
+
+</section>
+
+<!-- フローティングCTAバー（SP のみ表示） -->
+<div id="cta-floating" role="complementary" aria-label="無料カウンセリング予約">
+  <a href="#section-form" class="floating-cta__link" data-gtm-click="cta-floating">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M6 9h6M9 6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    無料カウンセリングを予約する
+  </a>
+</div>

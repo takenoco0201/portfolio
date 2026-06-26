@@ -1,0 +1,397 @@
+<!-- Google Fonts（統合時に <head> へ移動） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════
+   FV Section — スマイルデザイン矯正歯科 LP / パターンC
+   src/sections/fv.html
+══════════════════════════════════════════════════════ */
+
+/* ── サイトヘッダー ────────────────────────────── */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--section-px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__logo {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.site-header__logo-main {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.site-header__logo-sub {
+  font-family: var(--font-deco);
+  font-size: 9px;
+  color: var(--color-text-muted);
+  letter-spacing: var(--ls-brand);
+}
+
+.site-header__badge {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+/* ── FVセクション本体 ──────────────────────────── */
+
+#section-fv {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: calc(var(--space-2xl) + var(--floating-cta-h) + var(--space-lg));
+  overflow: hidden;
+}
+
+/* 背景画像 */
+
+.fv__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.fv__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.fv__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* テキストコンテンツ */
+
+.fv__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--section-px);
+  width: 100%;
+}
+
+/* ENラベル */
+
+.fv__en-label {
+  font-family: var(--font-deco);
+  font-size: var(--fs-xxsmall);
+  color: var(--color-accent);
+  letter-spacing: var(--ls-deco);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.fv__en-label::before {
+  content: '';
+  display: block;
+  width: var(--rule-gold-w);
+  height: var(--rule-gold-h);
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* H1 */
+
+.fv__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: #fff;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-stat);
+}
+
+/* サブコピー */
+
+.fv__sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-lg);
+}
+
+/* CTAボタン */
+
+.fv__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  background: var(--btn-bg-secondary);
+  color: var(--btn-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-cta);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  width: 100%;
+  box-shadow: var(--btn-shadow-blue);
+  margin-bottom: var(--space-sm);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fv__cta:hover,
+.fv__cta:focus-visible {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.fv__cta-arrow {
+  flex-shrink: 0;
+}
+
+/* 信頼補足テキスト */
+
+.fv__trust {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.82);
+  text-align: center;
+  line-height: var(--lh-body);
+}
+
+/* ── スクロール促進矢印 ────────────────────────── */
+
+.fv__scroll {
+  position: absolute;
+  bottom: calc(var(--space-xl) + var(--floating-cta-h));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.fv__scroll-line {
+  display: block;
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.fv__scroll-arrow {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
+  transform: rotate(45deg);
+  animation: fv-scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes fv-scroll-pulse {
+  0%, 100% { transform: rotate(45deg) translateY(0);   opacity: 0.55; }
+  50%       { transform: rotate(45deg) translateY(5px); opacity: 1;    }
+}
+
+/* ── GSAPアニメーション 初期状態 ──────────────── */
+
+.fv-anim {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* prefers-reduced-motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-anim {
+    opacity: 1;
+    transform: none;
+  }
+  .fv__scroll-arrow {
+    animation: none;
+  }
+  .fv__cta {
+    transition: none;
+  }
+}
+
+/* ── レスポンシブ ─────────────────────────────── */
+
+@media (min-width: 428px) {
+  .fv__cta {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  #section-fv {
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .fv__content {
+    max-width: 580px;
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  .fv__cta {
+    width: auto;
+    min-width: 300px;
+    display: inline-flex;
+  }
+
+  .fv__trust {
+    text-align: left;
+  }
+
+  .fv__scroll {
+    bottom: var(--space-xl);
+  }
+
+  .site-header {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  .site-header__badge {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-header {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+
+  .fv__content {
+    max-width: 680px;
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+
+  .fv__bg-img {
+    object-position: center top;
+  }
+}
+</style>
+
+<!-- ヘッダー -->
+<header class="site-header" role="banner">
+  <a href="#" class="site-header__logo" aria-label="スマイルデザイン矯正歯科 トップへ">
+    <span class="site-header__logo-main">スマイルデザイン矯正歯科</span>
+    <span class="site-header__logo-sub">SMILE DESIGN ORTHODONTICS</span>
+  </a>
+  <!-- ダイヤモンドバッジ（クライアント提供SVGと後から差し替え） -->
+  <div class="site-header__badge" aria-label="インビザライン・ダイヤモンドドクター認定バッジ" role="img">
+    <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="26" cy="26" r="24.5" stroke="url(#g-ring)" stroke-width="1.5" fill="#fff"/>
+      <!-- ダイヤモンド形状 -->
+      <polygon points="26,10 40,22 35,40 17,40 12,22" fill="none" stroke="url(#g-ring)" stroke-width="1.3"/>
+      <polygon points="26,10 40,22 26,18 12,22" fill="url(#g-fill)" opacity="0.45"/>
+      <line x1="12" y1="22" x2="40" y2="22" stroke="url(#g-ring)" stroke-width="0.8"/>
+      <!-- ラベル -->
+      <text x="26" y="30" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="5.5" fill="#C9A84C" letter-spacing="0.6" font-weight="500">INVISALIGN</text>
+      <text x="26" y="37" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="4.5" fill="#C9A84C" letter-spacing="1">DIAMOND DOCTOR</text>
+      <defs>
+        <linearGradient id="g-ring" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#DEBD72"/>
+        </linearGradient>
+        <linearGradient id="g-fill" x1="12" y1="10" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#DEBD72"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</header>
+
+<!-- S01: ファーストビュー -->
+<section id="section-fv" class="fv" aria-label="ファーストビュー">
+
+  <!-- 背景画像 + ダークオーバーレイ -->
+  <div class="fv__bg" aria-hidden="true">
+    <img
+      src="assets/images/hero.png"
+      alt=""
+      class="fv__bg-img"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    >
+    <div class="fv__overlay"></div>
+  </div>
+
+  <!-- テキストコンテンツ -->
+  <div class="fv__content">
+
+    <p class="fv__en-label fv-anim" data-anim-delay="0" aria-hidden="true">
+      SMILE DESIGN ORTHODONTICS
+    </p>
+
+    <h1 class="fv__heading fv-anim" data-anim-delay="0.2">
+      鏡の前で、<br>
+      笑えていますか？
+    </h1>
+
+    <p class="fv__sub fv-anim" data-anim-delay="0.4">
+      口元のコンプレックスを抱えたまま、<br>
+      もう一日を過ごしますか。
+    </p>
+
+    <a
+      href="#section-form"
+      class="fv__cta fv-anim"
+      data-anim-delay="0.6"
+      data-gtm-click="cta-fv"
+    >
+      無料カウンセリングを予約する
+      <svg class="fv__cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <p class="fv__trust fv-anim" data-anim-delay="0.8">
+      月10組限定 ｜ 初回カウンセリング 通常5,500円&nbsp;→&nbsp;無料
+    </p>
+
+  </div>
+
+  <!-- スクロール促進 -->
+  <div class="fv__scroll" aria-hidden="true">
+    <span class="fv__scroll-line"></span>
+    <span class="fv__scroll-arrow"></span>
+  </div>
+
+</section>

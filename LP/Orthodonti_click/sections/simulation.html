@@ -1,0 +1,346 @@
+<style>
+/* ── S06: AIシミュレーション体験（Signature Section） ── */
+
+#section-simulation {
+  padding: var(--section-py) var(--section-px);
+  background: var(--color-bg-white);
+}
+
+.simulation__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.simulation__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-stat);
+  margin-top: var(--space-xs);
+}
+
+/* Before/After ビジュアル */
+
+.simulation__before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+}
+
+.simulation__col {
+  position: relative;
+}
+
+.simulation__col-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.simulation__col-label {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  font-weight: 700;
+  padding: 4px var(--space-sm);
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.simulation__col-label--before {
+  background: rgba(45, 45, 45, 0.72);
+  color: #fff;
+}
+
+.simulation__col-label--after {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.simulation__disclaimer {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* 患者引用 */
+
+.simulation__quote {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-accent);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.simulation__quote-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-xs);
+}
+
+.simulation__quote-star {
+  color: var(--color-accent);
+  font-size: 14px;
+}
+
+.simulation__quote-text {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body-md);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-xs);
+}
+
+.simulation__quote-attr {
+  font-family: var(--font-body);
+  font-size: var(--fs-xsmall);
+  color: var(--color-text-muted);
+}
+
+.simulation__quote-note {
+  font-family: var(--font-body);
+  font-size: var(--fs-xxsmall);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* 3ステップ */
+
+.simulation__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.simulation__steps::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: var(--color-primary-light);
+}
+
+.simulation__step {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.simulation__step-num {
+  font-family: var(--font-deco);
+  font-size: 20px;
+  color: #fff;
+  background: var(--color-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 400;
+}
+
+.simulation__step-body {
+  padding-top: 6px;
+  flex: 1;
+}
+
+.simulation__step-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.simulation__step-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-sub);
+  line-height: var(--lh-relaxed);
+}
+
+/* CTA */
+
+.simulation__cta-wrap {
+  text-align: center;
+}
+
+.simulation__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  background: var(--btn-bg-secondary);
+  color: var(--btn-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-cta);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--btn-shadow-blue);
+  margin-bottom: var(--space-sm);
+  transition: opacity 0.2s;
+}
+
+.simulation__cta:hover {
+  opacity: 0.85;
+}
+
+.simulation__cta-sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}
+
+@media (min-width: 768px) {
+  .simulation__before-after {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .simulation__steps {
+    flex-direction: row;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  .simulation__steps::before {
+    left: 0;
+    right: 0;
+    top: 20px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .simulation__step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
+}
+
+@media (min-width: 1280px) {
+  #section-simulation {
+    padding-left: calc((100vw - 1200px) / 2 + var(--space-xl));
+    padding-right: calc((100vw - 1200px) / 2 + var(--space-xl));
+  }
+}
+</style>
+
+<!-- S06: AIシミュレーション体験 -->
+<section id="section-simulation" class="simulation">
+
+  <div class="simulation__header">
+    <p class="section-en-label" aria-hidden="true">AI Simulation</p>
+    <h2 class="simulation__heading anim-item">
+      矯正を始める前に、<br>
+      仕上がりを「見て」から決められます。
+    </h2>
+  </div>
+
+  <!-- Before/After ビジュアル -->
+  <div class="simulation__before-after anim-item">
+    <div class="simulation__col">
+      <img
+        src="assets/images/clinic-consultation.png"
+        alt="矯正前の歯並び（デモ画像）"
+        class="simulation__col-img"
+        loading="lazy"
+      >
+      <span class="simulation__col-label simulation__col-label--before">Before</span>
+    </div>
+    <div class="simulation__col">
+      <img
+        src="assets/images/ai-simulation.png"
+        alt="AIが予測した仕上がりイメージ（写真はイメージです）"
+        class="simulation__col-img"
+        loading="lazy"
+      >
+      <span class="simulation__col-label simulation__col-label--after">After（AI予測）</span>
+    </div>
+  </div>
+  <p class="simulation__disclaimer">※症例・仕上がりには個人差があります。写真はイメージです。</p>
+
+  <!-- 患者引用 -->
+  <div class="simulation__quote anim-item">
+    <div class="simulation__quote-stars" aria-label="★5評価">
+      <span class="simulation__quote-star" aria-hidden="true">★</span>
+      <span class="simulation__quote-star" aria-hidden="true">★</span>
+      <span class="simulation__quote-star" aria-hidden="true">★</span>
+      <span class="simulation__quote-star" aria-hidden="true">★</span>
+      <span class="simulation__quote-star" aria-hidden="true">★</span>
+    </div>
+    <p class="simulation__quote-text">「AIで仕上がりを見せてもらってから、不安がなくなりました。あのイメージ通りになれました！」</p>
+    <p class="simulation__quote-attr">28歳・女性 会社員</p>
+    <p class="simulation__quote-note">※個人の感想であり、効果を保証するものではありません。</p>
+  </div>
+
+  <!-- 3ステップ -->
+  <div class="simulation__steps anim-item">
+    <div class="simulation__step">
+      <span class="simulation__step-num" aria-hidden="true">1</span>
+      <div class="simulation__step-body">
+        <p class="simulation__step-title">写真撮影・口内スキャン</p>
+        <p class="simulation__step-desc">約10分でお口の状態を精密にデータ化します</p>
+      </div>
+    </div>
+    <div class="simulation__step">
+      <span class="simulation__step-num" aria-hidden="true">2</span>
+      <div class="simulation__step-body">
+        <p class="simulation__step-title">AIが精密に仕上がりを予測</p>
+        <p class="simulation__step-desc">あなたの歯並びの変化をビジュアルで確認できます</p>
+      </div>
+    </div>
+    <div class="simulation__step">
+      <span class="simulation__step-num" aria-hidden="true">3</span>
+      <div class="simulation__step-body">
+        <p class="simulation__step-title">確認してから治療開始の判断</p>
+        <p class="simulation__step-desc">シミュレーションを見てから、ゆっくりご検討いただけます</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="simulation__cta-wrap anim-item">
+    <a
+      href="#section-form"
+      class="simulation__cta"
+      data-gtm-click="cta-simulation"
+    >
+      無料でAIシミュレーションを体験してみる
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <p class="simulation__cta-sub">カウンセリングのみでもOK。まずシミュレーションを見るだけでも歓迎します。</p>
+  </div>
+
+</section>
