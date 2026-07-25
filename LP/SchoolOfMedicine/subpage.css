@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* =====================================================================
+   サブページ共通スタイル（大学概要・アクセス・個人情報保護方針・お問い合わせ）
+   tokens.css の変数を参照。LPと世界観を統一しつつ、通常の読み物レイアウト。
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-primary); text-underline-offset: 3px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  background: var(--color-bg);
+}
+
+.subpage-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--container-padding);
+  background: var(--color-primary);
+}
+.subpage-header__logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.0625rem; color: #fff; text-decoration: none; }
+.subpage-header__back { font-size: var(--fs-small); color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+.subpage-main {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: var(--space-2xl) var(--container-padding) var(--space-3xl);
+}
+.subpage-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.4;
+  margin-bottom: var(--space-xs);
+}
+.subpage-lead { color: var(--color-text-muted); margin-bottom: var(--space-xl); }
+
+.subpage-main h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+  margin: var(--space-xl) 0 var(--space-sm);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--color-border);
+}
+.subpage-main h3 { font-size: var(--fs-h3); color: var(--color-primary); margin: var(--space-lg) 0 var(--space-xs); }
+.subpage-main p { margin-bottom: var(--space-md); }
+.subpage-main ol, .subpage-main ul { margin: 0 0 var(--space-md) 1.4em; }
+.subpage-main li { margin-bottom: 6px; }
+
+.info-table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-lg); }
+.info-table th, .info-table td { text-align: left; vertical-align: top; padding: 12px 10px; border-bottom: 1px solid var(--color-border); font-size: var(--fs-body); }
+.info-table th { width: 34%; color: var(--color-primary); font-weight: 700; background: var(--color-surface); }
+
+.ph {
+  color: #96600D;  /* #F5F3EC背景で4.76:1（WCAG AA 4.5:1以上） */
+  font-weight: 700;
+  border-bottom: 2px dotted #D9A441;
+  padding-inline: 2px;
+}
+
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+
+.note-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin-bottom: var(--space-lg);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.subpage-cta { display: inline-flex; align-items: center; gap: .4em; margin-top: var(--space-md);
+  background: var(--btn-bg); color: var(--btn-text); font-family: var(--font-cta); font-weight: 700;
+  padding: 14px 28px; border-radius: var(--btn-radius); text-decoration: none;
+  box-shadow: 0 2px 0 rgba(255,255,255,.38) inset, 0 4px 0 #B07E24, 0 10px 20px -4px rgba(27,94,75,.38); }
+.subpage-cta::after { content: "▶"; font-size: .8em; }
+
+.subpage-footer { background: var(--color-primary); color: #fff; padding: var(--space-2xl) var(--container-padding); }
+.subpage-footer__inner { max-width: 760px; margin-inline: auto; }
+.subpage-footer__logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; }
+.subpage-footer__logo a { color: #fff; text-decoration: none; }
+
+/* ---- 予約フォーム（reserve.html） ---- */
+.reserve-form {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px 26px;
+  box-shadow: 0 6px 22px -14px rgba(20, 24, 20, .3);
+  max-width: 560px;
+}
+.field { margin-bottom: var(--space-md); border: 0; padding: 0; }
+.field > label,
+.field legend { display: block; font-weight: 700; font-size: var(--fs-small); color: var(--color-primary); margin-bottom: 6px; }
+.req { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; background: #C0392B; padding: 1px 7px; border-radius: var(--radius-full); vertical-align: 1px; }
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+.field textarea { resize: vertical; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus { outline: 2px solid var(--color-primary); outline-offset: 1px; border-color: var(--color-primary); }
+.field--choice { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.field--choice legend { width: 100%; }
+.choice { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; color: var(--color-text); font-size: var(--fs-body); cursor: pointer; }
+.choice input { width: auto; }
+.consent { display: flex; align-items: flex-start; gap: 8px; font-size: var(--fs-small); margin: var(--space-sm) 0 var(--space-lg); cursor: pointer; }
+.consent input { margin-top: 3px; flex: none; }
+.consent a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+/* 立体送信ボタン（メインCTAと同トーン） */
+.reserve-submit {
+  display: flex; align-items: center; justify-content: center; gap: .4em;
+  width: 100%;
+  font-family: var(--font-cta); font-weight: 700; font-size: 1.125rem;
+  color: var(--btn-text); border: 0; cursor: pointer;
+  padding: 17px 24px; border-radius: var(--btn-radius);
+  background: linear-gradient(180deg, #E7BB60 0%, var(--btn-bg) 52%, #CE9A38 100%);
+  box-shadow: 0 2px 0 rgba(255,255,255,.38) inset, 0 -1px 0 rgba(120,80,10,.22) inset,
+              0 4px 0 #B07E24, 0 10px 20px -4px rgba(27,94,75,.38);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.reserve-submit::after { content: "▶"; font-size: .8em; }
+.reserve-submit:hover { transform: translateY(-2px);
+  box-shadow: 0 2px 0 rgba(255,255,255,.42) inset, 0 6px 0 #B07E24, 0 15px 26px -6px rgba(27,94,75,.42); }
+.reserve-submit:active { transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(255,255,255,.30) inset, 0 2px 0 #B07E24, 0 6px 12px -4px rgba(27,94,75,.35); }
+
+/* ハニーポット（人間には見せない） */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* フォームのインラインエラー */
+.field__error { color: #C0392B; font-size: 12.5px; margin-top: 6px; font-weight: 700; }
+.field:has(.field__error:not([hidden])) input,
+.field:has(.field__error:not([hidden])) select { border-color: #C0392B; }
+
+.reserve-form__notice {
+  background: #FDECEC; border: 1px solid #F3B9B9; color: #8C2C2C;
+  border-radius: var(--radius-md); padding: 12px 14px; font-size: var(--fs-small);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+/* 送信後のサンクス表示 */
+.reserve-thanks {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: 26px 22px; text-align: center;
+}
+.reserve-thanks h2 { color: var(--color-primary); margin-bottom: 10px; }
+.subpage-footer__addr { font-size: var(--fs-small); opacity: .88; margin-top: 6px; }
+.subpage-footer__nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: var(--space-lg) 0; }
+.subpage-footer__nav a { color: #fff; font-size: var(--fs-small); text-decoration: underline; text-underline-offset: 3px; }
+.subpage-footer__copy { font-size: 11px; opacity: .7; }

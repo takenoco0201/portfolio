@@ -1,0 +1,67 @@
+:root {
+
+  /* =====================================================================
+     確定デザイントークン（Phase 3 承認ゲート確定・2026-07-12）
+     ベース = 案A（実績信頼×安心設計型：concept/tokens-A.css）
+     ★上書き = コピー（見出し）とCTAのフォントのみ 案B の Zen Maru Gothic を採用
+       （クライアント指示：A案ベース＋コピー/CTAは案Bの丸ゴシックで親近感を付与）
+     本文フォントは両案共通の Noto Sans JP のまま。
+     ===================================================================== */
+
+  /* ==== カラー（案A） ==== */
+  --color-bg: #F5F3EC;          /* メインカラー：オフホワイト。清潔感と余白の抜け感を70%比率で担保 */
+  --color-primary: #1B5E4B;     /* 深緑：見出し・ロゴ・帯に使用し誠実さと専門性を表現 */
+  --color-secondary: #14483A;   /* 深緑の濃色。primaryのホバー/押下時や罫線など補助的な濃淡バリエーション */
+  --color-accent: #D9A441;      /* アクセント：ゴールド。CTA・実績数字強調に用い信頼と実績感を演出（CTA専用に温存） */
+  --color-text: #2A2A26;        /* 本文色。オフホワイト背景に対し可読性を確保する準ブラック */
+  --color-text-muted: #6B6B62;  /* 補足・キャプション用の低コントラストテキスト色 */
+  --color-border: #DCD8CC;      /* 背景色から派生した淡いボーダー色。区切り線に使用 */
+  --color-surface: #FFFFFF;     /* カード等の背景。オフホワイトより明るくし情報を浮かせる */
+
+  /* ==== フォント ==== */
+  /* ★見出し/コピー：案Bの Zen Maru Gothic に変更（元・案A＝游明朝） */
+  --font-heading: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Noto Sans JP", sans-serif;
+  /* 本文：両案共通 */
+  --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  /* ★CTA専用：案Bの Zen Maru Gothic */
+  --font-cta: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Noto Sans JP", sans-serif;
+  --font-weight-heading: 700;
+  --font-weight-body: 400;
+
+  /* ==== タイポスケール（SP=375pxファースト・案A） ==== */
+  --fs-display: 32px;
+  --fs-h1: 28px;
+  --fs-h2: 22px;
+  --fs-h3: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-number: 40px;
+  --lh-heading: 1.5;
+  --lh-body: 1.8;
+
+  /* ==== 余白（8px基準・案A） ==== */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --container-padding: 20px;
+
+  /* ==== 角丸（案A） ==== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* ==== CTAスタイル（案A・フォントのみ案B） ==== */
+  --btn-bg: #D9A441;
+  --btn-bg-hover: #C4922F;
+  --btn-text: #14483A;   /* CTA文字：濃緑。ゴールド上のコントラストを大テキスト基準に余裕をもって確保 */
+  --btn-radius: 999px;
+  --btn-padding-y: 16px;
+  --btn-padding-x: 32px;
+  --btn-shadow: 0 4px 12px rgba(27, 94, 75, 0.15);
+
+}

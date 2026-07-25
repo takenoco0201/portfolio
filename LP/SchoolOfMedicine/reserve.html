@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>来場予約｜翠陵薬科大学 オープンキャンパス2026</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="翠陵薬科大学 オープンキャンパス2026の来場予約フォーム。所要2分・参加無料・保護者同伴OK。7/26(日)・8/23(日)開催。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="subpage.css">
+<!-- TODO(要設定): GA4測定ID。G-XXXXXXXXXX を本番の測定IDに置換してから公開する -->
+<!-- GA4: gtag.js本体は window.load 後に遅延読込（初期表示を阻害しない） -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+  });
+</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://example.com/oc2026/reserve.html">
+</head>
+<body>
+
+<header class="subpage-header">
+  <a class="subpage-header__logo" href="index.html#section-fv">翠陵薬科大学</a>
+  <a class="subpage-header__back" href="index.html#section-fv">← LPに戻る</a>
+</header>
+
+<main class="subpage-main">
+  <h1 class="subpage-title">来場予約フォーム</h1>
+  <p class="subpage-lead">オープンキャンパス2026のご予約を承ります（所要2分）。参加無料・保護者同伴OK。7/26(日)・8/23(日)開催。</p>
+
+  <!-- TODO(要設定): 送信先。WordPress納品時はContact Form 7、または Formspree の action URL（https://formspree.io/f/xxxx）を設定 -->
+  <form class="reserve-form" id="reserve-form" action="#" method="post" novalidate>
+    <!-- ハニーポット（スパム対策の土台）：人間には見えない項目。bot が埋めたら送信を弾く。
+         本番はサーバー側（CF7等）でも同項目名の空検証を必ず二重化すること -->
+    <div class="hp-field" aria-hidden="true">
+      <label for="rf-hp">この項目は入力しないでください</label>
+      <input id="rf-hp" name="_hp_check" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label for="rf-name">お名前 <span class="req">必須</span></label>
+      <input id="rf-name" name="name" type="text" autocomplete="name" required>
+      <p class="field__error" data-error-for="name" hidden>お名前をご入力ください。</p>
+    </div>
+    <div class="field">
+      <label for="rf-kana">ふりがな</label>
+      <input id="rf-kana" name="kana" type="text">
+    </div>
+    <div class="field">
+      <label for="rf-email">メールアドレス <span class="req">必須</span></label>
+      <input id="rf-email" name="email" type="email" autocomplete="email" required>
+      <p class="field__error" data-error-for="email" hidden>正しいメールアドレスをご入力ください。</p>
+    </div>
+    <div class="field">
+      <label for="rf-tel">電話番号</label>
+      <input id="rf-tel" name="tel" type="tel" autocomplete="tel" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label for="rf-school">高校名</label>
+      <input id="rf-school" name="school" type="text">
+    </div>
+    <div class="field">
+      <label for="rf-grade">学年</label>
+      <select id="rf-grade" name="grade">
+        <option value="">選択してください</option>
+        <option>高校1年</option>
+        <option>高校2年</option>
+        <option>高校3年</option>
+        <option>既卒・その他</option>
+      </select>
+    </div>
+    <fieldset class="field field--choice">
+      <legend>参加希望日 <span class="req">必須</span></legend>
+      <label class="choice"><input type="radio" name="date" value="7/26" required> 7/26(日)</label>
+      <label class="choice"><input type="radio" name="date" value="8/23"> 8/23(日)</label>
+      <label class="choice"><input type="radio" name="date" value="どちらでも"> どちらでも可</label>
+      <p class="field__error" data-error-for="date" hidden>参加希望日を選択してください。</p>
+    </fieldset>
+    <fieldset class="field field--choice">
+      <legend>保護者同伴</legend>
+      <label class="choice"><input type="radio" name="guardian" value="あり"> あり</label>
+      <label class="choice"><input type="radio" name="guardian" value="なし"> なし</label>
+    </fieldset>
+    <div class="field">
+      <label for="rf-msg">ご質問・ご要望（任意）</label>
+      <textarea id="rf-msg" name="message" rows="4"></textarea>
+    </div>
+    <label class="consent">
+      <input type="checkbox" name="agree" required>
+      <span><a href="privacy.html" target="_blank" rel="noopener">個人情報保護方針</a>に同意する <span class="req">必須</span></span>
+    </label>
+    <p class="field__error" data-error-for="agree" hidden>個人情報保護方針への同意が必要です。</p>
+    <p class="reserve-form__notice" id="reserve-form-notice" role="alert" hidden></p>
+    <button class="reserve-submit" type="submit" data-gtm-click="cta-reserve-submit">この内容で予約する</button>
+  </form>
+
+  <div class="reserve-thanks" id="reserve-thanks" hidden>
+    <h2>ご予約ありがとうございます</h2>
+    <p>内容を確認のうえ、担当者よりご連絡いたします。当日、キャンパスでお会いできることを楽しみにしております。</p>
+    <p><a href="index.html#section-fv">← オープンキャンパスLPのトップへ戻る</a></p>
+  </div>
+
+  <p class="mt-lg" id="reserve-back-link"><a href="index.html#section-fv">← オープンキャンパスLPのトップへ戻る</a></p>
+</main>
+
+<footer class="subpage-footer">
+  <div class="subpage-footer__inner">
+    <p class="subpage-footer__logo"><a href="index.html#section-fv">翠陵薬科大学</a></p>
+    <p class="subpage-footer__addr">学校法人翠陵学園／神奈川県横浜市</p>
+    <nav class="subpage-footer__nav">
+      <a href="about.html">大学概要</a>
+      <a href="access.html">アクセス</a>
+      <a href="privacy.html">個人情報保護方針</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <p class="subpage-footer__copy">&copy; 学校法人翠陵学園 翠陵薬科大学</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("click", function (ev) {
+    var el = ev.target.closest("[data-gtm-click]");
+    if (!el || typeof window.gtag !== "function") return;
+    window.gtag("event", "cta_click", {
+      cta_id: el.getAttribute("data-gtm-click"),
+      cta_text: (el.textContent || "").trim().slice(0, 60),
+      page_location: window.location.href
+    });
+  });
+
+  /* ---- 予約フォーム：バリデーション＋送信後UI（スキャフォールド） ----
+     TODO(要設定): action="#" の間は「未接続」通知を表示し、成功を偽装しない。
+     CF7/Formspree接続後（action が実URLに変わったら）、下部の fetch 送信ブロックを有効化する。 */
+  (function () {
+    var form = document.getElementById("reserve-form");
+    if (!form) return;
+    var notice = document.getElementById("reserve-form-notice");
+    var thanks = document.getElementById("reserve-thanks");
+    var backLink = document.getElementById("reserve-back-link");
+
+    function showError(name, show) {
+      var el = form.querySelector('[data-error-for="' + name + '"]');
+      if (el) el.hidden = !show;
+    }
+    function fieldInvalid(name) {
+      var group = form.querySelectorAll('[name="' + name + '"]');
+      if (!group.length) return false;
+      if (group[0].type === "radio") {
+        return group[0].required && ![].some.call(group, function (r) { return r.checked; });
+      }
+      return group[0].required && !group[0].value.trim();
+    }
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      notice.hidden = true;
+
+      // ハニーポット：botが埋めていたら黙って中断
+      var hp = form.querySelector('[name="_hp_check"]');
+      if (hp && hp.value.trim() !== "") return;
+
+      var checks = [
+        ["name", form.querySelector("#rf-name").checkValidity()],
+        ["email", form.querySelector("#rf-email").checkValidity()],
+        ["date", !fieldInvalid("date")],
+        ["agree", form.querySelector('[name="agree"]').checked]
+      ];
+      var firstInvalid = null;
+      checks.forEach(function (c) {
+        var ok = c[1];
+        showError(c[0], !ok);
+        if (!ok && !firstInvalid) firstInvalid = c[0];
+      });
+      if (firstInvalid) {
+        var target = form.querySelector('[name="' + firstInvalid + '"]') || form.querySelector("#rf-" + firstInvalid);
+        if (target) target.focus();
+        return;
+      }
+
+      if (form.getAttribute("action") === "#") {
+        // 送信先が未接続のプレースホルダーのため、成功を偽装せず状態を明示する
+        notice.hidden = false;
+        notice.textContent = "現在デモ環境のため送信は無効化されています。本番公開時に予約フォームの送信先を設定すると、この内容で送信できるようになります。";
+        return;
+      }
+
+      // 本番接続後：実送信して結果に応じてサンクス表示
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (res) {
+          if (!res.ok) throw new Error("submit failed");
+          form.hidden = true;
+          if (backLink) backLink.hidden = true;
+          thanks.hidden = false;
+          thanks.focus && thanks.focus();
+        })
+        .catch(function () {
+          notice.hidden = false;
+          notice.textContent = "送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてお問い合わせください。";
+        });
+    });
+  })();
+</script>
+</body>
+</html>

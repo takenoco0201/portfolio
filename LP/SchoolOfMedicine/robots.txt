@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO(要設定): 本番ドメインに置換
+Sitemap: https://example.com/oc2026/sitemap.xml

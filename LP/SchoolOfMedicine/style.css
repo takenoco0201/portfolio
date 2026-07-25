@@ -1,0 +1,776 @@
+@charset "UTF-8";
+
+/* =====================================================================
+   翠陵薬科大学 オープンキャンパス2026 LP — style.css
+   採用：案A（実績信頼×安心設計型）／見出し・CTA＝案B Zen Maru Gothic
+   対応デバイス：スマホのみ請負（PCは .lp-frame 中央固定＋壁紙）
+   トークンは tokens.css（:root）を参照。色/フォント/余白は直書きしない。
+   ===================================================================== */
+
+/* ---- reset / base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+img, picture, video { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+p { text-wrap: pretty; }
+
+/* キーボードフォーカスの可視化（明色/暗色背景で使い分け） */
+:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; border-radius: 2px; }
+.site-header a:focus-visible,
+.fv__cta:focus-visible,
+.cta-floating__btn:focus-visible,
+.final-cta__btn:focus-visible,
+.site-footer__nav a:focus-visible,
+.btn--ghost-light:focus-visible,
+.section--solution a:focus-visible { outline-color: #fff; }
+
+:root {
+  /* セクション縦余白（3段階で緩急をつける） */
+  --space-section-sm: var(--space-2xl);   /* 48px */
+  --space-section-md: var(--space-3xl);   /* 64px */
+  --space-section-lg: 80px;
+  --color-bg-outer: #dfe0d8;              /* PC時の左右ガター下地（壁紙の下） */
+  --color-secondary-tint: #EAF1ED;        /* 深緑の淡色（セクション背景・注記帯） */
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  background: var(--color-bg-outer);
+}
+
+/* PC：中央の縦長LPの外側に減光壁紙を敷く（SPでは読み込まない） */
+@media (min-width: 768px) {
+  body {
+    background: url("assets/images/wallpaper-pc.png") center / cover no-repeat fixed,
+                var(--color-bg-outer);
+  }
+}
+
+/* スマホ実機フレーム（中央430px固定） */
+.lp-frame {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  min-height: 100vh;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .lp-frame { box-shadow: 0 0 60px rgba(0, 0, 0, 0.28); }
+}
+
+/* 見出し共通 */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--lh-heading);
+  color: var(--color-primary);
+  text-wrap: balance;
+}
+
+/* ---- 共通ボタン（CTA） ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  font-family: var(--font-cta);
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn--cta {
+  /* 立体CTA：上ハイライト＋下の締まり＋下部の土台（濃い金）＋落ち影 */
+  background: linear-gradient(180deg, #E7BB60 0%, var(--btn-bg) 52%, #CE9A38 100%);
+  color: var(--btn-text);
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: 1.0625rem;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, .38) inset,
+    0 -1px 0 rgba(120, 80, 10, .22) inset,
+    0 4px 0 #B07E24,
+    0 10px 20px -4px rgba(27, 94, 75, .38);
+}
+.btn--cta::after { content: "▶"; font-size: .8em; }
+/* ボタン内の改行制御（語のまとまりで折る） */
+.nowrap { white-space: nowrap; }
+.btn__label { display: inline; }
+.btn--cta:hover {
+  background: linear-gradient(180deg, #EEC66E 0%, var(--btn-bg-hover) 52%, #C0902F 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, .42) inset,
+    0 -1px 0 rgba(120, 80, 10, .22) inset,
+    0 6px 0 #B07E24,
+    0 15px 26px -6px rgba(27, 94, 75, .42);
+}
+.btn--cta:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, .30) inset,
+    0 2px 0 #B07E24,
+    0 6px 12px -4px rgba(27, 94, 75, .35);
+}
+
+/* =====================================================================
+   ヘッダー（フレーム内で上部固定）
+   ===================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--container-padding);
+  background: color-mix(in srgb, var(--color-primary) 90%, transparent);
+  backdrop-filter: blur(6px);
+  transition: background-color .3s ease, padding .3s ease;
+}
+.site-header__logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #fff;
+  letter-spacing: .02em;
+}
+.site-header__nav { display: flex; align-items: center; gap: 10px; }
+.site-header__link {
+  font-size: var(--fs-small);
+  color: #fff;
+  opacity: .92;
+}
+.site-header__cta {
+  font-family: var(--font-cta);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  color: var(--btn-text);
+  /* 立体化（他CTAと統一・小型ピル用に土台を薄めに） */
+  background: linear-gradient(180deg, #E7BB60 0%, var(--color-accent) 52%, #CE9A38 100%);
+  padding: 7px 15px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 3px 0 #B07E24, 0 5px 10px rgba(0,0,0,.22);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.site-header__cta:hover { transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 4px 0 #B07E24, 0 8px 14px rgba(0,0,0,.26); }
+.site-header__cta:active { transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.3) inset, 0 1px 0 #B07E24, 0 4px 8px rgba(0,0,0,.22); }
+
+/* =====================================================================
+   S01 FV
+   ===================================================================== */
+.fv {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: calc(56px + var(--space-lg)) var(--container-padding) calc(var(--space-xl) + 8px);
+  overflow: hidden;
+}
+.fv__media { position: absolute; inset: 0; z-index: 0; }
+.fv__video { width: 100%; height: 100%; object-fit: cover; }
+/* 下部から立ち上がる無彩色寄りダークスクリム（白コピーのコントラスト確保） */
+.fv__scrim {
+  position: absolute; inset: 0;
+  background:
+    /* 上部の軽い減光（アイベロー・H1の可読性用・控えめ） */
+    linear-gradient(
+      to bottom,
+      rgba(16, 32, 27, .30) 0%,
+      rgba(16, 32, 27, .08) 14%,
+      rgba(16, 32, 27, 0) 28%
+    ),
+    /* 下部の主スクリム（明るさを残しつつ白コピーのコントラストを確保） */
+    linear-gradient(
+      to top,
+      rgba(16, 32, 27, .60) 0%,
+      rgba(16, 32, 27, .40) 22%,
+      rgba(16, 32, 27, .15) 48%,
+      rgba(16, 32, 27, .02) 72%,
+      rgba(16, 32, 27, 0) 100%
+    );
+}
+
+.fv__inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;   /* 上ブロック＝上／下ブロック＝下、中間に余白 */
+}
+.fv__lead { padding-top: var(--space-sm); }
+.fv__foot { /* サブコピー以下は下部（前回位置） */ }
+.fv__eyebrow {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  color: #fff;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.6), 0 2px 12px rgba(0,0,0,.45);
+}
+.fv__title {
+  color: #fff;
+  font-size: clamp(2rem, 9.2vw, 2.75rem);   /* 大胆なスケール（本文の2.5倍以上） */
+  line-height: 1.32;
+  letter-spacing: .01em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .35);
+}
+.fv__sub {
+  color: #EAF1ED;
+  font-size: clamp(0.95rem, 4vw, 1.125rem);
+  font-weight: 500;
+  margin-top: 14px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .5);
+}
+
+/* 実績バッジ（Signature：ドットグリッドの下地を敷く） */
+.fv__badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 22px 0 24px;
+}
+.fv-badge {
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(217, 164, 65, .5);
+  border-radius: var(--radius-md);
+  padding: 12px 6px;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+.fv-badge__num {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #fff;
+  font-size: clamp(1.5rem, 7vw, 1.875rem);
+  line-height: 1.1;
+}
+.fv-badge__unit { font-size: .6em; }
+.fv-badge__label {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #DCE6E0;
+  line-height: 1.4;
+}
+.fv-badge__label small { display: block; font-size: 9px; opacity: .82; }
+
+.fv__cta { display: flex; width: 100%; font-size: 1.125rem; padding-block: 17px; }
+.fv__note {
+  margin-top: 12px;
+  text-align: center;
+  font-size: var(--fs-small);
+  color: #E7EEE9;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+}
+
+/* =====================================================================
+   追従CTA
+   ===================================================================== */
+.cta-floating {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  bottom: 14px;
+  z-index: 90;
+  width: 100%;
+  max-width: 430px;
+  padding-inline: var(--container-padding);
+  transition: transform .32s cubic-bezier(.22,.61,.36,1);
+}
+.cta-floating.is-visible { transform: translateX(-50%) translateY(0); }
+.cta-floating__btn {
+  display: flex;
+  width: 100%;
+  font-size: 1.0625rem;
+  padding-block: 15px;
+  box-shadow: 0 6px 22px rgba(27, 94, 75, .34);
+}
+
+/* =====================================================================
+   スクロール連動リビール
+   ===================================================================== */
+/* .js が付く＝JS有効時のみ隠す。JS無効/クローラでは本文が初期表示される（可視性をJSに依存させない） */
+.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .fv__video { display: none; }   /* 動きを抑える設定では動画を止める（posterのまま） */
+}
+
+/* =====================================================================
+   共通：セクション枠・見出し・ボタン派生
+   ===================================================================== */
+.container { padding-inline: var(--container-padding); }
+.section { padding-block: var(--space-section-md); }
+
+.section__heading {
+  font-size: clamp(1.5rem, 6.4vw, 2rem);
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  letter-spacing: .01em;
+}
+.section__heading--light { color: #fff; }
+.section__heading--center { text-align: center; }
+.section__heading-sub { font-size: .62em; font-weight: 500; }
+
+/* 二次ボタン：深緑ソリッド（中間CTA・感情喚起用） */
+.btn--ghost {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--btn-radius);
+  padding: 14px 28px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(27, 94, 75, .18);
+}
+.btn--ghost:hover { background: var(--color-secondary); transform: translateY(-2px); }
+/* 二次ボタン：白アウトライン（深緑帯の上用） */
+.btn--ghost-light {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, .8);
+  border-radius: var(--btn-radius);
+  padding: 12px 26px;
+  font-size: 1rem;
+}
+.btn--ghost-light:hover { background: rgba(255, 255, 255, .12); }
+
+/* 要確認プレースホルダー */
+.ph {
+  color: var(--color-accent);
+  font-weight: 700;
+  border-bottom: 2px dotted var(--color-accent);
+  padding-inline: 2px;
+}
+
+/* =====================================================================
+   S02 課題・共感（タイトな余白）
+   ===================================================================== */
+.section--problem { padding-block: var(--space-xl); }
+.worry-list { display: flex; flex-direction: column; gap: 10px; }
+.worry-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.worry-card__icon { width: 40px; height: 40px; flex: none; }
+.worry-card__text { font-size: var(--fs-body); }
+.bridge-copy {
+  margin-top: var(--space-xl);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 5vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--color-primary);
+}
+
+/* =====================================================================
+   S03 解決策（深緑帯・Signatureドットグリッド初出・オーバーラップ）
+   ===================================================================== */
+.section--solution {
+  background: var(--color-primary);
+  padding-block: var(--space-section-lg);
+}
+/* 定員比較ビジュアル（ドット図の代替・少人数を直感的に伝える） */
+.compare { margin-bottom: var(--space-xl); }
+.compare__caption { color: #EAF1ED; font-size: var(--fs-small); margin-bottom: 14px; }
+.compare__list { display: flex; flex-direction: column; gap: 14px; }
+.compare__item {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+.compare__label { color: #fff; font-size: var(--fs-small); }
+.compare__track {
+  height: 18px;
+  background: rgba(255, 255, 255, .14);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.compare__fill { display: block; height: 100%; border-radius: var(--radius-full); }
+.compare__fill--ours { width: 37.5%; background: #F3D79A; }
+.compare__fill--others { width: 100%; background: rgba(255, 255, 255, .62); }
+.compare__value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  white-space: nowrap;
+}
+.compare__value span { font-size: .58em; font-weight: 500; }
+.compare__item--ours .compare__value { color: #F3D79A; }
+.compare__hint { color: #C9D9D1; font-size: var(--fs-small); margin-top: 12px; }
+
+/* 92.3% スタットブロック（深緑帯上） */
+.solution-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, .10);
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: var(--space-lg);
+}
+.solution-stat__num {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: #F3D79A;
+  flex: none;
+}
+.solution-stat__num span { font-size: .48em; }
+.solution-stat__label { color: #EAF1ED; font-size: var(--fs-small); line-height: 1.5; }
+.solution-stat__label small { display: block; font-size: 11px; opacity: .85; margin-top: 2px; }
+.solution-text { color: #EAF1ED; margin-bottom: var(--space-lg); }
+.section--solution .btn--ghost-light { display: inline-flex; }
+
+/* =====================================================================
+   S04 少人数教育のリアル（写真オーバーラップ＋施設カード）
+   ===================================================================== */
+.photo-overlap { position: relative; margin-bottom: var(--space-lg); }
+.photo-overlap img { border-radius: var(--radius-lg); }
+.photo-overlap__label {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  right: 12px;
+  background: color-mix(in srgb, var(--color-primary) 88%, transparent);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(2px);
+}
+.reality-lead { margin-bottom: var(--space-xl); }
+.facility-list { display: flex; flex-direction: column; gap: var(--space-lg); }
+.facility-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 6px 20px -12px rgba(20, 24, 20, .3);
+}
+.facility-item img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.facility-item__body { padding: 16px 18px 20px; }
+.facility-item__title { font-size: var(--fs-h3); margin-bottom: 6px; }
+
+/* =====================================================================
+   S05 選ばれる3つの理由（番号付きカード）
+   ===================================================================== */
+.section--reasons { padding-block: var(--space-section-sm); }
+.reason-list { display: flex; flex-direction: column; gap: var(--space-md); }
+.reason-card {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 26px 20px 22px;
+  text-align: center;
+  box-shadow: 0 6px 20px -12px rgba(20, 24, 20, .28);
+}
+.reason-card__no {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+.reason-card__icon { width: 52px; height: 52px; margin: 0 auto 10px; }
+.reason-card__title { font-size: var(--fs-h3); margin-bottom: 8px; }
+
+/* =====================================================================
+   S06 実績・数字（広い余白）
+   ===================================================================== */
+.section--results { padding-block: var(--space-section-lg); }
+.results-graph { margin-bottom: var(--space-lg); }
+.results-graph img { border-radius: var(--radius-lg); background: #fff; }
+.results-graph figcaption {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  text-align: center;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: var(--space-lg);
+}
+.stat-grid__item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 6px;
+  text-align: center;
+}
+.stat-grid__num {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 6.4vw, 1.75rem);
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+.stat-grid__num span { font-size: .5em; }
+.stat-grid__item dd { font-size: 11px; color: var(--color-text-muted); margin-top: 6px; line-height: 1.4; }
+.results-note { font-size: var(--fs-small); color: var(--color-text-muted); margin-top: 10px; }
+
+/* =====================================================================
+   S07 在学生の声（アバターカード）
+   ===================================================================== */
+.voice-list { display: flex; flex-direction: column; gap: var(--space-md); }
+.voice-card {
+  position: relative;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 20px 18px 18px 78px;
+  min-height: 92px;
+  box-shadow: 0 6px 20px -14px rgba(20, 24, 20, .3);
+}
+.voice-card__avatar {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.voice-card__quote { font-size: var(--fs-body); line-height: 1.7; }
+.voice-card__cite { display: block; margin-top: 8px; font-size: var(--fs-small); color: var(--color-text-muted); font-style: normal; }
+.voice-note { font-size: 11px; color: var(--color-text-muted); margin-top: 12px; }
+.section--voices .btn--ghost { display: inline-flex; margin-top: var(--space-lg); }
+
+/* =====================================================================
+   S08 当日のプログラム（縦タイムライン・Signatureドット）
+   ===================================================================== */
+.section--program { padding-block: var(--space-section-sm); }
+.timeline { position: relative; margin-left: 8px; padding-left: 26px; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+.timeline__step { position: relative; display: flex; align-items: baseline; gap: 12px; padding-block: 10px; }
+.timeline__step::before {
+  content: "";
+  position: absolute;
+  left: -26px; top: 14px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 16%, transparent);
+}
+.timeline__time { font-family: var(--font-heading); font-weight: 700; color: var(--color-primary); min-width: 52px; }
+.timeline__label { font-size: var(--fs-body); }
+.program-note {
+  margin-top: var(--space-md);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  background: var(--color-secondary-tint, #EAF1ED);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+}
+
+/* =====================================================================
+   S09 参加費とサポート制度
+   ===================================================================== */
+.price-hero {
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 26px 20px;
+  box-shadow: 0 6px 20px -14px rgba(20, 24, 20, .28);
+  margin-bottom: var(--space-md);
+}
+.price-hero__label { font-size: var(--fs-small); color: var(--color-text-muted); }
+.price-hero__free {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.75rem, 15vw, 4rem);
+  line-height: 1.1;
+  color: var(--color-accent);
+  margin: 4px 0;
+}
+.price-hero__cond { font-size: var(--fs-small); color: var(--color-text); }
+.grant {
+  margin-top: var(--space-md);
+  background: var(--color-secondary-tint, #EAF1ED);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+.grant__title { font-size: var(--fs-h3); margin-bottom: 6px; }
+
+/* =====================================================================
+   アコーディオン（S09・S10 共通）
+   ===================================================================== */
+.section--faq { padding-block: var(--space-section-sm); }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.accordion { margin-top: 8px; }
+.faq-item__q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--color-primary);
+  background: none;
+  border: 0;
+  padding: 15px 16px;
+  cursor: pointer;
+}
+.faq-item__mark { position: relative; width: 16px; height: 16px; flex: none; }
+.faq-item__mark::before,
+.faq-item__mark::after {
+  content: "";
+  position: absolute;
+  background: var(--color-primary);
+  transition: transform .25s ease, opacity .25s ease;
+}
+.faq-item__mark::before { top: 7px; left: 0; width: 16px; height: 2px; }
+.faq-item__mark::after  { left: 7px; top: 0; width: 2px; height: 16px; }
+.faq-item.is-open .faq-item__mark::after { transform: scaleY(0); opacity: 0; }
+.faq-item__a { overflow: hidden; max-height: 0; transition: max-height .32s ease; }
+.faq-item.is-open .faq-item__a { max-height: 520px; }
+.faq-item__a p { padding: 0 16px 16px; font-size: var(--fs-body); line-height: 1.75; }
+
+/* =====================================================================
+   S11 安心して参加できます（チェックリスト2列）
+   ===================================================================== */
+.section--assurance { padding-block: var(--space-xl); }
+.assurance-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.assurance-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 13px 10px;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 13px;
+  line-height: 1.35;
+}
+.assurance-item img { width: 24px; height: 24px; flex: none; }
+
+/* =====================================================================
+   S12 早期予約特典（ゴールド帯・彩度控えめ）
+   ===================================================================== */
+.limited-card {
+  background: color-mix(in srgb, var(--color-accent) 16%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+}
+.limited-card__img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 14px; }
+.limited-card__gift { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: var(--color-primary); line-height: 1.6; }
+.limited-card__stock { margin-top: 10px; font-size: var(--fs-body); }
+.limited-card__stock strong { color: #96600D; font-size: 1.25em; font-weight: 700; }  /* 4.5:1以上確保 */
+
+/* =====================================================================
+   S13 最終CTA（キャンパス写真オーバーラップ）
+   ===================================================================== */
+.section--final-cta {
+  position: relative;
+  padding: 0;
+  min-height: 78svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.final-cta__media { position: absolute; inset: 0; z-index: 0; }
+.final-cta__media picture { display: block; width: 100%; height: 100%; }
+.final-cta__media img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(16, 32, 27, .90) 4%,
+    rgba(16, 32, 27, .62) 34%,
+    rgba(16, 32, 27, .18) 70%,
+    rgba(16, 32, 27, .05) 100%);
+}
+.final-cta__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: var(--space-section-md) var(--container-padding) calc(var(--space-2xl) + 8px);
+}
+.final-cta__eyebrow {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  color: #F3EAD2;
+  letter-spacing: .06em;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+}
+.final-cta__heading {
+  color: #fff;
+  font-size: clamp(1.85rem, 8.4vw, 2.5rem);
+  line-height: 1.4;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .35);
+  margin-bottom: var(--space-lg);
+}
+.final-cta__btn { display: flex; width: 100%; font-size: 1.2rem; padding-block: 19px; }
+.final-cta__note { margin-top: 12px; text-align: center; font-size: var(--fs-small); color: #E7EEE9; }
+
+/* =====================================================================
+   S14 フッター
+   ===================================================================== */
+.site-footer { background: var(--color-primary); color: #fff; padding-block: var(--space-2xl); }
+.site-footer__logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem; }
+.site-footer__addr { font-size: var(--fs-small); opacity: .88; margin-top: 6px; }
+.site-footer__nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: var(--space-lg) 0; }
+.site-footer__nav a { font-size: var(--fs-small); text-decoration: underline; text-underline-offset: 3px; opacity: .92; }
+.site-footer__note { font-size: 11px; opacity: .78; margin-bottom: 6px; }
+.site-footer__copy { font-size: 11px; opacity: .7; }
+
+/* =====================================================================
+   後日PC対応（追加料金）用の空ブロック
+   ここに 1920×1080 用の2カラム/全幅レイアウトを追記するだけで拡張できる
+   ===================================================================== */
+@media (min-width: 1280px) {
+  /* PC専用レイアウトは本スコープ（スマホのみ請負）では未実装 */
+}
