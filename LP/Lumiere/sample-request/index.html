@@ -4,11 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UV FORTE シールドセラムの無料サンプル（約2ml）をお届けします。お一人様1回限り・送料無料。数量限定のため在庫がなくなり次第終了します。">
   <title>サンプル請求 | UV FORTE シールドセラム</title>
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://lumiere-cosme.jp/sample-request/">
+  <meta property="og:title" content="サンプル請求 | UV FORTE シールドセラム">
+  <meta property="og:description" content="UV FORTE シールドセラムの無料サンプルをお届けします。数量限定。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lumiere-cosme.jp/sample-request/">
+  <meta property="og:image" content="https://lumiere-cosme.jp/images/ogp.png">
+  <meta property="og:site_name" content="LUMIÉRE">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- GA4測定IDはダミー値です。実案件公開時に実測定IDへ差し替えてください -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- Webフォント: 自己ホスト化（2026-07-17） -->
+  <link rel="stylesheet" href="../fonts.css">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body class="font-sans bg-white text-navy">
@@ -27,8 +44,12 @@
     </div>
 
     <!-- WordPress移植時: このformタグをContact Form 7のショートコードに置き換えてください -->
-    <form class="sp-form-grid" action="#" method="post" novalidate>
+    <form id="sample-request-form" class="sp-form-grid" action="#" method="post">
       <input type="hidden" name="form_type" value="sample_request">
+      <div class="hp-field" aria-hidden="true">
+        <label for="sr-hp">この項目は入力しないでください</label>
+        <input type="text" id="sr-hp" name="hp_confirm" tabindex="-1" autocomplete="off">
+      </div>
 
       <div>
         <label class="sp-form-label" for="sr-name">
@@ -50,9 +71,8 @@
         <label class="sp-form-label" for="sr-zip">
           郵便番号 <span class="req">必須</span>
         </label>
-        <input class="sp-form-input" type="text" id="sr-zip" name="zip"
-          placeholder="000-0000" autocomplete="postal-code" maxlength="8" required
-          style="max-width:200px;">
+        <input class="sp-form-input sp-form-input--sm" type="text" id="sr-zip" name="zip"
+          placeholder="000-0000" autocomplete="postal-code" maxlength="8" required>
       </div>
 
       <div>
@@ -60,12 +80,12 @@
           住所 <span class="req">必須</span>
         </label>
         <input class="sp-form-input" type="text" id="sr-address" name="address"
-          placeholder="東京都渋谷区〇〇町1-2-3" autocomplete="street-address" required>
+          placeholder="東京都渋谷区〇〇町1-2-3" autocomplete="address-line1" required>
       </div>
 
       <div>
         <label class="sp-form-label" for="sr-building">
-          建物名・部屋番号 <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意</span>
+          建物名・部屋番号 <span class="sp-optional-label">任意</span>
         </label>
         <input class="sp-form-input" type="text" id="sr-building" name="building"
           placeholder="LUMIÉREマンション 101号室" autocomplete="address-line2">
@@ -73,7 +93,7 @@
 
       <div>
         <label class="sp-form-label" for="sr-skin">
-          肌質（参考情報） <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意</span>
+          肌質（参考情報） <span class="sp-optional-label">任意</span>
         </label>
         <select class="sp-form-select" id="sr-skin" name="skin_type">
           <option value="" disabled selected>選択してください</option>
@@ -86,30 +106,30 @@
       </div>
 
       <div>
-        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-size:.875rem;color:var(--gray-dk);">
-          <input type="checkbox" name="newsletter" value="1" style="margin-top:.2rem;flex-shrink:0;" checked>
+        <label class="sp-checkbox-row">
+          <input type="checkbox" name="newsletter" value="1" class="sp-checkbox-input" checked>
           <span>新商品・キャンペーン情報のメールを受け取る（いつでも解除可能）</span>
         </label>
       </div>
 
       <div>
-        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-size:.875rem;color:var(--gray-dk);">
-          <input type="checkbox" name="privacy" required style="margin-top:.2rem;flex-shrink:0;">
-          <span><a href="../privacy-policy/index.html" target="_blank" style="color:var(--blue);text-decoration:underline;">プライバシーポリシー</a>に同意する</span>
+        <label class="sp-checkbox-row">
+          <input type="checkbox" name="privacy" required class="sp-checkbox-input">
+          <span><a href="../privacy-policy/index.html" target="_blank" rel="noopener" class="sp-link">プライバシーポリシー</a>に同意する</span>
         </label>
       </div>
 
       <div>
-        <button type="submit" class="btn-gold" style="width:100%;justify-content:center;">
+        <button type="submit" class="btn-gold btn-gold-full">
           サンプルを請求する（無料）
         </button>
-        <p style="font-size:.8rem;color:var(--gray);margin-top:.75rem;text-align:center;">
+        <p class="sp-form-note">
           お申込み受付後、2〜3営業日以内に発送します
         </p>
       </div>
     </form>
 
-    <p style="font-size:.8rem;color:var(--gray);line-height:1.8;">
+    <p class="sp-footnote">
       ※ サンプルはお一人様1回限りです。同一住所への複数申込はお断りする場合があります。<br>
       ※ 在庫状況によりご希望に添えない場合がございます。あらかじめご了承ください。
     </p>
@@ -119,6 +139,15 @@
 <footer class="sp-footer">
   <p>© <span id="yr">2026</span> LUMIÉRE Japan. All rights reserved.</p>
 </footer>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  /* GA4: サンプル請求フォーム送信イベント（WordPress移植後、実際の送信完了イベントに置き換えてください） */
+  var sampleForm = document.getElementById('sample-request-form');
+  if (sampleForm && typeof gtag === 'function') {
+    sampleForm.addEventListener('submit', function () {
+      gtag('event', 'generate_lead', { form: 'sample_request' });
+    });
+  }
+</script>
 </body>
 </html>

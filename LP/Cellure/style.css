@@ -13,7 +13,7 @@
   --gold:   #C9A84C;
   --gold-l: #E0C26A;
   --ink:    #1A1A2E;
-  --ink-50: rgba(26,26,46,0.5);
+  --ink-50: rgba(26,26,46,0.65); /* WCAG AA 4.5:1確保のためalpha0.5→0.65に調整（白/淡色背景上で約5.1〜5.3:1） */
   --ink-20: rgba(26,26,46,0.2);
   --white:  #FFFFFF;
 
@@ -360,7 +360,7 @@ textarea:focus-visible {
 }
 .opening__photo {
   position: absolute; inset: 0; z-index: 0; /* 動画フォールバック */
-  background-image: url('images/hero_bg.png');
+  background-image: url('images/hero_bg.webp');
   background-size: cover; background-position: center top;
 }
 .opening__veil {
@@ -460,7 +460,7 @@ textarea:focus-visible {
 .feeling__photo .iz { height: 100%; }
 .feeling__photo .iz-inner {
   height: 100%;
-  background-image: url('images/feeling.png');
+  background-image: url('images/feeling.webp');
   background-position: center top;
   min-height: 320px;
 }
@@ -722,7 +722,7 @@ textarea:focus-visible {
     0 0 0 1px rgba(201,168,76,0.22);
 }
 .story__product-img .iz-inner {
-  background-image: url('images/product.png');
+  background-image: url('images/product.webp');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -837,7 +837,7 @@ textarea:focus-visible {
 
 .formula__note {
   padding: var(--sp-sm) 1.5rem 0;
-  font-size: 0.65rem; color: var(--ink-50); line-height: 1.8;
+  font-size: 0.72rem; color: var(--ink-50); line-height: 1.8;
 }
 
 /* =================== S06 NUMBERS — 編集型エビデンス =================== */
@@ -1009,7 +1009,7 @@ textarea:focus-visible {
 }
 .voice__note {
   padding: 0 1.5rem;
-  font-size: 0.62rem; color: rgba(255,255,255,0.48); line-height: 1.75;
+  font-size: 0.72rem; color: rgba(255,255,255,0.48); line-height: 1.75;
   /* 0.25は~2.8:1でWCAG失敗 → 0.48で~5:1に改善 */
 }
 
@@ -1055,9 +1055,9 @@ textarea:focus-visible {
   display: flex; align-items: center; justify-content: center;
   font-size: 0.65rem; color: rgba(0,0,0,0.2);
 }
-.journal__1 .iz-inner { background-image: url('images/review1.png'), linear-gradient(135deg, #e8f4fc, #cce4f6); }
-.journal__2 .iz-inner { background-image: url('images/review2.png'), linear-gradient(135deg, #d0e8f5, #b8d9f0); }
-.journal__3 .iz-inner { background-image: url('images/review3.png'), linear-gradient(135deg, #c5ddf0, #a8cceb); }
+.journal__1 .iz-inner { background-image: url('images/review1.webp'), linear-gradient(135deg, #e8f4fc, #cce4f6); }
+.journal__2 .iz-inner { background-image: url('images/review2.webp'), linear-gradient(135deg, #d0e8f5, #b8d9f0); }
+.journal__3 .iz-inner { background-image: url('images/review3.webp'), linear-gradient(135deg, #c5ddf0, #a8cceb); }
 
 .journal__pull {
   font-family: var(--f-min);
@@ -1100,8 +1100,8 @@ textarea:focus-visible {
   display: flex; align-items: center; justify-content: center;
   font-size: 0.55rem; color: rgba(0,0,0,0.2);
 }
-.ba-cell--before .iz-inner { background-image: url('images/ba_before.png'), linear-gradient(135deg, #ccc, #ddd); }
-.ba-cell--after  .iz-inner { background-image: url('images/ba_after.png'),  linear-gradient(135deg, #1B6CA8, #4a9ecf); }
+.ba-cell--before .iz-inner { background-image: url('images/ba_before.webp'), linear-gradient(135deg, #ccc, #ddd); }
+.ba-cell--after  .iz-inner { background-image: url('images/ba_after.webp'),  linear-gradient(135deg, #1B6CA8, #4a9ecf); }
 .ba-sep {
   text-align: center;
   padding: 0.5rem 0.25rem;
@@ -1124,7 +1124,7 @@ textarea:focus-visible {
 .ba-label { display: block; font-size: 0.58rem; font-weight: 700; padding: 0.4rem; }
 .ba-label--before { color: var(--ink-50); }
 .ba-label--after  { color: var(--sea); }
-.ba-note { font-size: 0.55rem; color: var(--ink-50); text-align: center; padding: 0.4rem; grid-column: 1/-1; }
+.ba-note { font-size: 0.72rem; color: var(--ink-50); text-align: center; padding: 0.4rem; grid-column: 1/-1; }
 
 /* =================== S09 14 DAYS — タイムライン =================== */
 .journey {
@@ -1180,7 +1180,7 @@ textarea:focus-visible {
 .journey__step.highlight .journey__day::before { background: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.2); }
 .journey__note {
   margin-top: var(--sp-md);
-  font-size: 0.62rem; color: var(--ink-50); line-height: 1.8;
+  font-size: 0.72rem; color: var(--ink-50); line-height: 1.8;
 }
 
 /* =================== S10 INVEST — 価格 =================== */
@@ -1360,7 +1360,7 @@ textarea:focus-visible {
 .closing__video { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
 .closing__photo {
   position: absolute; inset: 0; z-index: 0; /* 動画フォールバック */
-  background-image: url('images/closing_bg.png');
+  background-image: url('images/closing_bg.webp');
   background-size: cover; background-position: center top;
 }
 .closing__veil {
@@ -1396,7 +1396,7 @@ textarea:focus-visible {
 
 /* =================== FOOTER =================== */
 .footer {
-  background: var(--ink); color: rgba(255,255,255,0.38);
+  background: var(--ink); color: rgba(255,255,255,0.55); /* WCAG AA 4.5:1確保のためalpha0.38→0.55に調整 */
   padding: var(--sp-lg) 0; font-size: 0.65rem; text-align: center; line-height: 2;
 }
 .footer__logo {
@@ -1615,7 +1615,7 @@ textarea:focus-visible {
     height: 100svh;
     background-color: #06091A;
     background-image:
-      url('images/pc_bg.png'),
+      url('images/pc_bg.webp'),
       radial-gradient(ellipse 45% 80% at 8%  45%, rgba(27,108,168,0.55) 0%, transparent 70%),
       radial-gradient(ellipse 38% 70% at 92% 55%, rgba(201,168,76,0.38) 0%, transparent 70%),
       radial-gradient(ellipse 60% 40% at 50%  0%,  rgba(27,108,168,0.28) 0%, transparent 80%),

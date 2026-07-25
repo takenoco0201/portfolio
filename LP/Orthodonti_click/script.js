@@ -250,7 +250,9 @@
     /* 小数カウントアップ（評価値 4.8） */
     document.querySelectorAll("[data-countup-decimal]").forEach(function (el) {
       var target = parseFloat(el.dataset.countupDecimal);
+      var proxy = { val: 0 };
       gsap.fromTo(
+        proxy,
         { val: 0 },
         {
           val: target,
@@ -262,7 +264,7 @@
             once: true,
           },
           onUpdate: function () {
-            el.innerText = this.targets()[0].val.toFixed(1);
+            el.innerText = proxy.val.toFixed(1);
           },
         }
       );
@@ -397,6 +399,40 @@
     setTimeout(reveal, 800);
   }
 
+  /* ── 10b. FV動画 一時停止/再生トグル（WCAG 2.2.2 対応） ── */
+
+  function initFvVideoToggle() {
+    var video = document.querySelector(".fv__video");
+    var btn = document.getElementById("fv-video-toggle");
+    if (!video || !btn) return;
+
+    var pauseIcon = btn.querySelector(".fv__video-toggle-icon--pause");
+    var playIcon = btn.querySelector(".fv__video-toggle-icon--play");
+
+    function setPausedState(isPaused) {
+      pauseIcon.hidden = isPaused;
+      playIcon.hidden = !isPaused;
+      btn.setAttribute("aria-pressed", isPaused ? "true" : "false");
+      btn.setAttribute("aria-label", isPaused ? "背景動画を再生する" : "背景動画を一時停止する");
+    }
+
+    btn.addEventListener("click", function () {
+      if (video.paused) {
+        video.play();
+        setPausedState(false);
+      } else {
+        video.pause();
+        setPausedState(true);
+      }
+    });
+
+    /* prefers-reduced-motion環境では初期状態から一時停止しておく */
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause();
+      setPausedState(true);
+    }
+  }
+
   /* ── 初期化 ─────────────────────────────────────── */
 
   function initGsap() {
@@ -409,6 +445,7 @@
   function init() {
     initCtaLinks();
     initFvVideo();
+    initFvVideoToggle();
     initScrollAnimations();
     initFloatingCta();
     initSmoothScroll();

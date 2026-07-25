@@ -18,7 +18,7 @@
   --color-white        : #FFFFFF;           /* 純白：ダーク背景上のテキスト・SVGストローク */
   --color-text         : #2D2D2D;           /* 本文最大コントラスト：見出し・ラベル */
   --color-text-sub     : #666666;           /* サブテキスト：説明文・本文 */
-  --color-text-muted   : #AAAAAA;           /* ミュートテキスト：注記・日付・サブキャプション */
+  --color-text-muted   : #707070;           /* ミュートテキスト：注記・日付・サブキャプション（WCAG AA 4.5:1確保） */
   --color-text-light   : #CCCCCC;           /* 最弱テキスト：免責注記・著作権表記 */
   --color-bg           : #F5F7FB;           /* ページ交互BG：奇数セクション・カード下地 */
   --color-bg-white     : #FFFFFF;           /* 偶数セクション・カード・モーダル背景 */

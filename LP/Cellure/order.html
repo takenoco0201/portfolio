@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Celluré（セリュレ）のご注文手続きページです。お客様情報・お届け先・お支払い方法をご入力ください。">
+  <meta name="robots" content="noindex,follow">
   <title>ご注文手続き | Celluré（セリュレ）</title>
+  <link rel="canonical" href="https://cellure-beauty.jp/order.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- レンダリングブロック回避：フォントCSSを非同期読込（preload+onload） -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Google Analytics 4（GA4） ★公開前に本番測定IDへ差し替え -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     :root {
       --ink:   #1a1a2e;
@@ -14,7 +30,7 @@
       --sea:   #1b6ca8;
       --white: #ffffff;
       --snow:  #fafaf8;
-      --ink-50: rgba(26,26,46,0.5);
+      --ink-50: rgba(26,26,46,0.65); /* WCAG AA 4.5:1確保のためalpha0.5→0.65に調整 */
       --f-min: 'Noto Serif JP', serif;
       --f-sans: 'Noto Sans JP', sans-serif;
       --radius: 12px;
@@ -75,7 +91,7 @@
       flex: 1;
       text-align: center;
       font-size: 0.62rem;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.5); /* WCAG AA 4.5:1確保のためalpha0.35→0.5に調整 */
       position: relative;
       padding-bottom: 0.4rem;
     }
@@ -228,7 +244,7 @@
     }
     .o-label .req {
       display: inline-block;
-      background: #d9534f;
+      background: #b83227; /* WCAG AA 4.5:1確保のため#d9534f→#b83227に調整 */
       color: white;
       font-size: 0.58rem;
       border-radius: 3px;
@@ -238,7 +254,7 @@
     }
     .o-label .opt {
       display: inline-block;
-      background: #aaa;
+      background: #6b6b6b; /* WCAG AA 4.5:1確保のため#aaa→#6b6b6bに調整 */
       color: white;
       font-size: 0.58rem;
       border-radius: 3px;
@@ -290,23 +306,28 @@
       gap: 0.6rem;
     }
     .o-pay-opt {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
       padding: 0.9rem 1rem;
       border: 1.5px solid #ddd;
       border-radius: 8px;
-      cursor: pointer;
       transition: border-color 0.2s, background 0.2s;
     }
     .o-pay-opt:has(input:checked) {
       border-color: var(--sea);
       background: rgba(27,108,168,0.04);
     }
+    .o-pay-opt__row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      cursor: pointer;
+    }
     .o-pay-opt input[type="radio"] {
       margin-top: 2px;
       accent-color: var(--sea);
       flex-shrink: 0;
+    }
+    .o-pay-opt__content {
+      display: block;
     }
     .o-pay-opt__label {
       font-size: 0.82rem;
@@ -429,12 +450,12 @@
     }
     .o-footer__link {
       font-size: 0.65rem;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.5); /* WCAG AA 4.5:1確保のためalpha0.35→0.5に調整 */
       text-decoration: none;
     }
     .o-footer__copy {
       font-size: 0.58rem;
-      color: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.5); /* WCAG AA 4.5:1確保のためalpha0.2→0.5に調整 */
     }
 
     /* ── Success Modal ── */
@@ -499,6 +520,25 @@
     @media (min-width: 600px) {
       .o-wrap { padding: 2rem 1.5rem 4rem; }
     }
+
+    /* ── Accessibility: visually hidden but screen-reader readable ── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ── Inline field error ── */
+    .o-error {
+      display: none;
+      font-size: 0.68rem; color: #c0392b; margin-top: 0.3rem;
+    }
+    .o-field.invalid .o-input { border-color: #c0392b; }
+    .o-field.invalid .o-error { display: block; }
+
+    /* ── Honeypot（人間には見えない・ボットのみ埋める） ── */
+    .o-hp {
+      position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -509,25 +549,29 @@
     <span class="o-header__secure">SSL暗号化通信で保護されています</span>
   </header>
 
-  <!-- Steps -->
-  <div class="o-steps">
-    <ul class="o-steps__list">
-      <li class="o-steps__item active">
-        <span class="o-steps__num">①</span>
-        ご注文情報
-      </li>
-      <li class="o-steps__item">
-        <span class="o-steps__num">②</span>
-        確認
-      </li>
-      <li class="o-steps__item">
-        <span class="o-steps__num">③</span>
-        完了
-      </li>
-    </ul>
-  </div>
+  <main>
 
-  <div class="o-wrap">
+    <h1 class="sr-only">Celluré（セリュレ）ご注文手続き</h1>
+
+    <!-- Steps -->
+    <div class="o-steps">
+      <ul class="o-steps__list">
+        <li class="o-steps__item active">
+          <span class="o-steps__num">①</span>
+          ご注文情報
+        </li>
+        <li class="o-steps__item">
+          <span class="o-steps__num">②</span>
+          確認
+        </li>
+        <li class="o-steps__item">
+          <span class="o-steps__num">③</span>
+          完了
+        </li>
+      </ul>
+    </div>
+
+    <div class="o-wrap">
 
     <!-- Plan Summary -->
     <div class="o-plan" id="plan-box">
@@ -549,6 +593,23 @@
 
     <!-- Form -->
     <form id="order-form" novalidate>
+
+      <!-- ハニーポット（ボット対策：人間の目には見えず、埋まっていたら送信をブロックする） -->
+      <div class="o-hp" aria-hidden="true">
+        <label for="hp-website">Webサイト（この項目は入力しないでください）</label>
+        <input type="text" id="hp-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- ============================================================
+           reCAPTCHA v3（スパム対策の追加レイヤー）
+           ★ 本番運用時に有効化する手順:
+           1. https://www.google.com/recaptcha/admin でv3サイトキーを取得
+           2. 下記コメントアウトを解除し、YOUR_SITE_KEY を実際のキーに置換
+           3. 取得したトークンをサーバー側でGoogleのsiteverify APIに送信し検証する
+           （実際のサイトキーが無い状態でスクリプトを読み込むとコンソールエラーの原因になるため、
+           現状はコメントアウトのまま。ハニーポット＋送信時間チェックで最低限のボット対策は機能する）
+      <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
+      ============================================================ -->
 
       <!-- お客様情報 -->
       <div class="o-card">
@@ -650,67 +711,84 @@
         </h2>
         <div class="o-pay-opts">
 
+          <!--
+            ★ 本番実装の前提（重要）：
+            下記のカード番号・有効期限・セキュリティコード入力欄は、現状デモ表示用の
+            通常フォーム項目として実装されている。本番公開時は、これらのカード情報を
+            自社サーバー・自社フォームで直接収集・送信してはならない（PCI DSS対応が必要になるため）。
+            Stripe Elements / GMOペイメントゲートウェイのトークン化決済等、
+            決済代行会社が提供するiframe埋め込み型の入力フィールドに置き換えること。
+            これにより生カードデータは自社サーバーを経由せず、決済代行会社に直接送信される。
+          -->
           <!-- クレジットカード -->
-          <label class="o-pay-opt">
-            <input type="radio" name="payment" value="credit" checked>
-            <div>
-              <span class="o-pay-opt__label">クレジットカード</span>
-              <span class="o-pay-opt__sub">即時決済 ／ 3Dセキュア対応</span>
-              <div class="o-pay-opt__badges">
-                <span class="o-pay-badge">VISA</span>
-                <span class="o-pay-badge">Mastercard</span>
-                <span class="o-pay-badge">JCB</span>
-                <span class="o-pay-badge">AMEX</span>
+          <div class="o-pay-opt">
+            <label class="o-pay-opt__row">
+              <input type="radio" name="payment" id="pay-credit" value="credit" checked>
+              <span class="o-pay-opt__content">
+                <span class="o-pay-opt__label">クレジットカード</span>
+                <span class="o-pay-opt__sub">即時決済 ／ 3Dセキュア対応</span>
+                <span class="o-pay-opt__badges">
+                  <span class="o-pay-badge">VISA</span>
+                  <span class="o-pay-badge">Mastercard</span>
+                  <span class="o-pay-badge">JCB</span>
+                  <span class="o-pay-badge">AMEX</span>
+                </span>
+              </span>
+            </label>
+            <div class="o-cc-fields" id="cc-fields">
+              <div class="o-field">
+                <label class="o-label" for="cc-num">カード番号</label>
+                <input class="o-input" type="text" id="cc-num" name="cc-num" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="cc-number">
               </div>
-              <div class="o-cc-fields" id="cc-fields">
+              <div class="o-row">
                 <div class="o-field">
-                  <label class="o-label" for="cc-num">カード番号</label>
-                  <input class="o-input" type="text" id="cc-num" name="cc-num" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="cc-number">
-                </div>
-                <div class="o-row">
-                  <div class="o-field">
-                    <label class="o-label" for="cc-exp">有効期限</label>
-                    <input class="o-input" type="text" id="cc-exp" name="cc-exp" placeholder="MM / YY" maxlength="7" inputmode="numeric" autocomplete="cc-exp">
-                  </div>
-                  <div class="o-field">
-                    <label class="o-label" for="cc-cvc">セキュリティコード</label>
-                    <input class="o-input" type="text" id="cc-cvc" name="cc-cvc" placeholder="CVV" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
-                  </div>
+                  <label class="o-label" for="cc-exp">有効期限</label>
+                  <input class="o-input" type="text" id="cc-exp" name="cc-exp" placeholder="MM / YY" maxlength="7" inputmode="numeric" autocomplete="cc-exp">
                 </div>
                 <div class="o-field">
-                  <label class="o-label" for="cc-name">カード名義（半角ローマ字）</label>
-                  <input class="o-input" type="text" id="cc-name" name="cc-name" placeholder="TARO YAMADA" autocomplete="cc-name">
+                  <label class="o-label" for="cc-cvc">セキュリティコード</label>
+                  <input class="o-input" type="text" id="cc-cvc" name="cc-cvc" placeholder="CVV" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
                 </div>
+              </div>
+              <div class="o-field">
+                <label class="o-label" for="cc-name">カード名義（半角ローマ字）</label>
+                <input class="o-input" type="text" id="cc-name" name="cc-name" placeholder="TARO YAMADA" autocomplete="cc-name">
               </div>
             </div>
-          </label>
+          </div>
 
           <!-- Amazon Pay -->
-          <label class="o-pay-opt">
-            <input type="radio" name="payment" value="amazon">
-            <div>
-              <span class="o-pay-opt__label">Amazon Pay</span>
-              <span class="o-pay-opt__sub">Amazonアカウントで簡単お支払い</span>
-            </div>
-          </label>
+          <div class="o-pay-opt">
+            <label class="o-pay-opt__row">
+              <input type="radio" name="payment" id="pay-amazon" value="amazon">
+              <span class="o-pay-opt__content">
+                <span class="o-pay-opt__label">Amazon Pay</span>
+                <span class="o-pay-opt__sub">Amazonアカウントで簡単お支払い</span>
+              </span>
+            </label>
+          </div>
 
           <!-- 楽天Pay -->
-          <label class="o-pay-opt">
-            <input type="radio" name="payment" value="rakuten">
-            <div>
-              <span class="o-pay-opt__label">楽天ペイ</span>
-              <span class="o-pay-opt__sub">楽天ポイントも使えます</span>
-            </div>
-          </label>
+          <div class="o-pay-opt">
+            <label class="o-pay-opt__row">
+              <input type="radio" name="payment" id="pay-rakuten" value="rakuten">
+              <span class="o-pay-opt__content">
+                <span class="o-pay-opt__label">楽天ペイ</span>
+                <span class="o-pay-opt__sub">楽天ポイントも使えます</span>
+              </span>
+            </label>
+          </div>
 
           <!-- コンビニ払い -->
-          <label class="o-pay-opt">
-            <input type="radio" name="payment" value="cvs">
-            <div>
-              <span class="o-pay-opt__label">コンビニ払い</span>
-              <span class="o-pay-opt__sub">セブン・ファミマ・ローソンほか ／ 手数料無料</span>
-            </div>
-          </label>
+          <div class="o-pay-opt">
+            <label class="o-pay-opt__row">
+              <input type="radio" name="payment" id="pay-cvs" value="cvs">
+              <span class="o-pay-opt__content">
+                <span class="o-pay-opt__label">コンビニ払い</span>
+                <span class="o-pay-opt__sub">セブン・ファミマ・ローソンほか ／ 手数料無料</span>
+              </span>
+            </label>
+          </div>
 
         </div>
       </div>
@@ -720,7 +798,7 @@
         <label class="o-agree">
           <input type="checkbox" id="agree" required>
           <span class="o-agree-text">
-            <a href="#" onclick="return false;">利用規約</a>・<a href="#" onclick="return false;">プライバシーポリシー</a>・<a href="#" onclick="return false;">定期購入の説明</a>に同意します。定期便は2回目以降 ¥7,800（税込）で毎月お届けします。いつでもマイページからキャンセル可能です。
+            <a href="terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>・<a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>・<a href="tokushoho.html#teiki" target="_blank" rel="noopener noreferrer">定期購入の説明</a>に同意します。定期便は2回目以降 ¥7,800（税込）で毎月お届けします。いつでもマイページからキャンセル可能です。
           </span>
         </label>
 
@@ -744,17 +822,18 @@
       </div>
 
     </form>
-  </div>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="o-footer">
     <p class="o-footer__logo">Celluré<span>.</span></p>
-    <div class="o-footer__links">
-      <a href="#" class="o-footer__link">特定商取引法に基づく表記</a>
-      <a href="#" class="o-footer__link">プライバシーポリシー</a>
-      <a href="#" class="o-footer__link">利用規約</a>
-      <a href="#" class="o-footer__link">お問い合わせ</a>
-    </div>
+    <nav class="o-footer__links" aria-label="フッターリンク">
+      <a href="tokushoho.html" class="o-footer__link">特定商取引法に基づく表記</a>
+      <a href="privacy.html" class="o-footer__link">プライバシーポリシー</a>
+      <a href="terms.html" class="o-footer__link">利用規約</a>
+      <a href="mailto:support@cellure-beauty.jp" class="o-footer__link">お問い合わせ</a>
+    </nav>
     <p class="o-footer__copy">© 2026 Celluré All Rights Reserved.</p>
   </footer>
 
@@ -770,7 +849,7 @@
         発送まで2〜3営業日お待ちください。<br>
         30日以内に変化を感じなければ、全額返金いたします。
       </p>
-      <button class="o-modal__close" id="modal-close">トップページへ戻る</button>
+      <button type="button" class="o-modal__close" id="modal-close">トップページへ戻る</button>
     </div>
   </div>
 
@@ -856,17 +935,68 @@
     /* ── フォーム送信 ── */
     const form  = document.getElementById('order-form');
     const modal = document.getElementById('success-modal');
+    const honeypot = document.getElementById('hp-website');
+    const formRenderedAt = Date.now();
+    const MIN_HUMAN_FILL_MS = 2500; /* この時間未満での送信はボットの疑いとして扱う */
+
+    const ERROR_MESSAGES = {
+      valueMissing: '必須項目です。ご入力ください。',
+      typeMismatch: '入力形式が正しくありません。',
+      patternMismatch: '入力形式が正しくありません。',
+      tooShort: '文字数が不足しています。',
+      tooLong: '文字数が多すぎます。'
+    };
+
+    function showFieldError(input) {
+      const field = input.closest('.o-field');
+      if (!field) return;
+      let err = field.querySelector('.o-error');
+      if (!err) {
+        err = document.createElement('p');
+        err.className = 'o-error';
+        field.appendChild(err);
+      }
+      const key = Object.keys(ERROR_MESSAGES).find(k => input.validity[k]);
+      err.textContent = ERROR_MESSAGES[key] || '入力内容をご確認ください。';
+      field.classList.add('invalid');
+    }
+    function clearFieldError(input) {
+      const field = input.closest('.o-field');
+      if (field) field.classList.remove('invalid');
+    }
+    form.querySelectorAll('.o-input, .o-select').forEach(input => {
+      input.addEventListener('input', () => clearFieldError(input));
+      input.addEventListener('blur', () => { if (!input.checkValidity()) showFieldError(input); });
+    });
 
     form.addEventListener('submit', e => {
       e.preventDefault();
+
+      /* ハニーポットに入力がある、またはフォーム表示から極端に短時間での送信はボットの疑いとして扱い、何もせず終了する */
+      if (honeypot && honeypot.value) return;
+      if (Date.now() - formRenderedAt < MIN_HUMAN_FILL_MS) return;
+
       if (!form.checkValidity()) {
-        form.reportValidity();
+        let firstInvalid = null;
+        form.querySelectorAll('.o-input, .o-select').forEach(input => {
+          if (!input.checkValidity()) {
+            showFieldError(input);
+            if (!firstInvalid) firstInvalid = input;
+          } else {
+            clearFieldError(input);
+          }
+        });
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中…';
 
-      // ★ 実装時: ここでAPIリクエスト or フォームPOST
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit', { form_id: 'order-form' });
+      }
+
+      // ★ 実装時: ここでAPIリクエスト or フォームPOST（決済代行APIおよび受注バックエンドへの接続が必要）
       setTimeout(() => {
         const email = document.getElementById('email').value;
         document.getElementById('modal-email').textContent = email;

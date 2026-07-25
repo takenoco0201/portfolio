@@ -4,11 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UV FORTE シールドセラムに関するお問い合わせフォーム。商品・注文・返品・定期便について、担当よりご返信いたします。">
   <title>お問い合わせ | UV FORTE シールドセラム</title>
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://lumiere-cosme.jp/contact/">
+  <meta property="og:title" content="お問い合わせ | UV FORTE シールドセラム">
+  <meta property="og:description" content="商品・注文・返品・定期便に関するお問い合わせフォームです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lumiere-cosme.jp/contact/">
+  <meta property="og:image" content="https://lumiere-cosme.jp/images/ogp.png">
+  <meta property="og:site_name" content="LUMIÉRE">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- GA4測定IDはダミー値です。実案件公開時に実測定IDへ差し替えてください -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- Webフォント: 自己ホスト化（2026-07-17） -->
+  <link rel="stylesheet" href="../fonts.css">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body class="font-sans bg-white text-navy">
@@ -23,13 +40,17 @@
     <h1>お問い合わせ</h1>
 
     <div class="sp-notice">
-      返品・返金については<a href="../returns/index.html" style="color:var(--blue);text-decoration:underline;">返品・返金ポリシー</a>もあわせてご確認ください。返品をご希望の場合は、問い合わせ種別で「返品・返金について」を選択してください。
+      返品・返金については<a href="../returns/index.html" class="sp-link">返品・返金ポリシー</a>もあわせてご確認ください。返品をご希望の場合は、問い合わせ種別で「返品・返金について」を選択してください。
     </div>
 
     <!-- WordPress移植時: このformタグをContact Form 7のショートコードに置き換えてください -->
     <!-- 例: [contact-form-7 id="XXX" title="お問い合わせ"] -->
-    <form class="sp-form-grid" action="#" method="post" novalidate>
+    <form id="contact-form" class="sp-form-grid" action="#" method="post">
       <input type="hidden" name="form_type" value="contact">
+      <div class="hp-field" aria-hidden="true">
+        <label for="c-hp">この項目は入力しないでください</label>
+        <input type="text" id="c-hp" name="hp_confirm" tabindex="-1" autocomplete="off">
+      </div>
 
       <div>
         <label class="sp-form-label" for="contact-name">
@@ -49,7 +70,7 @@
 
       <div>
         <label class="sp-form-label" for="contact-tel">
-          電話番号 <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意</span>
+          電話番号 <span class="sp-optional-label">任意</span>
         </label>
         <input class="sp-form-input" type="tel" id="contact-tel" name="tel"
           placeholder="090-0000-0000" autocomplete="tel">
@@ -72,7 +93,7 @@
 
       <div>
         <label class="sp-form-label" for="contact-order">
-          注文番号 <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意（お持ちの場合）</span>
+          注文番号 <span class="sp-optional-label">任意（お持ちの場合）</span>
         </label>
         <input class="sp-form-input" type="text" id="contact-order" name="order_no"
           placeholder="例: LJ-20260601-00001">
@@ -87,24 +108,24 @@
       </div>
 
       <div>
-        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-size:.875rem;color:var(--gray-dk);">
-          <input type="checkbox" name="privacy" required style="margin-top:.2rem;flex-shrink:0;">
-          <span><a href="../privacy-policy/index.html" target="_blank" style="color:var(--blue);text-decoration:underline;">プライバシーポリシー</a>に同意する</span>
+        <label class="sp-checkbox-row">
+          <input type="checkbox" name="privacy" required class="sp-checkbox-input">
+          <span><a href="../privacy-policy/index.html" target="_blank" rel="noopener" class="sp-link">プライバシーポリシー</a>に同意する</span>
         </label>
       </div>
 
       <div>
-        <button type="submit" class="btn-gold" style="width:100%;justify-content:center;">
+        <button type="submit" class="btn-gold btn-gold-full">
           送信する
         </button>
-        <p style="font-size:.8rem;color:var(--gray);margin-top:.75rem;text-align:center;">
+        <p class="sp-form-note">
           通常1〜2営業日以内にご返信いたします（土日祝を除く）
         </p>
       </div>
     </form>
 
     <h2>電話でのお問い合わせ</h2>
-    <p>（要記入: 0X0-XXXX-XXXX）<br>
+    <p><a href="tel:0345678901">03&#8209;4567&#8209;8901</a><br>
     受付時間：平日 10:00〜17:00（土日祝・年末年始を除く）</p>
   </div>
 </main>
@@ -112,6 +133,15 @@
 <footer class="sp-footer">
   <p>© <span id="yr">2026</span> LUMIÉRE Japan. All rights reserved.</p>
 </footer>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  /* GA4: お問い合わせフォーム送信イベント（WordPress移植後、実際の送信完了イベントに置き換えてください） */
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm && typeof gtag === 'function') {
+    contactForm.addEventListener('submit', function () {
+      gtag('event', 'generate_lead', { form: 'contact' });
+    });
+  }
+</script>
 </body>
 </html>

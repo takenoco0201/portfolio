@@ -4,11 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UV FORTE シールドセラムのお申込みフォーム。定期便なら初回50%OFFの¥1,740、単品購入は¥3,480（税込）。30日間全額返金保証・翌日発送対応。">
   <title>お申込み | UV FORTE シールドセラム</title>
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://lumiere-cosme.jp/order/">
+  <meta property="og:title" content="お申込み | UV FORTE シールドセラム">
+  <meta property="og:description" content="定期便なら初回50%OFFの¥1,740。30日間全額返金保証・翌日発送対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lumiere-cosme.jp/order/">
+  <meta property="og:image" content="https://lumiere-cosme.jp/images/ogp.png">
+  <meta property="og:site_name" content="LUMIÉRE">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- GA4測定IDはダミー値です。実案件公開時に実測定IDへ差し替えてください -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- Webフォント: 自己ホスト化（2026-07-17） -->
+  <link rel="stylesheet" href="../fonts.css">
   <link rel="stylesheet" href="../style.css">
   <style>
     /* ── 注文ページ専用ボタン（<button>要素用） ── */
@@ -93,7 +110,7 @@
     }
     .plan-card-badge {
       display: inline-block;
-      background: var(--cta);
+      background: #b8501a;
       color: #fff;
       font-size: .7rem;
       font-weight: 700;
@@ -132,11 +149,11 @@
     .plan-card-price-note {
       font-family: var(--ff-nsans);
       font-size: .75rem;
-      color: var(--gray);
+      color: #4a5568;
       font-weight: 400;
       margin-left: .2rem;
     }
-    .plan-card-note { font-size: .75rem; color: var(--gray); margin-top: .3rem; line-height: 1.5; }
+    .plan-card-note { font-size: .75rem; color: #4a5568; margin-top: .3rem; line-height: 1.5; }
     .order-guarantee {
       display: flex;
       align-items: center;
@@ -207,13 +224,26 @@
       line-height: 1.7;
     }
     .order-terms a { color: var(--blue); text-decoration: underline; }
+    .order-terms-link { color: var(--blue); text-decoration: underline; }
+    .order-agree-row { max-width: 400px; margin: 0 auto 1rem; text-align: left; }
+    .order-agree-label { display: flex; align-items: flex-start; gap: .5rem; cursor: pointer; font-size: .875rem; color: var(--gray-dk); }
+    .order-agree-checkbox { margin-top: .2rem; flex-shrink: 0; accent-color: var(--blue); }
+    .sp-header-sub { font-size: .8rem; color: rgba(255,255,255,.6); }
+    .sp-body--order { padding-top: 2rem; }
+    .plan-card-name,
+    .plan-card-note { display: block; }
+    .plan-card-spacer { display: block; height: 1.35rem; }
+    .order-name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .order-input--sm { max-width: 180px; }
+    .order-coupon-row { display: flex; gap: .6rem; max-width: 360px; }
+    .order-coupon-apply { flex-shrink: 0; padding: .65rem 1rem; border: 1px solid rgba(27,108,168,.3); border-radius: 6px; background: #fff; color: var(--blue); font-size: .875rem; cursor: pointer; white-space: nowrap; }
   </style>
 </head>
 <body class="font-sans bg-white text-navy">
 
 <header class="sp-header">
   <a href="../index.html" class="sp-header-logo">LUMIÉRE</a>
-  <span style="font-size:.8rem;color:rgba(255,255,255,.6);">お申込みフォーム</span>
+  <span class="sp-header-sub">お申込みフォーム</span>
 </header>
 
 <div class="order-hero">
@@ -221,29 +251,33 @@
   <p>30日間全額返金保証付き・翌日発送（15時注文まで）</p>
 </div>
 
-<main class="sp-body" style="padding-top:2rem;">
+<main class="sp-body sp-body--order">
   <div class="sp-inner">
 
     <!-- WordPress移植時: このformをWooCommerceチェックアウトまたはContact Form 7に置き換え -->
-    <form id="order-form" action="#" method="post" novalidate>
+    <form id="order-form" action="#" method="post">
       <input type="hidden" name="form_type" value="order">
+      <div class="hp-field" aria-hidden="true">
+        <label for="o-hp">この項目は入力しないでください</label>
+        <input type="text" id="o-hp" name="hp_confirm" tabindex="-1" autocomplete="off">
+      </div>
 
       <!-- プラン選択 -->
       <div class="order-section-title">プランを選ぶ</div>
       <div class="plan-cards">
         <label class="plan-card">
           <input type="radio" name="plan" value="teiki" id="plan-teiki" checked>
-          <div class="plan-card-badge">おすすめ</div>
-          <div class="plan-card-name">定期便（初回50%OFF）</div>
-          <div class="plan-card-price-wrap"><span class="plan-card-yen">¥</span><span class="plan-card-price">1,740</span><span class="plan-card-price-note">（税込）</span></div>
-          <div class="plan-card-note">2回目以降 ¥2,784<br>送料無料・いつでも解約可</div>
+          <span class="plan-card-badge">おすすめ</span>
+          <span class="plan-card-name">定期便（初回50%OFF）</span>
+          <span class="plan-card-price-wrap"><span class="plan-card-yen">¥</span><span class="plan-card-price">1,740</span><span class="plan-card-price-note">（税込）</span></span>
+          <span class="plan-card-note">2回目以降 ¥2,980<br>送料無料・いつでも解約可</span>
         </label>
         <label class="plan-card">
           <input type="radio" name="plan" value="tanpin" id="plan-tanpin">
-          <div style="height:1.35rem;"></div>
-          <div class="plan-card-name">単品購入</div>
-          <div class="plan-card-price-wrap"><span class="plan-card-yen">¥</span><span class="plan-card-price">3,480</span><span class="plan-card-price-note">（税込）</span></div>
-          <div class="plan-card-note">送料 ¥550 別途<br>縛りなし</div>
+          <span class="plan-card-spacer"></span>
+          <span class="plan-card-name">単品購入</span>
+          <span class="plan-card-price-wrap"><span class="plan-card-yen">¥</span><span class="plan-card-price">3,480</span><span class="plan-card-price-note">（税込）</span></span>
+          <span class="plan-card-note">送料 ¥550 別途<br>縛りなし</span>
         </label>
       </div>
 
@@ -255,7 +289,7 @@
       <!-- お客様情報 -->
       <div class="order-section-title">お客様情報</div>
       <div class="sp-form-grid">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+        <div class="order-name-grid">
           <div>
             <label class="sp-form-label" for="o-sei">姓 <span class="req">必須</span></label>
             <input class="sp-form-input" type="text" id="o-sei" name="sei"
@@ -284,13 +318,13 @@
       <div class="sp-form-grid">
         <div>
           <label class="sp-form-label" for="o-zip">郵便番号 <span class="req">必須</span></label>
-          <input class="sp-form-input" type="text" id="o-zip" name="zip"
+          <input class="sp-form-input order-input--sm" type="text" id="o-zip" name="zip"
             placeholder="000-0000" autocomplete="postal-code" maxlength="8"
-            required style="max-width:180px;">
+            required>
         </div>
         <div>
           <label class="sp-form-label" for="o-pref">都道府県 <span class="req">必須</span></label>
-          <select class="sp-form-select" id="o-pref" name="pref" autocomplete="address-level1" required style="max-width:180px;">
+          <select class="sp-form-select order-input--sm" id="o-pref" name="pref" autocomplete="address-level1" required>
             <option value="" disabled selected>選択</option>
             <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
             <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
@@ -307,7 +341,7 @@
             placeholder="渋谷区〇〇町1-2-3" autocomplete="address-line1" required>
         </div>
         <div>
-          <label class="sp-form-label" for="o-bldg">建物名・部屋番号 <span style="font-size:.75rem;color:var(--gray);font-weight:400;">任意</span></label>
+          <label class="sp-form-label" for="o-bldg">建物名・部屋番号 <span class="sp-optional-label">任意</span></label>
           <input class="sp-form-input" type="text" id="o-bldg" name="building"
             placeholder="LUMIÉREマンション 101号室" autocomplete="address-line2">
         </div>
@@ -336,21 +370,21 @@
 
       <!-- クーポン -->
       <div class="order-section-title">クーポンコード</div>
-      <div style="display:flex;gap:.6rem;max-width:360px;">
+      <div class="order-coupon-row">
         <input class="sp-form-input" type="text" name="coupon"
           placeholder="お持ちの方はご入力ください">
-        <button type="button" style="flex-shrink:0;padding:.65rem 1rem;border:1px solid rgba(27,108,168,.3);border-radius:6px;background:#fff;color:var(--blue);font-size:.875rem;cursor:pointer;white-space:nowrap;">適用</button>
+        <button type="button" class="order-coupon-apply">適用</button>
       </div>
 
       <!-- 同意・送信 -->
       <div class="order-submit-area">
-        <div style="max-width:400px;margin:0 auto 1rem;text-align:left;">
-          <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-size:.875rem;color:var(--gray-dk);">
-            <input type="checkbox" name="agree" required style="margin-top:.2rem;flex-shrink:0;accent-color:var(--blue);">
+        <div class="order-agree-row">
+          <label class="order-agree-label">
+            <input type="checkbox" name="agree" required class="order-agree-checkbox">
             <span>
-              <a href="../tokushoho/index.html" target="_blank" style="color:var(--blue);text-decoration:underline;">特定商取引法に基づく表記</a>・
-              <a href="../privacy-policy/index.html" target="_blank" style="color:var(--blue);text-decoration:underline;">プライバシーポリシー</a>・
-              <a href="../returns/index.html" target="_blank" style="color:var(--blue);text-decoration:underline;">返品ポリシー</a>に同意する
+              <a href="../tokushoho/index.html" target="_blank" rel="noopener" class="order-terms-link">特定商取引法に基づく表記</a>・
+              <a href="../privacy-policy/index.html" target="_blank" rel="noopener" class="order-terms-link">プライバシーポリシー</a>・
+              <a href="../returns/index.html" target="_blank" rel="noopener" class="order-terms-link">返品ポリシー</a>に同意する
             </span>
           </label>
         </div>
@@ -381,6 +415,15 @@
     document.getElementById('plan-tanpin').checked = true;
   } else {
     document.getElementById('plan-teiki').checked = true;
+  }
+
+  /* GA4: 注文フォーム送信イベント（WordPress移植後、実際の注文完了イベントに置き換えてください） */
+  var orderForm = document.getElementById('order-form');
+  if (orderForm && typeof gtag === 'function') {
+    orderForm.addEventListener('submit', function () {
+      var selectedPlan = document.querySelector('input[name="plan"]:checked');
+      gtag('event', 'order_form_submit', { plan: selectedPlan ? selectedPlan.value : 'unknown' });
+    });
   }
 </script>
 </body>

@@ -3,16 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Celluré（セリュレ）— 製薬会社が生んだ美容サプリ。内側から肌のコンディションを整える、セルフォース因子™配合の7成分。初回3,980円・30日返金保証。">
-  <title>Celluré（セリュレ）| 内側から肌を整える美容サプリ | 製薬会社・医師監修</title>
+  <meta name="description" content="Celluré（セリュレ）— 製薬会社が生んだ美容サプリ。内側から肌のコンディションを整える、セルフォース因子™配合の7成分。初回3,980円・30日間全額返金保証。いつでも解約可能。">
+  <title>Celluré（セリュレ）| 内側から肌を整える美容サプリ</title>
+  <link rel="canonical" href="https://cellure-beauty.jp/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="Celluré（セリュレ）| 内側から肌を整える美容サプリ">
+  <meta property="og:description" content="製薬会社が生んだ美容サプリ。内側から肌のコンディションを整える、セルフォース因子™配合の7成分。初回3,980円・30日間全額返金保証。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cellure-beauty.jp/">
+  <meta property="og:image" content="https://cellure-beauty.jp/images/ogp.jpg">
+  <meta property="og:site_name" content="Celluré">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- レンダリングブロック回避：フォントCSSを非同期読込（preload+onload） -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- ============================================================
+       Google Analytics 4（GA4）
+       ★ 公開前に必ず対応：G-XXXXXXXXXX を本番の測定IDに差し替える。
+       差し替え前のまま公開すると計測データが記録されません。
+       （動的遅延読込を試したが実測でTBTが悪化したため、素直なasync読込に戻している。詳細はレポート参照）
+  ============================================================ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://cellure-beauty.jp/#org",
+        "name": "ファルマビューティ株式会社",
+        "url": "https://cellure-beauty.jp/",
+        "logo": { "@type": "ImageObject", "url": "https://cellure-beauty.jp/images/favicon.svg" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cellure-beauty.jp/#website",
+        "url": "https://cellure-beauty.jp/",
+        "name": "Celluré（セリュレ）",
+        "publisher": { "@id": "https://cellure-beauty.jp/#org" },
+        "inLanguage": "ja"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://cellure-beauty.jp/#webpage",
+        "url": "https://cellure-beauty.jp/",
+        "name": "Celluré（セリュレ）| 内側から肌を整える美容サプリ",
+        "description": "製薬会社が生んだ美容サプリ。内側から肌のコンディションを整える、セルフォース因子™配合の7成分。初回3,980円・30日間全額返金保証。",
+        "isPartOf": { "@id": "https://cellure-beauty.jp/#website" },
+        "about": { "@id": "https://cellure-beauty.jp/#org" },
+        "datePublished": "2026-06-19",
+        "dateModified": "2026-07-18",
+        "inLanguage": "ja"
+      },
+      {
+        "@type": "Product",
+        "name": "Celluré（セリュレ）",
+        "description": "1日2粒・30日分。セルフォース因子™をはじめ7つの美容成分を配合した美容サプリメント。",
+        "offers": {
+          "@type": "Offer",
+          "price": "3980",
+          "priceCurrency": "JPY",
+          "availability": "https://schema.org/InStock",
+          "url": "https://cellure-beauty.jp/#invest"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "いつでも解約できますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい、いつでも解約いただけます。次回お届け日の7日前までにLINEまたはメールでご連絡ください。最低継続回数の縛りは一切ありません。" }
+          },
+          {
+            "@type": "Question",
+            "name": "副作用・添加物は大丈夫ですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "GMP認定工場で製造し、原料の純度・安全性を厳格に管理しています。全成分はパッケージに記載しています。アレルギーのある方は事前にご確認ください。薬を服用中の方は医師にご相談ください。" }
+          },
+          {
+            "@type": "Question",
+            "name": "効果が出るまでどのくらいかかりますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "モニター調査では平均14日で変化を感じはじめた方が多くいらっしゃいました。ただし個人差がありますので、まずは30日間継続してご使用ください。" }
+          },
+          {
+            "@type": "Question",
+            "name": "他のサプリや薬と一緒に飲んでも大丈夫ですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "現在お薬を服用中の方や持病のある方は、事前に医師・薬剤師にご相談ください。他のサプリメントとの相性についてはLINEサポートへお問い合わせください。" }
+          },
+          {
+            "@type": "Question",
+            "name": "妊娠中・授乳中でも飲めますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "妊娠中・授乳中の方は、念のため医師にご相談のうえでご使用ください。お子様への使用はご遠慮ください。" }
+          },
+          {
+            "@type": "Question",
+            "name": "1日に何粒、いつ飲めばいいですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "1日2粒を目安に、水またはぬるま湯でお飲みください。時間帯は問いませんが、食後に飲むと胃への負担を軽減できます。" }
+          },
+          {
+            "@type": "Question",
+            "name": "30日間返金保証の条件は？",
+            "acceptedAnswer": { "@type": "Answer", "text": "商品到着から30日以内であれば、理由を問わず全額返金いたします。返品不要です。LINEまたはメールでお申し出ください。1回のご注文につき1回限りの保証となります。" }
+          },
+          {
+            "@type": "Question",
+            "name": "定期購入を解約するにはどうすればいいですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "次回お届け予定日の7日前までに、公式LINEまたはサポートメール（support@cellure-beauty.jp）に「解約希望」とご連絡ください。手数料・違約金は一切かかりません。" }
+          },
+          {
+            "@type": "Question",
+            "name": "全成分は公開されていますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい、パッケージおよび公式サイトの成分ページに全成分を記載しています。ご不明な点はサポートまでお問い合わせください。" }
+          },
+          {
+            "@type": "Question",
+            "name": "支払い方法は何が使えますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "クレジットカード（VISA / Mastercard / JCB / AMEX）、コンビニ払い、銀行振込、Amazon Pay、楽天Payに対応しています。" }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Extra page-specific animations -->
   <style>
@@ -44,7 +177,7 @@
     #sticky-cta .st-sub { font-size: 0.58rem; color: rgba(255,255,255,0.5); }
     #sticky-cta .st-btn {
       flex-shrink: 0; background: var(--gold); color: var(--white);
-      font-weight: 700; font-size: 0.78rem; padding: 0.65rem 1.25rem;
+      font-weight: 700; font-size: 0.78rem; padding: 0.85rem 1.25rem;
       border-radius: 4px; white-space: nowrap;
     }
 
@@ -202,7 +335,7 @@
         class="opening__video"
         autoplay muted loop playsinline
         preload="none"
-        poster="images/hero_bg.png"
+        poster="images/hero_bg.webp"
         aria-hidden="true">
         <source src="videos/hero.mp4" type="video/mp4">
       </video>
@@ -221,9 +354,9 @@
       <span class="opening__eyebrow">Pharmabeauty × Celluré — Est. 2026</span>
 
       <h1 class="opening__headline">
-        <div class="line"><span>スキンケアの</span></div>
-        <div class="line"><span><em class="glow-gold">限界を、</em></span></div>
-        <div class="line"><span>超えよう。</span></div>
+        <span class="line"><span>スキンケアの</span></span>
+        <span class="line"><span><em class="glow-gold">限界を、</em></span></span>
+        <span class="line"><span>超えよう。</span></span>
       </h1>
 
       <p class="opening__sub">
@@ -387,7 +520,7 @@
             <video
               autoplay muted loop playsinline
               preload="none"
-              poster="images/wall_scene.png"
+              poster="images/wall_scene.webp"
               style="width:100%; height:100%; object-fit:cover; display:block; border-radius:12px;">
               <source src="videos/wall_scene.mp4" type="video/mp4">
             </video>
@@ -457,7 +590,7 @@
         </p>
       </div>
 
-      <div class="story__timeline">
+      <section class="story__timeline" tabindex="0" aria-label="ファルマビューティの沿革タイムライン（横スクロール）">
         <div class="story__mile">
           <div class="story__mile-year">1971</div>
           <p class="story__mile-text">製薬会社として創業。<br>医薬品基準の品質管理体制を確立。</p>
@@ -480,7 +613,7 @@
             Celluré 誕生。先行予約1,200件。<br>公式Instagram 12.3万フォロワー突破。
           </p>
         </div>
-      </div>
+      </section>
 
     </div>
   </section>
@@ -521,7 +654,7 @@
       <span class="formula__star-patent reveal d2">特許出願中</span>
 
       <p class="formula__star-desc reveal d3">
-        7成分すべての吸収基盤を整える、業界初の独自特許成分。
+        7成分すべての吸収基盤を整える、自社独自開発の特許出願中成分。
         皮膚細胞の環境を内側から最適化し、他の美容成分が働きやすい土台をつくります。
         ファルマビューティが10年以上の研究の末に開発した、Celluréの核となる成分です。
       </p>
@@ -634,6 +767,11 @@
         <div class="numbers__media-chip">VOGUE JAPAN 掲載予定</div>
         <div class="numbers__media-chip">GMP認定工場製造</div>
       </div>
+
+      <p class="reveal" style="font-size:0.62rem; color:var(--ink-50); margin-top:1.25rem; line-height:1.8;">
+        ※ 調査概要：2023年10月〜2024年3月実施、Celluré使用モニター500名を対象としたアンケート調査（自社調べ）。<br>
+        「92%が変化を実感」は「肌に何らかの変化を感じた」と回答した方の割合。効果を保証するものではありません。
+      </p>
     </div>
   </section>
 
@@ -674,7 +812,7 @@
       <div class="voice__person reveal d2">
         <div class="voice__photo">
           <div class="voice__ring"></div>
-          <img src="images/doctor.png" alt="田中美佳先生" width="60" height="60" loading="lazy">
+          <img src="images/doctor.webp" alt="田中美佳先生（写真はイメージです）" width="60" height="60" loading="lazy">
         </div>
         <div>
           <p class="voice__name">
@@ -699,10 +837,13 @@
   ============================================================ -->
   <section class="stories" id="reviews">
     <div class="c">
-      <h2 class="reveal" style="font-family:var(--f-min); font-size:clamp(1.4rem,6vw,2rem); font-weight:800; line-height:1.35; margin-bottom:3rem; letter-spacing:0.03em;">
+      <h2 class="reveal" style="font-family:var(--f-min); font-size:clamp(1.4rem,6vw,2rem); font-weight:800; line-height:1.35; margin-bottom:0.75rem; letter-spacing:0.03em;">
         モニター500名が体験した、<br>
         それぞれの<span class="gold-underline">14日間</span>。
       </h2>
+      <p class="reveal" style="font-size:0.62rem; color:var(--ink-50); margin-bottom:3rem; line-height:1.8;">
+        ※ お名前はイニシャル表記、お写真はイメージです。ご感想は個人の感想であり、効果を保証するものではありません。
+      </p>
 
       <div class="stories__grid">
 
@@ -710,7 +851,7 @@
         <article class="journal journal__1">
           <div class="journal__header">
             <div class="journal__avatar">
-              <img src="images/user1.png" alt="K.T.さん" width="40" height="40" loading="lazy">
+              <img src="images/user1.webp" alt="K.T.さん（写真はイメージです）" width="40" height="40" loading="lazy">
             </div>
             <div>
               <p class="journal__meta-name">K.T. さん（28歳・会社員）</p>
@@ -747,7 +888,7 @@
         <article class="journal journal__2">
           <div class="journal__header">
             <div class="journal__avatar">
-              <img src="images/user2.png" alt="M.N.さん" width="40" height="40" loading="lazy">
+              <img src="images/user2.webp" alt="M.N.さん（写真はイメージです）" width="40" height="40" loading="lazy">
             </div>
             <div>
               <p class="journal__meta-name">M.N. さん（33歳・フリーランス）</p>
@@ -785,7 +926,7 @@
         <article class="journal journal__3" style="grid-column:1/-1;">
           <div class="journal__header">
             <div class="journal__avatar">
-              <img src="images/user3.png" alt="Y.S.さん" width="40" height="40" loading="lazy">
+              <img src="images/user3.webp" alt="Y.S.さん（写真はイメージです）" width="40" height="40" loading="lazy">
             </div>
             <div>
               <p class="journal__meta-name">Y.S. さん（31歳・会社員）</p>
@@ -812,7 +953,7 @@
             <div class="ba-cell ba-cell--before">
               <div class="iz" style="aspect-ratio:3/4;">
                 <div class="iz-inner"
-                  style="background-image:url('images/ba_before.png'),linear-gradient(135deg,#ccc,#ddd);">
+                  style="background-image:url('images/ba_before.webp'),linear-gradient(135deg,#ccc,#ddd);">
                 </div>
               </div>
               <span class="ba-label ba-label--before">Before</span>
@@ -823,13 +964,13 @@
             <div class="ba-cell ba-cell--after">
               <div class="iz" style="aspect-ratio:3/4;">
                 <div class="iz-inner"
-                  style="background-image:url('images/ba_after.png'),linear-gradient(135deg,#1B6CA8,#4a9ecf);">
+                  style="background-image:url('images/ba_after.webp'),linear-gradient(135deg,#1B6CA8,#4a9ecf);">
                 </div>
               </div>
               <span class="ba-label ba-label--after">Day 14</span>
             </div>
             <p class="ba-note">
-              ※ 写真はモニター様ご本人のもの。未加工。個人差があります。効果を保証するものではありません。
+              ※ 写真はイメージです。効果には個人差があり、保証するものではありません。
             </p>
           </div>
         </article>
@@ -854,7 +995,7 @@
         個人差はありますが、多くの方がこの流れで変化を感じはじめました。
       </p>
 
-      <div class="journey__track">
+      <section class="journey__track" tabindex="0" aria-label="14日間の変化タイムライン（横スクロール）">
         <div class="journey__step reveal">
           <div class="journey__day">Day 1</div>
           <p class="journey__step-text">
@@ -891,7 +1032,7 @@
             持つ方が多くなる。
           </p>
         </div>
-      </div>
+      </section>
 
       <p class="journey__note reveal">
         ※ 個人差があります。上記は平均的な目安であり、効果を保証するものではありません。
@@ -1076,7 +1217,7 @@
       <div class="faq__list">
 
         <div class="faq__item reveal">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">いつでも解約できますか？</span>
             <span class="faq__q-i">+</span>
@@ -1087,7 +1228,7 @@
         </div>
 
         <div class="faq__item reveal d1">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">副作用・添加物は大丈夫ですか？</span>
             <span class="faq__q-i">+</span>
@@ -1098,7 +1239,7 @@
         </div>
 
         <div class="faq__item reveal d2">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">効果が出るまでどのくらいかかりますか？</span>
             <span class="faq__q-i">+</span>
@@ -1109,7 +1250,7 @@
         </div>
 
         <div class="faq__item reveal d3">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">他のサプリや薬と一緒に飲んでも大丈夫ですか？</span>
             <span class="faq__q-i">+</span>
@@ -1120,7 +1261,7 @@
         </div>
 
         <div class="faq__item reveal d4">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">妊娠中・授乳中でも飲めますか？</span>
             <span class="faq__q-i">+</span>
@@ -1131,7 +1272,7 @@
         </div>
 
         <div class="faq__item reveal">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">1日に何粒、いつ飲めばいいですか？</span>
             <span class="faq__q-i">+</span>
@@ -1142,7 +1283,7 @@
         </div>
 
         <div class="faq__item reveal d1">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">30日間返金保証の条件は？</span>
             <span class="faq__q-i">+</span>
@@ -1153,18 +1294,18 @@
         </div>
 
         <div class="faq__item reveal d2">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">定期購入を解約するにはどうすればいいですか？</span>
             <span class="faq__q-i">+</span>
           </button>
           <div class="faq__a">
-            <div class="faq__a-i">次回お届け予定日の7日前までに、公式LINEまたはサポートメール（support@cellure-beauty.jp）に「解約希望」とご連絡ください。手数料・違約金は一切かかりません。</div>
+            <div class="faq__a-i">次回お届け予定日の7日前までに、公式LINEまたはサポートメール（<a href="mailto:support@cellure-beauty.jp" style="color:var(--sea); text-decoration:underline;">support@cellure-beauty.jp</a>）に「解約希望」とご連絡ください。手数料・違約金は一切かかりません。</div>
           </div>
         </div>
 
         <div class="faq__item reveal d3">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">全成分は公開されていますか？</span>
             <span class="faq__q-i">+</span>
@@ -1175,7 +1316,7 @@
         </div>
 
         <div class="faq__item reveal d4">
-          <button class="faq__q">
+          <button type="button" class="faq__q">
             <span class="faq__q-q">Q.</span>
             <span class="faq__q-t">支払い方法は何が使えますか？</span>
             <span class="faq__q-i">+</span>
@@ -1222,7 +1363,7 @@
         class="closing__video"
         autoplay muted loop playsinline
         preload="none"
-        poster="images/closing_bg.png"
+        poster="images/closing_bg.webp"
         aria-hidden="true">
         <source src="videos/closing.mp4" type="video/mp4">
       </video>
@@ -1287,19 +1428,19 @@
     <div class="c">
       <p class="footer__logo">Celluré<span>.</span></p>
       <nav class="footer__nav">
-        <a href="#">特定商取引法に基づく表記</a>
-        <a href="#">プライバシーポリシー</a>
-        <a href="#">お問い合わせ</a>
-        <a href="#">定期便規約</a>
-        <a href="#">全成分表示</a>
+        <a href="tokushoho.html">特定商取引法に基づく表記</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="mailto:support@cellure-beauty.jp">お問い合わせ</a>
+        <a href="tokushoho.html#teiki">定期便規約</a>
+        <a href="ingredients.html">全成分表示</a>
       </nav>
       <p class="footer__legal">
         ※ 本ページに記載の体験談・モニター結果は個人の感想であり、効果を保証するものではありません。<br>
         ※ 食品（サプリメント）のため、医薬品のような治療・予防効果はありません。<br>
         ※ Celluréは薬機法・景表法を遵守して制作しています。<br>
-        ※ 販売者：ファルマビューティ株式会社 / 〒000-0000 東京都○○区○○ 1-2-3
+        ※ 販売者：ファルマビューティ株式会社 / 〒150-0001 東京都渋谷区神宮前五丁目1番1号 セリュレビル8階
       </p>
-      <p>© 2026 Pharmabeauty Inc. All rights reserved.</p>
+      <p>© 2026 Pharmabeauty Inc. All rights reserved. ／ 最終更新: 2026-07-18</p>
     </div>
   </footer>
 
@@ -1315,7 +1456,7 @@
       <p class="st-price">初回 ¥3,980</p>
       <p class="st-sub">通常¥9,800 → 59%OFF / 30日返金保証</p>
     </div>
-    <a href="order.html?plan=sub" class="st-btn">今すぐ申し込む</a>
+    <a href="order.html?plan=sub" class="st-btn" tabindex="-1">今すぐ申し込む</a>
   </div>
 
   <!-- ============================================================
@@ -1349,12 +1490,16 @@
 
     /* ── Sticky CTA ── */
     const stickyCTA = document.getElementById('sticky-cta');
+    const stickyCTALink = stickyCTA.querySelector('a');
     const heroEl = document.querySelector('.opening');
     function updateStickyCTA() {
       const zoom = isPF() ? 2.88 : 1;
       const threshold = (heroEl?.offsetHeight ?? 600) * zoom * 0.7;
-      stickyCTA.classList.toggle('show', getScrollTop() > threshold);
-      stickyCTA.setAttribute('aria-hidden', String(getScrollTop() <= threshold));
+      const visible = getScrollTop() > threshold;
+      stickyCTA.classList.toggle('show', visible);
+      stickyCTA.setAttribute('aria-hidden', String(!visible));
+      /* 非表示中はキーボードでフォーカスできないようにする（hidden-focusable対策） */
+      if (stickyCTALink) stickyCTALink.setAttribute('tabindex', visible ? '0' : '-1');
     }
 
     const scrollHandler = () => {
@@ -1511,6 +1656,15 @@
     }, { threshold: 0.5, root: ioRoot });
     const offerBar = document.querySelector('.offer__bar');
     if (offerBar) offerBarIO.observe(offerBar);
+
+    /* ── GA4: CTAクリックのコンバージョン計測 ── */
+    if (typeof gtag === 'function') {
+      document.querySelectorAll('a[href^="order.html"]').forEach(a => {
+        a.addEventListener('click', () => {
+          gtag('event', 'cta_click', { link_text: a.textContent.trim(), link_url: a.getAttribute('href') });
+        });
+      });
+    }
 
     /* ── Smooth scroll ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
